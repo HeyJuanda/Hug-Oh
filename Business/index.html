@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Scr/bank.png" />
+    <link rel="canonical" href="https://hug-oh.com/Business/" />
+    <meta name="description" content="Hug-Oh! • Plataforma de negocios para gestionar ventas, productos y estadísticas. Optimiza tu negocio con nuestro sistema de punto de venta fácil de usar.">
+    <link rel="stylesheet" href="style.css">
+    <title>Hug-Oh! • Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <!-- button-animations-start -->
+        <style>
+        /* Animaciones para botones y elementos - copia desde Normal/index.html */
+        .btn-primary, .btn-secondary, button {
+            position: relative;
+            overflow: hidden;
+            transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s;
+            will-change: transform;
+        }
+        .btn-primary:hover, .btn-secondary:hover, button:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(0,0,0,.12);
+        }
+        .btn-primary:active, .btn-secondary:active, button:active {
+            transform: translateY(0) scale(.995);
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+        button:focus { outline: none; box-shadow: 0 0 0 4px rgba(59,130,246,.12); }
+
+        .btn-ripple { position: relative; overflow: hidden; }
+        .btn-ripple .ripple { position: absolute; border-radius: 50%; transform: scale(0); animation: ripple 600ms linear; background-color: rgba(255,255,255,0.6); pointer-events: none; }
+        @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+        .inline-6:active, .inline\ h-5:active { transform: translateY(1px) scale(.98); }
+        .rounded-full { transition: transform .18s, box-shadow .18s; }
+
+        /* Animación cuando la ventana se hace más alta (suavizada) */
+        #app.viewport-expand-anim { animation: viewportExpand 600ms cubic-bezier(.22,.9,.3,1) both; transform-origin: top center; will-change: transform, opacity; }
+        @keyframes viewportExpand { from { transform: translateY(-6px) scaleY(.997); opacity: .98; } 50% { transform: translateY(-2px) scaleY(.9985); opacity: .995; } to { transform: translateY(0) scaleY(1); opacity: 1; } }
+
+        /* Hover/Focus effect para montos/saldos comunes en esta plantilla */
+        #display-current-balance, #display-charge-amount-confirm, #display-total-amount, #total-revenue-display, #display-charge-amount-payment-method, #display-charge-amount-login {
+                display: inline-block;
+                transition: transform 260ms cubic-bezier(.22,.9,.3,1), text-shadow 260ms ease, color 260ms ease, filter 260ms ease;
+                will-change: transform, text-shadow, filter;
+        }
+        #display-current-balance:hover, #display-current-balance:focus,
+        #display-charge-amount-confirm:hover, #display-charge-amount-confirm:focus,
+        #display-total-amount:hover, #display-total-amount:focus,
+        #total-revenue-display:hover, #total-revenue-display:focus,
+        #display-charge-amount-payment-method:hover, #display-charge-amount-payment-method:focus,
+        #display-charge-amount-login:hover, #display-charge-amount-login:focus {
+                transform: scale(1.06);
+                color: #0ea5e9;
+                text-shadow: 0 10px 30px rgba(14,165,233,0.14), 0 2px 8px rgba(0,0,0,0.05);
+                filter: drop-shadow(0 8px 20px rgba(14,165,233,0.10));
+        }
+        @media (prefers-reduced-motion: reduce) {
+                #display-current-balance, #display-charge-amount-confirm, #display-total-amount, #total-revenue-display, #display-charge-amount-payment-method, #display-charge-amount-login { transition: none; transform: none; text-shadow: none; filter: none; }
+        }
+
+        /* Estilos para imágenes de producto */
+        .product-image { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; }
+        .product-image-lg { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; }
+        </style>
+        <!-- button-animations-end -->
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <div id="app" class="w-full max-w-5xl">
+        
+        <div id="charge-setup" class="bg-card">
+                <div class="p-4 md:p-6 border-b flex justify-between items-center relative">
+                     <div class="z-10">
+                        <h2 class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
+                        <p class="text-sm">Bienvenido, <span id="business-name-display" class="font-bold"></span></p>
+                     </div>
+
+                     <!-- Center Logo -->
+                     <div class="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2">
+                        <img id="header-business-logo" src="" alt="Logo" class="h-14 w-14 object-contain rounded-lg border-2 border-white shadow-sm hidden">
+                     </div>
+
+                     <div class="flex space-x-2 z-10">
+                        <button onclick="window.location.href='../Apps'" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700">
+                            <img src="../Scr/home.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                        </button>
+                        <button id="toggle-statistics-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700">
+                            <img src="../Scr/est.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                        </button>
+                        <button id="business-settings-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
+                            <img src="../Scr/settings.svg" alt="Settings" class="inline h-5 w-5 items-center">
+                        </button>
+                        <button id="business-logout-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
+                            <img src="../Scr/offb.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                        </button>
+                     </div>
+                </div>
+    
+                <div class="grid grid-cols-1 md:grid-cols-5 min-h-[500px]">
+                    
+                    <div class="md:col-span-3 p-4 md:p-6 border-r flex flex-col">
+                        <div id="dynamic-pos-panel" class="flex-grow flex flex-col relative">
+                            
+                            <!-- Scanner Modal -->
+                            <div id="scanner-modal" class="absolute inset-0 bg-white bg-opacity-90 z-40 hidden flex flex-col items-center justify-center p-4">
+                                <div class="w-full max-w-md bg-white rounded-xl overflow-hidden relative">
+                                    <button id="close-scanner-btn" class="absolute top-2 right-2 z-50 bg-white rounded-full p-2 shadow-lg text-gray-800 hover:text-red-500">
+                                        ✕
+                                    </button>
+                                    <div id="reader" class="w-full h-64 bg-gray-100"></div>
+                                    <p class="text-center p-4 text-sm font-medium text-gray-600">Apunte la cámara al código de barras</p>
+                                </div>
+                            </div>
+
+                            <div id="business-settings-modal" class="absolute inset-0 bg-white bg-opacity-95 z-30 p-6 md:p-8 hidden overflow-y-auto">
+                                <h3 class="text-2xl font-bold mb-4 text-center text-hug-header">Configuración del Negocio</h3>
+                                <form id="business-settings-form" class="space-y-6 max-w-md mx-auto bg-card p-6 shadow-xl rounded-xl">
+                                    
+                                    <!-- Sección 1: Información General -->
+                                    <div class="space-y-4">
+                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Información General</h4>
+                                        
+                                        <div class="flex items-center space-x-4">
+                                            <div class="flex-shrink-0">
+                                                <label for="business-logo-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-colors relative overflow-hidden">
+                                                    <span class="text-xs text-gray-400 font-bold text-center" id="business-logo-placeholder">Subir<br>Logo</span>
+                                                    <img id="business-logo-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="Logo Preview">
+                                                    <input type="file" id="business-logo-input" accept="image/*" style="display:none">
+                                                </label>
+                                            </div>
+                                            <div class="flex-grow">
+                                                <label for="business-name-input" class="block text-sm font-medium">Nombre del Negocio</label>
+                                                <input type="text" id="business-name-input" required placeholder="Mi Tienda"
+                                                    class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label for="business-desc-input" class="block text-sm font-medium">Descripción Corta</label>
+                                            <textarea id="business-desc-input" rows="2" placeholder="Los mejores productos..."
+                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                        </div>
+
+                                        <div>
+                                            <label for="business-message-input" class="block text-sm font-medium">Mensaje Post-Compra</label>
+                                            <textarea id="business-message-input" rows="2" placeholder="¡Gracias por su compra! Vuelva pronto."
+                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sección 2: Pagos y Seguridad -->
+                                    <div class="space-y-4">
+                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Pagos y Seguridad</h4>
+                                        
+                                        <div class="flex items-start space-x-4">
+                                            <div class="flex-shrink-0">
+                                                <label for="business-qr-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-purple-50 hover:border-purple-400 transition-colors relative overflow-hidden">
+                                                    <span class="text-xs text-gray-400 font-bold text-center" id="business-qr-placeholder">Subir<br>QR Pago</span>
+                                                    <img id="business-qr-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="QR Preview">
+                                                    <input type="file" id="business-qr-input" accept="image/*" style="display:none">
+                                                </label>
+                                            </div>
+                                            <div class="flex-grow">
+                                                <label for="business-pin-input" class="block text-sm font-medium text-gray-700">PIN de Seguridad (4 dígitos)</label>
+                                                <p class="text-xs text-gray-500 mb-1">Requerido para confirmar pagos manuales.</p>
+                                                <input type="password" id="business-pin-input" maxlength="4" placeholder="Ej: 1234" pattern="[0-9]*" inputmode="numeric"
+                                                    class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-purple-500 focus:border-purple-500 tracking-widest text-center font-bold">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botón para abrir Editor Premium (Solo Plus) -->
+                                    <div id="premium-editor-btn-container" class="hidden pt-2">
+                                        <button type="button" id="open-ticket-editor-btn" class="w-full py-3 px-4 rounded-xl text-yellow-900 bg-yellow-100 hover:bg-yellow-200 border border-yellow-300 font-bold flex items-center justify-center space-x-2 transition-colors">
+                                            <img src="../Scr/editar.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                            <span>Abrir Editor Premium de Tickets</span>
+                                        </button>
+                                    </div>
+    
+                                    <div class="pt-2 flex space-x-3">
+                                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                            Guardar
+                                        </button>
+                                        <button type="button" id="cancel-settings-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                            Cancelar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Modal: Gestor de Categorías (Crear y Eliminar) -->
+                            <div id="category-manager-modal" class="absolute inset-0 bg-white bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+                                <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl flex flex-col max-h-[80vh]">
+                                    <div class="flex justify-between items-center mb-4 border-b pb-2">
+                                        <h3 class="text-lg font-bold">Gestionar Categorías</h3>
+                                        <button id="close-category-manager-btn" class="text-gray-500 hover:text-red-500 text-xl">&times;</button>
+                                    </div>
+                                    
+                                    <!-- Crear Nueva -->
+                                    <div class="flex space-x-2 mb-4">
+                                        <input type="text" id="manager-new-category-input" placeholder="Nueva categoría..." 
+                                            class="flex-grow px-3 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                        <button id="manager-add-category-btn" class="bg-blue-600 text-white px-4 py-2 rounded-full font-bold hover:bg-blue-700">+</button>
+                                    </div>
+
+                                    <!-- Lista de Existentes -->
+                                    <div class="flex-grow overflow-y-auto pr-1">
+                                        <p class="text-xs text-gray-400 mb-2 uppercase font-bold tracking-wider">Existentes</p>
+                                        <ul id="manager-category-list" class="space-y-2">
+                                            <!-- Se llena dinámicamente -->
+                                        </ul>
+                                        <p id="manager-empty-msg" class="text-center text-sm text-gray-400 mt-4 hidden">No hay categorías creadas.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Nuevo Modal: Editor de Ticket Premium -->
+                            <div id="ticket-editor-modal" class="absolute inset-0 bg-white bg-opacity-95 z-50 p-6 md:p-8 hidden overflow-y-auto">
+                                <div class="max-w-md mx-auto bg-card p-6 shadow-2xl rounded-xl border-2 border-yellow-400 relative">
+                                    <h3 class="text-2xl font-bold mb-1 text-center text-yellow-800">Editor de Ticket</h3>
+                                    <p class="text-center text-xs text-yellow-600 font-bold mb-6 uppercase tracking-widest">Funcionalidad Premium</p>
+                                    
+                                    <div class="space-y-5">
+                                        <div>
+                                            <label class="flex items-center space-x-3 cursor-pointer p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                                                <input type="checkbox" id="ticket-show-logo" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                                <span class="text-sm font-medium text-gray-800">Mostrar Logo del Negocio</span>
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <label for="ticket-header-input" class="block text-sm font-bold text-gray-700 mb-1">Texto Cabecera (Opcional)</label>
+                                            <input type="text" id="ticket-header-input" placeholder="Ej: RFC: XAXX010101000"
+                                                class="block w-full px-3 py-2 border rounded-lg focus:ring-yellow-500 focus:border-yellow-500 text-sm">
+                                        </div>
+
+                                        <div>
+                                            <label for="ticket-footer-input" class="block text-sm font-bold text-gray-700 mb-1">Texto Pie de Página</label>
+                                            <textarea id="ticket-footer-input" rows="3" placeholder="Ej: ¡Síguenos en Instagram!&#10;@mitienda"
+                                                class="block w-full px-3 py-2 border rounded-lg focus:ring-yellow-500 focus:border-yellow-500 text-sm"></textarea>
+                                        </div>
+
+                                        <div>
+                                            <label class="block text-sm font-bold text-gray-700 mb-2">Imagen Promocional / QR Extra</label>
+                                            <div class="flex items-center space-x-3">
+                                                <label for="ticket-image-input" class="cursor-pointer flex-grow flex items-center justify-center h-32 bg-gray-50 border-2 border-dashed border-yellow-400 rounded-xl hover:bg-yellow-50 transition-colors relative overflow-hidden group">
+                                                    <div class="text-center" id="ticket-image-placeholder">
+                                                        <img src="../Scr/img.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                                        <span class="block text-xs text-gray-500 font-bold mt-1">Subir Imagen</span>
+                                                    </div>
+                                                    <img id="ticket-image-preview" class="absolute inset-0 w-full h-full object-contain hidden p-2 bg-white" src="" alt="Ticket Image">
+                                                    <input type="file" id="ticket-image-input" accept="image/*" style="display:none">
+                                                </label>
+                                                <button type="button" id="clear-ticket-image-btn" class="p-2 text-red-500 hover:bg-red-50 rounded-lg" title="Borrar Imagen">
+                                                    <img src="../Scr/delete.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                                </button>
+                                            </div>
+                                            <p class="text-[10px] text-gray-400 mt-1 text-center">Aparecerá al final del ticket.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-8">
+                                        <button type="button" id="close-ticket-editor-btn" class="w-full py-3 px-4 rounded-full text-lg font-bold text-white bg-yellow-500 hover:bg-yellow-600 shadow-lg transform transition hover:-translate-y-1">
+                                            Listo
+                                        </button>
+                                        <p class="text-center text-xs text-gray-400 mt-2">Recuerde guardar los cambios en la configuración principal.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="edit-product-modal" class="absolute inset-0 bg-white bg-opacity-95 z-20 p-4 hidden overflow-y-auto">
+                                <div class="min-h-full flex items-center justify-center">
+                                    <div class="w-full max-w-sm bg-card p-5 shadow-xl rounded-lg border border-gray-100">
+                                        <h3 class="text-xl font-bold mb-4 text-center text-hug-header">Editar Producto</h3>
+                                        <form id="edit-product-form" class="space-y-3">
+                                            <input type="hidden" id="edit-product-index">
+                                            
+                                            <div class="grid grid-cols-6 gap-3">
+                                                 <div class="col-span-1 flex flex-col items-center">
+                                                     <span class="block text-xs font-medium mb-1">Img</span>
+                                                     <label for="edit-product-image" class="cursor-pointer flex items-center justify-center w-12 h-12 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-colors relative overflow-hidden">
+                                                         <span class="text-2xl text-gray-400 font-bold pb-1" id="edit-product-image-placeholder">+</span>
+                                                         <img id="edit-product-image-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="Preview">
+                                                         <input type="file" id="edit-product-image" accept="image/*" style="display:none">
+                                                     </label>
+                                                 </div>
+                                                 <div class="col-span-5">
+                                                     <label for="edit-product-name" class="block text-xs font-medium">Nombre</label>
+                                                     <input type="text" id="edit-product-name" required placeholder="Nombre del Producto"
+                                                           class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                                 </div>
+                                            </div>
+
+                                            <!-- Sección Categoría (Solo Plus) -->
+                                            <div id="edit-product-category-container" class="hidden">
+                                                <label class="block text-xs font-medium">Categoría</label>
+                                                <div class="flex space-x-2 mt-1">
+                                                    <select id="edit-product-category" class="flex-grow px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm bg-white">
+                                                        <option value="">Sin Categoría</option>
+                                                    </select>
+                                                    <button type="button" id="btn-new-category-edit" class="bg-blue-100 text-blue-600 hover:bg-blue-200 px-3 rounded-lg font-bold text-lg" title="Nueva Categoría">+</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="grid grid-cols-2 gap-3">
+                                                <div>
+                                                     <label for="edit-product-price" class="block text-xs font-medium">Precio ($)</label>
+                                                     <input type="number" id="edit-product-price" required min="0.01" step="0.01" placeholder="9.99"
+                                                           class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                                </div>
+                
+                                                <div>
+                                                     <label for="edit-product-cost" class="block text-xs font-medium">Costo ($)</label>
+                                                     <input type="number" id="edit-product-cost" required min="0" step="0.01" placeholder="1.50"
+                                                         class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                                </div>
+                                            </div>
+                
+                                          <!-- Barcode Section -->
+                                          <div class="flex flex-col items-center justify-center mt-2 mb-2 p-2 bg-gray-50 rounded-lg border border-gray-200">
+                                                <label class="block text-[10px] font-medium text-gray-500 mb-1">Código de Barras (ID)</label>
+                                                <canvas id="barcode-canvas" class="w-full max-w-[180px] h-auto"></canvas>
+                                                <button type="button" id="download-barcode-btn" class="mt-1 text-xs text-blue-600 hover:text-blue-800 underline font-semibold">
+                                                    Descargar
+                                                </button>
+                                          </div>
+            
+                                            <div class="flex space-x-2 pt-2">
+                                                <button type="submit" class="flex-1 py-2 px-4 rounded-full text-sm font-semibold text-white btn-primary">
+                                                    Guardar
+                                                </button>
+                                                <button type="button" id="cancel-edit-btn" class="flex-1 py-2 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="product-catalog-view"> 
+                                <h3 class="text-xl font-semibold mb-3 flex justify-between items-center">
+                                    <span class="flex items-center">
+                                        Catálogo de Productos
+                                        <span id="product-limit-display" class="text-sm font-normal text-gray-500 ml-2">(0 / 65)</span>
+                                        <button id="upgrade-plus-btn" onclick="window.location.href='./Plus/'" class="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs font-bold rounded-3xl shadow-sm hover:shadow-md transition-all hidden">
+                                            Mejorar a Plus +
+                                        </button>
+                                    </span>
+                                    <div class="flex space-x-2">
+                                        <button id="open-camera-scanner-btn" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-lg shadow-md" title="Escanear con Cámara">
+                                            <img src="../Scr/scan.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                        </button>
+                                        <button id="toggle-add-product-form-btn" class="text-white bg-green-500 hover:bg-green-600 rounded-full w-8 h-8 flex items-center justify-center text-2xl leading-none shadow-md" title="Añadir Producto">
+                                            +
+                                        </button>
+                                    </div>
+                                </h3>
+            
+                                <!-- Buscador de Productos (Solo Plus) -->
+                                <div id="product-search-container" class="hidden mb-3">
+                                    <div class="flex flex-col md:flex-row gap-2">
+                                        <div class="relative flex-grow">
+                                            <input type="text" id="product-search-input" placeholder="Buscar producto por nombre..." 
+                                                class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
+                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                            </div>
+                                        </div>
+
+                                        <div class="relative w-10 h-10" title="Ordenar Productos">
+                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
+                                            </div>
+                                            <select id="product-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                <option value="name-asc">Alfabético (A-Z)</option>
+                                                <option value="price-desc">Mayor Precio</option>
+                                                <option value="price-asc">Menor Precio</option>
+                                                <option value="date-desc">Recientes</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="flex gap-2">
+                                            <!-- Selector de Categorías (Solo Icono) -->
+                                            <div class="relative w-10 h-10" title="Filtrar por Categoría">
+                                                <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                    <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                                </div>
+                                                <select id="category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                    <option value="all">Todas</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Botón Gestionar Categorías -->
+                                            <button id="open-category-manager-btn" class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 border border-gray-200" title="Gestionar Categorías">
+                                                <img src="../Scr/categoria.svg" alt="Manage" class="h-5 w-5">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <form id="add-product-form" class="space-y-3 p-5 border rounded-xl bg-white shadow-sm mb-4 hidden">
+                                    <h3 class="text-lg font-bold mb-2 text-center text-hug-header">Añadir Producto</h3>
+                                    
+                                    <div class="grid grid-cols-6 gap-3">
+                                        <div class="col-span-1 flex flex-col items-center">
+                                            <span class="block text-xs font-medium mb-1">Img</span>
+                                            <label for="product-image" class="cursor-pointer flex items-center justify-center w-12 h-12 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-colors relative overflow-hidden">
+                                                <span class="text-2xl text-gray-400 font-bold pb-1" id="product-image-placeholder">+</span>
+                                                <img id="product-image-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="Preview">
+                                                <input type="file" id="product-image" accept="image/*" style="display:none">
+                                            </label>
+                                        </div>
+                                        <div class="col-span-5">
+                                            <label for="product-name" class="block text-xs font-medium">Nombre</label>
+                                            <input type="text" id="product-name" required placeholder="Nombre del Producto"
+                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                        </div>
+                                    </div>
+
+                                    <!-- Sección Categoría (Solo Plus) -->
+                                    <div id="add-product-category-container" class="hidden">
+                                        <label class="block text-xs font-medium">Categoría</label>
+                                        <div class="flex space-x-2 mt-1">
+                                            <select id="add-product-category" class="flex-grow px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm bg-white">
+                                                <option value="">Sin Categoría</option>
+                                            </select>
+                                            <button type="button" id="btn-new-category-add" class="bg-blue-100 text-blue-600 hover:bg-blue-200 px-3 rounded-lg font-bold text-lg" title="Nueva Categoría">+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label for="product-price" class="block text-xs font-medium">Precio ($)</label>
+                                            <input type="number" id="product-price" required min="0.01" step="0.01" placeholder="9.99"
+                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                        </div>
+
+                                        <div>
+                                            <label for="product-cost" class="block text-xs font-medium">Costo ($)</label>
+                                            <input type="number" id="product-cost" required min="0" step="0.01" placeholder="1.50"
+                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="w-full py-2 px-4 rounded-full text-sm font-semibold text-white btn-primary mt-2">
+                                        Añadir y Guardar
+                                    </button>
+                                </form>
+            
+                                <div id="product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-3 overflow-y-auto flex-grow pr-1">
+                                    <p class="col-span-3 text-center text-gray-500" id="empty-catalog-message">Cargando catálogo o vacío. Use el botón (+) para añadir.</p>
+                                </div>
+
+                                <!-- Controles de Paginación -->
+                                <div id="pagination-controls" class="hidden mt-2 pb-2"></div>
+                            </div>
+    
+                            <div id="payment-method-view" class="hidden flex-grow flex flex-col justify-between">
+                                <div class="p-0 text-center">
+                                    <h2 class="text-2xl font-bold mb-2">
+                                        Monto a Pagar: <span id="display-charge-amount-payment-method" class="text-hug-danger">$0.00</span>
+                                    </h2>
+                                    <p class="text-lg font-medium mb-4">Paso 2: Seleccionar Método de Pago</p>
+                                    
+                                    <div class="mb-6 text-left">
+                                        <label for="transaction-description" class="block text-sm font-medium text-gray-700">Descripción de la Transacción (Opcional)</label>
+                                        <input type="text" id="transaction-description" placeholder="Ej: Venta de café y postre"
+                                               class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                    </div>
+                                    
+                                    <form id="payment-options-form" class="space-y-4">
+                                        
+                                        <div class="payment-option-wrapper">
+                                            <input type="radio" id="option-hug-bank" name="payment-option" value="hug-bank" class="radio-option">
+                                            <label for="option-hug-bank" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
+                                                <span>1. Pagar con HUG-Bank!</span>
+                                                <img src="../Scr/card.svg" alt="Manage" class="h-5 w-5">
+                                            </label>
+                                        </div>
+    
+                                        <div class="payment-option-wrapper">
+                                            <input type="radio" id="option-cash" name="payment-option" value="cash" class="radio-option">
+                                            <label for="option-cash" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
+                                                <span>2. Pagar con Efectivo</span>
+                                                <img src="../Scr/cash.svg" alt="Manage" class="h-5 w-5">
+                                            </label>
+                                        </div>
+
+                                        <div class="payment-option-wrapper">
+                                            <input type="radio" id="option-qr" name="payment-option" value="qr" class="radio-option">
+                                            <label for="option-qr" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
+                                                <span>3. Pagar con QR</span>
+                                                <img src="../Scr/qr.svg" alt="Manage" class="h-5 w-5">
+                                            </label>
+                                        </div>
+            
+                                    </form>
+                                </div>
+                                <div class="mt-auto">
+                                    <button id="cancel-payment-selection-btn" class="w-full mt-6 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                        Cancelar Transacción
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="customer-login-view" class="hidden flex-grow flex flex-col justify-center">
+                                <div class="max-w-md mx-auto w-full">
+                                    <h2 class="text-2xl font-bold mb-2 text-center">
+                                        Monto a Pagar: <span id="display-charge-amount-login" class="text-hug-danger">$0.00</span>
+                                    </h2>
+                                    <p class="text-center text-lg font-medium mb-6">Paso 3: Cliente debe Iniciar Sesión (HUG Bank)</p>
+                
+                                    <form id="customer-login-form" class="space-y-4">
+                                        <div>
+                                            <label for="customer-email" class="block text-sm font-medium">Correo Electrónico del Cliente</label>
+                                            <input type="email" id="customer-email" required placeholder="tu.correo@ejemplo.com"
+                                                   class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                        </div>
+                                        <div>
+                                            <label for="customer-password" class="block text-sm font-medium">Contraseña del Cliente</label>
+                                            <input type="password" id="customer-password" required placeholder="********"
+                                                   class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                        </div>
+                                        <button type="submit" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                            Continuar al Pago
+                                        </button>
+                                    </form>
+                                    <button id="cancel-login-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                        Cancelar Transacción
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="qr-payment-view" class="hidden flex-grow flex flex-col justify-center text-center">
+                                <div class="max-w-md mx-auto w-full">
+                                   <h2 class="text-2xl font-bold mb-2">
+                                       Monto a Pagar: <span id="display-charge-amount-qr" class="text-hug-danger">$0.00</span>
+                                   </h2>
+                                   <p class="text-lg font-medium mb-4">Escanee para pagar</p>
+                                   
+                                   <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-6 inline-block">
+                                       <img id="display-payment-qr" src="" alt="QR de Pago no configurado" class="w-48 h-48 object-contain mx-auto">
+                                   </div>
+                                   
+                                   <p class="mb-4 text-sm text-gray-500">Muestre este código al cliente.</p>
+
+                                   <!-- PIN Input Section (Hidden by default) -->
+                                   <div id="qr-pin-section" class="mb-4 hidden">
+                                        <label for="confirm-pin-input" class="block text-sm font-medium text-gray-700 mb-1">Ingrese PIN para confirmar</label>
+                                        <input type="password" id="confirm-pin-input" maxlength="4" placeholder="PIN" pattern="[0-9]*" inputmode="numeric"
+                                            class="w-32 mx-auto px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-center text-xl tracking-widest">
+                                   </div>
+               
+                                   <button id="confirm-qr-payment-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary bg-blue-600 hover:bg-blue-700">
+                                       Marcar como Pagado
+                                   </button>
+                                   <button id="cancel-qr-payment-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                       Cancelar Transacción
+                                   </button>
+                                </div>
+                           </div>
+    
+                            <div id="payment-confirmation-view" class="hidden flex-grow flex flex-col justify-center text-center">
+                                 <div class="max-w-md mx-auto w-full">
+                                    <h2 class="text-3xl font-extrabold mb-4 text-hug-header">Confirmación de Pago</h2>
+                
+                                     <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 mb-6">
+                                        <p class="text-sm text-blue-600">Total a Cobrar</p>
+                                        <h3 class="text-5xl font-extrabold mt-1" id="display-charge-amount-confirm">$0.00</h3>
+                                        <p class="text-sm text-blue-600 mt-2">Tu Saldo Actual: <span id="display-current-balance" class="font-bold">$0.00</span></p>
+                                     </div>
+                                     
+                                     <p class="mb-6 text-lg">Paso 4: Aprobar el Pago por <span id="customer-name-display" class="font-bold">Cliente</span></p>
+                
+                                    <button id="confirm-payment-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                        Aprobar Pago
+                                    </button>
+                                    <button id="cancel-payment-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                        Cancelar Transacción
+                                    </button>
+                                 </div>
+                            </div>
+    
+                            <div id="transaction-complete-view" class="hidden flex-grow flex flex-col justify-center text-center">
+                                 <div class="max-w-md mx-auto w-full">
+                                    <div id="complete-icon" class="text-6xl mb-4"></div>
+                                    <h2 id="complete-title" class="text-3xl font-bold mb-2"></h2>
+                                    <p id="complete-message" class="mb-8 text-gray-600"></p>
+                                    
+                                    <h3 class="text-xl font-bold mb-4">Listo para el Siguiente Cliente</h3>
+                
+                                    <button id="new-transaction-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                        Iniciar Nueva Transacción
+                                    </button>
+                                    <button id="print-receipt-btn" class="w-full mt-3 py-3 px-4 rounded-full text-lg font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 hidden">
+                                        Imprimir Ticket
+                                    </button>
+                                 </div>
+                            </div>
+                            <div id="statistics-view" class="hidden flex-grow flex flex-col">
+                                 <h3 class="text-xl font-semibold mb-3">Estadísticas de Ventas</h3>
+                                 
+                                 <div class="mb-4 flex items-center space-x-3">
+                                    <label for="stats-period-selector" class="text-sm font-medium">Periodo:</label>
+                                    <select id="stats-period-selector" class="px-3 py-1 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="daily">Día Actual</option>
+                                        <option value="monthly">Mes Actual</option>
+                                        <option value="yearly">Año Actual</option>
+                                        <option value="total" selected>Total</option>
+                                    </select>
+                                    <button id="refresh-stats-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-green-500 hover:bg-green-700">
+                                        <img src="../Scr/reload.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                    </button>
+                                    <button id="back-to-pos-btn" class="p-1 rounded-full text-sm font-semibold text-white bg-red-500 hover:bg-red-700">
+                                        <img src="../Scr/business.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                    </button>
+                                 </div>
+                                 
+                                 <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                         <p class="text-sm font-medium text-blue-600">Ingreso Total</p>
+                                         <h4 id="total-revenue-display" class="text-3xl font-bold text-blue-800">$0.00</h4>
+                                    </div>
+                              <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                  <p class="text-sm font-medium text-green-600">Productos Vendidos</p>
+                                  <h4 id="total-items-display" class="text-3xl font-bold text-green-800">0</h4>
+                              </div>
+                              <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                  <p class="text-sm font-medium text-yellow-700">Costo Total</p>
+                                  <h4 id="total-cost-display" class="text-3xl font-bold text-yellow-800">$0.00</h4>
+                              </div>
+                              <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                                  <p class="text-sm font-medium text-indigo-600">Ganancia Estimada</p>
+                                  <h4 id="total-profit-display" class="text-3xl font-bold text-indigo-800">$0.00</h4>
+                              </div>
+                                 </div>
+                                 <h4 class="text-lg font-semibold mb-2 mt-2 border-t pt-4">Productos Más Vendidos</h4>
+                                 
+                                 <div id="top-products-list" class="space-y-3 overflow-y-auto flex-grow pr-1">
+                                    <p class="text-center text-gray-500" id="empty-stats-message">Seleccione un periodo y actualice.</p>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 p-4 md:p-6 flex flex-col border-t md:border-t-0">
+                        <h3 class="text-xl font-semibold mb-3">Total y Carrito</h3>
+                        
+                        <div id="cart-items" class="space-y-2 max-h-60 overflow-y-auto p-2 border rounded-lg bg-white flex-grow mb-4">
+                            <p class="text-gray-500 text-center" id="empty-cart-message">Seleccione productos en la izquierda.</p>
+                        </div>
+                        
+                        <div class="flex justify-between items-center font-bold text-2xl pt-4 border-t mt-auto">
+                            <span>Total:</span>
+                            <span id="display-total-amount" class="text-hug-danger">$0.00</span>
+                        </div>
+                        
+                        <div class="mt-4 space-y-3">
+                            <button id="checkout-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary" disabled>
+                                Proceder al Pago
+                            </button>
+                            <button id="clear-cart-btn" class="w-full py-2 px-4 rounded-full text-sm font-semibold text-white bg-gray-400 hover:bg-gray-600">
+                                Vaciar Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden" role="alert"></div>
+
+            <footer class="py-8 text-center text-slate-400 text-sm font-medium">
+                © 2024 Hug-Oh! Financial Services. Todos los derechos reservados.
+            </footer>
+    </div>
+    <!-- JsBarcode Library -->   
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <!-- Html5-Qrcode Library for Camera Scanning -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script type="module" link="module" src="script.js"></script>
+    <!-- jsQR for client-side QR decoding -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+</body>
+</html>
