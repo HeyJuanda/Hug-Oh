@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../Scr/bank.png" />
     <link rel="canonical" href="https://hug-oh.com/Business/" />
-    <meta name="description" content="Hug-Oh! • Plataforma de negocios para gestionar ventas, productos y estadísticas. Optimiza tu negocio con nuestro sistema de punto de venta fácil de usar.">
+    <meta name="description" content="Hug-Bank! • Plataforma de negocios para gestionar ventas, productos y estadísticas. Optimiza tu negocio con nuestro sistema de punto de venta fácil de usar.">
     <link rel="stylesheet" href="style.css">
     <title>Hug-Bank! • Business</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -73,7 +73,7 @@
         <div id="charge-setup" class="bg-card">
                 <div class="p-4 md:p-6 border-b flex justify-between items-center relative">
                      <div class="z-10">
-                        <h2 class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
+                        <h2 id="current-view-title" class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
                         <p class="text-sm">Bienvenido, <span id="business-name-display" class="font-bold"></span></p>
                      </div>
 
@@ -83,14 +83,25 @@
                      </div>
 
                      <div class="flex space-x-2 z-10">
-                        <button onclick="window.location.href='../Apps'" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700">
-                            <img src="../Scr/home.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                        <!-- Botón Punto de Venta (Nuevo) -->
+                        <button id="toggle-pos-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 shadow-md" title="Punto de Venta">
+                            <img src="../Scr/cart.svg" alt="POS" class="inline h-5 w-5 items-center">
+                        </button>
+                        <button id="toggle-catalog-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700" title="Catálogo">
+                            <img src="../Scr/catalog.svg" alt="Catalog Icon" class="inline h-5 w-5 items-center">
                         </button>
                         <button id="toggle-statistics-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700">
                             <img src="../Scr/est.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
                         </button>
+                        <!-- Botón de Inventario Restaurado -->
+                        <button id="toggle-stock-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700" title="Inventario">
+                            <img src="../Scr/box.svg" alt="Stock" class="inline h-5 w-5 items-center">
+                        </button>
                         <button id="business-settings-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
                             <img src="../Scr/settings.svg" alt="Settings" class="inline h-5 w-5 items-center">
+                        </button>
+                        <button onclick="window.location.href='../Apps'" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
+                            <img src="../Scr/home.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
                         </button>
                         <button id="business-logout-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
                             <img src="../Scr/offb.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
@@ -339,11 +350,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="product-catalog-view"> 
+                            <div id="product-catalog-view" class="hidden flex-grow flex flex-col"> 
                                 <h3 class="text-xl font-semibold mb-3 flex justify-between items-center">
                                     <span class="flex items-center">
-                                        Catálogo de Productos
-                                        <span id="product-limit-display" class="text-sm font-normal text-gray-500 ml-2">(0 / 65)</span>
+                                        <span id="product-limit-display" class="text-sm font-normal text-gray-500 ml-2">[0 / 65]</span>
                                         <button id="upgrade-plus-btn" onclick="window.location.href='./Plus/'" class="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs font-bold rounded-3xl shadow-sm hover:shadow-md transition-all hidden">
                                             Mejorar a Plus +
                                         </button>
@@ -455,6 +465,58 @@
 
                                 <!-- Controles de Paginación -->
                                 <div id="pagination-controls" class="hidden mt-2 pb-2"></div>
+                            </div>
+
+                            <!-- VISTA PUNTO DE VENTA (POS) -->
+                            <div id="pos-view" class="hidden flex-grow flex flex-col">
+                                <h3 class="text-xl font-semibold mb-3 text-hug-header flex justify-between items-center">
+
+                                </h3>
+                                
+                                <!-- Buscador y Filtros POS (Igual que Catálogo) -->
+                                <div id="pos-search-container" class="mb-3">
+                                    <div class="flex flex-col md:flex-row gap-2">
+                                        <div class="relative flex-grow">
+                                            <input type="text" id="pos-search-input" placeholder="Buscar producto para venta..." 
+                                                class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
+                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                            </div>
+                                        </div>
+
+                                        <div class="relative w-10 h-10" title="Ordenar Productos">
+                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
+                                            </div>
+                                            <select id="pos-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                <option value="name-asc">Alfabético (A-Z)</option>
+                                                <option value="price-desc">Mayor Precio</option>
+                                                <option value="price-asc">Menor Precio</option>
+                                                <option value="date-desc">Recientes</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="relative w-10 h-10" title="Filtrar por Categoría">
+                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                            </div>
+                                            <select id="pos-category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                <option value="all">Todas</option>
+                                            </select>
+                                        </div>
+
+                                        <button id="pos-open-camera-scanner-btn" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center text-lg shadow-md" title="Escanear con Cámara">
+                                            <img src="../Scr/scan.svg" alt="Scan" class="inline h-5 w-5 items-center">
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="pos-product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-3 overflow-y-auto flex-grow pr-1">
+                                    <!-- Lista de productos para venta -->
+                                </div>
+                                
+                                <!-- Paginación POS -->
+                                <div id="pos-pagination-controls" class="hidden mt-2 pb-2"></div>
                             </div>
     
                             <div id="payment-method-view" class="hidden flex-grow flex flex-col justify-between">
@@ -600,7 +662,6 @@
                                  </div>
                             </div>
                             <div id="statistics-view" class="hidden flex-grow flex flex-col">
-                                 <h3 class="text-xl font-semibold mb-3">Estadísticas de Ventas</h3>
                                  
                                  <div class="mb-4 flex items-center space-x-3">
                                     <label for="stats-period-selector" class="text-sm font-medium">Periodo:</label>
@@ -612,9 +673,6 @@
                                     </select>
                                     <button id="refresh-stats-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-green-500 hover:bg-green-700">
                                         <img src="../Scr/reload.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                                    </button>
-                                    <button id="back-to-pos-btn" class="p-1 rounded-full text-sm font-semibold text-white bg-red-500 hover:bg-red-700">
-                                        <img src="../Scr/business.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
                                     </button>
                                  </div>
                                  
@@ -642,6 +700,20 @@
                                     <p class="text-center text-gray-500" id="empty-stats-message">Seleccione un periodo y actualice.</p>
                                  </div>
                             </div>
+
+                            <!-- Vista de Inventario Restaurada -->
+                            <div id="stock-view" class="hidden flex-grow flex flex-col">
+                                <div class="bg-white rounded-xl shadow-sm border border-gray-200 flex-grow overflow-hidden flex flex-col">
+                                    <div class="p-3 border-b bg-gray-50 flex justify-between items-center font-bold text-gray-600 text-sm">
+                                        <span>Producto</span>
+                                        <span>Stock Actual</span>
+                                    </div>
+                                    <ul id="stock-list" class="divide-y divide-gray-100 overflow-y-auto flex-grow p-0">
+                                        <!-- Lista generada por JS -->
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="md:col-span-2 p-4 md:p-6 flex flex-col border-t md:border-t-0">
