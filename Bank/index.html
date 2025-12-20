@@ -111,9 +111,104 @@
             text-shadow: 0 10px 30px rgba(14,165,233,0.18), 0 2px 8px rgba(0,0,0,0.06);
             filter: drop-shadow(0 10px 24px rgba(14,165,233,0.12));
         }
-        /* Reducción de movimiento para usuarios que la prefieren */
         @media (prefers-reduced-motion: reduce) {
             #balance-display { transition: none; transform: none; text-shadow: none; filter: none; }
+        }
+
+        /* From Uiverse.io by Admin12121 - Menu Animation - Modified for Round & Colored */
+        .menu {
+            padding: 0;
+            background-color: transparent;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: none;
+        }
+
+        .link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 9999px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transform-origin: center left;
+            transition: width 0.2s ease-in;
+            text-decoration: none;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .link:before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            display: block;
+            border-radius: 9999px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            transform: translateX(100%);
+            transition: transform 0.2s ease-in;
+            transform-origin: center right;
+        }
+
+        /* Blue Button Variant */
+        .link.btn-blue { background-color: #3b82f6; }
+        .link.btn-blue:before { background-color: #1d4ed8; }
+
+        /* Gray Button Variant - Lighter (Gray-400 / Gray-500) */
+        .link.btn-gray { background-color: #9ca3af; } /* gray-400 */
+        .link.btn-gray:before { background-color: #6b7280; } /* gray-500 on hover */
+
+        .link:hover,
+        .link:focus {
+            outline: 0;
+            width: 130px;
+        }
+
+        .link:hover:before,
+        .link:focus:before,
+        .link:hover .link-title,
+        .link:focus .link-title {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .link-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            left: 0;
+            position: absolute;
+        }
+        
+        .link-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .link-title {
+            transform: translateX(100%);
+            transition: transform 0.2s ease-in;
+            transform-origin: center right;
+            display: block;
+            text-align: center;
+            padding-left: 30px;
+            width: 100%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
         }
         /* End marker */
         </style>
@@ -168,19 +263,28 @@
                         <img src="../Scr/bank.svg" alt="HUG Bank Logo" onclick="window.location.href='https://store.hug-oh.com/'"  class="inline h-31 w-48 mr-2 items-center">
                     </h3>
                     <button id="info-btn" class="flex p-1 rounded-full text-md font-semibold btn-info">
-                        <img src="../Scr/info.svg" alt="Info Icon" onclick="window.location.href='./Terminos.pdf'" class="inline-6 w-6 items-start opacity-70">
+                        <img src="../Scr/info.svg" alt="Información" onclick="window.location.href='./Terminos.pdf'" class="inline-6 w-6 items-start opacity-70">
                     </button>
                 </div>
 
-                <div class="flex flex-row space-x-4 w-full md:w-auto">
-                    <button onclick="window.location.href='../Apps'" class="flex-1 p-1 rounded-full text-md font-semibold text-white btn-primary">
-                        <img src="../Scr/home.svg" alt="Transfer Icon" class="inline-6 w-6 items-center">
+                <div class="menu flex-row items-center w-full md:w-auto">
+                    <button onclick="window.location.href='../Apps'" class="link btn-blue" title="Apps">
+                        <span class="link-icon">
+                            <img src="../Scr/home.svg" alt="Apps">
+                        </span>
+                        <span class="link-title">Apps</span>
                     </button>
-                    <button id="show-transfer-btn" class="flex-1 p-1 rounded-full text-md font-semibold text-white btn-primary">
-                        <img src="../Scr/trans.svg" alt="Transfer Icon" class="inline-6 w-6 items-center">
+                    <button id="show-transfer-btn" class="link btn-blue" title="Transferir">
+                        <span class="link-icon">
+                            <img src="../Scr/trans.svg" alt="Transferir">
+                        </span>
+                        <span class="link-title">Transferir</span>
                     </button>
-                    <button id="logout-btn" class="flex p-1 rounded-full text-md font-semibold btn-secondary">
-                        <img src="../Scr/off.svg" alt="Logout Icon" class="inline-6 w-6 items-center">
+                    <button id="logout-btn" class="link btn-blue" title="Cerrar Sesión">
+                        <span class="link-icon">
+                            <img src="../Scr/offb.svg" alt="Salir">
+                        </span>
+                        <span class="link-title">Salir</span>
                     </button>
                 </div>
             </div>
