@@ -83,6 +83,102 @@
         /* Estilos para imágenes de producto */
         .product-image { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; }
         .product-image-lg { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; }
+
+        /* From Uiverse.io by Admin12121 - Menu Animation - Modified for Round & Colored */
+        .menu {
+            padding: 0;
+            background-color: transparent; /* Transparent background */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: none; /* Removed shadow from container */
+        }
+
+        .link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px; /* Smaller initial size */
+            height: 42px;
+            border-radius: 9999px; /* Fully round */
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transform-origin: center left;
+            transition: width 0.2s ease-in;
+            text-decoration: none;
+            color: white; /* White text */
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .link:before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            display: block;
+            border-radius: 9999px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            transform: translateX(100%);
+            transition: transform 0.2s ease-in;
+            transform-origin: center right;
+        }
+
+        /* Blue Button Variant */
+        .link.btn-blue { background-color: #3b82f6; }
+        .link.btn-blue:before { background-color: #1d4ed8; } /* Darker blue on hover */
+
+        /* Gray Button Variant */
+        .link.btn-gray { background-color: #6b7280; }
+        .link.btn-gray:before { background-color: #374151; } /* Darker gray on hover */
+
+        .link:hover,
+        .link:focus {
+            outline: 0;
+            width: 130px;
+        }
+
+        .link:hover:before,
+        .link:focus:before,
+        .link:hover .link-title,
+        .link:focus .link-title {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .link-icon {
+            width: 42px; /* Match button height for centering */
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            left: 0;
+            position: absolute;
+        }
+        
+        .link-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .link-title {
+            transform: translateX(100%);
+            transition: transform 0.2s ease-in;
+            transform-origin: center right;
+            display: block;
+            text-align: center;
+            padding-left: 30px; /* Space for icon */
+            width: 100%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+        }
         </style>
         <!-- button-animations-end -->
 </head>
@@ -139,30 +235,76 @@
                         <img id="header-business-logo" src="" alt="Logo" class="h-14 w-14 object-contain rounded-lg border-2 border-white shadow-sm hidden">
                      </div>
 
-                     <div class="flex space-x-2 z-10">
-                        <!-- Botón Punto de Venta (Nuevo) -->
-                        <button id="toggle-pos-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 shadow-md" title="Punto de Venta">
-                            <img src="../Scr/cart.svg" alt="POS" class="inline h-5 w-5 items-center">
+                     <!-- Menu Container with Responsive Wrapper -->
+                     <div class="z-20 relative">
+                        <!-- Mobile Toggle Button (3 Dots) -->
+                        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors shadow-sm border border-gray-200" onclick="document.getElementById('nav-menu-wrapper').classList.toggle('hidden')">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                            </svg>
                         </button>
-                        <button id="toggle-catalog-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700" title="Catálogo">
-                            <img src="../Scr/catalog.svg" alt="Catalog Icon" class="inline h-5 w-5 items-center">
-                        </button>
-                        <button id="toggle-statistics-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700">
-                            <img src="../Scr/est.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                        </button>
-                        <!-- Botón de Inventario Restaurado -->
-                        <button id="toggle-stock-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700" title="Inventario">
-                            <img src="../Scr/box.svg" alt="Stock" class="inline h-5 w-5 items-center">
-                        </button>
-                        <button id="business-settings-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
-                            <img src="../Scr/settings.svg" alt="Settings" class="inline h-5 w-5 items-center">
-                        </button>
-                        <button onclick="window.location.href='../Apps'" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
-                            <img src="../Scr/home.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                        </button>
-                        <button id="business-logout-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-gray-500 hover:bg-gray-700">
-                            <img src="../Scr/offb.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                        </button>
+
+                        <!-- Navigation Wrapper -->
+                        <div id="nav-menu-wrapper" class="hidden absolute top-full right-0 mt-3 bg-white/95 backdrop-blur-md border border-gray-100 shadow-2xl rounded-2xl p-3 md:static md:block md:bg-transparent md:border-none md:shadow-none md:p-0 md:mt-0 min-w-[60px]">
+                             <!-- Se cambió items-center por items-end en móvil para que la expansión sea hacia la izquierda -->
+                             <div class="menu flex-col items-end md:flex-row md:items-center">
+                                <!-- Botón Punto de Venta (Blue) -->
+                                <button id="toggle-pos-btn" class="link btn-blue" title="Punto de Venta">
+                                    <span class="link-icon">
+                                        <img src="../Scr/cart.svg" alt="Punto de Venta">
+                                    </span>
+                                    <span class="link-title">Venta</span>
+                                </button>
+        
+                                <!-- Botón Catálogo (Blue) -->
+                                <button id="toggle-catalog-btn" class="link btn-blue" title="Catálogo">
+                                    <span class="link-icon">
+                                        <img src="../Scr/catalog.svg" alt="Catalogo">
+                                    </span>
+                                    <span class="link-title">Catálogo</span>
+                                </button>
+        
+                                <!-- Botón Estadísticas (Blue) -->
+                                <button id="toggle-statistics-btn" class="link btn-blue" title="Estadísticas">
+                                    <span class="link-icon">
+                                        <img src="../Scr/est.svg" alt="Estadísticas">
+                                    </span>
+                                    <span class="link-title">Estadísticas</span>
+                                </button>
+        
+                                <!-- Botón Inventario (Blue) -->
+                                <button id="toggle-stock-btn" class="link btn-blue" title="Inventario">
+                                    <span class="link-icon">
+                                        <img src="../Scr/box.svg" alt="Inventario">
+                                    </span>
+                                    <span class="link-title">Inventario</span>
+                                </button>
+        
+                                <!-- Botón Configuración (Gray) -->
+                                <button id="business-settings-btn" class="link btn-gray" title="Configuración">
+                                    <span class="link-icon">
+                                        <img src="../Scr/settings.svg" alt="Configuración">
+                                    </span>
+                                    <span class="link-title">Ajustes</span>
+                                </button>
+        
+                                <!-- Botón Apps (Gray) -->
+                                <button onclick="window.location.href='../Apps'" class="link btn-gray" title="Apps">
+                                    <span class="link-icon">
+                                        <img src="../Scr/home.svg" alt="Apps">
+                                    </span>
+                                    <span class="link-title">Apps</span>
+                                </button>
+        
+                                <!-- Botón Cerrar Sesión (Gray) -->
+                                <button id="business-logout-btn" class="link btn-gray" title="Cerrar Sesión">
+                                    <span class="link-icon">
+                                        <img src="../Scr/offb.svg" alt="Cerrar Sesión">
+                                    </span>
+                                    <span class="link-title">Salir</span>
+                                </button>
+                             </div>
+                        </div>
                      </div>
                 </div>
     
@@ -428,41 +570,51 @@
                                 <!-- Buscador de Productos (Solo Plus) -->
                                 <div id="product-search-container" class="hidden mb-3">
                                     <div class="flex flex-col md:flex-row gap-2">
-                                        <div class="relative flex-grow">
-                                            <input type="text" id="product-search-input" placeholder="Buscar producto por nombre..." 
-                                                class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
-                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                        <div class="flex gap-2 w-full md:w-auto flex-grow">
+                                            <div class="relative flex-grow">
+                                                <input type="text" id="product-search-input" placeholder="Buscar producto por nombre..." 
+                                                    class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                    <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                                </div>
                                             </div>
+                                            <!-- Mobile Toggle Button -->
+                                            <button class="md:hidden p-2 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors shadow-sm border border-gray-200 flex-shrink-0" onclick="document.getElementById('product-options-wrapper').classList.toggle('hidden'); document.getElementById('product-options-wrapper').classList.toggle('flex');">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                                                </svg>
+                                            </button>
                                         </div>
 
-                                        <div class="relative w-10 h-10" title="Ordenar Productos">
-                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
-                                                <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
-                                            </div>
-                                            <select id="product-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                                                <option value="name-asc">Alfabético (A-Z)</option>
-                                                <option value="price-desc">Mayor Precio</option>
-                                                <option value="price-asc">Menor Precio</option>
-                                                <option value="date-desc">Recientes</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="flex gap-2">
-                                            <!-- Selector de Categorías (Solo Icono) -->
-                                            <div class="relative w-10 h-10" title="Filtrar por Categoría">
+                                        <div id="product-options-wrapper" class="hidden md:flex gap-2 justify-end">
+                                            <div class="relative w-10 h-10" title="Ordenar Productos">
                                                 <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
-                                                    <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                                    <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
                                                 </div>
-                                                <select id="category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                                                    <option value="all">Todas</option>
+                                                <select id="product-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                    <option value="name-asc">Alfabético (A-Z)</option>
+                                                    <option value="price-desc">Mayor Precio</option>
+                                                    <option value="price-asc">Menor Precio</option>
+                                                    <option value="date-desc">Recientes</option>
                                                 </select>
                                             </div>
+                                            
+                                            <div class="flex gap-2">
+                                                <!-- Selector de Categorías (Solo Icono) -->
+                                                <div class="relative w-10 h-10" title="Filtrar por Categoría">
+                                                    <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                        <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                                    </div>
+                                                    <select id="category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                        <option value="all">Todas</option>
+                                                    </select>
+                                                </div>
 
-                                            <!-- Botón Gestionar Categorías -->
-                                            <button id="open-category-manager-btn" class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 border border-gray-200" title="Gestionar Categorías">
-                                                <img src="../Scr/categoria.svg" alt="Manage" class="h-5 w-5">
-                                            </button>
+                                                <!-- Botón Gestionar Categorías -->
+                                                <button id="open-category-manager-btn" class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 border border-gray-200" title="Gestionar Categorías">
+                                                    <img src="../Scr/categoria.svg" alt="Manage" class="h-5 w-5">
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -533,38 +685,48 @@
                                 <!-- Buscador y Filtros POS (Igual que Catálogo) -->
                                 <div id="pos-search-container" class="mb-3">
                                     <div class="flex flex-col md:flex-row gap-2">
-                                        <div class="relative flex-grow">
-                                            <input type="text" id="pos-search-input" placeholder="Buscar producto para venta..." 
-                                                class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
-                                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                        <div class="flex gap-2 w-full md:w-auto flex-grow">
+                                            <div class="relative flex-grow">
+                                                <input type="text" id="pos-search-input" placeholder="Buscar producto para venta..." 
+                                                    class="w-full pl-10 pr-4 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-sm">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                    <img src="../Scr/search.svg" alt="Search" class="h-4 w-4 opacity-50">
+                                                </div>
                                             </div>
+                                            <!-- Mobile Toggle Button -->
+                                            <button class="md:hidden p-2 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors shadow-sm border border-gray-200 flex-shrink-0" onclick="document.getElementById('pos-options-wrapper').classList.toggle('hidden'); document.getElementById('pos-options-wrapper').classList.toggle('flex');">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                                                </svg>
+                                            </button>
                                         </div>
 
-                                        <div class="relative w-10 h-10" title="Ordenar Productos">
-                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
-                                                <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
+                                        <div id="pos-options-wrapper" class="hidden md:flex gap-2 justify-end">
+                                            <div class="relative w-10 h-10" title="Ordenar Productos">
+                                                <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                    <img src="../Scr/filter.svg" alt="Sort" class="h-5 w-5 opacity-60">
+                                                </div>
+                                                <select id="pos-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                    <option value="name-asc">Alfabético (A-Z)</option>
+                                                    <option value="price-desc">Mayor Precio</option>
+                                                    <option value="price-asc">Menor Precio</option>
+                                                    <option value="date-desc">Recientes</option>
+                                                </select>
                                             </div>
-                                            <select id="pos-sort-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                                                <option value="name-asc">Alfabético (A-Z)</option>
-                                                <option value="price-desc">Mayor Precio</option>
-                                                <option value="price-asc">Menor Precio</option>
-                                                <option value="date-desc">Recientes</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="relative w-10 h-10" title="Filtrar por Categoría">
-                                            <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
-                                                <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                            
+                                            <div class="relative w-10 h-10" title="Filtrar por Categoría">
+                                                <div class="absolute inset-0 flex items-center justify-center bg-gray-50 border rounded-full hover:bg-gray-100 transition-colors pointer-events-none">
+                                                    <img src="../Scr/shapes.svg" alt="Category" class="h-5 w-5 opacity-60">
+                                                </div>
+                                                <select id="pos-category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                                    <option value="all">Todas</option>
+                                                </select>
                                             </div>
-                                            <select id="pos-category-filter-select" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                                                <option value="all">Todas</option>
-                                            </select>
-                                        </div>
 
-                                        <button id="pos-open-camera-scanner-btn" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center text-lg shadow-md" title="Escanear con Cámara">
-                                            <img src="../Scr/scan.svg" alt="Scan" class="inline h-5 w-5 items-center">
-                                        </button>
+                                            <button id="pos-open-camera-scanner-btn" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center text-lg shadow-md w-10 h-10" title="Escanear con Cámara">
+                                                <img src="../Scr/scan.svg" alt="Scan" class="inline h-5 w-5 items-center">
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
