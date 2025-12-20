@@ -5,12 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../Scr/bank.png" />
     <link rel="canonical" href="https://hug-oh.com/Business/" />
-    <meta name="description" content="Hug-Bank! • Plataforma de negocios para gestionar ventas, productos y estadísticas. Optimiza tu negocio con nuestro sistema de punto de venta fácil de usar.">
+    <meta name="description" content="Hug-Oh! • Plataforma de negocios para gestionar ventas, productos y estadísticas. Optimiza tu negocio con nuestro sistema de punto de venta fácil de usar.">
     <link rel="stylesheet" href="style.css">
-    <title>Hug-Bank! • Business</title>
+    <title>Hug-Oh! • Business</title>
     <script src="https://cdn.tailwindcss.com"></script>
         <!-- button-animations-start -->
         <style>
+        /* Animaciones copiadas del Index principal para la vista de bienvenida */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
         /* Animaciones para botones y elementos - copia desde Normal/index.html */
         .btn-primary, .btn-secondary, button {
             position: relative;
@@ -70,7 +90,44 @@
 
     <div id="app" class="w-full max-w-5xl">
         
-        <div id="charge-setup" class="bg-card">
+        <!-- Vista de Bienvenida Renovada (Estilo Landing Page) -->
+        <div id="welcome-view" class="hidden fixed inset-0 z-50 bg-slate-50 overflow-hidden flex flex-col items-center justify-center">
+            
+            <!-- Fondo Dinámico -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-400/20 rounded-full blur-[100px] animate-float"></div>
+                <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-purple-400/20 rounded-full blur-[100px] animate-float" style="animation-delay: -3s;"></div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div class="relative z-10 text-center p-10 max-w-2xl animate-slide-up glass-card rounded-3xl shadow-2xl border border-white/60 mx-4">
+                <img src="../Scr/bank.png" alt="Hug-Oh! Logo" class="h-28 w-28 mx-auto mb-6 drop-shadow-lg">
+                
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 tracking-tight text-center">
+                    Hug-Oh! <span class="text-blue-600">Business</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-medium text-center">
+                    La plataforma integral para gestionar tu negocio. <br class="hidden md:block">
+                    Controla ventas, inventario y estadísticas en tiempo real.
+                </p>
+                
+                <button onclick="window.location.href='../Login'" class="mx-auto block py-4 px-12 rounded-full text-lg font-bold text-white btn-primary bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/30 transform transition hover:-translate-y-1 w-full md:w-auto">
+                    Iniciar Sesión
+                </button>
+                
+                <p class="mt-8 text-sm text-gray-400 font-medium text-center">
+                    Acceso exclusivo para comercios afiliados.
+                </p>
+            </div>
+
+            <!-- Footer simple -->
+            <div class="absolute bottom-6 w-full text-center text-xs text-gray-400 font-medium animate-slide-up" style="animation-delay: 0.2s;">
+                © 2024 Hug-Oh! Financial Services
+            </div>
+        </div>
+
+        <div id="charge-setup" class="bg-card hidden">
                 <div class="p-4 md:p-6 border-b flex justify-between items-center relative">
                      <div class="z-10">
                         <h2 id="current-view-title" class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
