@@ -3,7 +3,6 @@
    <url>
       <loc>https://hug-oh.com/</loc>
       <lastmod>2025-12-19</lastmod>
-      <description>Hug-Oh! es una plataforma financiera innovadora que ofrece servicios bancarios y aplicaciones móviles para facilitar la gestión de tus finanzas personales y empresariales.</description>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
    </url>
@@ -47,12 +46,12 @@
       <loc>https://hug-oh.com/Bank/Terminos.pdf</loc>
       <lastmod>2025-12-19</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <priority>0.2</priority>
    </url>
    <url>
       <loc>https://hug-oh.com/Business/Terminos.pdf</loc>
       <lastmod>2025-12-19</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
+      <priority>0.2</priority>
    </url>
 </urlset>
