@@ -1,1 +1,2290 @@
-const _0x353936=_0x2c29;(function(_0x388e8c,_0x4e63ef){const _0x5ac6f3=_0x2c29,_0x5637ef=_0x388e8c();while(!![]){try{const _0x6f818e=parseInt(_0x5ac6f3(0x654))/(0x4*0x987+-0xf*0xaa+-0x1c25)*(parseInt(_0x5ac6f3(0x52b))/(0x4a*0x71+0x1a1b*0x1+-0x865*0x7))+parseInt(_0x5ac6f3(0x7cb))/(-0x8df+0x5*0x35+0x7d9)*(parseInt(_0x5ac6f3(0x96c))/(0x2*0x5e+-0x165e+0xad3*0x2))+-parseInt(_0x5ac6f3(0x97a))/(0x1e3b+0x15*-0x1bb+0x3*0x20b)*(-parseInt(_0x5ac6f3(0x5f6))/(-0xcf1*-0x1+0xc2+-0xdad))+-parseInt(_0x5ac6f3(0x79f))/(0x255e+-0x1*-0x93f+-0x59*0x86)+parseInt(_0x5ac6f3(0x2dd))/(0x1782+-0x1830+0xd*0xe)*(parseInt(_0x5ac6f3(0x182))/(-0x1937+-0x2cf*0x1+0x1c0f))+-parseInt(_0x5ac6f3(0x6cb))/(0x1df9+0x1*-0x349+0x3*-0x8e2)*(-parseInt(_0x5ac6f3(0x5e4))/(-0x1*-0x2686+0xf2*-0xc+-0x1b23))+-parseInt(_0x5ac6f3(0x99a))/(-0x3f6+0x22c9+-0x1ec7)*(parseInt(_0x5ac6f3(0x817))/(0x4e*-0x22+0xa*-0x142+0x16fd));if(_0x6f818e===_0x4e63ef)break;else _0x5637ef['push'](_0x5637ef['shift']());}catch(_0x1f14b1){_0x5637ef['push'](_0x5637ef['shift']());}}}(_0x1df6,0x7d885+0xcaf31+-0x8b40e*0x1));import{initializeApp}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';import{getAuth,signOut,onAuthStateChanged,signInAnonymously,signInWithCustomToken}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';import{getFirestore,doc,setDoc,getDoc,updateDoc,runTransaction,collection,query,orderBy,onSnapshot,addDoc,serverTimestamp,where,getDocs,arrayUnion,deleteDoc,getDocs as _0x10c02e}from'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';const firebaseConfig={'apiKey':_0x353936(0x7f9)+_0x353936(0x1eb)+_0x353936(0x60c)+_0x353936(0x150),'authDomain':_0x353936(0x98f)+_0x353936(0x269)+'om','projectId':_0x353936(0x8b1),'storageBucket':_0x353936(0x98f)+_0x353936(0x8d3)+_0x353936(0x414),'messagingSenderId':_0x353936(0x491)+_0x353936(0x75f),'appId':_0x353936(0x98e)+_0x353936(0x3c7)+_0x353936(0x84b)+_0x353936(0x7a1)+'9b','measurementId':_0x353936(0x39c)+'43'},ARTIFACTS_PREFIX=_0x353936(0x206)+_0x353936(0x883)+_0x353936(0x212);typeof firebaseConfig[_0x353936(0x21b)]===_0x353936(0x1b6)&&(firebaseConfig[_0x353936(0x21b)]=firebaseConfig[_0x353936(0x21b)][_0x353936(0x502)]());window[_0x353936(0x999)+_0x353936(0x5ba)]=null;let app=null,auth=null,db=null;try{app=initializeApp(firebaseConfig);try{app&&(!app[_0x353936(0x7a4)]||!app[_0x353936(0x7a4)][_0x353936(0x6e7)])&&(app[_0x353936(0x7a4)]=Object[_0x353936(0x334)]({},app[_0x353936(0x7a4)]||{},{'projectId':firebaseConfig[_0x353936(0x6e7)]}));}catch(_0x6a34cc){window[_0x353936(0x999)+_0x353936(0x5ba)]=window[_0x353936(0x999)+_0x353936(0x5ba)]||{'step':_0x353936(0x727)+_0x353936(0x342),'message':_0x6a34cc&&_0x6a34cc[_0x353936(0x23d)]?_0x6a34cc[_0x353936(0x23d)]:String(_0x6a34cc)};}}catch(_0x27c292){window[_0x353936(0x999)+_0x353936(0x5ba)]={'step':_0x353936(0x770)+_0x353936(0x542),'message':_0x27c292&&_0x27c292[_0x353936(0x23d)]?_0x27c292[_0x353936(0x23d)]:String(_0x27c292)};}const FIXED_APP_ID=_0x353936(0x883)+_0x353936(0x212);try{if(app){try{auth=getAuth(app);}catch(_0x5e0424){window[_0x353936(0x999)+_0x353936(0x5ba)]={'step':_0x353936(0x47c),'message':_0x5e0424&&_0x5e0424[_0x353936(0x23d)]?_0x5e0424[_0x353936(0x23d)]:String(_0x5e0424)},auth=null;}try{(!app[_0x353936(0x7a4)]||!app[_0x353936(0x7a4)][_0x353936(0x6e7)])&&(app[_0x353936(0x7a4)]=Object[_0x353936(0x334)]({},app[_0x353936(0x7a4)]||{},{'projectId':firebaseConfig[_0x353936(0x6e7)]})),db=getFirestore(app);}catch(_0x4a4773){window[_0x353936(0x999)+_0x353936(0x5ba)]={'step':_0x353936(0x7cf)+'re','message':_0x4a4773&&_0x4a4773[_0x353936(0x23d)]?_0x4a4773[_0x353936(0x23d)]:String(_0x4a4773)},db=null;}}else{if(!window[_0x353936(0x999)+_0x353936(0x5ba)])window[_0x353936(0x999)+_0x353936(0x5ba)]={'step':_0x353936(0x403)+'g','message':_0x353936(0x3e6)+_0x353936(0x7d6)+_0x353936(0x833)};}}catch(_0x32bab6){window[_0x353936(0x999)+_0x353936(0x5ba)]={'step':_0x353936(0x8eb)+_0x353936(0x25e),'message':_0x32bab6&&_0x32bab6[_0x353936(0x23d)]?_0x32bab6[_0x353936(0x23d)]:String(_0x32bab6)};}window[_0x353936(0x72e)+_0x353936(0x381)]={'app':app,'auth':auth,'db':db,'appId':FIXED_APP_ID};async function waitForFirebaseAuth(_0x4e2d3e=-0x1536+-0x3*0xc67+0x55c3){const _0xdb345f=_0x353936,_0x3bd5d9={'syCQA':_0xdb345f(0x4f3)+_0xdb345f(0x83d),'XkFnK':function(_0x58dd99,_0x502986){return _0x58dd99>_0x502986;},'VceYd':function(_0x306c8a,_0x20a40e){return _0x306c8a-_0x20a40e;},'ppSRr':_0xdb345f(0x701)+_0xdb345f(0x6cc)+_0xdb345f(0x341)+'h'},_0x240a77=Date[_0xdb345f(0x48b)]();while(!![]){if(window[_0xdb345f(0x999)+_0xdb345f(0x5ba)])throw new Error(window[_0xdb345f(0x999)+_0xdb345f(0x5ba)][_0xdb345f(0x23d)]||_0x3bd5d9[_0xdb345f(0x2bf)]);const _0x129602=window[_0xdb345f(0x72e)+_0xdb345f(0x381)]||{};if(_0x129602[_0xdb345f(0x310)])return auth=_0x129602[_0xdb345f(0x310)],_0x129602[_0xdb345f(0x310)];if(_0x3bd5d9[_0xdb345f(0x1cc)](_0x3bd5d9[_0xdb345f(0x981)](Date[_0xdb345f(0x48b)](),_0x240a77),_0x4e2d3e))throw new Error(_0x3bd5d9[_0xdb345f(0x462)]);await new Promise(_0x5b3c25=>setTimeout(_0x5b3c25,-0x3*-0x56b+0x452+-0x13fd*0x1));}}let currentUser=null,appId=_0x353936(0x883)+_0x353936(0x212);const views={'dashboard':document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x3a7)+_0x353936(0x399)),'transfer':document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4c5)+_0x353936(0x695))},messageBox=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x737)+'x'),transactionTypeSelect=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x6ef)+_0x353936(0x273)),interestRateField=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x1c7)+_0x353936(0x88f)),transactionsList=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x6ef)+_0x353936(0x1fe)),debtsList=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x404)),creditScoreDisplay=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x5a6)+_0x353936(0x6df)),userNameDisplay=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x959)+_0x353936(0x7bc)),loanRequestsList=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x7e4)+_0x353936(0x422)),recipientIdInput=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x31a)+'id'),recipientIdLabel=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x31a)+_0x353936(0x1f9)),transferSubmitBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x7e7)+_0x353936(0x844)),amountInput=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x23e)),interestInput=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x2e1)),descriptionInput=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x7cc)+'n'),scoreModal=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4e3)+'l'),closeBtn=document[_0x353936(0x3ff)+_0x353936(0x565)](_0x353936(0x71a)),scoreForm=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x8bb)),scoreModalRecipientName=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4e3)+_0x353936(0x3e3)+_0x353936(0x471)),scoreModalRecipientId=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4e3)+_0x353936(0x3e3)+_0x353936(0x7ec)),contactsModal=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x607)+_0x353936(0x83f)),openContactsBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x95a)+_0x353936(0x517)),closeContactsModalBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x225)+_0x353936(0x87b)),addContactForm=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x6fb)+_0x353936(0x501)),contactUidInput=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x495)+'d'),contactsList=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x1dd)+_0x353936(0x625));function showMessage(_0x1d85c9,_0x5dacaf=_0x353936(0x763)){const _0x54af13=_0x353936,_0x1fdffd={'gnDtI':_0x54af13(0x4a7),'FJiGV':_0x54af13(0x132)+_0x54af13(0x867)+_0x54af13(0x352)+_0x54af13(0x859)+_0x54af13(0x85a)+_0x54af13(0x82d),'uUEsB':function(_0x1b8072,_0x2a332b){return _0x1b8072===_0x2a332b;},'yeQuV':_0x54af13(0x763),'OQLOm':_0x54af13(0x780)+'00','lGLZH':_0x54af13(0x321)+_0x54af13(0x4ed),'GGUwL':_0x54af13(0x628),'mWgGN':_0x54af13(0x81b),'eXLIn':_0x54af13(0x696)+'00','NzAis':_0x54af13(0x584),'tEDDg':_0x54af13(0x55c)+'0','VZSFk':_0x54af13(0x254)+_0x54af13(0x703),'mQWiI':function(_0x59fc4c,_0x30443c,_0x38b8a8){return _0x59fc4c(_0x30443c,_0x38b8a8);}};messageBox[_0x54af13(0x4eb)+'t']=_0x1d85c9,messageBox[_0x54af13(0x1ed)]=_0x1fdffd[_0x54af13(0x54f)];if(_0x1fdffd[_0x54af13(0x608)](_0x5dacaf,_0x1fdffd[_0x54af13(0x2e9)]))messageBox[_0x54af13(0x30a)][_0x54af13(0x6b8)](_0x1fdffd[_0x54af13(0x6a7)],_0x1fdffd[_0x54af13(0x788)]);else{if(_0x1fdffd[_0x54af13(0x608)](_0x5dacaf,_0x1fdffd[_0x54af13(0x5e0)]))messageBox[_0x54af13(0x30a)][_0x54af13(0x6b8)](_0x1fdffd[_0x54af13(0x208)],_0x1fdffd[_0x54af13(0x67f)]);else _0x1fdffd[_0x54af13(0x608)](_0x5dacaf,_0x1fdffd[_0x54af13(0x4e4)])&&messageBox[_0x54af13(0x30a)][_0x54af13(0x6b8)](_0x1fdffd[_0x54af13(0x167)],_0x1fdffd[_0x54af13(0x3fb)]);}messageBox[_0x54af13(0x30a)][_0x54af13(0x19b)](_0x1fdffd[_0x54af13(0x878)]),_0x1fdffd[_0x54af13(0x4dd)](setTimeout,()=>{const _0x3dcca5=_0x54af13;messageBox[_0x3dcca5(0x30a)][_0x3dcca5(0x6b8)](_0x1fdffd[_0x3dcca5(0x878)]);},-0x8d3+0x3b*-0x73+0x36dc);}const confirmModal=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x586)),confirmModalIcon=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x50a)),confirmModalTitle=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x550)),confirmModalMessage=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x6aa)+'e'),confirmModalCancelBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x8c7)),confirmModalConfirmBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4bf)+_0x353936(0x617)+'m');let confirmResolve=null;function showConfirmModal(_0x3ca514,_0x12c4dd,_0xdd6a6c=_0x353936(0x988)){const _0x414ab9=_0x353936,_0x3e920e={'znljI':_0x414ab9(0x24a)+_0x414ab9(0x244),'NWxDU':function(_0x366f2d,_0x48cc1c){return _0x366f2d===_0x48cc1c;},'hjgCw':_0x414ab9(0x5ab),'zYQjH':_0x414ab9(0x584),'fEHQF':_0x414ab9(0x988),'KAljZ':function(_0x3e4d5d,_0x3d8deb){return _0x3e4d5d===_0x3d8deb;},'ZgoEe':_0x414ab9(0x4bf)+_0x414ab9(0x28c)+_0x414ab9(0x37d)+_0x414ab9(0x784)+_0x414ab9(0x367),'mAxEi':_0x414ab9(0x65b),'PFuda':_0x414ab9(0x693)};return new Promise(_0x25dd1b=>{const _0x25e8fe=_0x414ab9,_0x2d1570=_0x3e920e[_0x25e8fe(0x3f6)][_0x25e8fe(0x714)]('|');let _0x5517b8=-0x2653+-0x379+0x29cc;while(!![]){switch(_0x2d1570[_0x5517b8++]){case'0':confirmModalMessage[_0x25e8fe(0x5e9)]=_0x12c4dd;continue;case'1':confirmResolve=_0x25dd1b;continue;case'2':confirmModalTitle[_0x25e8fe(0x4eb)+'t']=_0x3ca514;continue;case'3':confirmModalIcon[_0x25e8fe(0x1ed)]=_0x25e8fe(0x4bf)+_0x25e8fe(0x314)+(_0x3e920e[_0x25e8fe(0x2a7)](_0xdd6a6c,_0x3e920e[_0x25e8fe(0x7a8)])?_0x3e920e[_0x25e8fe(0x7a8)]:_0x3e920e[_0x25e8fe(0x2a7)](_0xdd6a6c,_0x3e920e[_0x25e8fe(0x4b8)])?_0x3e920e[_0x25e8fe(0x4b8)]:_0x3e920e[_0x25e8fe(0x6cd)]);continue;case'4':_0x3e920e[_0x25e8fe(0x1ce)](_0xdd6a6c,_0x3e920e[_0x25e8fe(0x7a8)])&&(confirmModalConfirmBtn[_0x25e8fe(0x1ed)]=_0x3e920e[_0x25e8fe(0x847)],confirmModalConfirmBtn[_0x25e8fe(0x509)][_0x25e8fe(0x475)+_0x25e8fe(0x200)]=_0x3e920e[_0x25e8fe(0x43f)]);continue;case'5':confirmModal[_0x25e8fe(0x30a)][_0x25e8fe(0x6b8)](_0x3e920e[_0x25e8fe(0x8c1)]);continue;case'6':confirmModalIcon[_0x25e8fe(0x4eb)+'t']=_0x3e920e[_0x25e8fe(0x2a7)](_0xdd6a6c,_0x3e920e[_0x25e8fe(0x7a8)])?'⚠️':_0x3e920e[_0x25e8fe(0x1ce)](_0xdd6a6c,_0x3e920e[_0x25e8fe(0x4b8)])?'ℹ️':'❓';continue;}break;}});}confirmModalCancelBtn[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>{const _0x42e7cb=_0x353936,_0x57d9d4={'sHnxE':_0x42e7cb(0x693),'KJTsR':function(_0x10eff9,_0x3d6cad){return _0x10eff9(_0x3d6cad);}};confirmModal[_0x42e7cb(0x30a)][_0x42e7cb(0x19b)](_0x57d9d4[_0x42e7cb(0x58d)]);if(confirmResolve)_0x57d9d4[_0x42e7cb(0x866)](confirmResolve,![]);}),confirmModalConfirmBtn[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>{const _0xd1216e=_0x353936,_0x48e11c={'pGglh':_0xd1216e(0x693),'nsTgi':function(_0x354bab,_0x27f40d){return _0x354bab(_0x27f40d);}};confirmModal[_0xd1216e(0x30a)][_0xd1216e(0x19b)](_0x48e11c[_0xd1216e(0x187)]);if(confirmResolve)_0x48e11c[_0xd1216e(0x6be)](confirmResolve,!![]);}),confirmModal[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),_0x54396b=>{const _0x2b950c=_0x353936,_0x527096={'QVXdD':function(_0x3bd8be,_0x1c5415){return _0x3bd8be===_0x1c5415;},'qJimO':_0x2b950c(0x693),'AAomy':function(_0x6441ff,_0x439d3){return _0x6441ff(_0x439d3);}};if(_0x527096[_0x2b950c(0x204)](_0x54396b[_0x2b950c(0x97e)],confirmModal)){confirmModal[_0x2b950c(0x30a)][_0x2b950c(0x19b)](_0x527096[_0x2b950c(0x18e)]);if(confirmResolve)_0x527096[_0x2b950c(0x234)](confirmResolve,![]);}}),document[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x26d),_0x34ad31=>{const _0x46010e=_0x353936,_0x20d8d7={'GjlIR':function(_0x985141,_0x5a678e){return _0x985141===_0x5a678e;},'mqRAY':_0x46010e(0x1e4),'dLclh':_0x46010e(0x693),'RNWbK':function(_0x252c5b,_0x3072d2){return _0x252c5b(_0x3072d2);}};if(_0x20d8d7[_0x46010e(0x294)](_0x34ad31[_0x46010e(0x7ed)],_0x20d8d7[_0x46010e(0x750)])&&confirmModal[_0x46010e(0x30a)][_0x46010e(0x33d)](_0x20d8d7[_0x46010e(0x713)])){confirmModal[_0x46010e(0x30a)][_0x46010e(0x19b)](_0x20d8d7[_0x46010e(0x713)]);if(confirmResolve)_0x20d8d7[_0x46010e(0x349)](confirmResolve,![]);}});function _0x2c29(_0x238dc0,_0x187ff4){_0x238dc0=_0x238dc0-(-0x1f7b+0x23f4+-0x355);const _0x1b6e10=_0x1df6();let _0x44db8b=_0x1b6e10[_0x238dc0];return _0x44db8b;}function switchView(_0x370901){const _0x38c457=_0x353936,_0x18ddf7={'poVkH':_0x38c457(0x4a7)};Object[_0x38c457(0x43d)](views)[_0x38c457(0x8d7)](_0x19671e=>_0x19671e[_0x38c457(0x30a)][_0x38c457(0x6b8)](_0x38c457(0x4a7))),views[_0x370901][_0x38c457(0x30a)][_0x38c457(0x19b)](_0x18ddf7[_0x38c457(0x31c)]);}function getRequiredMinimumInterest(_0x30bf7d){const _0x512e57=_0x353936,_0xa338ab={'cOwIB':function(_0x34131c,_0x328855){return _0x34131c>=_0x328855;},'IYAsB':function(_0x472a87,_0x509a93){return _0x472a87>_0x509a93;}};if(_0xa338ab[_0x512e57(0x3c0)](_0x30bf7d,-0x1ac+0xbd8+-0xb*0xd6))return 0x165d+0xb+-0xb2f*0x2;else{if(_0xa338ab[_0x512e57(0x3c0)](_0x30bf7d,-0x1fc7+0x40a+0x1bef*0x1))return-0x2*-0x482+-0x1973+0x34b*0x5;else{if(_0xa338ab[_0x512e57(0x5de)](_0x30bf7d,-0x1532+-0x21b5+-0x5*-0xafb))return-0xf1*-0x1+-0x2589*-0x1+0x37f*-0xb;}}return-0xd03*-0x2+0x4*-0x89+-0x17dd;}function updateMinimumInterest(){const _0x48eff1=_0x353936,_0x108c0b={'FqEiu':function(_0x41cf19,_0x2c5a51){return _0x41cf19===_0x2c5a51;},'rKEqR':_0x48eff1(0x6da),'cSjdQ':function(_0x4f0fba,_0x528c9b){return _0x4f0fba(_0x528c9b);},'fjPBG':function(_0x34edc2,_0x31dc73){return _0x34edc2(_0x31dc73);},'uUGFd':_0x48eff1(0x8ea),'ywfeM':function(_0x86129c,_0xd062e7){return _0x86129c(_0xd062e7);},'rUGCt':function(_0xd27ece,_0x1f0a63){return _0xd27ece<_0x1f0a63;}},_0x30de3b=transactionTypeSelect[_0x48eff1(0x21e)];if(_0x108c0b[_0x48eff1(0x41c)](_0x30de3b,_0x108c0b[_0x48eff1(0x38f)]))return;const _0x4d4141=_0x108c0b[_0x48eff1(0x935)](parseFloat,amountInput[_0x48eff1(0x21e)])||-0x259d+-0xa09+0x2fa6,_0xc5795a=_0x108c0b[_0x48eff1(0x905)](getRequiredMinimumInterest,_0x4d4141);interestInput[_0x48eff1(0x7d8)+'te'](_0x108c0b[_0x48eff1(0x460)],_0xc5795a[_0x48eff1(0x5ee)]());let _0x248046=_0x108c0b[_0x48eff1(0x765)](parseFloat,interestInput[_0x48eff1(0x21e)])||-0x1d95*-0x1+-0x10d1+-0xcc4;_0x108c0b[_0x48eff1(0x5b8)](_0x248046,_0xc5795a)&&(interestInput[_0x48eff1(0x21e)]=_0xc5795a[_0x48eff1(0x5ee)]());}closeBtn[_0x353936(0x3a0)]=()=>{const _0x2edf6e=_0x353936,_0x197d84={'nliOx':_0x2edf6e(0x74c)};scoreModal[_0x2edf6e(0x509)][_0x2edf6e(0x7bc)]=_0x197d84[_0x2edf6e(0x858)];},window[_0x353936(0x3a0)]=_0xf0cd30=>{const _0x542de4=_0x353936,_0x4600f5={'DRvRS':function(_0x236e68,_0x37ef45){return _0x236e68===_0x37ef45;},'ddnZi':_0x542de4(0x74c)};_0x4600f5[_0x542de4(0x880)](_0xf0cd30[_0x542de4(0x97e)],scoreModal)&&(scoreModal[_0x542de4(0x509)][_0x542de4(0x7bc)]=_0x4600f5[_0x542de4(0x820)]);},scoreForm[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x12d),async _0x253536=>{const _0x103a84=_0x353936,_0x3fe188={'puADp':function(_0x36c461,_0x1b7498){return _0x36c461(_0x1b7498);},'FbMDR':_0x103a84(0x987)+_0x103a84(0x692)+_0x103a84(0x2d5),'QlwTK':_0x103a84(0x1c0)+_0x103a84(0x323),'trfyE':_0x103a84(0x73d)+_0x103a84(0x38e),'fuCMO':_0x103a84(0x51a)+'4','SCcRM':function(_0x1b1619,_0x66111c,_0x1c5d04){return _0x1b1619(_0x66111c,_0x1c5d04);},'qmZdu':_0x103a84(0x3bb)+_0x103a84(0x507)+_0x103a84(0x6ce),'KQroT':_0x103a84(0x763),'vTGht':function(_0x510452,_0x21405b,_0x1d84ed){return _0x510452(_0x21405b,_0x1d84ed);},'suIKm':_0x103a84(0x74c),'xxGPT':function(_0x3a2ebb,_0x33e235){return _0x3a2ebb(_0x33e235);},'BGclh':_0x103a84(0x6f5)+_0x103a84(0x8f5)+_0x103a84(0x736),'hENBR':_0x103a84(0x628)};_0x253536[_0x103a84(0x510)+_0x103a84(0x5f7)]();const _0x3f52ff=_0x3fe188[_0x103a84(0x8f6)](parseInt,document[_0x103a84(0x3ff)+_0x103a84(0x565)](_0x3fe188[_0x103a84(0x1c8)])[_0x103a84(0x21e)]),_0x2fc19f=scoreForm[_0x103a84(0x8c4)+'te'](_0x3fe188[_0x103a84(0x2cf)]),_0x47401c=scoreForm[_0x103a84(0x8c4)+'te'](_0x3fe188[_0x103a84(0x717)]);try{const _0x4a085b=_0x3fe188[_0x103a84(0x41e)][_0x103a84(0x714)]('|');let _0x44428a=-0x1*0x151b+-0x2115+0x3630;while(!![]){switch(_0x4a085b[_0x44428a++]){case'0':await _0x3fe188[_0x103a84(0x375)](saveCreditScore,_0x47401c,_0x3f52ff);continue;case'1':_0x3fe188[_0x103a84(0x375)](showMessage,_0x3fe188[_0x103a84(0x97d)],_0x3fe188[_0x103a84(0x3d5)]);continue;case'2':await _0x3fe188[_0x103a84(0x5bf)](updateDoc,_0x3fe188[_0x103a84(0x375)](doc,db,_0x103a84(0x206)+appId+_0x103a84(0x238)+currentUser[_0x103a84(0x2e5)]+(_0x103a84(0x345)+_0x103a84(0x6c8))+_0x2fc19f),{'scoreGiven':!![],'score':_0x3f52ff});continue;case'3':scoreModal[_0x103a84(0x509)][_0x103a84(0x7bc)]=_0x3fe188[_0x103a84(0x5fa)];continue;case'4':_0x3fe188[_0x103a84(0x8f6)](listenToTransactions,currentUser[_0x103a84(0x2e5)]);continue;case'5':_0x3fe188[_0x103a84(0x24d)](loadBalance,currentUser[_0x103a84(0x2e5)]);continue;}break;}}catch(_0x1bf731){console[_0x103a84(0x628)](_0x3fe188[_0x103a84(0x63c)],_0x1bf731),_0x3fe188[_0x103a84(0x5bf)](showMessage,_0x103a84(0x6f5)+_0x103a84(0x8f5)+_0x103a84(0x849)+_0x1bf731[_0x103a84(0x23d)],_0x3fe188[_0x103a84(0x32c)]);}}),document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x282)+_0x353936(0x306))[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>{const _0x3b8931=_0x353936,_0x5664a9={'AmGvX':function(_0x466974,_0x2fc723){return _0x466974(_0x2fc723);},'eUuRN':_0x3b8931(0x6da)};_0x5664a9[_0x3b8931(0x51b)](switchView,_0x5664a9[_0x3b8931(0x5a2)]);}),document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x62d)+_0x353936(0x4aa)+'n')[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>{const _0x3b0eaa=_0x353936,_0x374e75={'RbvpT':function(_0x36e523,_0x1fbd8b){return _0x36e523(_0x1fbd8b);},'yKKzK':_0x3b0eaa(0x15f)};_0x374e75[_0x3b0eaa(0x33e)](switchView,_0x374e75[_0x3b0eaa(0x8d4)]);}),amountInput[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x2be),updateMinimumInterest),transactionTypeSelect[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x28a),_0x20a160=>{const _0x126d73=_0x353936,_0x2c3088={'sZcsi':function(_0x5ca276,_0x4412b7){return _0x5ca276===_0x4412b7;},'fqdXJ':_0x126d73(0x7e4)+'st','TYGXF':_0x126d73(0x4a7),'eBGhp':_0x126d73(0x6da),'BEyKu':_0x126d73(0x4e9)+_0x126d73(0x699)+_0x126d73(0x2d2),'nsBqZ':_0x126d73(0x209)+_0x126d73(0x821)+_0x126d73(0x8ab),'vAAeq':_0x126d73(0x5bb)+_0x126d73(0x3f2)+_0x126d73(0x5c9),'ttUlj':_0x126d73(0x596)+_0x126d73(0x66c),'yGxKJ':_0x126d73(0x775)+_0x126d73(0x45a),'qnYRk':_0x126d73(0x454),'PJSXF':function(_0x2de917,_0x18dd56){return _0x2de917!==_0x18dd56;},'Fuuih':function(_0x49fc1f){return _0x49fc1f();},'qwjpH':_0x126d73(0x8ea)},_0x14bf08=_0x20a160[_0x126d73(0x97e)][_0x126d73(0x21e)],_0x17e950=_0x2c3088[_0x126d73(0x680)](_0x14bf08,_0x2c3088[_0x126d73(0x588)]);interestRateField[_0x126d73(0x30a)][_0x126d73(0x450)](_0x2c3088[_0x126d73(0x777)],_0x2c3088[_0x126d73(0x680)](_0x14bf08,_0x2c3088[_0x126d73(0x4ff)])),recipientIdInput[_0x126d73(0x2c5)]=!_0x17e950,recipientIdInput[_0x126d73(0x21e)]=_0x17e950?'':recipientIdInput[_0x126d73(0x21e)],recipientIdInput[_0x126d73(0x263)]=_0x17e950,recipientIdInput[_0x126d73(0x315)+'r']=_0x17e950?_0x2c3088[_0x126d73(0x242)]:_0x2c3088[_0x126d73(0x3ad)],recipientIdLabel[_0x126d73(0x4eb)+'t']=_0x17e950?_0x2c3088[_0x126d73(0x908)]:_0x2c3088[_0x126d73(0x8ae)],transferSubmitBtn[_0x126d73(0x4eb)+'t']=_0x17e950?_0x2c3088[_0x126d73(0x38c)]:_0x2c3088[_0x126d73(0x67c)],_0x2c3088[_0x126d73(0x455)](_0x14bf08,_0x2c3088[_0x126d73(0x4ff)])?_0x2c3088[_0x126d73(0x429)](updateMinimumInterest):interestInput[_0x126d73(0x7d8)+'te'](_0x2c3088[_0x126d73(0x7dd)],'0');}),transactionTypeSelect[_0x353936(0x638)+_0x353936(0x84e)](new Event(_0x353936(0x28a))),document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x154))[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),async()=>{const _0x50de8e=_0x353936,_0x51e74a={'MMjxT':function(_0x2b2b7c){return _0x2b2b7c();},'zUMYD':function(_0x23bd6a,_0x3456c4){return _0x23bd6a(_0x3456c4);},'CiTHF':_0x50de8e(0x48f)+_0x50de8e(0x215)+_0x50de8e(0x47d),'VvMYd':function(_0x4e4291,_0x34dd56,_0xa0c503){return _0x4e4291(_0x34dd56,_0xa0c503);},'TuXHm':_0x50de8e(0x48f)+_0x50de8e(0x215)+_0x50de8e(0x394),'AkpqA':_0x50de8e(0x628)};try{const _0x22ff5e=await _0x51e74a[_0x50de8e(0x64a)](waitForFirebaseAuth)[_0x50de8e(0x32b)](_0x5b5330=>{throw _0x5b5330;});await _0x51e74a[_0x50de8e(0x364)](signOut,_0x22ff5e),window[_0x50de8e(0x46a)][_0x50de8e(0x397)]();}catch(_0x3fa202){console[_0x50de8e(0x628)](_0x51e74a[_0x50de8e(0x7e9)],_0x3fa202),_0x51e74a[_0x50de8e(0x563)](showMessage,_0x51e74a[_0x50de8e(0x939)],_0x51e74a[_0x50de8e(0x783)]);}}),async function initAuthStateListener(){const _0x2980cf=_0x353936,_0x5cd21f={'joWoE':_0x2980cf(0x1d3)+_0x2980cf(0x27f),'ZiAAi':function(_0x53fe8e,_0x2e1af3){return _0x53fe8e(_0x2e1af3);},'ckWvL':_0x2980cf(0x15f),'BzOmb':function(_0x57fc38,_0x4aadab){return _0x57fc38(_0x4aadab);},'RBHsF':function(_0xc859e6,_0x5e3e50){return _0xc859e6(_0x5e3e50);},'VxTqN':function(_0x42a8f1,_0x195143){return _0x42a8f1(_0x195143);},'QNtro':function(_0xe78840,_0x3eb219){return _0xe78840(_0x3eb219);},'fflwM':_0x2980cf(0x1b1)+'ew','kzmWd':_0x2980cf(0x4a7),'BDFYI':_0x2980cf(0x747)+_0x2980cf(0x709),'IROnW':function(_0x2b6171){return _0x2b6171();},'RyOlE':function(_0x36a62b,_0x3b4779,_0x49aa86){return _0x36a62b(_0x3b4779,_0x49aa86);},'ojQcZ':_0x2980cf(0x1db)+_0x2980cf(0x5ac)+_0x2980cf(0x6d1)+_0x2980cf(0x3e8)+_0x2980cf(0x362)+'r:','ufDVU':_0x2980cf(0x2fd)+_0x2980cf(0x3c5)+_0x2980cf(0x8e1)+_0x2980cf(0x17b)+_0x2980cf(0x134)+_0x2980cf(0x3c8)+_0x2980cf(0x22f)+_0x2980cf(0x6de),'gmDab':_0x2980cf(0x628)};try{const _0x5964c7=await _0x5cd21f[_0x2980cf(0x408)](waitForFirebaseAuth);_0x5cd21f[_0x2980cf(0x694)](onAuthStateChanged,_0x5964c7,async _0x9404cc=>{const _0x4023a1=_0x2980cf;if(_0x9404cc&&!_0x9404cc[_0x4023a1(0x8cf)+'s']){const _0x1ba24f=_0x5cd21f[_0x4023a1(0x83b)][_0x4023a1(0x714)]('|');let _0x24d488=-0xe70+-0x1*0x1bd9+-0x19*-0x1b1;while(!![]){switch(_0x1ba24f[_0x24d488++]){case'0':_0x5cd21f[_0x4023a1(0x6b4)](switchView,_0x5cd21f[_0x4023a1(0x6a6)]);continue;case'1':_0x5cd21f[_0x4023a1(0x67b)](listenToLoanRequests,_0x9404cc[_0x4023a1(0x2e5)]);continue;case'2':_0x5cd21f[_0x4023a1(0x57b)](loadCreditScore,_0x9404cc[_0x4023a1(0x2e5)]);continue;case'3':_0x5cd21f[_0x4023a1(0x6b4)](listenToTransactions,_0x9404cc[_0x4023a1(0x2e5)]);continue;case'4':await _0x5cd21f[_0x4023a1(0x60a)](loadBalance,_0x9404cc[_0x4023a1(0x2e5)]);continue;case'5':_0x5cd21f[_0x4023a1(0x923)](setupRealtimeBalance,_0x9404cc[_0x4023a1(0x2e5)]);continue;case'6':document[_0x4023a1(0x4cd)+_0x4023a1(0x937)](_0x5cd21f[_0x4023a1(0x989)])[_0x4023a1(0x30a)][_0x4023a1(0x6b8)](_0x5cd21f[_0x4023a1(0x39b)]);continue;case'7':document[_0x4023a1(0x4cd)+_0x4023a1(0x937)](_0x5cd21f[_0x4023a1(0x3df)])[_0x4023a1(0x4eb)+'t']=_0x9404cc[_0x4023a1(0x2e5)];continue;case'8':currentUser=_0x9404cc;continue;case'9':_0x5cd21f[_0x4023a1(0x923)](listenToContacts,_0x9404cc[_0x4023a1(0x2e5)]);continue;}break;}}else _0x9404cc&&_0x9404cc[_0x4023a1(0x8cf)+'s']?(await _0x5cd21f[_0x4023a1(0x67b)](signOut,_0x5964c7),document[_0x4023a1(0x4cd)+_0x4023a1(0x937)](_0x5cd21f[_0x4023a1(0x989)])[_0x4023a1(0x30a)][_0x4023a1(0x19b)](_0x5cd21f[_0x4023a1(0x39b)])):(currentUser=null,document[_0x4023a1(0x4cd)+_0x4023a1(0x937)](_0x5cd21f[_0x4023a1(0x989)])[_0x4023a1(0x30a)][_0x4023a1(0x19b)](_0x5cd21f[_0x4023a1(0x39b)]));});}catch(_0x2252e4){console[_0x2980cf(0x628)](_0x5cd21f[_0x2980cf(0x69e)],_0x2252e4),_0x5cd21f[_0x2980cf(0x694)](showMessage,_0x5cd21f[_0x2980cf(0x488)],_0x5cd21f[_0x2980cf(0x77f)]);}}();async function resetCreditScore(_0x4430c5){const _0x468f6d=_0x353936,_0x3fee00={'AbTen':_0x468f6d(0x649)+_0x468f6d(0x5ad)+'.','QbMfc':function(_0x3b5e8b,_0x1f69be){return _0x3b5e8b<_0x1f69be;},'wRGZy':_0x468f6d(0x20d)+_0x468f6d(0x52a)+_0x468f6d(0x4bd)+_0x468f6d(0x5f5)+'.','aSSKy':function(_0x254754,_0x11f0ca){return _0x254754-_0x11f0ca;},'rjENb':function(_0x1a146d,_0x1aac7e,_0x4d1034){return _0x1a146d(_0x1aac7e,_0x4d1034);},'eNyfd':function(_0x52793b,_0x5334ae,_0x25800d,_0x5ccc74){return _0x52793b(_0x5334ae,_0x25800d,_0x5ccc74);},'ScyOj':_0x468f6d(0x12f)+_0x468f6d(0x309)+_0x468f6d(0x711),'AOYUG':_0x468f6d(0x988),'dhHAn':_0x468f6d(0x4ac)+_0x468f6d(0x40c)+_0x468f6d(0x792)+_0x468f6d(0x8df),'vEJgB':_0x468f6d(0x584),'igUkT':function(_0x222306,_0x1c4b7b){return _0x222306(_0x1c4b7b);},'BRust':function(_0x332ac2,_0x51a6af,_0x3549f7){return _0x332ac2(_0x51a6af,_0x3549f7);},'aLkKx':_0x468f6d(0x289),'JKaSe':_0x468f6d(0x674)+_0x468f6d(0x73a),'OoVTL':_0x468f6d(0x13b)+_0x468f6d(0x749)+_0x468f6d(0x2cb)+_0x468f6d(0x8d6)+_0x468f6d(0x804)+_0x468f6d(0x320)+_0x468f6d(0x712)+_0x468f6d(0x3d0)+_0x468f6d(0x5cc)+_0x468f6d(0x7d5),'Zlznn':_0x468f6d(0x763),'rkMwo':function(_0x3d1050,_0x55b18b){return _0x3d1050(_0x55b18b);},'uIfrW':_0x468f6d(0x585)+_0x468f6d(0x32d)+_0x468f6d(0x459),'UZous':function(_0xcf7ad9,_0x5649e5,_0x3e7e1b){return _0xcf7ad9(_0x5649e5,_0x3e7e1b);},'OTDnT':_0x468f6d(0x628)};if(!_0x4430c5)return;const _0x313091=-0x1904+-0xe6b+-0x1*-0x2774,_0x1650e3=_0x3fee00[_0x468f6d(0x560)](doc,db,_0x468f6d(0x206)+appId+_0x468f6d(0x238)+_0x4430c5+(_0x468f6d(0x3bc)+_0x468f6d(0x47a))),_0x33f944=await _0x3fee00[_0x468f6d(0x90d)](showConfirmModal,_0x3fee00[_0x468f6d(0x3b4)],_0x468f6d(0x50d)+_0x468f6d(0x7fc)+_0x313091[_0x468f6d(0x4c0)](0x3*-0x527+-0xa2d*-0x1+0x54a)+(_0x468f6d(0x971)+_0x468f6d(0x146)+_0x468f6d(0x372)+_0x468f6d(0x62e)+_0x468f6d(0x7a2)+_0x468f6d(0x58f)+_0x468f6d(0x6b9)+_0x468f6d(0x285)+_0x468f6d(0x618)+_0x468f6d(0x1a1)),_0x3fee00[_0x468f6d(0x5e7)]);if(!_0x33f944){_0x3fee00[_0x468f6d(0x560)](showMessage,_0x3fee00[_0x468f6d(0x60e)],_0x3fee00[_0x468f6d(0x7b8)]);return;}try{await _0x3fee00[_0x468f6d(0x560)](runTransaction,db,async _0x5e057a=>{const _0x4fbf33=_0x468f6d,_0x2df9f0=await _0x5e057a[_0x4fbf33(0x34b)](_0x1650e3);if(!_0x2df9f0[_0x4fbf33(0x5b6)]())throw new Error(_0x3fee00[_0x4fbf33(0x43a)]);const _0x54605f=_0x2df9f0[_0x4fbf33(0x5f0)]()[_0x4fbf33(0x361)];if(_0x3fee00[_0x4fbf33(0x1ec)](_0x54605f,_0x313091))throw new Error(_0x3fee00[_0x4fbf33(0x13a)]);const _0x290d62=_0x3fee00[_0x4fbf33(0x473)](_0x54605f,_0x313091);_0x5e057a[_0x4fbf33(0x964)](_0x1650e3,{'balance':_0x290d62,'creditScore':{'average':0x5,'count':0x0}});});const _0x119ba9=await _0x3fee00[_0x468f6d(0x891)](getAccountData,_0x4430c5);await _0x3fee00[_0x468f6d(0x8cd)](createTransaction,_0x4430c5,{'amount':_0x313091,'senderId':_0x4430c5,'recipientId':_0x3fee00[_0x468f6d(0x14e)],'type':_0x3fee00[_0x468f6d(0x5d4)],'senderName':_0x119ba9[_0x468f6d(0x976)],'recipientName':_0x3fee00[_0x468f6d(0x14e)]}),_0x3fee00[_0x468f6d(0x8cd)](showMessage,_0x3fee00[_0x468f6d(0x29a)],_0x3fee00[_0x468f6d(0x572)]),_0x3fee00[_0x468f6d(0x891)](loadBalance,_0x4430c5),_0x3fee00[_0x468f6d(0x4ea)](loadCreditScore,_0x4430c5),_0x3fee00[_0x468f6d(0x4ea)](listenToTransactions,_0x4430c5);}catch(_0x476532){console[_0x468f6d(0x628)](_0x3fee00[_0x468f6d(0x420)],_0x476532),_0x3fee00[_0x468f6d(0x551)](showMessage,_0x468f6d(0x585)+_0x468f6d(0x32d)+_0x468f6d(0x252)+_0x476532[_0x468f6d(0x23d)],_0x3fee00[_0x468f6d(0x832)]);}}document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x4d6)+_0x353936(0x50f))[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>{const _0x20e29c=_0x353936,_0x4e9d68={'bqjtM':function(_0x5c8644,_0x17b08e){return _0x5c8644(_0x17b08e);}};currentUser&&_0x4e9d68[_0x20e29c(0x6fc)](resetCreditScore,currentUser[_0x20e29c(0x2e5)]);});function setupRealtimeBalance(_0x8b86ee){const _0x16ee6b=_0x353936,_0x337ba8={'Vbkki':_0x16ee6b(0x4a0)+_0x16ee6b(0x13c),'usygm':_0x16ee6b(0x3b1)+_0x16ee6b(0x5d9),'FXLWA':_0x16ee6b(0x6ff)+_0x16ee6b(0x5d9),'zZrco':function(_0x29a490,_0x482644){return _0x29a490(_0x482644);},'ysCXT':_0x16ee6b(0x20a),'ErPXd':_0x16ee6b(0x226)+_0x16ee6b(0x7c3),'Mrvaa':function(_0x1bbed4,_0x1b17a6){return _0x1bbed4!==_0x1b17a6;},'PABLc':function(_0x212e52,_0x221600){return _0x212e52>_0x221600;},'IjyLP':function(_0x3d2132,_0x1271ea,_0xecc8a6){return _0x3d2132(_0x1271ea,_0xecc8a6);},'myyih':_0x16ee6b(0x840),'owAZQ':_0x16ee6b(0x966),'aJlRZ':_0x16ee6b(0x318),'SAUrP':_0x16ee6b(0x48f)+_0x16ee6b(0x871)+_0x16ee6b(0x83c),'txtvG':_0x16ee6b(0x369),'PnUoY':_0x16ee6b(0x597)+_0x16ee6b(0x709),'OVSgY':function(_0xfd5d69,_0x5c4c5c,_0x343e4c){return _0xfd5d69(_0x5c4c5c,_0x343e4c);},'HnfoV':function(_0x2e673c,_0x41bbc8,_0x2a0013,_0x553a00){return _0x2e673c(_0x41bbc8,_0x2a0013,_0x553a00);}};if(!_0x8b86ee)return;const _0x428b9=document[_0x16ee6b(0x4cd)+_0x16ee6b(0x937)](_0x337ba8[_0x16ee6b(0x5b4)]),_0x3594d9=_0x337ba8[_0x16ee6b(0x5c8)](doc,db,_0x16ee6b(0x206)+appId+_0x16ee6b(0x238)+_0x8b86ee+(_0x16ee6b(0x3bc)+_0x16ee6b(0x47a)));return _0x337ba8[_0x16ee6b(0x562)](onSnapshot,_0x3594d9,_0xb285f7=>{const _0x11a020=_0x16ee6b;if(_0xb285f7[_0x11a020(0x5b6)]()){const _0x50400a=_0xb285f7[_0x11a020(0x5f0)](),_0x31e202=_0x50400a[_0x11a020(0x361)]||-0x1f6f+0x262c+-0x4b*0x17,_0x4cc522=_0x337ba8[_0x11a020(0x385)](parseFloat,_0x428b9[_0x11a020(0x4eb)+'t'][_0x11a020(0x684)]('$',''))||-0xbe4+0x1*-0x579+0x115d;userNameDisplay[_0x11a020(0x4eb)+'t']=_0x50400a[_0x11a020(0x976)]||_0x337ba8[_0x11a020(0x593)];const _0x3b0184=_0x50400a[_0x11a020(0x8cc)]||0x55+0x2*-0x88a+0x1*0x10bf,_0x1edfde=document[_0x11a020(0x4cd)+_0x11a020(0x937)](_0x337ba8[_0x11a020(0x127)]);if(_0x1edfde)_0x1edfde[_0x11a020(0x4eb)+'t']=_0x11a020(0x7ef)+'\x20$'+_0x3b0184[_0x11a020(0x4c0)](0x175f+0x871+0x3*-0xa9a);_0x337ba8[_0x11a020(0x670)](_0x31e202,_0x4cc522)?(_0x428b9[_0x11a020(0x30a)][_0x11a020(0x6b8)](_0x337ba8[_0x11a020(0x4a9)]),_0x337ba8[_0x11a020(0x4f8)](_0x31e202,_0x4cc522)?_0x428b9[_0x11a020(0x30a)][_0x11a020(0x6b8)](_0x337ba8[_0x11a020(0x482)]):_0x428b9[_0x11a020(0x30a)][_0x11a020(0x6b8)](_0x337ba8[_0x11a020(0x313)]),_0x428b9[_0x11a020(0x4eb)+'t']='$'+_0x31e202[_0x11a020(0x4c0)](0x4*-0x236+-0x2*0x79d+-0x17*-0x10c),_0x337ba8[_0x11a020(0x794)](setTimeout,()=>{const _0x599175=_0x11a020;_0x428b9[_0x599175(0x30a)][_0x599175(0x19b)](_0x337ba8[_0x599175(0x4a9)],_0x337ba8[_0x599175(0x482)],_0x337ba8[_0x599175(0x313)]);},-0x19a5+-0x12cf+0x305c)):_0x428b9[_0x11a020(0x4eb)+'t']='$'+_0x31e202[_0x11a020(0x4c0)](-0x1529+-0x1969+0x2e94);}else{const _0x1e5c04=currentUser&&currentUser[_0x11a020(0x246)+'e']?currentUser[_0x11a020(0x246)+'e']:_0x337ba8[_0x11a020(0x207)];_0x337ba8[_0x11a020(0x794)](setDoc,_0x3594d9,{'balance':0x0,'held':0x0,'name':_0x1e5c04,'email':currentUser?currentUser[_0x11a020(0x413)]||_0x337ba8[_0x11a020(0x909)]:_0x337ba8[_0x11a020(0x909)],'creditScore':{'average':0x5,'count':0x0}}),userNameDisplay[_0x11a020(0x4eb)+'t']=_0x1e5c04,_0x428b9[_0x11a020(0x4eb)+'t']=_0x337ba8[_0x11a020(0x474)];const _0xca9976=document[_0x11a020(0x4cd)+_0x11a020(0x937)](_0x337ba8[_0x11a020(0x127)]);if(_0xca9976)_0xca9976[_0x11a020(0x4eb)+'t']=_0x11a020(0x7ef)+_0x11a020(0x91e);}},_0x3b1138=>{const _0x2bf92b=_0x16ee6b;console[_0x2bf92b(0x628)](_0x337ba8[_0x2bf92b(0x577)],_0x3b1138),_0x428b9[_0x2bf92b(0x4eb)+'t']=_0x337ba8[_0x2bf92b(0x3fe)];});}async function loadBalance(_0x3a193d){const _0x5cb3b8=_0x353936,_0x3c6cb8={'HAPbp':function(_0x55d676,_0x11d436,_0x154ba4){return _0x55d676(_0x11d436,_0x154ba4);},'glHtu':function(_0x36f608,_0x58983d){return _0x36f608(_0x58983d);},'Wvtjd':_0x5cb3b8(0x597)+_0x5cb3b8(0x709),'ThTHL':_0x5cb3b8(0x20a),'WKLCy':_0x5cb3b8(0x226)+_0x5cb3b8(0x7c3),'MuGpW':_0x5cb3b8(0x48f)+_0x5cb3b8(0x871)+_0x5cb3b8(0x13e)+_0x5cb3b8(0x2e6)};if(!_0x3a193d)return;try{const _0x2b5568=_0x3c6cb8[_0x5cb3b8(0x954)](doc,db,_0x5cb3b8(0x206)+appId+_0x5cb3b8(0x238)+_0x3a193d+(_0x5cb3b8(0x3bc)+_0x5cb3b8(0x47a))),_0x466048=await _0x3c6cb8[_0x5cb3b8(0x779)](getDoc,_0x2b5568);if(_0x466048[_0x5cb3b8(0x5b6)]()){const _0x2a4cc1=_0x466048[_0x5cb3b8(0x5f0)](),_0x543d8a=_0x2a4cc1[_0x5cb3b8(0x361)];document[_0x5cb3b8(0x4cd)+_0x5cb3b8(0x937)](_0x3c6cb8[_0x5cb3b8(0x850)])[_0x5cb3b8(0x4eb)+'t']='$'+_0x543d8a[_0x5cb3b8(0x4c0)](0x11c3+0x1*0x23ea+-0x1*0x35ab),userNameDisplay[_0x5cb3b8(0x4eb)+'t']=_0x2a4cc1[_0x5cb3b8(0x976)]||_0x3c6cb8[_0x5cb3b8(0x2f6)];const _0x3fe388=_0x2a4cc1[_0x5cb3b8(0x8cc)]||0x147d+0xb06+-0x1f83,_0x13f226=document[_0x5cb3b8(0x4cd)+_0x5cb3b8(0x937)](_0x3c6cb8[_0x5cb3b8(0x68a)]);if(_0x13f226)_0x13f226[_0x5cb3b8(0x4eb)+'t']=_0x5cb3b8(0x7ef)+'\x20$'+_0x3fe388[_0x5cb3b8(0x4c0)](0x82d+-0x6*0x19f+0x1*0x18f);}}catch(_0x3f254b){console[_0x5cb3b8(0x628)](_0x3c6cb8[_0x5cb3b8(0x8f3)],_0x3f254b);}}function _0x1df6(){const _0x57fb7c=['cancelled','cancelada.','stamo\x20como','autenticac','y\x20solicitu','or\x20pago\x20de','CrqqR','UfpRg','tenta\x20reca','teString','KdHgH','vTuzq','min','initAuthFi','ID:\x20','TzKFW','amente\x20y\x20p','e-500','sYshR','fertas.\x20In','ypOSf','MuGpW','\x20\x20\x20\x20<butto','nviar\x20punt','puADp','HksYR','tor-btn','nt-semibol','dfxmx','tado:\x20Pend','EEfWZ','t-red-600\x22','ext-sm\x20fon','GjUSK','SvKcf','\x20una\x20deuda','LyJkF','erta:','round','fjPBG','gPJlN','>)<br><br>','vAAeq','owAZQ','ntuar\x20al\x20d','el\x20préstam','delete-con','eNyfd','plicado\x20un','ontacto','TtCls','omo\x20Pagado','MZiRg','\x22>-$','NWJko','utGQb','/strong>\x20d','ntacto:\x20','GEajv','iHgkz','underline\x22','ZstfV','Ycpqw','ANxav','\x20$0.00','pción','AESqB','sRkOz','recipientn','QNtro','wwByC','ciones\x20-\x20','dohwq','YBlzD','zwFpv','pending','PNXZe','BbjyZ','tud)','500\x20text-s','una\x20solici','wqfGM','a\x20correcta','jkYZV','celada.\x20Se','sRHIs','Pago\x20de\x20De','cSjdQ','dhwHo','ById','YYpNN','TuXHm','préstamo\x20c','join','a\x20penalida','t-btn\x20mt-3','GwxNe','er\x20border-','\x20text-gree','loan-disbu','udes\x20debe\x20','dito\x22>','xt-right\x22>','-3\x20rounded','HGuBd','bank-commi','dixil','\x20encontrad','RekeG','Monto\x20no\x20v','e-400','pending-of','\x20(Bruto)</','p-2\x20justif','sRUVt','VRAyP','er\x22>Error\x20','loan','HAPbp','endientes.','ón\x20no\x20se\x20p','wVMNY','rejectedBy','user-name-','open-conta','ed-600\x20tra','odrás\x20punt','jfpoc','Error\x20gene','/p>','torAll','eceived','low-500','recipientI','update','xt-gray-80','N/A','WYLSp','zGhCp','UaFey','ntacto:','PTRnp','248arEWLV','WVXzQ','GLKRZ','XtDMF','\x22\x20\x0a\x20\x20\x20\x20\x20\x20\x20','</strong>\x20','untuación\x20','eCkaC','\x22lend-on-r','-600','name','div>\x0a\x20\x20\x20\x20\x20','n\x20del\x20pres','liminado.','81365mlGMbv','font-semib','VLOZE','qmZdu','target','UbkUC','xt-gray-60','VceYd','ceptor:','IRCZT','ont-semibo','VhhZJ','AILko','input[name','warning','fflwM','ewETf','es-ES','Marcar\x20Pré','HddkN','1:10637212','hug-ds.fir','er-btn\x20py-','el-refund','ará\x20en\x20tu\x20','gNgus','vixNH','loUFk','class=\x22can','rKHaw','qLhPe','__firebase','12040356nRXUGi','RRusu','xt-red-800','celar\x20ofer','2|0|4|1|3','ex\x20items-c','AjTgK','amo\x20a\x20','ErPXd','scuchar\x20hi','JvfKC','\x20actualiza','zbIqY','emibold\x20te','submit','ia\x20cuenta.','Resetear\x20S','\x22>Puntuar<','Wswfs','mt-4\x20p-4\x20r','Penalidad\x20','ebase.\x20Int','\x20class=\x22te','ld\x20text-wh','ybjtk','\x20de\x20comisi','Debes\x20inic','wRGZy','¡Tu\x20histor','date','\x20\x20\x20\x20<div\x20c','aldo\x20inici','ferta','nded-full\x20','1\x22>','senderid','\x20préstamo','Verifica\x20e','%\x20Int.</p>','de\x20tu\x20sald','\x22>Score:\x20','Cobro\x20de\x20p','GGwxq','UKBBI','eTIpS','\x20\x20\x20\x20\x20\x20\x20','n\x20tu\x20lista','aLkKx','tTpye','E77bhSVd8','toDate','No\x20se\x20pudi','HsaKF','logout-btn','DcFYE','\x20\x20</div>\x0a\x20','n\x20éxito.\x20E','FGIBJ','d\x20text-gra','tHDsL','cKdry','YZCsL','PDF...','ublicar\x20so','dashboard','YYIpD','EabQM','fihKs','WbobS','Tipo','JfPle','\x20p-3\x20round','tEDDg','lido.','ón\x20de\x20prés','rLPZl','rfenZ','osnwE','\x20el\x20resto\x20','NbvbR','UydUF','ite\x20btn-pr','ApiJq','toLocaleDa','an-btn','\x20Oferta</b','xt-xs\x22\x20dat','cnusW','/button>\x0a\x20','gXeaB','interestRa','FRsrv','ión\x20de\x20Fir','ray-50\x20tra','ra\x20este\x20mo','DbWwT','rimary\x22\x20da','CcRrR','n\x20devuelto','10499148ReIKmo','Bruto\x20por\x20','wVVVs','completed-','-600\x22>$','pGglh','lass=\x22text','XMvwT','een-600\x22>+','o.\x20Esperan','kORcJ','atCou','qJimO','sucyY','qjGxa','n-700\x22>','\x20\x20\x20\x20\x20\x20\x20\x20</','/div>\x0a\x20\x20\x20\x20','ación','or\x20solicit','ctiva:','quest-btn','\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','mBdKt','lMmga','remove','ized','Cancelar\x20S','y-end\x20mt-1','Cjzra','jmmNT','ar?','-btn','loan-offer','KsPUD','uumvo','n-500\x20hove','Contacto\x20','historial_','ksrqv','CyYOq','SKkkb','cxaQO','.score-deb','ring','dRmsh','-full\x20text','welcome-vi','to.','ora\x20tienes','ass=\x22text-','nt-sent','string','BxFmk','cKgth','MlaEm','AEGur','y-700\x20mt-3','qzajH','acto:\x20','cancelació','ssion','data-loan-','\x20la\x20oferta','Solicitud\x20','de\x20oferta\x20','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20','iMosx','unded-full','interest-r','FbMDR','yuMAY','Fallo\x20al\x20p','n\x20de\x20prést','XkFnK','\x22text-md\x20f','KAljZ','del\x20deudor','BRfpq','wMOEi','ADVERTENCI','8|7|4|5|2|','map','GlAcG','WPHKB','t-xs\x20text-','text-sm\x20fo','\x20oferta:\x20','paid-by-le','Firebase\x20A','ntrada.','contacts-l','nuIKp','MMwsg','hite\x20btn-p','kiSui','fnZWN','\x20\x20\x20\x20\x20<p\x20cl','Escape','text-red-6','iente\x20de\x20P','aUTnG','3|2|0|1|4','number','by-lender','i90NNMxJv2','QbMfc','className','xs\x20text-gr','o\x20no\x20exist','\x20cancelaci','<strong>','VHvfo','xSSaE','uda\x20total\x20','addEventLi','DmJcz','qDpzp','text-red-5','id-label','Eliminar\x20C','xTEUA','XthZb','cancel-off','ns-list','tamo.','Color','gFyce','XjjkY','MbIDx','QVXdD','olicitud\x20d','artifacts/','myyih','mWgGN','ID\x20complet','Usuario','stamo\x20acti','oncedido','Saldo\x20insu','\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20','br><strong','\x20Préstamo','Préstamo\x20d','p-id','eADwf','\x20\x20<p\x20class','errar\x20sesi','ons','OQTTz','crvYD','t-white\x20te','\x20\x20\x20\x20\x20\x20\x20\x20<p','apiKey','creditScor','iar\x20sesión','value','usuAs','ace-y-1\x20te','enter\x20just','s.</p>','udas/ofert','docs','close-cont','frozen-dis','kpNbo','ible\x20o\x20ha\x20','¿Estás\x20seg','Penalizado','des\x20de\x20pré','zaBqi','ztWRP','iFBiy','gar\x20la\x20pág','dinero\x20rec','¿Rechazas\x20','lExgx','iXltB','AAomy','p\x20class=\x22t','dcTfS','zsgxB','/users/','e\x20contacto','rgar\x20la\x20pá','xzDXi','sta.','message','amount','préstamo:\x20','va.\x20Solo\x20p','ibold\x22>Mar','BEyKu','KZnfG','4|5','\x20vez.','displayNam','XBkTH','a\x20de\x20prést','\x20esta\x20soli','1|2|0|6|3|','xGwBZ','Cancelarás','xxGPT','ceptar\x20el\x20','Solicitar\x20','div>\x0a\x20\x20\x20\x20','sferir.','\x20score:\x20','ferta\x20de\x20P','text-blue-','XlrPN','o\x20ha\x20sido\x20','jspdf','\x20Pagado','er\x20el\x20prés','remitente\x20','IzCBu','l\x20reembols','Préstamo\x20R','restore','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','xt-xs\x20text','QyREv','RAfOZ','disabled','KfchF','border-blu','uda\x20Total','ongelar\x20fo','psOxZ','ebaseapp.c','EJHLM','\x20prestamis','SSoWw','keydown','-2\x20px-4\x20ro','paidAmount','receptor\x20n','jtEvY','recipientN','n-type','r\x20(deudor)','\x20votos)</s','hHsmP','gina.</p>','ibido.\x20¡Ah','erificar\x20s','KknQk','xMvyt','tact-btn','tamo\x20a\x20','\x22transacti','3|1|9|0|6','JBoTn','eOALy','show-trans','zVlUw','VufUM','ng>.\x20¿Dese','o\x20existe.','xt-gray-50','fpuQg','HUG\x20Bank','change','deWqn','dal-btn\x20co','al.</p>','e\x20inmediat','ndos\x20para\x20','iPFTj','2-digit','argar\x20la\x20p','JdlJA','GjlIR','y-between\x20','ed-500\x20tex','bIkpx','ter\x22>Carga','LPgiQ','OoVTL','rejected','dtFQS','UbcAH','lsxAO','center\x22>\x0a\x20','WSvRO','evquc','nt-lender-','</div>\x0a\x20\x20\x20','r\x20la\x20ofert','Reembolso\x20','.cancel-lo','NWxDU','listener:','Deuda\x20Pend','a\x20a\x20','eSnapshot','LBFLk','ancelado\x20(','HuOhP','Fztgl','JZdeO','.\x20Fondos\x20d','rmztC','Préstamo\x20p','YLovs','\x20\x20\x20\x20\x20</div','\x20\x20\x20\x20\x20<butt','sm\x20font-se','\x20crear\x20ent','\x20bg-white\x20','cMAyz','uedes\x20tene','ify-betwee','HINYr','input','syCQA','derid=\x22','reject-req','Hvorn','00\x22>+$','WkPXL','required','qPRXO','del\x20presta','tlcAi','ncontrado.','text','icio\x20ha\x20si','ancelar\x20pr','ded-lg\x20bor','elwaa','QlwTK','\x20w-full\x20py','citud.\x20¿De','mente','ar\x20documen','CvxnY',':checked','gado.','a\x20en\x20el\x20re','\x20\x20\x20\x20\x20\x20<div','NChuJ','accepted','stener','bhhqq','8YmkHjT','ancelada\x20p','JZzeO','\x20★</strong','interest','pREST','fer','QEoTA','uid','al:','0\x22>Pagado\x20','KTbos','yeQuV','jzAyB','xt-red-600','lar\x20solici','o\x20existe.\x20','ests','Recepción\x20','-red-600\x20t','0\x22>-$','ray-50\x20p-3','OCaIW','Cuenta\x20del','ados.</p>','ThTHL','Préstamo\x20E','eto)','omo\x20pagado','gWidp','uaoCQ','debe\x20acept','Error\x20inic','ada.','juvCG','arcado\x20com','NdWUB','CSdEp','AabUu','la\x20oferta:','\x22>Aceptar<','fer-btn','ZCuUY','no\x20existe.','core\x20Credi','classList','ight\x22>\x0a\x20\x20\x20','licará\x20una','d\x20text-whi','\x20préstamo:','nder','auth','\x22\x20data-amo','\x20(5%\x20P.)</','FXLWA','dal-icon\x20','placeholde','.cancel-re','esta\x20solic','$0.00','UUIRD','recipient-','stify-betw','poVkH','xjQWu','ZflKi','OijXE','strellas!\x20','text-green','xs\x20text-ye','doc-id','\x20data-id=\x22','dertransac','ZyFej','fHinq','RShBW','STQwZ','gnQyY','catch','hENBR','esetear\x20el','rada\x20de\x20hi','g\x20border\x20b','en-400','Bscbq','vQrEv','KsGwm','assign','nAISy','oIHGO','ld\x20text-gr','DYHVF','RiEDV','Préstamo\x20m','BRrfl','QyLsX','contains','RbvpT','KbfVN','data-uid=\x22','rebase\x20Aut','tions','ra\x20cancela','rando\x20PDF:','/transacti','XuGsp','Enviar\x20Ofe','ition\x20mt-1','RNWbK','\x20flex-1\x20py','get','YEnzr','reak-all\x22>','sGkWD','\x20Solicitud','\x22\x20data-rec','YCMlR','text-sm\x20tr','de\x20préstam','debtorName','zTmLk','\x20con\x20UID\x20','préstamo\x20e','mente.','nviado\x20(Of','paid-penal','</button>\x0a','mostrará\x20e','text-xs\x20fo','items-star','lGCEi','vttuj','balance','ar\x20listene','<strong>$','zUMYD','eleccionar','DwplP','irm','\x20no\x20existe','Error','\x20text-gray','bedkt','XBhvK','ed-full\x20te','div\x20class=','\x20\x20\x20\x20\x20\x20\x20<di','solicitud\x20','a-uid=\x22','o\x20para\x20res','ransacción','icitud.','SCcRM','block','lpWwT','y-recipien','ss=\x22font-b','DlWPJ','l\x20historia','jwRMB','nfirm-moda','VevSJ','filter','SLxqt','irebase','numeric','dataset','\x20receptor\x20','zZrco','por\x20rechaz','acto:','zWJth','Transacció','eset\x20Score','senderName','yGxKJ','Fecha','ient-id','rKEqR','s-start\x22>\x0a','Sin\x20descri','ID\x20de\x20soli','AyQTl','ón.','loanReques','SkdGI','reload','hPnfy','view','eFtnm','kzmWd','G-DXQF1K2R','fwosM','lzkUv','WyIAH','onclick','o\x20se\x20mostr','pyYmm','JsNtl','\x22>Pagar\x20$','-gray-500\x20','w-600','dashboard-','ientes.','oqKgN','-200\x22>\x0a\x20\x20\x20','AFKhJ','amo?\x20Los\x20f','nsBqZ','MLbbL','\x20\x20\x20\x20\x20\x20\x20\x20\x20','700\x22>+$','balance-in','ancelado\x20y','t\x22>\x0a\x20\x20\x20\x20\x20\x20','ScyOj','NTVAH','Comisión\x20R','oMstX','de\x20Transac','\x22\x20data-sen','count','Puntuación','/account/d','<div\x20class','ded-full\x20t','por\x20Cancel','cOwIB','</p>\x0a\x20\x20\x20\x20\x20','u\x20informac','MnfTI','yiuOa','ializando\x20','KrjVW','14850:web:','enta\x20recar','qQiLM','TMkAx','econdary\x22\x20','deudas\x20y\x20o','Fallo\x20al\x20v','cia\x20Recibi','tfsio','aron\x20$5.00','uMwGO','kGFhp','Historial\x20','wAppo','KQroT','gray-500\x20b','\x20de\x20présta','r:bg-green','IpteO','text-white','UeUsL','addedAt','CRNBO','YGOTH','BDFYI','kjCzA','mksXm','lbZkc','l-recipien','px-3\x20round','1\x20px-3\x20rou','Firebase\x20a','\x20\x20\x20\x20data-i','\x20inicializ','\x20para\x20expo','TNeoj','m\x20text-cen','imary\x22\x20dat','hover:bg-r','OEywt','\x20\x20\x20\x20\x20\x20\x20\x20','ra\x20solicit','zlgKX','icitante\x20(','mfHbj','y-1\x20px-3\x20r','ntlaX','znljI','\x20la\x20deuda\x20','text-md\x20fo','ter\x22>No\x20se','rQmTo','VZSFk','YYMcN','ipient=\x22','txtvG','querySelec','WmabO','éstamo:','Rnpwu','app_missin','debts-list','\x20font-bold','max','SqUEU','IROnW','hjmAs','lista.','\x20\x20\x20\x20\x20\x20\x20\x20<b','de\x20reseteo','ud\x20ya\x20no\x20e','el:\x20','s.<br><br>','includes','dor.','KkDbK','email','ge.app','bGLLf','aWOGO','udor:\x20','rectamente','-1\x22\x20\x0a\x20\x20\x20\x20\x20','\x20(Capital)','ration-150','FqEiu','Hglcp','fuCMO','XveIO','uIfrW','itudes</p>','sts-list','\x20bg-red-50','KcsQe','een-700\x22>','liminar\x20es','amista.','OqZFV','Fuuih','eject-offe','sactionid','setFontSiz','no\x20encontr','ago</p>\x0a\x20\x20','KMwBM','SYipg','HqEyA','ara\x20conced','tionid=\x22','te.','MpkLK','XwENM','xCnVg','\x20\x20\x20','s=\x22accept-','AbTen','</button>','ruZwz','values','al\x20cargar\x20','mAxEi','ud\x20pública','ad\x20de\x20<str','ldo.\x20Ahora','álido.','na\x20penalid','export-pdf','\x20\x20\x20\x20</div>','full\x20py-1\x20','CgWmC','HvBkU','réstamo\x20(N',')</p>\x0a\x20\x20\x20\x20','timestamp','-semibold\x20','00\x22>$','sNyri','toggle','zrShA','Préstamo\x20c','TQkYe','Confirmar','PJSXF','wykam','paid','baXSi','\x20score:','olicitud','PrhYo','\x20válida\x20o\x20','ests/','ancaria','Goyok','uUGFd','600','ppSRr','NYDWX','Usuario\x20no','o\x20al\x20deudo','\x20\x20<div\x20cla','YzlzG','JppVs','d\x20text-lg\x20','location','wJvkZ','ounded-ful','short','2\x22>\x0a\x20\x20\x20\x20\x20\x20','ouYuN','HdKjB','t-name','=\x22mt-3\x20fle','aSSKy','aJlRZ','background','enalidad\x20d','vObMC','class=\x22fle','r\x20una\x20a\x20la','ata','.\x20El\x20diner','getAuth','ón:','trong>95%<','\x22>Cancelar','x\x20gap-2\x20ju','NIiYV','usygm','gvIpi','xiste.','DDZqQ','ter\x22>No\x20ha','agBTX','ufDVU','border-gra','euwvb','now','zGTCT','\x22\x20title=\x22E','GObTX','Error\x20al\x20c','cancelled-','1063721214','xt-green-6','Solo\x20se\x20pu','rFnQx','contact-ui','aPRcH','nmzer','onceder\x20el','AYxGd','kDhrw','\x20oferta\x20y\x20','5.0','hHuhR','o\x20afectará','Oferta\x20can','balance-up','y\x20deudas\x20u','empty','s\x20al\x20prest','or\x20el\x20pres','OvvzK','trong>','hidden','zOLMK','Vbkki','shboard-bt','yiDdZ','Operación\x20','debtorId','unt=\x22','d\x20del\x205%\x20y','RPwuk','citud\x20invá','FYMNT','erta)','CVfmi','xt-green-7','ak-all\x22>ID','HDFhx','zYQjH','mo\x20(solici','hXFXQ','lCQIT','trong>$','ara\x20pagar\x20','GCamx','confirm-mo','toFixed','type','IERwK','Pagada\x20por','xt-yellow-','transfer-v','eCenN','NunYL','Jpxar','\x20Crédito\x22>','AqvUz','etada.','uro\x20de\x20que','getElement','ass=\x22font-','ipientname','hEhre','kCpli','gnOAv','xNOOK','uest-btn\x20f','mibold\x20','reset-scor','>Esta\x20acci','old\x20text-l','Monto','SeTnZ','createElem','\x20desde\x20el\x20','mQWiI','rechazada.','e\x20Préstamo','\x20\x20\x20\x20\x20\x20</di','veEoU','KGVJA','score-moda','NzAis','0\x20transiti','600\x22>+$','lex\x20justif','verá\x20el\x20<s','Se\x20genera\x20','rkMwo','textConten','\x20de\x20oferta','-800','egpfV','\x20marcado\x20c','.lend-on-r','owsKR','fue\x20devuel','Firebase\x20i','kbFnZ','>Pagar:\x20$','ue-600\x20mt-','y\x20transacc','PABLc','s\x20del\x20fall','ShSVd','\x22>Rechazar','BolKL','-500','vkRiE','eBGhp','\x20ofertas\x20p','t-form','trim','-600\x20trans','\x20Ya\x20no\x20se\x20','bg-gray-50','JIdGh','\x20enviada\x20c','ceptado\x20y\x20','style','dal-icon','<p\x20class=\x22','iones\x20en\x20e','Se\x20cobrará','cted-refun','e-btn','preventDef','JXuOC','IWSlS','HPTPb','esta\x20ofert','select-con','vsaVn','cts-btn','ount','button','0|2|1|3|5|','AmGvX','uede\x20desha','WJlzO','ySmDU','chBZO','btn','ZrzMq','QCGML','or\x20no\x20exis','vYiPz','PkRAt','cancellati','WyWWa','as:','licitud:','ficiente\x20p','607344eOyeIM','offer-canc','sqKju','BgccF','Estado','Fallo\x20al\x20c','GapIq','button>\x0a\x20\x20','0\x22>Penalid','\x20cobrará\x20u','Cobro\x20por\x20','el\x20histori','qQnyN','RqARc','lender-can','ss=\x22flex-s','Cancelació','.reject-of','UULdZ','ezmXC','ZQBDF','qwcTi','tcJFg','App','ad:\x20$','5%\x20por\x20can','transferid','eptor\x20no\x20e','nsition\x20du','ara\x20enviar','EPMml','function','ndos:','w-full\x20py-','\x20\x20\x20\x20<p\x20cla','YsSKc','FJiGV','dal-title','UZous','BiNEr','Tvqrv','préstamo:','/contacts/','t-1\x22\x20title','Deuda\x20Paga','s=\x22contact','FLmBm','CQDUJ','sstmQ','bg-blue-10','rta\x20de\x20Pré','amskk','nt-receive','rjENb','g\x20text-red','HnfoV','VvMYd','DOVaj','tor','rCVQz','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<','bBdLi','llow-500\x20m','QymiQ','iente','uJodE','o\x20cancelad','zqPoK','lBzUV','CinuI','.accept-lo','Zlznn','FIGci','-1\x20px-3\x20ro','-item\x20bg-g','estamista.','SAUrP','jCbKE','l.</p>','\x20\x20\x20\x20<div>\x0a','RBHsF','CoRXe','\x20title=\x22Sc','DmoWc','xjQDr','aLQdV','border-red','utynh','-700','info','Fallo\x20al\x20r','dal','Oferta\x20no\x20','fqdXJ','\x20<p\x20class=','tAdjk','VfTnW','ved','sHnxE','nsacciones','\x20<strong>5','-800\x20btn-s','een\x20items-','kfAuh','ysCXT','length','nta.','ID\x20del\x20Rec','balance-di','ton\x20class=','ZKwIf','\x20(Neto)</p','desc','obrar:\x20$','Rechazar\x20O','No\x20tienes\x20','hhACu','w-700','loan-payme','eUuRN','Rpjyt','zJLsk','cada\x20como\x20','credit-sco','MPIHR','YoUiz','lex-1\x20py-1','permiso\x20pa','danger','uth\x20no\x20dis','encontrada','kutHL','KXcgo','CpJKi','cellation-','=\x22font-bol','xnzEP','PnUoY','border-yel','exists','PHVSv','rUGCt','cehTh','InitError','ID\x20del\x20Sol','\x20mt-1\x22>','PtxPQ','XNxyw','vTGht','FQjdV','gray-200','tween\x20item','on\x22\x20data-i','ifSYw','a\x20con\x20éxit','de\x20','-right\x22>\x0a\x20','OVSgY','Eres\x20tú)','md\x20font-bo','Prestamist','\x20de\x20tu\x20sal','hover:bg-g','-id=\x22','KOAXe','toLocaleSt','sendertran','mWxwR','BtRWJ','JKaSe','=\x22Score\x20de','dYVir','rNwQS','UqETK','crease','KhFlQ','Comisión\x20p','XoarO','ORwXn','IYAsB','DWSAV','GGUwL','réstamo','\x20text-cent','ser\x20del\x2050','1289222ZSeHdC','GxyJn','rong>.<br>','AOYUG','hyryg','innerHTML','\x22>Deudor:\x20','NtIeE','\x20\x20\x20</div>\x0a','ll\x20py-1\x20px','toString','gsPxF','data','bApTn','VwGyu','\x20congelar\x20','ntact-btn\x20','el\x20reseteo','6esVwxC','ault','JSzov','(Score:\x20<s','suIKm','\x20por\x20','\x22text-sm\x20f','zkpkQ','eJjEd','ed-lg\x20bord','zyPba','Comisión\x20B','sido\x20compl','\x22>✓</butto','jDRGA','s=\x22flex\x20ju','\x20autentica','contacts-m','uUEsB','RecJU','VxTqN','zjRCb','ovdQG_g7yW','No\x20hay\x20tra','dhHAn','\x20break-all','\x20aplicó\x20un','jnELi','JHxBr','NnGfV','cKHtL','\x20pagado\x20co','jbZaJ','dal-confir','as\x20continu','\x20<strong>p','ID\x20del\x20rec','ficiente.','tEclK','-500\x20mt-1\x22','ay-500\x22>De','e-600','hbckF','ZvJHJ','Fallo\x20de\x20T','ecibida','y-800\x20btn-','ist','zymur','IMCzg','error','eMoAE','VcaKE','cia\x20Enviad','bHTnI','back-to-da','etear\x20tu\x20h','\x20\x20\x20\x20','rhJhC','xt-red-700','zlVxj','éstamo','YYgxn','transferir','\x20tu\x20balanc','zLCGa','dispatchEv','LtmtM','ay-500\x20bre','kUauV','BGclh','hAvYu','utton>\x0a\x20\x20\x20','PNtrU','tudes\x20pend','teyyC','\x20px-3\x20roun','gJMZj','closest','NjUBS','ecibido','x-grow\x22>\x0a\x20','RMgim','Cuenta\x20no\x20','MMjxT','nTYxF','EwlMY','click','Error\x20al\x20v','l\x20text-xs\x20','\x20puedes\x20pu','low-400','El\x20usuario','al\x20<strong','5JojtoS','qXEug','ones:','border-ora','s=\x22flex\x20ga','on\x20class=\x22','pública','#ef4444','cBVnP','ión\x20de\x20cue','wHOSK','r\x20esta\x20sol','OFTKr','</p>','Generando\x20','uDZja','ass=\x22flex\x20','cHdRG','xt-green-8','n-btn\x20w-fu','.pay-debt-','SsPYb','o\x20PAGADO.\x20','RpIVx','eptor','PpzLa','order-gray','.reject-re','Mrvaa','qqsJg','tamista.','\x20solicitud','score-rese','Desconocid','Préstamo\x20a','ación)','\x20para\x20tran','XPUET','ass=\x22pay-d','BzOmb','qnYRk','\x22flex\x20gap-','d=\x22','eXLIn','sZcsi','\x20deudor\x20no','t-blue-600','tMCPW','replace','eudor!','appendChil','kUyYv','border-gre','Rechazar\x20S','WKLCy','00\x22>','Desembolso','sactionId','GaZsv',':bg-red-60','DMZFp','/loan-requ','=\x22rating\x22]','show','RyOlE','iew','text-red-8','el\x205%</str','fFEdU','automática','FRGrQ','lULfe','olicitudes','vas\x20en\x20est','ojQcZ','Skljt','bró\x20$','nto\x20es\x20del','dktvw','arla.','de\x20crédito','\x20rounded-l','ckWvL','OQLOm','vXjeB','\x20\x20\x20\x20\x20\x20\x20<p\x20','dal-messag','tamo','GEunY','loan-paid-','ORKtO','\x20text-xs\x22\x20','BzWZU','mt-0.5\x22>','y-200','aBGsP','ZiAAi','loan-debt','offer-reje','xt-xs\x20font','add','.0\x20★</stro','Pago\x20de\x20pr','en-500','xNTBe','DuPxB','nsTgi','FtQpv','transfer-r','VKvPs','CoYym','gXmoe','completed','Fallo\x20al\x20a','secondary\x22','o\x20de\x20ofert','ons/','qpNor','ore\x20de\x20Cré','110lfDhPs','perando\x20Fi','fEHQF','on\x20éxito.','RjMRh','qSJmT','ponible\x20al','-400','\x22text-xs\x20t','kYuhL','YYLAt','GspPH','IwjmD','>\x20Se\x20te\x20ap','ebowK','transfer','stamista\x20n','pzVkT','whBNP','ina.','re-display','\x20\x20\x20data-id','t-semibold','-2\x20rounded','Documento\x20','ext-xs\x20fon','SlchC','WcnZl','projectId','nviada.\x20El','fQTuQ','wVVhM','nt-bold\x20te','éstamo:\x20','YDFlL','ss=\x22text-r','transactio','d-600\x22>Pag','EqHHa','ancelar\x20el','ont-bold\x20t','isArray','Error\x20al\x20e','obrado','uTsdd','text-red-7','nivQv','\x20transacci','add-contac','bqjtM','Rphnd','nuxMv','balance-de','>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','Timeout\x20es','neto\x20por\x20c','800','ong>5%</st','eXaaT','ón.\x20¡Ahora','o\x20(solicit','unt','splay','zZMcM','-xs\x20font-s','ta\x20del\x20pre','EZaWT','loan-sent','mCmhW','IDlDc','ticio','Se\x20descont','dLclh','split','ransition\x20','reset','trfyE','KGIla','p-2\x20rounde','.close-btn','text-xs\x20te','GhWvQ','cer.</stro','00\x20text-sm','BoCxN','r-btn\x20py-1','EOuMx','Ofrecer\x20<s','PDF\x20descar','DjEmc','HgzVD','ible.','patchAppOp','text-orang','zKgcm','liminar\x22>×','fill','No\x20puedes\x20','WxYAC','__hugBankF','del\x20recept','aqAol','n\x20p-3\x20roun','n>\x0a\x20\x20\x20\x20\x20\x20\x20','OunZM','ext-xs\x20tex','tDocId','uación:','message-bo','on\x20datos\x20d','rtar.','t-fee','save','seas\x20conti','data-recip','<button\x20cl','d\x20del\x205%\x20(','QhCIB','\x20quieres\x20e','irPdD','Gcpjz','average','-full\x20bg-r','ext-red-60','user-id-di','con\x20','ial\x20credit','RlYFh','500','none','ancelar\x20la','TpBDF','/contacts','mqRAY','Descripció','nge-400','ay-500\x22>Es','some','tamista\x20no','QyDaX','recipient','n\x20class=\x22r','ar:\x20$','\x20★\x20(','roaHy','Deuda\x20por\x20','Contacto\x20e','nXiLf','850','ta\x20no\x20enco','lsvwK','wXggA','success','\x20\x20\x20\x20\x20','ywfeM','evueltos\x20a','LaVDl','%</p>','ctos\x20guard','Oferta\x20rec','on-item\x20fl','YDrvP','0\x20hover:bg','eudor.','da\x20(Cancel','initialize','transfer-f','tiWTw','⚠️\x20<strong>','ter\x22>No\x20ti','Publicar\x20S','iRXEw','TYGXF','HmCsq','glHtu','ystJV','green-500\x20','FmrAo','QfyBk','\x20\x20\x20\x20\x20\x20\x20\x20\x20<','gmDab','bg-green-1','Error\x20al\x20r','A:</strong','AkpqA','l-btn-conf','BodCC','ñadir\x20cont','\x20</div>\x0a\x20\x20','lGLZH','equest-btn','JMUbU','lTiqp','nIxxM','total.\x20Est','eron\x20limpi','de\x20la\x20cuen','tFObd','5.0\x20★\x20(0)','\x20de\x20score\x20','\x20de\x20interé','IjyLP','cia\x20exitos','ame','default','olicitud\x20a','rsed','paidDate','nuar?<br><','IHgth','Cancelar\x20O','zsRdB','5466930czcIHF','1|0|2|3|4','a222be1965','istorial\x20a','ext-yellow','options','dIVXu','lQwPW','te\x20contact','hjgCw','hazada\x20cor','ublicar\x20la','La\x20solicit','\x20a\x20tu\x20prop','een-600\x22>C','class=\x22tex','\x20con\x20éxito','echazar\x20la','warn','xs\x20text-re','yellow-500','x\x20gap-2\x22>\x0a','dOPcX','0\x20font-sem','\x20\x20\x20\x20\x20<div\x20','vEJgB','xt-white\x20b','liberar\x20fo','l\x20prestami','display','gmloq','ZxVWt','s=\x22score-d','zijTP','.pdf','jsPDF','play','mrUIt','justify-be','uar\x20al\x20deu','uQSaH','unknown','ndo...</p>','xiste.\x20Ver','27858UxQSLU','descriptio','0\x22>Interés','aLrkq','getFiresto','yylxI','wwUDP','loan-btn\x20p','pqYim','PHFhj','do.','pp\x20no\x20inic','BHDTx','setAttribu','IEpHM','BNQKG','KoAqV','no\x20complet','qwjpH','\x20text-md\x20f','l\x20ID.','KFiDf','GbrEp','WImpe','der-l-4\x20','loan-reque','OsLra','\x20\x20\x20\x20\x20\x20<but','transfer-s','DWkCw','CiTHF','tact-btn\x20p','\x20\x20\x20<div\x20cl','t-id','key','el-fee','Congelado:','EfNAU','bBGbM','RxaYA','ChFnz','stify-end\x20','TaJPV','eVlhf','ancelar\x20of','jIjMI','AIzaSyBXEU','sgjYO','xs\x20text-bl','\x20<strong>$','ebtor-btn\x20','ong>\x20sobre','text-yello','\x20concedido','originalAm','nsition\x20mt','\x22>ID:\x20','do\x20a\x205.0\x20e','onjVy','Receptor','ntGcM','Szajt','\x20máximo\x20pa','cancel-loa','\x20mínimo\x20pa','penaltyAmo','ext-gray-8','UGCiP','yIxXK','v\x20class=\x22f','itud?\x20Ya\x20n',')\x20en\x20su\x20sa','SzsDw','uRPvQ','VNuUC','zIFuF','39rHlqeX','\x20(Oferta)<','rejected-b','rbYvu','bg-red-100','kHwUv','tkxRB','El\x20interés','0\x22>$','ddnZi','o\x20del\x20usua','\x20text-xs\x20f','.cancel-of','\x22select-co','agar\x20el\x20pr','RWGsW','ite\x20bg-red','DQTjX','<br>Monto:','fSfOt','\x20<div\x20clas','-500\x20hover','n-300','BkENy','JLTRH','ia:\x20','ixtDo','OTDnT','ializada','text-gray-','scoreGiven','semibold\x20t','egrsX','Se\x20le\x20ha\x20a','ZZSOp','Cobro\x20de\x20P','joWoE','aldo:','nit\x20error','NFvff','odal','Anónimo','OQNNU','zujwS','eden\x20cance','ubmit-btn','data-id=\x22','eyINm','ZgoEe','utton\x20clas','uación:\x20','%</strong>','8a0ae2bc10','stamo','0\x22>','ent','\x22\x20title=\x22S','Wvtjd','ud)','cmEmZ','tos\x20despué','sFCkd','cmVdl','RDYnq','YRAlM','nliOx','ansition-a','ll\x20duratio','GhnDn','mista\x20no\x20e','status','mo.','d-full\x20bg-','zOXOk','elled','loan-recei','e\x20momento.','Fallo\x20la\x20t','MLNao','KJTsR','ounded-lg\x20','ta\x20de\x20prés','hrink-0\x20sp','e\x20$','do\x20a\x20un\x20pr','srErX','abortada.','ng>','dMvwP','tud\x20de\x20pré','argar\x20el\x20s','enes\x20conta','EeBzu','WYlLJ','Error\x20al\x20a','autoTable','shhcD','gnDtI','stá\x20dispon','del\x20pagado','acts-modal','JWCNQ','cel-reques','wNINk','LKSkw','DRvRS','jsPDF\x20no\x20e','ldhyp','default-ap','ifica\x20el\x20I','jrxEF','g-red-500\x20','a-id=\x22','sLyPA','VBOmn','TYHVK','ebt-btn\x20w-','jbAUf','zcqtQ','mt-1\x22>\x0a\x20\x20\x20','ate-field','PzFrb','igUkT','Transferen','ondos\x20será','Préstamo\x20C','nuSam','\x20encontrar','wNXor','liminar\x20co','Oferta\x20de\x20','AGzWT','STCPk','Esto\x20devol','old\x20text-w','pNYDx','senderTran','SNOCD','penalty','kGxTy','fondos:\x20','\x20|\x20Penalid','el\x20monto\x20y','bRhZJ','uhPGt','Yzudj','te\x20bg-gree','de\x20Préstam','rio','v>\x0a\x20\x20\x20\x20\x20\x20\x20','ta-id=\x22','ttUlj','pBYIz','\x22>Marcar\x20c','hug-ds',')\x20de\x20la\x20de','RzaFH','bIlIu','URLXn','ransferenc','\x20obtener\x20t','del\x205%\x20por','\x20añadido.','hCDps','score-form','orm','l\x20banco\x20co','\x20\x20<button\x20','uEfaM','FVepU','PFuda','o\x20publicad','scuchar\x20de','getAttribu','YDFil','ASGsX','dal-cancel','CCqNX','Tu\x20Score:\x20','Ya\x20tienes\x20','>Mis\x20solic','held','BRust','mt-1\x22\x20data','isAnonymou','EbjAb','MEqqI','FhtYI','ebasestora','yKKzK','t-gray-500','do\x20resetea','forEach','No\x20se\x20pudo','rSJus','storial\x20de','senderId','ancelación','\x20mb-1'];_0x1df6=function(){return _0x57fb7c;};return _0x1df6();}async function loadCreditScore(_0x3a095a){const _0x58a262=_0x353936,_0x5507ec={'HPTPb':function(_0x5ef6c1,_0x3de4cb,_0x29f4e0){return _0x5ef6c1(_0x3de4cb,_0x29f4e0);},'rNwQS':function(_0x4ea2f7,_0x400950){return _0x4ea2f7(_0x400950);},'KbfVN':_0x58a262(0x791),'AjTgK':_0x58a262(0x48f)+_0x58a262(0x292)+_0x58a262(0x972)+_0x58a262(0x6a4)+':','GjUSK':_0x58a262(0x369)};if(!_0x3a095a)return;try{const _0x2a6106=_0x5507ec[_0x58a262(0x513)](doc,db,_0x58a262(0x206)+appId+_0x58a262(0x238)+_0x3a095a+(_0x58a262(0x3bc)+_0x58a262(0x47a))),_0x4020f9=await _0x5507ec[_0x58a262(0x5d7)](getDoc,_0x2a6106);if(_0x4020f9[_0x58a262(0x5b6)]()&&_0x4020f9[_0x58a262(0x5f0)]()[_0x58a262(0x21c)+'e']){const _0xc4eb16=_0x4020f9[_0x58a262(0x5f0)]()[_0x58a262(0x21c)+'e'],_0x5c28a1=_0xc4eb16[_0x58a262(0x744)][_0x58a262(0x4c0)](-0x62c+-0xd81*-0x2+0x1*-0x14d5);creditScoreDisplay[_0x58a262(0x4eb)+'t']=_0x5c28a1+_0x58a262(0x75a)+_0xc4eb16[_0x58a262(0x3ba)]+')';}else creditScoreDisplay[_0x58a262(0x4eb)+'t']=_0x5507ec[_0x58a262(0x33f)];}catch(_0x3a03b3){console[_0x58a262(0x628)](_0x5507ec[_0x58a262(0x125)],_0x3a03b3),creditScoreDisplay[_0x58a262(0x4eb)+'t']=_0x5507ec[_0x58a262(0x8ff)];}}async function getAccountData(_0x3ce143){const _0x306d4c=_0x353936,_0x14eab0={'STCPk':function(_0x202fa7,_0x3cf521,_0x24dca5){return _0x202fa7(_0x3cf521,_0x24dca5);},'Bscbq':function(_0x1016dd,_0x340bce){return _0x1016dd(_0x340bce);}},_0x4607f7=_0x14eab0[_0x306d4c(0x89b)](doc,db,_0x306d4c(0x206)+appId+_0x306d4c(0x238)+_0x3ce143+(_0x306d4c(0x3bc)+_0x306d4c(0x47a))),_0x4412c0=await _0x14eab0[_0x306d4c(0x331)](getDoc,_0x4607f7);if(_0x4412c0[_0x306d4c(0x5b6)]())return _0x4412c0[_0x306d4c(0x5f0)]();return null;}async function createTransaction(_0x419b39,_0x97d2fc){const _0x2713de=_0x353936,_0x4684fb={'Szajt':function(_0x4e5ed6,_0x4721b8,_0x47b669){return _0x4e5ed6(_0x4721b8,_0x47b669);},'wAppo':function(_0x4910b5){return _0x4910b5();}},_0xa89d08=_0x4684fb[_0x2713de(0x808)](collection,db,_0x2713de(0x206)+appId+_0x2713de(0x238)+_0x419b39+(_0x2713de(0x345)+_0x2713de(0x216)));return await _0x4684fb[_0x2713de(0x808)](addDoc,_0xa89d08,{..._0x97d2fc,'timestamp':_0x4684fb[_0x2713de(0x3d4)](serverTimestamp)});}async function addContact(_0x139186,_0x492800){const _0x16ea47=_0x353936,_0x2ec65e={'ORwXn':function(_0x21df6f,_0x5e2fb1){return _0x21df6f||_0x5e2fb1;},'EeBzu':function(_0x5c4d12,_0x222b62){return _0x5c4d12===_0x222b62;},'DjEmc':function(_0x1827a2,_0x3ef9bc){return _0x1827a2(_0x3ef9bc);},'jIjMI':function(_0x54d2e1,_0x5b70b1,_0x4c348e){return _0x54d2e1(_0x5b70b1,_0x4c348e);},'ewETf':_0x16ea47(0x628),'eVlhf':function(_0x408ab1,_0x15432d,_0x22948e){return _0x408ab1(_0x15432d,_0x22948e);},'PzFrb':function(_0x405f7d,_0x25121e,_0x575c48){return _0x405f7d(_0x25121e,_0x575c48);},'qjGxa':function(_0x50c91e){return _0x50c91e();},'FGIBJ':function(_0x3babd2,_0xd18b90,_0x4a458c){return _0x3babd2(_0xd18b90,_0x4a458c);},'iHgkz':_0x16ea47(0x763),'CVfmi':_0x16ea47(0x875)+_0x16ea47(0x786)+_0x16ea47(0x387),'cKgth':function(_0x409dd3,_0x147140,_0x49c557){return _0x409dd3(_0x147140,_0x49c557);}};if(_0x2ec65e[_0x16ea47(0x5dd)](!_0x139186,!_0x492800)||_0x2ec65e[_0x16ea47(0x873)](_0x139186,_0x492800))return;try{const _0xac02f9=await _0x2ec65e[_0x16ea47(0x724)](getAccountData,_0x492800);if(!_0xac02f9)return _0x2ec65e[_0x16ea47(0x7f8)](showMessage,_0x16ea47(0x652)+_0x16ea47(0x356)+_0x492800+(_0x16ea47(0x368)+'.'),_0x2ec65e[_0x16ea47(0x98a)]),![];const _0x53b2d4=_0x2ec65e[_0x16ea47(0x7f6)](doc,db,_0x16ea47(0x206)+appId+_0x16ea47(0x238)+_0x139186+_0x16ea47(0x555)+_0x492800);return await _0x2ec65e[_0x16ea47(0x890)](setDoc,_0x53b2d4,{'uid':_0x492800,'addedAt':_0x2ec65e[_0x16ea47(0x190)](serverTimestamp)}),_0x2ec65e[_0x16ea47(0x158)](showMessage,_0x16ea47(0x1a7)+_0xac02f9[_0x16ea47(0x976)]+_0x16ea47(0x8b9),_0x2ec65e[_0x16ea47(0x919)]),!![];}catch(_0x3c49d4){return console[_0x16ea47(0x628)](_0x2ec65e[_0x16ea47(0x4b4)],_0x3c49d4),_0x2ec65e[_0x16ea47(0x1b8)](showMessage,_0x16ea47(0x875)+_0x16ea47(0x786)+_0x16ea47(0x1bd)+_0x3c49d4[_0x16ea47(0x23d)],_0x2ec65e[_0x16ea47(0x98a)]),![];}}async function deleteContact(_0x5f1aa7,_0xba9b7){const _0x7a20d6=_0x353936,_0x222993={'YEnzr':function(_0x489df0,_0x560f78){return _0x489df0||_0x560f78;},'eCkaC':function(_0x26984d,_0x252ded,_0x264dd9,_0xbd05f7){return _0x26984d(_0x252ded,_0x264dd9,_0xbd05f7);},'RzaFH':_0x7a20d6(0x1fa)+_0x7a20d6(0x90f),'AYxGd':_0x7a20d6(0x229)+_0x7a20d6(0x4cc)+_0x7a20d6(0x741)+_0x7a20d6(0x426)+_0x7a20d6(0x7a7)+'o?','nuSam':_0x7a20d6(0x5ab),'bApTn':function(_0x376388,_0x32833c,_0x4ea991){return _0x376388(_0x32833c,_0x4ea991);},'jmmNT':function(_0x4f8ee4,_0x12a090){return _0x4f8ee4(_0x12a090);},'rbYvu':_0x7a20d6(0x75d)+_0x7a20d6(0x979),'DcFYE':_0x7a20d6(0x584),'TNeoj':_0x7a20d6(0x6f5)+_0x7a20d6(0x898)+_0x7a20d6(0x96a),'WYlLJ':function(_0x2052ae,_0x2b0d25,_0x54fea2){return _0x2052ae(_0x2b0d25,_0x54fea2);},'JSzov':_0x7a20d6(0x628)};if(_0x222993[_0x7a20d6(0x34c)](!_0x5f1aa7,!_0xba9b7))return;const _0x198151=await _0x222993[_0x7a20d6(0x973)](showConfirmModal,_0x222993[_0x7a20d6(0x8b3)],_0x222993[_0x7a20d6(0x499)],_0x222993[_0x7a20d6(0x895)]);if(!_0x198151)return;try{const _0x226e4a=_0x222993[_0x7a20d6(0x5f1)](doc,db,_0x7a20d6(0x206)+appId+_0x7a20d6(0x238)+_0x5f1aa7+_0x7a20d6(0x555)+_0xba9b7);await _0x222993[_0x7a20d6(0x1a0)](deleteDoc,_0x226e4a),_0x222993[_0x7a20d6(0x5f1)](showMessage,_0x222993[_0x7a20d6(0x81a)],_0x222993[_0x7a20d6(0x155)]);}catch(_0x582948){console[_0x7a20d6(0x628)](_0x222993[_0x7a20d6(0x3ea)],_0x582948),_0x222993[_0x7a20d6(0x874)](showMessage,_0x7a20d6(0x6f5)+_0x7a20d6(0x898)+_0x7a20d6(0x917)+_0x582948[_0x7a20d6(0x23d)],_0x222993[_0x7a20d6(0x5f8)]);}}function listenToContacts(_0x2df110){const _0x2c0a54=_0x353936,_0x276e46={'usuAs':_0x2c0a54(0x50b)+_0x2c0a54(0x834)+_0x2c0a54(0x92d)+_0x2c0a54(0x3eb)+_0x2c0a54(0x774)+_0x2c0a54(0x872)+_0x2c0a54(0x769)+_0x2c0a54(0x2f5),'dktvw':_0x2c0a54(0x50b)+_0x2c0a54(0x834)+_0x2c0a54(0x92d)+_0x2c0a54(0x3eb)+_0x2c0a54(0x298)+_0x2c0a54(0x7c9),'Goyok':function(_0x1b17ab,_0x5c1e40){return _0x1b17ab(_0x5c1e40);},'PpzLa':_0x2c0a54(0x49c),'FQjdV':function(_0xbf0169,_0x133a52){return _0xbf0169||_0x133a52;},'Tvqrv':_0x2c0a54(0x50b)+_0x2c0a54(0x834)+_0x2c0a54(0x92d)+_0x2c0a54(0x3eb)+_0x2c0a54(0x3f9)+_0x2c0a54(0x896)+_0x2c0a54(0x738)+_0x2c0a54(0x239)+_0x2c0a54(0x222),'veEoU':function(_0x4a766d,_0x1bd791,_0x59cc0e){return _0x4a766d(_0x1bd791,_0x59cc0e);},'Hglcp':function(_0x594c7a,_0xbdaefe,_0x3d2d0e){return _0x594c7a(_0xbdaefe,_0x3d2d0e);},'ruZwz':function(_0x598e72,_0x2640ec,_0x171da5){return _0x598e72(_0x2640ec,_0x171da5);},'MLbbL':_0x2c0a54(0x3dc),'LyJkF':_0x2c0a54(0x59b)};if(!_0x2df110)return;const _0x221933=_0x276e46[_0x2c0a54(0x4e1)](collection,db,_0x2c0a54(0x206)+appId+_0x2c0a54(0x238)+_0x2df110+_0x2c0a54(0x74f)),_0x1b839d=_0x276e46[_0x2c0a54(0x41d)](query,_0x221933,_0x276e46[_0x2c0a54(0x43c)](orderBy,_0x276e46[_0x2c0a54(0x3ae)],_0x276e46[_0x2c0a54(0x902)]));_0x276e46[_0x2c0a54(0x43c)](onSnapshot,_0x1b839d,async _0x58e96a=>{const _0x5edd94=_0x2c0a54;if(_0x58e96a[_0x5edd94(0x4a2)]){contactsList[_0x5edd94(0x5e9)]=_0x276e46[_0x5edd94(0x21f)];return;}contactsList[_0x5edd94(0x5e9)]=_0x276e46[_0x5edd94(0x6a2)];let _0x2aa269='';for(const _0x1d1ab6 of _0x58e96a[_0x5edd94(0x224)]){const _0x49fa34=_0x1d1ab6['id'],_0x2f114b=await _0x276e46[_0x5edd94(0x45f)](getAccountData,_0x49fa34);if(_0x2f114b){const _0x223e32=_0x2f114b[_0x5edd94(0x21c)+'e']?.[_0x5edd94(0x744)][_0x5edd94(0x4c0)](-0x23c8+0x1614+-0x1*-0xdb5)||_0x276e46[_0x5edd94(0x66d)],_0x5b27a2=_0x2f114b[_0x5edd94(0x21c)+'e']?.[_0x5edd94(0x3ba)]||0x20ea+-0xa*-0x158+-0x2e5a;_0x2aa269+=_0x5edd94(0x25f)+_0x5edd94(0x198)+_0x5edd94(0x82b)+_0x5edd94(0x558)+_0x5edd94(0x575)+_0x5edd94(0x2f2)+_0x5edd94(0x6a5)+_0x5edd94(0x32f)+_0x5edd94(0x66e)+_0x5edd94(0x3aa)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x82b)+_0x5edd94(0x605)+_0x5edd94(0x31b)+_0x5edd94(0x591)+_0x5edd94(0x29f)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x36f)+_0x5edd94(0x8ac)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x1e3)+_0x5edd94(0x4ce)+_0x5edd94(0x836)+_0x5edd94(0x80d)+_0x5edd94(0x68b)+_0x2f114b[_0x5edd94(0x976)]+(_0x5edd94(0x3c1)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x6a9)+_0x5edd94(0x7ae)+_0x5edd94(0x1d7)+_0x5edd94(0x3d6)+_0x5edd94(0x34d))+_0x49fa34+(_0x5edd94(0x3c1)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x6a9)+_0x5edd94(0x7ae)+_0x5edd94(0x1d7)+_0x5edd94(0x7b3)+_0x5edd94(0x405)+_0x5edd94(0x147))+_0x223e32+_0x5edd94(0x75a)+_0x5b27a2+(_0x5edd94(0x44b)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x446)+_0x5edd94(0x25f)+_0x5edd94(0x198)+_0x5edd94(0x77e)+_0x5edd94(0x36e)+_0x5edd94(0x67d)+_0x5edd94(0x46e)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x7e6)+_0x5edd94(0x598)+_0x5edd94(0x824)+_0x5edd94(0x5f4)+_0x5edd94(0x719)+_0x5edd94(0x85f)+_0x5edd94(0x77b)+_0x5edd94(0x3da)+_0x5edd94(0x6af)+_0x5edd94(0x340))+_0x49fa34+(_0x5edd94(0x84f)+_0x5edd94(0x365)+_0x5edd94(0x603)+_0x5edd94(0x732)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x2b6)+_0x5edd94(0x659)+_0x5edd94(0x90c)+_0x5edd94(0x7ea)+_0x5edd94(0x6e2)+_0x5edd94(0x745)+_0x5edd94(0x296)+_0x5edd94(0x219)+_0x5edd94(0x175)+_0x5edd94(0x371))+_0x49fa34+(_0x5edd94(0x48d)+_0x5edd94(0x72a)+_0x5edd94(0x35b)+_0x5edd94(0x198)+_0x5edd94(0x198)+_0x5edd94(0x192)+_0x5edd94(0x977)+_0x5edd94(0x198)+_0x5edd94(0x77e)+_0x5edd94(0x193)+_0x5edd94(0x198)+_0x5edd94(0x4e0)+_0x5edd94(0x8ac)+_0x5edd94(0x3af));}}contactsList[_0x5edd94(0x5e9)]=_0x276e46[_0x5edd94(0x5c0)](_0x2aa269,_0x276e46[_0x5edd94(0x553)]);});}openContactsBtn[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>contactsModal[_0x353936(0x30a)][_0x353936(0x19b)](_0x353936(0x4a7))),closeContactsModalBtn[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),()=>contactsModal[_0x353936(0x30a)][_0x353936(0x6b8)](_0x353936(0x4a7))),contactsModal[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),_0x1a9e20=>{const _0x3cd3cb=_0x353936,_0x6f54a3={'pqYim':function(_0x11d8d6,_0x405471){return _0x11d8d6===_0x405471;},'vXjeB':_0x3cd3cb(0x4a7)};if(_0x6f54a3[_0x3cd3cb(0x7d3)](_0x1a9e20[_0x3cd3cb(0x97e)],contactsModal))contactsModal[_0x3cd3cb(0x30a)][_0x3cd3cb(0x6b8)](_0x6f54a3[_0x3cd3cb(0x6a8)]);}),addContactForm[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x12d),async _0x37a449=>{const _0x38c1b4=_0x353936,_0x8563cb={'CCqNX':function(_0x371e6b,_0x4699bb){return _0x371e6b&&_0x4699bb;},'eyINm':function(_0x464b3d,_0x1fe8da,_0x155cee){return _0x464b3d(_0x1fe8da,_0x155cee);}};_0x37a449[_0x38c1b4(0x510)+_0x38c1b4(0x5f7)]();const _0x252d41=contactUidInput[_0x38c1b4(0x21e)][_0x38c1b4(0x502)]();if(_0x8563cb[_0x38c1b4(0x8c8)](_0x252d41,currentUser)){const _0x34b9b1=await _0x8563cb[_0x38c1b4(0x846)](addContact,currentUser[_0x38c1b4(0x2e5)],_0x252d41);_0x34b9b1&&(contactUidInput[_0x38c1b4(0x21e)]='');}}),contactsList[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),_0x131056=>{const _0x438c2a=_0x353936,_0x301b21={'dMvwP':_0x438c2a(0x519),'UbcAH':_0x438c2a(0x515)+_0x438c2a(0x27c),'uEfaM':_0x438c2a(0x4a7),'fSfOt':_0x438c2a(0x90c)+_0x438c2a(0x27c),'hXFXQ':function(_0x5ab85a,_0x3a7ba0,_0x20dc95){return _0x5ab85a(_0x3a7ba0,_0x20dc95);}},_0x1a67c2=_0x131056[_0x438c2a(0x97e)][_0x438c2a(0x644)](_0x301b21[_0x438c2a(0x86f)]);if(!_0x1a67c2)return;const _0x959824=_0x1a67c2[_0x438c2a(0x383)][_0x438c2a(0x2e5)];if(_0x1a67c2[_0x438c2a(0x30a)][_0x438c2a(0x33d)](_0x301b21[_0x438c2a(0x29d)]))recipientIdInput[_0x438c2a(0x21e)]=_0x959824,contactsModal[_0x438c2a(0x30a)][_0x438c2a(0x6b8)](_0x301b21[_0x438c2a(0x8bf)]);else _0x1a67c2[_0x438c2a(0x30a)][_0x438c2a(0x33d)](_0x301b21[_0x438c2a(0x82a)])&&(currentUser&&_0x301b21[_0x438c2a(0x4ba)](deleteContact,currentUser[_0x438c2a(0x2e5)],_0x959824));});async function cancelLoanRequest(_0x4cee69){const _0xdbf585=_0x353936,_0x33fe5e={'pBYIz':_0xdbf585(0x1c2)+_0xdbf585(0x42d)+_0xdbf585(0x2fe),'kiSui':function(_0xec196a,_0x3d1124){return _0xec196a!==_0x3d1124;},'pzVkT':_0xdbf585(0x59e)+_0xdbf585(0x5aa)+_0xdbf585(0x343)+_0xdbf585(0x65f)+_0xdbf585(0x374),'vObMC':_0xdbf585(0x929),'OCaIW':_0xdbf585(0x493)+_0xdbf585(0x843)+_0xdbf585(0x2ec)+_0xdbf585(0x640)+_0xdbf585(0x3a8),'jzAyB':_0xdbf585(0x8de),'kGFhp':function(_0x4a44c5){return _0x4a44c5();},'YYLAt':_0xdbf585(0x464)+_0xdbf585(0x606)+_0xdbf585(0x7d5),'Cjzra':_0xdbf585(0x392)+_0xdbf585(0x4b1)+_0xdbf585(0x168),'bBdLi':function(_0x34a6c0,_0x2959f0,_0x5ee96){return _0x34a6c0(_0x2959f0,_0x5ee96);},'yiDdZ':_0xdbf585(0x1c2)+_0xdbf585(0x353)+_0xdbf585(0x56d)+_0xdbf585(0x930)+_0xdbf585(0x358),'lbZkc':_0xdbf585(0x763),'LaVDl':_0xdbf585(0x48f)+_0xdbf585(0x74d)+_0xdbf585(0x673)+':','ZxVWt':function(_0x12d49b,_0x390ffb,_0x5c60a9){return _0x12d49b(_0x390ffb,_0x5c60a9);},'zymur':_0xdbf585(0x628)};if(!currentUser)throw new Error(_0x33fe5e[_0xdbf585(0x6d5)]);if(!_0x4cee69)throw new Error(_0x33fe5e[_0xdbf585(0x19f)]);const _0x566ad3=_0x33fe5e[_0xdbf585(0x568)](doc,db,_0xdbf585(0x206)+appId+(_0xdbf585(0x691)+_0xdbf585(0x45d))+_0x4cee69);try{return await _0x33fe5e[_0xdbf585(0x568)](runTransaction,db,async _0x11b178=>{const _0x22499e=_0xdbf585,_0x35359b=await _0x11b178[_0x22499e(0x34b)](_0x566ad3);if(!_0x35359b[_0x22499e(0x5b6)]())throw new Error(_0x33fe5e[_0x22499e(0x8af)]);const _0x42b52c=_0x35359b[_0x22499e(0x5f0)]();if(_0x33fe5e[_0x22499e(0x1e1)](_0x42b52c[_0x22499e(0x4ad)],currentUser[_0x22499e(0x2e5)]))throw new Error(_0x33fe5e[_0x22499e(0x6dc)]);if(_0x33fe5e[_0x22499e(0x1e1)](_0x42b52c[_0x22499e(0x85d)],_0x33fe5e[_0x22499e(0x477)]))throw new Error(_0x33fe5e[_0x22499e(0x2f3)]);_0x11b178[_0x22499e(0x964)](_0x566ad3,{'status':_0x33fe5e[_0x22499e(0x2ea)],'cancelledDate':_0x33fe5e[_0x22499e(0x3d2)](serverTimestamp),'cancelledBy':currentUser[_0x22499e(0x2e5)]});}),_0x33fe5e[_0xdbf585(0x568)](showMessage,_0x33fe5e[_0xdbf585(0x4ab)],_0x33fe5e[_0xdbf585(0x3e2)]),!![];}catch(_0x3fe547){return console[_0xdbf585(0x628)](_0x33fe5e[_0xdbf585(0x767)],_0x3fe547),_0x33fe5e[_0xdbf585(0x7be)](showMessage,_0xdbf585(0x48f)+_0xdbf585(0x74d)+_0xdbf585(0x673)+':\x20'+_0x3fe547[_0xdbf585(0x23d)],_0x33fe5e[_0xdbf585(0x626)]),![];}}async function cancelLoanByLender(_0x1a3bae,_0x4b4bb1){const _0x1ce3f6=_0x353936,_0x18d6c1={'uQSaH':_0x1ce3f6(0x6e3)+_0x1ce3f6(0x78f)+_0x1ce3f6(0x70c)+_0x1ce3f6(0x6db)+_0x1ce3f6(0x286),'zwFpv':function(_0x45af83,_0x24b639){return _0x45af83-_0x24b639;},'ZCuUY':_0x1ce3f6(0x185)+_0x1ce3f6(0x35a)+_0x1ce3f6(0x19c),'tiWTw':function(_0xab66f6){return _0xab66f6();},'CgWmC':_0x1ce3f6(0x1da)+_0x1ce3f6(0x30f),'qLhPe':function(_0x25180b,_0x54c35b,_0x1891ef){return _0x25180b(_0x54c35b,_0x1891ef);},'FVepU':function(_0x59acd6,_0xcfce04){return _0x59acd6(_0xcfce04);},'lExgx':function(_0x5bdc90,_0x4cc41d){return _0x5bdc90!==_0x4cc41d;},'KMwBM':_0x1ce3f6(0x6c4),'dOPcX':_0x1ce3f6(0x389)+_0x1ce3f6(0x978)+_0x1ce3f6(0x755)+_0x1ce3f6(0x45c)+_0x1ce3f6(0x7dc)+_0x1ce3f6(0x2fe),'owsKR':function(_0x1224aa,_0x525a6a,_0x1f5204,_0x1ac418,_0x2c9b0d){return _0x1224aa(_0x525a6a,_0x1f5204,_0x1ac418,_0x2c9b0d);},'wwByC':function(_0x16eec9,_0x4beb93,_0xc2799e){return _0x16eec9(_0x4beb93,_0xc2799e);},'eTIpS':function(_0x5ca3da,_0x331d98,_0x5d6a45,_0xf8eff9){return _0x5ca3da(_0x331d98,_0x5d6a45,_0xf8eff9);},'SKkkb':_0x1ce3f6(0x4c1),'fihKs':_0x1ce3f6(0x6b5),'KdHgH':_0x1ce3f6(0x89f)+_0x1ce3f6(0x68d),'TQkYe':function(_0x5d2a92,_0x43c115,_0x5e18af,_0x1ee61a){return _0x5d2a92(_0x43c115,_0x5e18af,_0x1ee61a);},'UaFey':_0x1ce3f6(0x85d),'rFnQx':_0x1ce3f6(0x929),'QyREv':_0x1ce3f6(0x94d)+_0x1ce3f6(0x2e3),'gNgus':function(_0x3e560c,_0x24be14){return _0x3e560c>_0x24be14;},'qQnyN':function(_0x49c43a,_0x3aa254,_0x511bf9){return _0x49c43a(_0x3aa254,_0x511bf9);},'fwosM':function(_0x33a476,_0x1ae12a){return _0x33a476/_0x1ae12a;},'iMosx':function(_0x4ed00c,_0x2acc40){return _0x4ed00c*_0x2acc40;},'MPIHR':function(_0x209d2d,_0x283212){return _0x209d2d+_0x283212;},'xMvyt':function(_0x54fd53,_0x2e899d){return _0x54fd53*_0x2e899d;},'BbjyZ':function(_0x2f5e9b,_0xec6aaf,_0x4c77e5){return _0x2f5e9b(_0xec6aaf,_0x4c77e5);},'kpNbo':function(_0x540e9f,_0x1b7c02){return _0x540e9f(_0x1b7c02);},'tMCPW':function(_0x569e08,_0xdc6a1a){return _0x569e08(_0xdc6a1a);},'IzCBu':function(_0xc7eff7,_0x46c6c2,_0x58473e){return _0xc7eff7(_0x46c6c2,_0x58473e);},'EwlMY':_0x1ce3f6(0x289),'UydUF':_0x1ce3f6(0x539)+_0x1ce3f6(0x5b1)+_0x1ce3f6(0x8a1),'SLxqt':function(_0x58eeb5,_0x2f28e4,_0xadde5){return _0x58eeb5(_0x2f28e4,_0xadde5);},'RecJU':_0x1ce3f6(0x6ad)+_0x1ce3f6(0x526)+'on','Rnpwu':_0x1ce3f6(0x5a1)+_0x1ce3f6(0x2a2)+_0x1ce3f6(0x526)+'on','rmztC':_0x1ce3f6(0x966),'rLPZl':function(_0xd0bbc9,_0x13f753,_0x2a6571){return _0xd0bbc9(_0x13f753,_0x2a6571);},'DwplP':_0x1ce3f6(0x763),'zijTP':function(_0x52a495,_0x3128c2){return _0x52a495(_0x3128c2);},'Fztgl':_0x1ce3f6(0x530)+_0x1ce3f6(0x2cc)+_0x1ce3f6(0x401),'ztWRP':function(_0x127213,_0x169bbb,_0x3f5832){return _0x127213(_0x169bbb,_0x3f5832);},'zKgcm':_0x1ce3f6(0x628)};if(!currentUser)return;const _0x40acad=currentUser[_0x1ce3f6(0x2e5)],_0x576603=_0x18d6c1[_0x1ce3f6(0x998)](doc,db,_0x1ce3f6(0x206)+appId+_0x1ce3f6(0x238)+_0x40acad+(_0x1ce3f6(0x3bc)+_0x1ce3f6(0x47a))),_0x331419=_0x18d6c1[_0x1ce3f6(0x998)](doc,db,_0x1ce3f6(0x206)+appId+_0x1ce3f6(0x238)+_0x40acad+(_0x1ce3f6(0x345)+_0x1ce3f6(0x6c8))+_0x1a3bae),_0x1e85e9=await _0x18d6c1[_0x1ce3f6(0x8c0)](getDoc,_0x331419);if(!_0x1e85e9[_0x1ce3f6(0x5b6)]()||_0x18d6c1[_0x1ce3f6(0x232)](_0x1e85e9[_0x1ce3f6(0x5f0)]()[_0x1ce3f6(0x85d)],_0x18d6c1[_0x1ce3f6(0x42f)]))throw new Error(_0x18d6c1[_0x1ce3f6(0x7b5)]);const _0x8e047c=_0x1e85e9[_0x1ce3f6(0x5f0)](),_0x4101b2=_0x18d6c1[_0x1ce3f6(0x4f1)](query,_0x18d6c1[_0x1ce3f6(0x924)](collection,db,_0x1ce3f6(0x206)+appId+_0x1ce3f6(0x238)+_0x4b4bb1+(_0x1ce3f6(0x345)+_0x1ce3f6(0x216))),_0x18d6c1[_0x1ce3f6(0x14b)](where,_0x18d6c1[_0x1ce3f6(0x1ab)],'==',_0x18d6c1[_0x1ce3f6(0x162)]),_0x18d6c1[_0x1ce3f6(0x14b)](where,_0x18d6c1[_0x1ce3f6(0x8e8)],'==',_0x1a3bae),_0x18d6c1[_0x1ce3f6(0x453)](where,_0x18d6c1[_0x1ce3f6(0x969)],'in',[_0x18d6c1[_0x1ce3f6(0x494)],_0x18d6c1[_0x1ce3f6(0x261)]])),_0x3f7546=await _0x18d6c1[_0x1ce3f6(0x8c0)](getDocs,_0x4101b2),_0x3e2658=_0x18d6c1[_0x1ce3f6(0x993)](_0x3f7546[_0x1ce3f6(0x224)][_0x1ce3f6(0x594)],0x1*-0x20bc+-0x1565+0x3621)?_0x3f7546[_0x1ce3f6(0x224)][-0x10*-0x1b3+-0x16e5+-0x44b*0x1]:null,_0x4e4537=_0x3e2658?_0x18d6c1[_0x1ce3f6(0x537)](doc,db,_0x1ce3f6(0x206)+appId+_0x1ce3f6(0x238)+_0x4b4bb1+(_0x1ce3f6(0x345)+_0x1ce3f6(0x6c8))+_0x3e2658['id']):null;try{const _0x21bf92=_0x18d6c1[_0x1ce3f6(0x39d)](_0x8e047c[_0x1ce3f6(0x179)+'te'],-0x1e28+-0x263c+0x44c8),_0x136c0b=_0x18d6c1[_0x1ce3f6(0x1c5)](_0x8e047c[_0x1ce3f6(0x801)+_0x1ce3f6(0x518)],_0x18d6c1[_0x1ce3f6(0x5a7)](0x13*-0x4c+-0xaf*-0x1d+-0xe2e,_0x21bf92)),_0x5a44c7=0x20c2+-0x120*0x1d+-0x2*0x11+0.05,_0x599182=_0x18d6c1[_0x1ce3f6(0x27b)](_0x136c0b,_0x5a44c7);await _0x18d6c1[_0x1ce3f6(0x92b)](runTransaction,db,async _0x39e15a=>{const _0x41f5c6=_0x1ce3f6,_0x35ceb3=await _0x39e15a[_0x41f5c6(0x34b)](_0x576603);if(!_0x35ceb3[_0x41f5c6(0x5b6)]())throw new Error(_0x18d6c1[_0x41f5c6(0x7c7)]);const _0x252d96=_0x35ceb3[_0x41f5c6(0x5f0)]()[_0x41f5c6(0x361)],_0x30fa89=_0x18d6c1[_0x41f5c6(0x928)](_0x252d96,_0x599182);_0x39e15a[_0x41f5c6(0x964)](_0x576603,{'balance':_0x30fa89}),_0x39e15a[_0x41f5c6(0x964)](_0x331419,{'status':_0x18d6c1[_0x41f5c6(0x307)],'paidAmount':_0x136c0b,'paidDate':_0x18d6c1[_0x41f5c6(0x772)](serverTimestamp),'penaltyAmount':_0x599182,'scoreGiven':![]}),_0x4e4537&&_0x39e15a[_0x41f5c6(0x964)](_0x4e4537,{'status':_0x18d6c1[_0x41f5c6(0x448)],'paidAmount':_0x136c0b,'paidDate':_0x18d6c1[_0x41f5c6(0x772)](serverTimestamp)});});const _0x280587=await _0x18d6c1[_0x1ce3f6(0x227)](getAccountData,_0x4b4bb1),_0x53f37a=await _0x18d6c1[_0x1ce3f6(0x683)](getAccountData,_0x40acad);await _0x18d6c1[_0x1ce3f6(0x25b)](createTransaction,_0x40acad,{'amount':_0x599182,'senderId':_0x40acad,'recipientId':_0x18d6c1[_0x1ce3f6(0x64c)],'type':_0x18d6c1[_0x1ce3f6(0x16f)],'originalLoanId':_0x1a3bae,'interestRate':_0x8e047c[_0x1ce3f6(0x179)+'te'],'senderName':_0x53f37a[_0x1ce3f6(0x976)],'recipientName':_0x18d6c1[_0x1ce3f6(0x64c)],'description':_0x1ce3f6(0x133)+_0x1ce3f6(0x8b8)+_0x1ce3f6(0x1f0)+_0x1ce3f6(0x169)+_0x1ce3f6(0x27d)+_0x280587[_0x1ce3f6(0x976)]}),await _0x18d6c1[_0x1ce3f6(0x380)](createTransaction,_0x40acad,{'amount':_0x136c0b,'senderId':_0x4b4bb1,'recipientId':_0x40acad,'type':_0x18d6c1[_0x1ce3f6(0x609)],'originalLoanId':_0x1a3bae,'interestRate':_0x8e047c[_0x1ce3f6(0x179)+'te'],'senderName':_0x280587[_0x1ce3f6(0x976)],'recipientName':_0x53f37a[_0x1ce3f6(0x976)],'description':_0x1ce3f6(0x2a5)+_0x1ce3f6(0x183)+_0x1ce3f6(0x1be)+_0x1ce3f6(0x1cb)+_0x1ce3f6(0x126)+_0x280587[_0x1ce3f6(0x976)]}),await _0x18d6c1[_0x1ce3f6(0x380)](createTransaction,_0x4b4bb1,{'amount':_0x136c0b,'senderId':_0x40acad,'recipientId':_0x4b4bb1,'type':_0x18d6c1[_0x1ce3f6(0x402)],'originalLoanId':_0x3e2658?_0x3e2658['id']:_0x18d6c1[_0x1ce3f6(0x2b2)],'interestRate':_0x8e047c[_0x1ce3f6(0x179)+'te'],'senderName':_0x53f37a[_0x1ce3f6(0x976)],'recipientName':_0x280587[_0x1ce3f6(0x976)],'description':_0x1ce3f6(0x452)+_0x1ce3f6(0x3b2)+_0x1ce3f6(0x4ef)+_0x1ce3f6(0x2f9)+_0x1ce3f6(0x5fb)+_0x53f37a[_0x1ce3f6(0x976)]}),_0x18d6c1[_0x1ce3f6(0x16a)](showMessage,_0x1ce3f6(0x33a)+_0x1ce3f6(0x300)+_0x1ce3f6(0x66a)+_0x1ce3f6(0x838)+_0x1ce3f6(0x90e)+_0x1ce3f6(0x93c)+_0x1ce3f6(0x73f)+'$'+_0x599182[_0x1ce3f6(0x4c0)](0x50d*0x3+0x1c12+-0x2b37)+(_0x1ce3f6(0x8b2)+_0x1ce3f6(0x1f4)+'($')+_0x136c0b[_0x1ce3f6(0x4c0)](0xfdd+-0x869+-0x772)+(_0x1ce3f6(0x812)+_0x1ce3f6(0x442)+_0x1ce3f6(0x650)+_0x1ce3f6(0x90a)+_0x1ce3f6(0x76e)),_0x18d6c1[_0x1ce3f6(0x366)]),_0x18d6c1[_0x1ce3f6(0x7c0)](loadBalance,_0x40acad),_0x18d6c1[_0x1ce3f6(0x8c0)](listenToTransactions,_0x40acad);}catch(_0x45d8ef){console[_0x1ce3f6(0x628)](_0x18d6c1[_0x1ce3f6(0x2af)],_0x45d8ef),_0x18d6c1[_0x1ce3f6(0x22d)](showMessage,_0x1ce3f6(0x530)+_0x1ce3f6(0x6f2)+_0x1ce3f6(0x30e)+'\x20'+_0x45d8ef[_0x1ce3f6(0x23d)],_0x18d6c1[_0x1ce3f6(0x729)]);}}async function saveCreditScore(_0x30c948,_0x254c82){const _0x246030=_0x353936,_0x24461a={'VKvPs':_0x246030(0x2f4)+_0x246030(0x681)+_0x246030(0x949)+'a.','fpuQg':function(_0x5a87ac,_0x2165db){return _0x5a87ac+_0x2165db;},'CRNBO':function(_0x109f61,_0x21612a){return _0x109f61*_0x21612a;},'cmVdl':function(_0x41c93b,_0x28ce9d){return _0x41c93b+_0x28ce9d;},'ZZSOp':function(_0x22a97a,_0x5c6f05){return _0x22a97a/_0x5c6f05;},'BRfpq':_0x246030(0x464)+_0x246030(0x606)+_0x246030(0x7d5),'RDYnq':function(_0x479612,_0x26871e,_0x2b195a){return _0x479612(_0x26871e,_0x2b195a);},'hbckF':function(_0x58cf39,_0x5ccc32){return _0x58cf39(_0x5ccc32);}};if(!currentUser)throw new Error(_0x24461a[_0x246030(0x1d0)]);const _0x25b512=_0x24461a[_0x246030(0x856)](doc,db,_0x246030(0x206)+appId+_0x246030(0x238)+_0x30c948+(_0x246030(0x3bc)+_0x246030(0x47a)));await _0x24461a[_0x246030(0x856)](runTransaction,db,async _0x26741d=>{const _0x14e8a0=_0x246030,_0x4362d0=await _0x26741d[_0x14e8a0(0x34b)](_0x25b512);if(!_0x4362d0[_0x14e8a0(0x5b6)]())throw new Error(_0x24461a[_0x14e8a0(0x6c1)]);const _0x5db650=_0x4362d0[_0x14e8a0(0x5f0)](),_0x196da4=_0x5db650[_0x14e8a0(0x21c)+'e']||{'average':0x5,'count':0x0},_0x20d5b2=_0x24461a[_0x14e8a0(0x288)](_0x24461a[_0x14e8a0(0x3dd)](_0x196da4[_0x14e8a0(0x744)],_0x196da4[_0x14e8a0(0x3ba)]),_0x254c82),_0x137a63=_0x24461a[_0x14e8a0(0x855)](_0x196da4[_0x14e8a0(0x3ba)],0x1066+-0x6b*0x3a+0x7d9),_0x1047a7=_0x24461a[_0x14e8a0(0x839)](_0x20d5b2,_0x137a63);_0x26741d[_0x14e8a0(0x964)](_0x25b512,{'creditScore':{'average':_0x1047a7,'count':_0x137a63}});}),_0x24461a[_0x246030(0x620)](loadCreditScore,_0x30c948);}document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x771)+_0x353936(0x8bc))[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x12d),async _0x31096e=>{const _0x452059=_0x353936,_0x25b764={'uTsdd':_0x452059(0x6e3)+_0x452059(0x25a)+_0x452059(0x308),'IpteO':function(_0x338497,_0x339d2c){return _0x338497<_0x339d2c;},'DQTjX':_0x452059(0x20d)+_0x452059(0x52a)+_0x452059(0x548)+_0x452059(0x1c1)+_0x452059(0x3d7)+_0x452059(0x85e),'NChuJ':function(_0x18cf28,_0x22a492){return _0x18cf28-_0x22a492;},'GObTX':function(_0x475f58,_0x1d763d){return _0x475f58+_0x1d763d;},'sGkWD':_0x452059(0x6e3)+_0x452059(0x270)+_0x452059(0x2ed)+_0x452059(0x144)+_0x452059(0x7df),'GCamx':function(_0x3af5ed,_0x2baa90){return _0x3af5ed<_0x2baa90;},'gJMZj':_0x452059(0x20d)+_0x452059(0x61b),'cKdry':function(_0x84beff,_0x18c6b9){return _0x84beff-_0x18c6b9;},'GGwxq':function(_0x196eb8,_0x32cb17){return _0x196eb8+_0x32cb17;},'NdWUB':function(_0x439575,_0x211120,_0x22c688){return _0x439575(_0x211120,_0x22c688);},'WSvRO':_0x452059(0x139)+_0x452059(0x21d)+_0x452059(0x678)+_0x452059(0x251),'SlchC':_0x452059(0x628),'nXiLf':function(_0x4105f0,_0x53af75){return _0x4105f0!==_0x53af75;},'WyIAH':_0x452059(0x7e4)+'st','bIkpx':_0x452059(0x31a)+'id','elwaa':function(_0x402487,_0xa09e4f){return _0x402487(_0xa09e4f);},'NTVAH':_0x452059(0x23e),'oqKgN':_0x452059(0x2e1),'mWxwR':function(_0x2e39c1,_0x330fbf){return _0x2e39c1!==_0x330fbf;},'PtxPQ':function(_0x331d4f,_0x46c628){return _0x331d4f===_0x46c628;},'IERwK':function(_0x8825ee,_0x2f8bdc,_0x445be4){return _0x8825ee(_0x2f8bdc,_0x445be4);},'gWidp':_0x452059(0x72c)+_0x452059(0x635)+_0x452059(0x7ac)+_0x452059(0x12e),'mrUIt':function(_0x46beb5,_0x3055cc){return _0x46beb5<=_0x3055cc;},'GwxNe':function(_0x5115d1,_0x4470dd){return _0x5115d1(_0x4470dd);},'aLQdV':_0x452059(0x94b)+_0x452059(0x443),'GapIq':function(_0x263bcf,_0x5c3fdc){return _0x263bcf!==_0x5c3fdc;},'wVVVs':_0x452059(0x6da),'KXcgo':function(_0x1fc783,_0x4839db){return _0x1fc783>_0x4839db;},'xjQWu':function(_0x219846,_0x493ab3,_0x28bc79){return _0x219846(_0x493ab3,_0x28bc79);},'mksXm':_0x452059(0x81e)+_0x452059(0x809)+_0x452059(0x3f0)+_0x452059(0x942)+_0x452059(0x5e3)+'%.','DmoWc':function(_0x36a9fd,_0x16acb7,_0x169022,_0xc7b93e){return _0x36a9fd(_0x16acb7,_0x169022,_0xc7b93e);},'nuxMv':_0x452059(0x4ad),'gXeaB':function(_0x3dfdee,_0x42265f){return _0x3dfdee(_0x42265f);},'uMwGO':_0x452059(0x3cd)+_0x452059(0x279)+_0x452059(0x798)+_0x452059(0x196),'MnfTI':function(_0x463a33,_0x3a5410,_0x4d2109){return _0x463a33(_0x3a5410,_0x4d2109);},'nuIKp':_0x452059(0x8ca)+_0x452059(0x92e)+_0x452059(0x870)+_0x452059(0x20b)+_0x452059(0x240)+_0x452059(0x2bb)+_0x452059(0x479)+_0x452059(0x245),'WYLSp':_0x452059(0x8d8)+_0x452059(0x8b7)+_0x452059(0x3c2)+_0x452059(0x65d)+_0x452059(0x595),'YDFlL':_0x452059(0x1c2)+_0x452059(0x8aa)+'o','TaJPV':_0x452059(0x584),'UqETK':_0x452059(0x1c2)+_0x452059(0x353)+_0x452059(0x56d)+'a.','sRkOz':_0x452059(0x929),'MEqqI':function(_0x8220e8){return _0x8220e8();},'pyYmm':function(_0x4ada98,_0x450e82,_0x3ad1ec){return _0x4ada98(_0x450e82,_0x3ad1ec);},'gPJlN':_0x452059(0x1c2)+_0x452059(0x353)+_0x452059(0x8c2)+_0x452059(0x5c5)+_0x452059(0x18b)+_0x452059(0x86b)+_0x452059(0x576),'KTbos':_0x452059(0x763),'SSoWw':_0x452059(0x15f),'sucyY':_0x452059(0x1ca)+_0x452059(0x15e)+_0x452059(0x529),'bedkt':function(_0x1cc456,_0x22ab55,_0x28f349){return _0x1cc456(_0x22ab55,_0x28f349);},'baXSi':_0x452059(0x953),'zbIqY':function(_0x2ad297,_0x538a05){return _0x2ad297(_0x538a05);},'vYiPz':_0x452059(0x61a)+_0x452059(0x546)+_0x452059(0x2c9),'rCVQz':_0x452059(0x347)+_0x452059(0x55d)+_0x452059(0x84c),'sRHIs':_0x452059(0x988),'LtmtM':_0x452059(0x899)+_0x452059(0x93a)+_0x452059(0x2de)+_0x452059(0x4a4)+_0x452059(0x672),'qQiLM':function(_0x44470c,_0x205d4d,_0x49f463){return _0x44470c(_0x205d4d,_0x49f463);},'XthZb':function(_0x89e177,_0x2dec2d){return _0x89e177(_0x2dec2d);},'tcJFg':function(_0x55e21a,_0x370866){return _0x55e21a===_0x370866;},'TpBDF':function(_0x393fae,_0x2a12b3,_0x56f2b2){return _0x393fae(_0x2a12b3,_0x56f2b2);},'jCbKE':_0x452059(0x530)+_0x452059(0x267)+_0x452059(0x28f)+_0x452059(0x304),'eFtnm':function(_0x1c3d62,_0x137a36,_0x234713){return _0x1c3d62(_0x137a36,_0x234713);},'FmrAo':_0x452059(0x94d)+_0x452059(0x2e3),'kjCzA':_0x452059(0x675)+'o','HmCsq':_0x452059(0x70e),'DOVaj':function(_0x4deb97,_0x193543,_0x2c41fb){return _0x4deb97(_0x193543,_0x2c41fb);},'AabUu':_0x452059(0x1a3),'zyPba':_0x452059(0x840),'CSdEp':_0x452059(0x899)+_0x452059(0x357)+_0x452059(0x6e8)+_0x452059(0x384)+_0x452059(0x2fc)+_0x452059(0x6a3),'dhwHo':function(_0x30ca7c,_0x3c3819,_0x3a549c){return _0x30ca7c(_0x3c3819,_0x3a549c);},'IDlDc':_0x452059(0x7e7)+_0x452059(0x84e),'AEGur':function(_0x3bd06f,_0x373075,_0x4bf08d){return _0x3bd06f(_0x373075,_0x4bf08d);},'cmEmZ':_0x452059(0x6c0)+_0x452059(0x961),'NYDWX':_0x452059(0x892)+_0x452059(0x795)+'a.','TtCls':function(_0x5303c2,_0x230b40){return _0x5303c2(_0x230b40);},'dtFQS':_0x452059(0x622)+_0x452059(0x373)+':\x20','JsNtl':function(_0x4b48c3,_0x440fc0,_0x4f0182){return _0x4b48c3(_0x440fc0,_0x4f0182);}};_0x31096e[_0x452059(0x510)+_0x452059(0x5f7)]();if(!currentUser){_0x25b764[_0x452059(0x301)](showMessage,_0x25b764[_0x452059(0x2a0)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x9cac1b=_0x25b764[_0x452059(0x75e)](transactionTypeSelect[_0x452059(0x21e)],_0x25b764[_0x452059(0x39f)])?document[_0x452059(0x4cd)+_0x452059(0x937)](_0x25b764[_0x452059(0x297)])[_0x452059(0x21e)][_0x452059(0x502)]():null,_0x2da0ef=_0x25b764[_0x452059(0x2ce)](parseFloat,document[_0x452059(0x4cd)+_0x452059(0x937)](_0x25b764[_0x452059(0x3b5)])[_0x452059(0x21e)]),_0x5db577=transactionTypeSelect[_0x452059(0x21e)],_0x1f525a=_0x25b764[_0x452059(0x2ce)](parseFloat,document[_0x452059(0x4cd)+_0x452059(0x937)](_0x25b764[_0x452059(0x3a9)])[_0x452059(0x21e)]),_0x5546bf=descriptionInput[_0x452059(0x21e)][_0x452059(0x502)](),_0x2a77b9=currentUser[_0x452059(0x2e5)];if(_0x25b764[_0x452059(0x5d2)](_0x5db577,_0x25b764[_0x452059(0x39f)])&&_0x25b764[_0x452059(0x5bd)](_0x2a77b9,_0x9cac1b)){_0x25b764[_0x452059(0x4c2)](showMessage,_0x25b764[_0x452059(0x2fa)],_0x25b764[_0x452059(0x6e5)]);return;}if(_0x25b764[_0x452059(0x7c4)](_0x2da0ef,0x1*-0x5c5+0x1e5f+-0x189a*0x1)||_0x25b764[_0x452059(0x93e)](isNaN,_0x2da0ef)){_0x25b764[_0x452059(0x301)](showMessage,_0x25b764[_0x452059(0x580)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x1cea9b=_0x25b764[_0x452059(0x93e)](getRequiredMinimumInterest,_0x2da0ef);if(_0x25b764[_0x452059(0x531)](_0x5db577,_0x25b764[_0x452059(0x184)])&&_0x25b764[_0x452059(0x3d9)](_0x1f525a,_0x1cea9b)){_0x25b764[_0x452059(0x301)](showMessage,_0x452059(0x81e)+_0x452059(0x80b)+_0x452059(0x17d)+_0x452059(0x6a1)+'\x20'+_0x1cea9b+'%.',_0x25b764[_0x452059(0x6e5)]);return;}if(_0x25b764[_0x452059(0x5bd)](_0x5db577,_0x25b764[_0x452059(0x39f)])){const _0x5cccd7=_0x1f525a;if(_0x25b764[_0x452059(0x2ce)](isNaN,_0x5cccd7)||_0x25b764[_0x452059(0x5af)](_0x5cccd7,-0x329+-0x77f*0x1+0x1*0xada))return _0x25b764[_0x452059(0x31d)](showMessage,_0x25b764[_0x452059(0x3e1)],_0x25b764[_0x452059(0x6e5)]);const _0x2b3527=_0x25b764[_0x452059(0x4c2)](query,_0x25b764[_0x452059(0x31d)](collection,db,_0x452059(0x206)+appId+(_0x452059(0x691)+_0x452059(0x2ee))),_0x25b764[_0x452059(0x57e)](where,_0x25b764[_0x452059(0x6fe)],'==',_0x2a77b9));let _0x185ae6=![];try{const _0x11eb96=await _0x25b764[_0x452059(0x178)](getDocs,_0x2b3527);_0x185ae6=_0x11eb96[_0x452059(0x224)][_0x452059(0x754)](_0x3d035d=>_0x3d035d[_0x452059(0x5f0)]()[_0x452059(0x85d)]===_0x452059(0x929));}catch(_0x1a4a50){console[_0x452059(0x628)](_0x25b764[_0x452059(0x3d1)],_0x1a4a50[_0x452059(0x23d)]),_0x25b764[_0x452059(0x3c3)](showMessage,_0x452059(0x64e)+_0x452059(0x279)+_0x452059(0x69c)+':\x20'+_0x1a4a50[_0x452059(0x23d)],_0x25b764[_0x452059(0x6e5)]);return;}if(_0x185ae6){_0x25b764[_0x452059(0x31d)](showMessage,_0x25b764[_0x452059(0x1de)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x484a20=await _0x25b764[_0x452059(0x178)](getAccountData,_0x2a77b9);if(!_0x484a20){_0x25b764[_0x452059(0x3c3)](showMessage,_0x25b764[_0x452059(0x967)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x5bba6c=_0x484a20[_0x452059(0x21c)+'e'][_0x452059(0x744)][_0x452059(0x4c0)](-0x1149+-0x1a2c+0x1*0x2b76),_0x12e339=_0x484a20[_0x452059(0x21c)+'e'][_0x452059(0x3ba)],_0x6e8e03=await _0x25b764[_0x452059(0x57e)](showConfirmModal,_0x25b764[_0x452059(0x6ed)],_0x452059(0x24f)+_0x452059(0x363)+_0x2da0ef[_0x452059(0x4c0)](0x14*-0x42+-0x13d0+0x116*0x17)+(_0x452059(0x971)+_0x452059(0x653)+'>')+_0x5cccd7+(_0x452059(0x84a)+_0x452059(0x793)+_0x452059(0x40f)+_0x452059(0x8c9)+_0x452059(0x1f1))+_0x5bba6c+_0x452059(0x75a)+_0x12e339+(_0x452059(0x275)+_0x452059(0x4a6)),_0x25b764[_0x452059(0x7f5)]);if(!_0x6e8e03){_0x25b764[_0x452059(0x31d)](showMessage,_0x25b764[_0x452059(0x5d8)],_0x25b764[_0x452059(0x7f5)]);return;}try{const _0xdaea0f=_0x25b764[_0x452059(0x301)](collection,db,_0x452059(0x206)+appId+(_0x452059(0x691)+_0x452059(0x2ee))),_0x380e4b={'debtorId':_0x2a77b9,'debtorName':_0x484a20[_0x452059(0x976)],'amount':_0x2da0ef,'interestRate':_0x5cccd7,'status':_0x25b764[_0x452059(0x921)],'timestamp':_0x25b764[_0x452059(0x8d1)](serverTimestamp),'creditScoreSnapshot':_0x484a20[_0x452059(0x21c)+'e'][_0x452059(0x744)],'description':_0x5546bf};await _0x25b764[_0x452059(0x31d)](addDoc,_0xdaea0f,_0x380e4b),_0x25b764[_0x452059(0x3a2)](showMessage,_0x25b764[_0x452059(0x906)],_0x25b764[_0x452059(0x2e8)]),_0x25b764[_0x452059(0x178)](switchView,_0x25b764[_0x452059(0x26c)]);}catch(_0x553831){console[_0x452059(0x628)](_0x25b764[_0x452059(0x18f)],_0x553831[_0x452059(0x23d)]),_0x25b764[_0x452059(0x36b)](showMessage,_0x452059(0x1ca)+_0x452059(0x7aa)+_0x452059(0x673)+':\x20'+_0x553831[_0x452059(0x23d)],_0x25b764[_0x452059(0x6e5)]);}return;}if(_0x25b764[_0x452059(0x5bd)](_0x5db577,_0x25b764[_0x452059(0x458)])){const _0x198ac9=await _0x25b764[_0x452059(0x12b)](getAccountData,_0x9cac1b);if(!_0x198ac9){_0x25b764[_0x452059(0x4c2)](showMessage,_0x25b764[_0x452059(0x524)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x396b47=_0x198ac9[_0x452059(0x21c)+'e'][_0x452059(0x744)][_0x452059(0x4c0)](-0x44f*-0x9+0x31d+-0x29e3),_0x4d565d=_0x198ac9[_0x452059(0x21c)+'e'][_0x452059(0x3ba)],_0x2b9886=await _0x25b764[_0x452059(0x57e)](showConfirmModal,_0x25b764[_0x452059(0x566)],_0x452059(0x1f1)+_0x198ac9[_0x452059(0x976)]+(_0x452059(0x971)+_0x452059(0x5f9)+_0x452059(0x4a6))+_0x396b47+(_0x452059(0x2e0)+_0x452059(0x907)+_0x452059(0x722)+_0x452059(0x4bc))+_0x2da0ef[_0x452059(0x4c0)](0x141f+0xb*0x287+-0x2*0x17f5)+(_0x452059(0x971)+_0x452059(0x653)+'>')+_0x1f525a+(_0x452059(0x84a)+_0x452059(0x793)+'s'),_0x25b764[_0x452059(0x933)]);if(!_0x2b9886){_0x25b764[_0x452059(0x301)](showMessage,_0x25b764[_0x452059(0x639)],_0x25b764[_0x452059(0x7f5)]);return;}}const _0x15fc31=_0x25b764[_0x452059(0x3c9)](doc,db,_0x452059(0x206)+appId+_0x452059(0x238)+_0x2a77b9+(_0x452059(0x3bc)+_0x452059(0x47a))),_0x26f5f2=_0x25b764[_0x452059(0x3a2)](doc,db,_0x452059(0x206)+appId+_0x452059(0x238)+_0x9cac1b+(_0x452059(0x3bc)+_0x452059(0x47a)));try{const _0x5cf847=await _0x25b764[_0x452059(0x1fc)](getAccountData,_0x2a77b9),_0x391107=await _0x25b764[_0x452059(0x1fc)](getAccountData,_0x9cac1b);if(!_0x391107){_0x25b764[_0x452059(0x3a2)](showMessage,_0x25b764[_0x452059(0x524)],_0x25b764[_0x452059(0x6e5)]);return;}if(_0x25b764[_0x452059(0x541)](_0x5db577,_0x25b764[_0x452059(0x458)])){try{await _0x25b764[_0x452059(0x74e)](runTransaction,db,async _0x2ad6f2=>{const _0x4de963=_0x452059,_0x4e38ea=await _0x2ad6f2[_0x4de963(0x34b)](_0x15fc31);if(!_0x4e38ea[_0x4de963(0x5b6)]())throw new Error(_0x25b764[_0x4de963(0x6f7)]);const _0x1293a0=_0x4e38ea[_0x4de963(0x5f0)]()[_0x4de963(0x361)];if(_0x25b764[_0x4de963(0x3d9)](_0x1293a0,_0x2da0ef))throw new Error(_0x25b764[_0x4de963(0x828)]);_0x2ad6f2[_0x4de963(0x964)](_0x15fc31,{'balance':_0x25b764[_0x4de963(0x2d9)](_0x1293a0,_0x2da0ef),'held':_0x25b764[_0x4de963(0x48e)](_0x4e38ea[_0x4de963(0x5f0)]()[_0x4de963(0x8cc)]||0x3*-0xae0+0x1168+0xf38,_0x2da0ef)});});}catch(_0xe7e312){console[_0x452059(0x628)](_0x25b764[_0x452059(0x578)],_0xe7e312),_0x25b764[_0x452059(0x39a)](showMessage,_0x452059(0x8d8)+_0x452059(0x5f3)+_0x452059(0x8a3)+_0xe7e312[_0x452059(0x23d)],_0x25b764[_0x452059(0x6e5)]);return;}const _0x4423ea={'amount':_0x2da0ef,'senderId':_0x2a77b9,'recipientId':_0x9cac1b,'interestRate':_0x1f525a,'originalAmount':_0x2da0ef,'status':_0x25b764[_0x452059(0x77c)],'recipientName':_0x391107?_0x391107[_0x452059(0x976)]:_0x25b764[_0x452059(0x3e0)],'description':_0x5546bf},_0x20e5c5=await _0x25b764[_0x452059(0x93e)](getDoc,_0x15fc31);if(!_0x20e5c5[_0x452059(0x5b6)]())throw new Error(_0x25b764[_0x452059(0x6f7)]);const _0x340999=await _0x25b764[_0x452059(0x301)](createTransaction,_0x2a77b9,{..._0x4423ea,'type':_0x25b764[_0x452059(0x778)],'scoreGiven':![]});await _0x25b764[_0x452059(0x564)](createTransaction,_0x9cac1b,{..._0x4423ea,'type':_0x25b764[_0x452059(0x303)],'senderTransactionId':_0x340999['id'],'lenderName':_0x5cf847?_0x5cf847[_0x452059(0x976)]:_0x25b764[_0x452059(0x600)]}),_0x25b764[_0x452059(0x31d)](showMessage,_0x25b764[_0x452059(0x302)],_0x25b764[_0x452059(0x2e8)]),await _0x25b764[_0x452059(0x936)](addContact,_0x2a77b9,_0x9cac1b);}else{await _0x25b764[_0x452059(0x301)](runTransaction,db,async _0x536df3=>{const _0x2b6a2f=_0x452059,_0x331f0a=await _0x536df3[_0x2b6a2f(0x34b)](_0x15fc31);if(!_0x331f0a[_0x2b6a2f(0x5b6)]())throw new Error(_0x25b764[_0x2b6a2f(0x6f7)]);const _0x46fc7b=await _0x536df3[_0x2b6a2f(0x34b)](_0x26f5f2);if(!_0x46fc7b[_0x2b6a2f(0x5b6)]())throw new Error(_0x25b764[_0x2b6a2f(0x34e)]);const _0x1c0170=_0x331f0a[_0x2b6a2f(0x5f0)]()[_0x2b6a2f(0x361)];if(_0x25b764[_0x2b6a2f(0x4be)](_0x1c0170,_0x2da0ef))throw new Error(_0x25b764[_0x2b6a2f(0x643)]);const _0x31e554=_0x25b764[_0x2b6a2f(0x15b)](_0x1c0170,_0x2da0ef),_0x28bf46=_0x25b764[_0x2b6a2f(0x149)](_0x46fc7b[_0x2b6a2f(0x5f0)]()[_0x2b6a2f(0x361)],_0x2da0ef);_0x536df3[_0x2b6a2f(0x964)](_0x15fc31,{'balance':_0x31e554}),_0x536df3[_0x2b6a2f(0x964)](_0x26f5f2,{'balance':_0x28bf46});});const _0x461e94={'amount':_0x2da0ef,'senderId':_0x2a77b9,'recipientId':_0x9cac1b,'senderName':_0x5cf847?_0x5cf847[_0x452059(0x976)]:_0x25b764[_0x452059(0x600)],'recipientName':_0x391107?_0x391107[_0x452059(0x976)]:_0x25b764[_0x452059(0x3e0)],'description':_0x5546bf};await _0x25b764[_0x452059(0x3c3)](createTransaction,_0x2a77b9,{..._0x461e94,'type':_0x25b764[_0x452059(0x710)]}),await _0x25b764[_0x452059(0x1ba)](createTransaction,_0x9cac1b,{..._0x461e94,'type':_0x25b764[_0x452059(0x852)]}),_0x25b764[_0x452059(0x3a2)](showMessage,_0x25b764[_0x452059(0x463)],_0x25b764[_0x452059(0x2e8)]),await _0x25b764[_0x452059(0x3a2)](addContact,_0x2a77b9,_0x9cac1b);}_0x25b764[_0x452059(0x910)](switchView,_0x25b764[_0x452059(0x26c)]),_0x25b764[_0x452059(0x910)](loadBalance,_0x2a77b9);}catch(_0x1d33fa){console[_0x452059(0x628)](_0x25b764[_0x452059(0x29c)],_0x1d33fa[_0x452059(0x23d)]),_0x25b764[_0x452059(0x3a3)](showMessage,_0x452059(0x864)+_0x452059(0x8b6)+_0x452059(0x830)+_0x1d33fa[_0x452059(0x23d)],_0x25b764[_0x452059(0x6e5)]);}});async function payLoan(_0x2fac5b,_0x52f0a5){const _0x2a6d54=_0x353936,_0x38cd8f={'kORcJ':_0x2a6d54(0x6e3)+_0x2a6d54(0x87a)+_0x2a6d54(0x274)+_0x2a6d54(0x368)+'.','HINYr':_0x2a6d54(0x6e3)+_0x2a6d54(0x2c7)+_0x2a6d54(0x85c)+_0x2a6d54(0x7ca)+_0x2a6d54(0x884)+'D.','RlYFh':function(_0x4ae02a,_0xd78745){return _0x4ae02a<_0xd78745;},'teyyC':_0x2a6d54(0x20d)+_0x2a6d54(0x52a)+_0x2a6d54(0x4bd)+_0x2a6d54(0x90b)+'o.','JWCNQ':function(_0x1d729e,_0x4a74f1){return _0x1d729e-_0x4a74f1;},'zsRdB':function(_0x23aa25,_0x182ed8){return _0x23aa25+_0x182ed8;},'ZyFej':_0x2a6d54(0x185)+_0x2a6d54(0x457),'dIVXu':function(_0x2b7213){return _0x2b7213();},'ifSYw':function(_0x290eb1,_0x15b181,_0x228cf5){return _0x290eb1(_0x15b181,_0x228cf5);},'srErX':function(_0x565f3b,_0x38262c){return _0x565f3b/_0x38262c;},'wMOEi':function(_0xfefa38,_0x50e1de){return _0xfefa38*_0x50e1de;},'rKHaw':function(_0x2f78c5,_0x1ba533){return _0x2f78c5>=_0x1ba533;},'wqfGM':function(_0x457920,_0x55bcdc){return _0x457920>=_0x55bcdc;},'HgzVD':function(_0x212f71,_0xb5fc92,_0x90f98a){return _0x212f71(_0xb5fc92,_0x90f98a);},'qpNor':function(_0x3afd1c,_0x373a87){return _0x3afd1c(_0x373a87);},'eJjEd':_0x2a6d54(0x289),'kCpli':_0x2a6d54(0x947)+_0x2a6d54(0x1bf),'Rphnd':_0x2a6d54(0x5db)+_0x2a6d54(0x8e3)+_0x2a6d54(0x143),'OEywt':function(_0x2ec43f,_0x3fcfd2,_0x3f9ded){return _0x2ec43f(_0x3fcfd2,_0x3f9ded);},'ZvJHJ':_0x2a6d54(0x5a1)+_0x2a6d54(0x1b5),'WImpe':_0x2a6d54(0x6ba)+_0x2a6d54(0x633),'gvIpi':_0x2a6d54(0x5a1)+_0x2a6d54(0x55f)+'d','EPMml':_0x2a6d54(0x148)+_0x2a6d54(0x5e1),'xNOOK':function(_0x3aca08,_0x236b34,_0x3d05d2){return _0x3aca08(_0x236b34,_0x3d05d2);},'UeUsL':_0x2a6d54(0x763),'ntGcM':_0x2a6d54(0x1ca)+_0x2a6d54(0x825)+_0x2a6d54(0x401),'BgccF':_0x2a6d54(0x628)};if(!currentUser)return;const _0x30e643=_0x52f0a5[_0x2a6d54(0x801)+_0x2a6d54(0x518)],_0xff24d=_0x38cd8f[_0x2a6d54(0x86c)](_0x52f0a5[_0x2a6d54(0x179)+'te'],-0x10e+-0x1e1*-0x9+-0xf77),_0x38938a=_0x38cd8f[_0x2a6d54(0x1d1)](_0x30e643,_0xff24d),_0x3bd538=_0x38cd8f[_0x2a6d54(0x79e)](_0x30e643,_0x38938a);let _0x4dbfde;if(_0x38cd8f[_0x2a6d54(0x997)](_0x30e643,0x17f*-0x5+-0x2646+0x2ebb*0x1))_0x4dbfde=-0x67b+-0xb*0x61+0xaa6+0.1;else _0x38cd8f[_0x2a6d54(0x92f)](_0x30e643,0x109d*0x2+0x2449+-0x4551)?_0x4dbfde=0x1ed*0xf+-0x31*-0x9+-0x6*0x51a+0.08:_0x4dbfde=-0x1d*0x24+-0x5b0+-0x14*-0x7d+0.05;const _0xfc7be2=_0x38cd8f[_0x2a6d54(0x1d1)](_0x3bd538,_0x4dbfde),_0x174f68=_0x38cd8f[_0x2a6d54(0x87c)](_0x3bd538,_0xfc7be2),_0x1e6e7b=currentUser[_0x2a6d54(0x2e5)],_0x4a3577=_0x52f0a5[_0x2a6d54(0x8db)],_0x4d1a23=_0x38cd8f[_0x2a6d54(0x5c4)](doc,db,_0x2a6d54(0x206)+appId+_0x2a6d54(0x238)+_0x1e6e7b+(_0x2a6d54(0x3bc)+_0x2a6d54(0x47a))),_0x2f0a18=_0x38cd8f[_0x2a6d54(0x5c4)](doc,db,_0x2a6d54(0x206)+appId+_0x2a6d54(0x238)+_0x4a3577+(_0x2a6d54(0x3bc)+_0x2a6d54(0x47a))),_0x5df0f5=_0x38cd8f[_0x2a6d54(0x5c4)](doc,db,_0x2a6d54(0x206)+appId+_0x2a6d54(0x238)+_0x1e6e7b+(_0x2a6d54(0x345)+_0x2a6d54(0x6c8))+_0x2fac5b),_0x1bb60f=_0x52f0a5[_0x2a6d54(0x89f)+_0x2a6d54(0x68d)],_0xcdf9ea=_0x38cd8f[_0x2a6d54(0x5c4)](doc,db,_0x2a6d54(0x206)+appId+_0x2a6d54(0x238)+_0x4a3577+(_0x2a6d54(0x345)+_0x2a6d54(0x6c8))+_0x1bb60f),_0x19313b=_0x52f0a5[_0x2a6d54(0x395)+_0x2a6d54(0x735)];try{await _0x38cd8f[_0x2a6d54(0x725)](runTransaction,db,async _0x3ff49a=>{const _0x4256d7=_0x2a6d54,_0x534c3f=await _0x3ff49a[_0x4256d7(0x34b)](_0x4d1a23);if(!_0x534c3f[_0x4256d7(0x5b6)]())throw new Error(_0x38cd8f[_0x4256d7(0x18c)]);const _0x156205=await _0x3ff49a[_0x4256d7(0x34b)](_0x2f0a18);if(!_0x156205[_0x4256d7(0x5b6)]())throw new Error(_0x38cd8f[_0x4256d7(0x2bd)]);const _0x32aa88=_0x534c3f[_0x4256d7(0x5f0)]()[_0x4256d7(0x361)];if(_0x38cd8f[_0x4256d7(0x74a)](_0x32aa88,_0x3bd538))throw new Error(_0x38cd8f[_0x4256d7(0x641)]);const _0x4f088d=_0x38cd8f[_0x4256d7(0x87c)](_0x32aa88,_0x3bd538),_0x2fda7a=_0x156205[_0x4256d7(0x5f0)]()[_0x4256d7(0x361)],_0x36b437=_0x38cd8f[_0x4256d7(0x79e)](_0x2fda7a,_0x174f68);_0x3ff49a[_0x4256d7(0x964)](_0x4d1a23,{'balance':_0x4f088d}),_0x3ff49a[_0x4256d7(0x964)](_0x2f0a18,{'balance':_0x36b437}),_0x3ff49a[_0x4256d7(0x964)](_0x5df0f5,{'status':_0x38cd8f[_0x4256d7(0x326)],'paidAmount':_0x3bd538,'paidDate':_0x38cd8f[_0x4256d7(0x7a5)](serverTimestamp)}),_0x3ff49a[_0x4256d7(0x964)](_0xcdf9ea,{'status':_0x38cd8f[_0x4256d7(0x326)],'paidAmount':_0x3bd538,'paidDate':_0x38cd8f[_0x4256d7(0x7a5)](serverTimestamp),'scoreGiven':![]});if(_0x19313b){const _0x3420b2=_0x38cd8f[_0x4256d7(0x5c4)](doc,db,_0x4256d7(0x206)+appId+(_0x4256d7(0x691)+_0x4256d7(0x45d))+_0x19313b);_0x3ff49a[_0x4256d7(0x964)](_0x3420b2,{'status':_0x38cd8f[_0x4256d7(0x326)],'paidDate':_0x38cd8f[_0x4256d7(0x7a5)](serverTimestamp)});}});const _0x3f5097=await _0x38cd8f[_0x2a6d54(0x6c9)](getAccountData,_0x1e6e7b),_0x30aa99=await _0x38cd8f[_0x2a6d54(0x6c9)](getAccountData,_0x4a3577);await _0x38cd8f[_0x2a6d54(0x5c4)](createTransaction,_0x1e6e7b,{'amount':_0xfc7be2,'senderId':_0x1e6e7b,'recipientId':_0x38cd8f[_0x2a6d54(0x5fe)],'type':_0x38cd8f[_0x2a6d54(0x4d1)],'originalLoanId':_0x2fac5b,'interestRate':_0x52f0a5[_0x2a6d54(0x179)+'te'],'senderName':_0x3f5097[_0x2a6d54(0x976)],'recipientName':_0x38cd8f[_0x2a6d54(0x5fe)],'description':_0x52f0a5[_0x2a6d54(0x7cc)+'n']||_0x38cd8f[_0x2a6d54(0x6fd)]}),await _0x38cd8f[_0x2a6d54(0x3ee)](createTransaction,_0x1e6e7b,{'amount':_0x3bd538,'senderId':_0x1e6e7b,'recipientId':_0x4a3577,'type':_0x38cd8f[_0x2a6d54(0x621)],'originalLoanId':_0x2fac5b,'interestRate':_0x52f0a5[_0x2a6d54(0x179)+'te'],'senderName':_0x3f5097[_0x2a6d54(0x976)],'recipientName':_0x30aa99[_0x2a6d54(0x976)],'description':_0x52f0a5[_0x2a6d54(0x7cc)+'n']||_0x38cd8f[_0x2a6d54(0x7e2)]}),await _0x38cd8f[_0x2a6d54(0x3ee)](createTransaction,_0x4a3577,{'amount':_0x174f68,'senderId':_0x1e6e7b,'recipientId':_0x4a3577,'type':_0x38cd8f[_0x2a6d54(0x483)],'originalLoanId':_0x1bb60f,'interestRate':_0x52f0a5[_0x2a6d54(0x179)+'te'],'senderName':_0x3f5097[_0x2a6d54(0x976)],'recipientName':_0x30aa99[_0x2a6d54(0x976)],'description':_0x52f0a5[_0x2a6d54(0x7cc)+'n']||_0x38cd8f[_0x2a6d54(0x549)]}),_0x38cd8f[_0x2a6d54(0x4d3)](showMessage,_0x2a6d54(0x211)+_0x2a6d54(0x86a)+_0x3bd538[_0x2a6d54(0x4c0)](-0x1*-0xd45+0x767*-0x2+0x18b)+(_0x2a6d54(0x615)+_0x2a6d54(0x157)+_0x2a6d54(0x8bd)+_0x2a6d54(0x6a0))+_0xfc7be2[_0x2a6d54(0x4c0)](0x1*0x25c6+-0x2a7*-0xb+0x1*-0x42f1)+(_0x2a6d54(0x138)+_0x2a6d54(0x706)+_0x2a6d54(0x650)+_0x2a6d54(0x90a)+_0x2a6d54(0x685)),_0x38cd8f[_0x2a6d54(0x3db)]),_0x38cd8f[_0x2a6d54(0x6c9)](loadBalance,_0x1e6e7b),_0x38cd8f[_0x2a6d54(0x6c9)](listenToTransactions,_0x1e6e7b);}catch(_0x4bbf45){console[_0x2a6d54(0x628)](_0x38cd8f[_0x2a6d54(0x807)],_0x4bbf45),_0x38cd8f[_0x2a6d54(0x4d3)](showMessage,_0x2a6d54(0x1ca)+_0x2a6d54(0x825)+_0x2a6d54(0x6ec)+_0x4bbf45[_0x2a6d54(0x23d)],_0x38cd8f[_0x2a6d54(0x52e)]);}}async function acceptLoanOffer(_0x4a1a77,_0x390f60){const _0x3d2e6b=_0x353936,_0x22ec32={'XPUET':_0x3d2e6b(0x6e3)+_0x3d2e6b(0x2c7)+_0x3d2e6b(0x85c)+_0x3d2e6b(0x484),'zlVxj':_0x3d2e6b(0x6e3)+_0x3d2e6b(0x72f)+_0x3d2e6b(0x523)+_0x3d2e6b(0x434),'BRrfl':_0x3d2e6b(0x6e3)+_0x3d2e6b(0x1c3)+_0x3d2e6b(0x308),'cKHtL':_0x3d2e6b(0x6e3)+_0x3d2e6b(0x353)+_0x3d2e6b(0x1ef)+'e.','XjjkY':function(_0x3bf717,_0x1b11e6){return _0x3bf717-_0x1b11e6;},'dohwq':function(_0x1dac29,_0x4b7f63){return _0x1dac29+_0x4b7f63;},'OunZM':_0x3d2e6b(0x929),'RekeG':_0x3d2e6b(0x6b5),'OijXE':function(_0x3f726e){return _0x3f726e();},'FRGrQ':_0x3d2e6b(0x6c4),'YCMlR':function(_0xd34ce7,_0x3f59a4,_0x198299){return _0xd34ce7(_0x3f59a4,_0x198299);},'DWSAV':function(_0x136236,_0x680b63,_0x300192){return _0x136236(_0x680b63,_0x300192);},'NtIeE':function(_0x573203,_0x2c6ae4,_0x3fe2be){return _0x573203(_0x2c6ae4,_0x3fe2be);},'zrShA':function(_0x18dceb,_0x29ac8c,_0x42efec){return _0x18dceb(_0x29ac8c,_0x42efec);},'PHFhj':function(_0x32f4cc,_0x2810da){return _0x32f4cc(_0x2810da);},'ldhyp':function(_0x2d6666,_0x52ec7e,_0x5de9cf){return _0x2d6666(_0x52ec7e,_0x5de9cf);},'CrqqR':_0x3d2e6b(0x941)+_0x3d2e6b(0x799),'dRmsh':_0x3d2e6b(0x68c)+_0x3d2e6b(0x3d7)+'mo','fnZWN':function(_0x3d0f79,_0x12fd1d,_0x3eec48){return _0x3d0f79(_0x12fd1d,_0x3eec48);},'ouYuN':_0x3d2e6b(0x862)+_0x3d2e6b(0x58c),'kbFnZ':_0x3d2e6b(0x2ef)+_0x3d2e6b(0x353)+'o','EbjAb':_0x3d2e6b(0x676)+_0x3d2e6b(0x508)+_0x3d2e6b(0x230)+_0x3d2e6b(0x278)+_0x3d2e6b(0x1b3)+_0x3d2e6b(0x901)+'!','rQmTo':_0x3d2e6b(0x763),'zaBqi':function(_0x2744df,_0x4b2db4){return _0x2744df(_0x4b2db4);},'ZstfV':_0x3d2e6b(0x6c5)+_0x3d2e6b(0x24e)+_0x3d2e6b(0x554),'NunYL':function(_0x2ee455,_0x51edcc,_0x3b93c8){return _0x2ee455(_0x51edcc,_0x3b93c8);},'BiNEr':_0x3d2e6b(0x628)};if(!currentUser)return;const _0x35171e=_0x390f60[_0x3d2e6b(0x8db)],_0x3c781c=currentUser[_0x3d2e6b(0x2e5)],_0x11c6ec=_0x390f60[_0x3d2e6b(0x801)+_0x3d2e6b(0x518)],_0x5ea7c8=_0x22ec32[_0x3d2e6b(0x351)](doc,db,_0x3d2e6b(0x206)+appId+_0x3d2e6b(0x238)+_0x35171e+(_0x3d2e6b(0x3bc)+_0x3d2e6b(0x47a))),_0x1dff2a=_0x22ec32[_0x3d2e6b(0x5df)](doc,db,_0x3d2e6b(0x206)+appId+_0x3d2e6b(0x238)+_0x3c781c+(_0x3d2e6b(0x3bc)+_0x3d2e6b(0x47a))),_0x384172=_0x22ec32[_0x3d2e6b(0x351)](doc,db,_0x3d2e6b(0x206)+appId+_0x3d2e6b(0x238)+_0x3c781c+(_0x3d2e6b(0x345)+_0x3d2e6b(0x6c8))+_0x4a1a77),_0x289628=_0x22ec32[_0x3d2e6b(0x5eb)](doc,db,_0x3d2e6b(0x206)+appId+_0x3d2e6b(0x238)+_0x35171e+(_0x3d2e6b(0x345)+_0x3d2e6b(0x6c8))+_0x390f60[_0x3d2e6b(0x89f)+_0x3d2e6b(0x68d)]);try{await _0x22ec32[_0x3d2e6b(0x451)](runTransaction,db,async _0x2dc0fe=>{const _0x26c57a=_0x3d2e6b,_0x3c144c=await _0x2dc0fe[_0x26c57a(0x34b)](_0x5ea7c8);if(!_0x3c144c[_0x26c57a(0x5b6)]())throw new Error(_0x22ec32[_0x26c57a(0x679)]);const _0x3b8d71=await _0x2dc0fe[_0x26c57a(0x34b)](_0x1dff2a);if(!_0x3b8d71[_0x26c57a(0x5b6)]())throw new Error(_0x22ec32[_0x26c57a(0x632)]);const _0x20de1f=await _0x2dc0fe[_0x26c57a(0x34b)](_0x384172);if(!_0x20de1f[_0x26c57a(0x5b6)]())throw new Error(_0x22ec32[_0x26c57a(0x33b)]);const _0x5705b8=await _0x2dc0fe[_0x26c57a(0x34b)](_0x289628);if(!_0x5705b8[_0x26c57a(0x5b6)]())throw new Error(_0x22ec32[_0x26c57a(0x614)]);const _0x3eb4b3=_0x3c144c[_0x26c57a(0x5f0)]()[_0x26c57a(0x361)],_0x1e769b=_0x3c144c[_0x26c57a(0x5f0)]()[_0x26c57a(0x8cc)]||0xb2*0x35+0x1309+0xfb*-0x39,_0x381b1b=Math[_0x26c57a(0x406)](0xc12+-0x792+0x80*-0x9,_0x22ec32[_0x26c57a(0x202)](_0x1e769b,_0x11c6ec)),_0xa3e60a=_0x3b8d71[_0x26c57a(0x5f0)]()[_0x26c57a(0x361)],_0x267f57=_0x22ec32[_0x26c57a(0x926)](_0xa3e60a,_0x11c6ec);_0x2dc0fe[_0x26c57a(0x964)](_0x5ea7c8,{'held':_0x381b1b}),_0x2dc0fe[_0x26c57a(0x964)](_0x1dff2a,{'balance':_0x267f57}),_0x2dc0fe[_0x26c57a(0x964)](_0x384172,{'status':_0x22ec32[_0x26c57a(0x733)],'type':_0x22ec32[_0x26c57a(0x94a)],'receivedDate':_0x22ec32[_0x26c57a(0x31f)](serverTimestamp)}),_0x2dc0fe[_0x26c57a(0x964)](_0x289628,{'status':_0x22ec32[_0x26c57a(0x69a)],'sentDate':_0x22ec32[_0x26c57a(0x31f)](serverTimestamp)});});const _0x3d82e9=await _0x22ec32[_0x3d2e6b(0x7d4)](getAccountData,_0x35171e),_0x472aa1=await _0x22ec32[_0x3d2e6b(0x7d4)](getAccountData,_0x3c781c);await _0x22ec32[_0x3d2e6b(0x882)](createTransaction,_0x35171e,{'amount':_0x11c6ec,'senderId':_0x35171e,'recipientId':_0x3c781c,'type':_0x22ec32[_0x3d2e6b(0x8e4)],'originalLoanId':_0x390f60[_0x3d2e6b(0x89f)+_0x3d2e6b(0x68d)],'interestRate':_0x390f60[_0x3d2e6b(0x179)+'te'],'senderName':_0x3d82e9[_0x3d2e6b(0x976)],'recipientName':_0x472aa1[_0x3d2e6b(0x976)],'description':_0x390f60[_0x3d2e6b(0x7cc)+'n']||_0x22ec32[_0x3d2e6b(0x1af)]}),await _0x22ec32[_0x3d2e6b(0x1e2)](createTransaction,_0x3c781c,{'amount':_0x11c6ec,'senderId':_0x35171e,'recipientId':_0x3c781c,'type':_0x22ec32[_0x3d2e6b(0x46f)],'originalLoanId':_0x4a1a77,'interestRate':_0x390f60[_0x3d2e6b(0x179)+'te'],'senderName':_0x3d82e9[_0x3d2e6b(0x976)],'recipientName':_0x472aa1[_0x3d2e6b(0x976)],'description':_0x390f60[_0x3d2e6b(0x7cc)+'n']||_0x22ec32[_0x3d2e6b(0x4f4)]}),_0x22ec32[_0x3d2e6b(0x5eb)](showMessage,_0x22ec32[_0x3d2e6b(0x8d0)],_0x22ec32[_0x3d2e6b(0x3fa)]),_0x22ec32[_0x3d2e6b(0x22c)](loadBalance,_0x3c781c),_0x22ec32[_0x3d2e6b(0x22c)](listenToTransactions,_0x3c781c);}catch(_0x17584f){console[_0x3d2e6b(0x628)](_0x22ec32[_0x3d2e6b(0x91b)],_0x17584f),_0x22ec32[_0x3d2e6b(0x4c7)](showMessage,_0x3d2e6b(0x6c5)+_0x3d2e6b(0x24e)+_0x3d2e6b(0x23f)+_0x17584f[_0x3d2e6b(0x23d)],_0x22ec32[_0x3d2e6b(0x552)]);}}async function lendOnRequest(_0x6bbb2,_0x54ed9e){const _0x302a0c=_0x353936,_0xc63aff={'QEoTA':_0x302a0c(0x6e3)+_0x302a0c(0x2c7)+_0x302a0c(0x85c)+_0x302a0c(0x484),'sstmQ':function(_0x1deb3f,_0x42b47d){return _0x1deb3f!==_0x42b47d;},'YYgxn':_0x302a0c(0x929),'aLrkq':_0x302a0c(0x7ab)+_0x302a0c(0x40d)+_0x302a0c(0x879)+_0x302a0c(0x228)+_0x302a0c(0x602)+_0x302a0c(0x4cb),'jrxEF':_0x302a0c(0x6e3)+_0x302a0c(0x1cf)+_0x302a0c(0x368)+'.','RShBW':function(_0x51d381,_0x57498d){return _0x51d381<_0x57498d;},'bGLLf':_0x302a0c(0x20d)+_0x302a0c(0x52a)+_0x302a0c(0x432)+_0x302a0c(0x259)+_0x302a0c(0x1ff),'OvvzK':function(_0x4bdecb,_0x5e197a){return _0x4bdecb-_0x5e197a;},'aqAol':function(_0x5b5bad,_0x3d2591){return _0x5b5bad+_0x3d2591;},'yylxI':_0x302a0c(0x2da),'zOXOk':function(_0xe0013c){return _0xe0013c();},'lGCEi':function(_0x400647,_0x4ed479,_0x5ca3b9){return _0x400647(_0x4ed479,_0x5ca3b9);},'KoAqV':function(_0x1f121f,_0x2471f8,_0x4dd194){return _0x1f121f(_0x2471f8,_0x4dd194);},'SeTnZ':function(_0x204a2b,_0x4d3ff3,_0x12e364){return _0x204a2b(_0x4d3ff3,_0x12e364);},'BNQKG':function(_0x1cac96,_0x4a4df7){return _0x1cac96(_0x4a4df7);},'GhnDn':_0x302a0c(0x6c4),'kUyYv':_0x302a0c(0x70e),'UfpRg':_0x302a0c(0x2b3)+_0x302a0c(0x195)+_0x302a0c(0x440),'Wswfs':function(_0x30cdc5,_0x2751b6,_0x4fd7f1){return _0x30cdc5(_0x2751b6,_0x4fd7f1);},'sFCkd':_0x302a0c(0x6b5),'SYipg':_0x302a0c(0x75c)+_0x302a0c(0x370)+_0x302a0c(0x65a),'PNXZe':function(_0x4b927e,_0x1dcdaa){return _0x4b927e(_0x1dcdaa);},'mCmhW':_0x302a0c(0x941)+_0x302a0c(0x799),'DYHVF':_0x302a0c(0x68c)+_0x302a0c(0x3d7)+_0x302a0c(0x4b9)+_0x302a0c(0x92c),'pREST':_0x302a0c(0x862)+_0x302a0c(0x58c),'HvBkU':_0x302a0c(0x2ef)+_0x302a0c(0x353)+_0x302a0c(0x707)+_0x302a0c(0x851),'yIxXK':_0x302a0c(0x763),'SzsDw':_0x302a0c(0x530)+_0x302a0c(0x498)+_0x302a0c(0x30e),'zGhCp':_0x302a0c(0x628),'sYshR':_0x302a0c(0x152)+_0x302a0c(0x78e)+_0x302a0c(0x2d3)+_0x302a0c(0x853)+_0x302a0c(0x4f9)+'o:'};if(!currentUser)return;const _0x50586b=currentUser[_0x302a0c(0x2e5)],_0x54c060=_0x54ed9e[_0x302a0c(0x4ad)],_0x24b6cb=_0x54ed9e[_0x302a0c(0x23e)],_0x3e54f5=_0x54ed9e[_0x302a0c(0x179)+'te'],_0x248f5f=_0xc63aff[_0x302a0c(0x35f)](doc,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x50586b+(_0x302a0c(0x3bc)+_0x302a0c(0x47a))),_0x2c8ad6=_0xc63aff[_0x302a0c(0x7db)](doc,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x54c060+(_0x302a0c(0x3bc)+_0x302a0c(0x47a))),_0x1c0122=_0xc63aff[_0x302a0c(0x4da)](doc,db,_0x302a0c(0x206)+appId+(_0x302a0c(0x691)+_0x302a0c(0x45d))+_0x6bbb2);let _0x2dc35e=null,_0x1ee1c0=null;try{const _0x619c35=await _0xc63aff[_0x302a0c(0x7da)](getDoc,_0x248f5f);if(!_0x619c35[_0x302a0c(0x5b6)]())throw new Error(_0xc63aff[_0x302a0c(0x2e4)]);const _0x482ade=_0x619c35[_0x302a0c(0x5f0)]()[_0x302a0c(0x976)],_0x251358=_0xc63aff[_0x302a0c(0x4da)](collection,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x50586b+(_0x302a0c(0x345)+_0x302a0c(0x216)));_0x2dc35e=await _0xc63aff[_0x302a0c(0x7db)](addDoc,_0x251358,{'amount':_0x24b6cb,'senderId':_0x50586b,'recipientId':_0x54c060,'interestRate':_0x3e54f5,'originalAmount':_0x24b6cb,'status':_0xc63aff[_0x302a0c(0x85b)],'type':_0xc63aff[_0x302a0c(0x687)],'sentDate':_0xc63aff[_0x302a0c(0x860)](serverTimestamp),'scoreGiven':![],'recipientName':_0x54ed9e[_0x302a0c(0x354)],'description':_0x54ed9e[_0x302a0c(0x7cc)+'n']||_0xc63aff[_0x302a0c(0x8e5)]});const _0x2d65ec=_0xc63aff[_0x302a0c(0x4da)](collection,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x54c060+(_0x302a0c(0x345)+_0x302a0c(0x216)));_0x1ee1c0=await _0xc63aff[_0x302a0c(0x131)](addDoc,_0x2d65ec,{'amount':_0x24b6cb,'senderId':_0x50586b,'recipientId':_0x54c060,'interestRate':_0x3e54f5,'originalAmount':_0x24b6cb,'status':_0xc63aff[_0x302a0c(0x634)],'type':_0xc63aff[_0x302a0c(0x854)],'receivedDate':_0xc63aff[_0x302a0c(0x860)](serverTimestamp),'senderTransactionId':_0x2dc35e['id'],'lenderName':_0x482ade,'loanRequestDocId':_0x6bbb2,'description':_0x54ed9e[_0x302a0c(0x7cc)+'n']||_0xc63aff[_0x302a0c(0x430)]}),await _0xc63aff[_0x302a0c(0x4da)](runTransaction,db,async _0x1088e2=>{const _0xa227d6=_0x302a0c,_0xb3ef8d=await _0x1088e2[_0xa227d6(0x34b)](_0x248f5f);if(!_0xb3ef8d[_0xa227d6(0x5b6)]())throw new Error(_0xc63aff[_0xa227d6(0x2e4)]);const _0x52a9a4=await _0x1088e2[_0xa227d6(0x34b)](_0x1c0122);if(!_0x52a9a4[_0xa227d6(0x5b6)]()||_0xc63aff[_0xa227d6(0x55b)](_0x52a9a4[_0xa227d6(0x5f0)]()[_0xa227d6(0x85d)],_0xc63aff[_0xa227d6(0x634)]))throw new Error(_0xc63aff[_0xa227d6(0x7ce)]);const _0x2d303f=await _0x1088e2[_0xa227d6(0x34b)](_0x2c8ad6);if(!_0x2d303f[_0xa227d6(0x5b6)]())throw new Error(_0xc63aff[_0xa227d6(0x885)]);const _0x3c0692=_0xb3ef8d[_0xa227d6(0x5f0)]()[_0xa227d6(0x361)];if(_0xc63aff[_0xa227d6(0x328)](_0x3c0692,_0x24b6cb))throw new Error(_0xc63aff[_0xa227d6(0x415)]);const _0x81c069=_0xc63aff[_0xa227d6(0x4a5)](_0x3c0692,_0x24b6cb),_0x17a3f7=_0xc63aff[_0xa227d6(0x730)](_0x2d303f[_0xa227d6(0x5f0)]()[_0xa227d6(0x361)],_0x24b6cb);_0x1088e2[_0xa227d6(0x964)](_0x248f5f,{'balance':_0x81c069}),_0x1088e2[_0xa227d6(0x964)](_0x2c8ad6,{'balance':_0x17a3f7}),_0x1088e2[_0xa227d6(0x964)](_0x1c0122,{'status':_0xc63aff[_0xa227d6(0x7d0)],'lenderId':_0x50586b,'lenderName':_0x482ade,'loanSentDocId':_0x2dc35e['id'],'loanDebtDocId':_0x1ee1c0['id'],'acceptedDate':_0xc63aff[_0xa227d6(0x860)](serverTimestamp)});});const _0x3767e7=await _0xc63aff[_0x302a0c(0x7da)](getAccountData,_0x50586b),_0x17a08c=await _0xc63aff[_0x302a0c(0x92a)](getAccountData,_0x54c060);await _0xc63aff[_0x302a0c(0x35f)](createTransaction,_0x50586b,{'amount':_0x24b6cb,'senderId':_0x50586b,'recipientId':_0x54c060,'type':_0xc63aff[_0x302a0c(0x70f)],'originalLoanId':_0x2dc35e['id'],'interestRate':_0x3e54f5,'senderName':_0x3767e7[_0x302a0c(0x976)],'recipientName':_0x17a08c[_0x302a0c(0x976)],'description':_0x54ed9e[_0x302a0c(0x7cc)+'n']||_0xc63aff[_0x302a0c(0x338)]}),await _0xc63aff[_0x302a0c(0x35f)](createTransaction,_0x54c060,{'amount':_0x24b6cb,'senderId':_0x50586b,'recipientId':_0x54c060,'type':_0xc63aff[_0x302a0c(0x2e2)],'originalLoanId':_0x1ee1c0['id'],'interestRate':_0x3e54f5,'senderName':_0x3767e7[_0x302a0c(0x976)],'recipientName':_0x17a08c[_0x302a0c(0x976)],'description':_0x54ed9e[_0x302a0c(0x7cc)+'n']||_0xc63aff[_0x302a0c(0x449)]}),_0xc63aff[_0x302a0c(0x7db)](showMessage,_0x302a0c(0x211)+_0x302a0c(0x86a)+_0x24b6cb[_0x302a0c(0x4c0)](0x16fd+0xf9a+-0x11*0x245)+(_0x302a0c(0x800)+_0x302a0c(0x7af)+_0x302a0c(0x47b)+_0x302a0c(0x256)+_0x302a0c(0x545)+_0x302a0c(0x465)+'r.'),_0xc63aff[_0x302a0c(0x80f)]),_0xc63aff[_0x302a0c(0x7da)](loadBalance,_0x50586b),_0xc63aff[_0x302a0c(0x92a)](listenToTransactions,_0x50586b);}catch(_0x510569){console[_0x302a0c(0x628)](_0xc63aff[_0x302a0c(0x813)],_0x510569),_0xc63aff[_0x302a0c(0x7db)](showMessage,_0x302a0c(0x530)+_0x302a0c(0x498)+_0x302a0c(0x30e)+'\x20'+_0x510569[_0x302a0c(0x23d)],_0xc63aff[_0x302a0c(0x968)]);try{_0x2dc35e&&_0x2dc35e['id']&&await _0xc63aff[_0x302a0c(0x92a)](deleteDoc,_0xc63aff[_0x302a0c(0x7db)](doc,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x50586b+(_0x302a0c(0x345)+_0x302a0c(0x6c8))+_0x2dc35e['id'])),_0x1ee1c0&&_0x1ee1c0['id']&&await _0xc63aff[_0x302a0c(0x92a)](deleteDoc,_0xc63aff[_0x302a0c(0x4da)](doc,db,_0x302a0c(0x206)+appId+_0x302a0c(0x238)+_0x54c060+(_0x302a0c(0x345)+_0x302a0c(0x6c8))+_0x1ee1c0['id']));}catch(_0x50e3d8){console[_0x302a0c(0x7b1)](_0xc63aff[_0x302a0c(0x8f0)],_0x50e3d8);}}}function listenToTransactions(_0x245fad){const _0x585ca1=_0x353936,_0x4933fa={'hEhre':function(_0x2d6ff2,_0xa0fad6,_0x49d180,_0x5a5dda){return _0x2d6ff2(_0xa0fad6,_0x49d180,_0x5a5dda);},'KsGwm':_0x585ca1(0x50b)+_0x585ca1(0x834)+_0x585ca1(0x92d)+_0x585ca1(0x3eb)+_0x585ca1(0x486)+_0x585ca1(0x4f7)+_0x585ca1(0x50c)+_0x585ca1(0x37b)+_0x585ca1(0x579),'BolKL':_0x585ca1(0x6f5)+_0x585ca1(0x128)+_0x585ca1(0x8da)+_0x585ca1(0x6fa)+_0x585ca1(0x656),'QyDaX':_0x585ca1(0x50b)+_0x585ca1(0x1f8)+_0x585ca1(0x71e)+_0x585ca1(0x5e2)+_0x585ca1(0x952)+_0x585ca1(0x43e)+_0x585ca1(0x536)+_0x585ca1(0x28d),'tFObd':function(_0x47d96f,_0x182070){return _0x47d96f(_0x182070);},'PNtrU':function(_0xd1f0a5,_0x27f51e,_0xa8fe52){return _0xd1f0a5(_0x27f51e,_0xa8fe52);},'GEunY':_0x585ca1(0x64d),'pNYDx':_0x585ca1(0x376),'eOALy':_0x585ca1(0x1c0)+_0x585ca1(0x323),'zTmLk':_0x585ca1(0x73d)+_0x585ca1(0x38e),'ZQBDF':function(_0x451744,_0x10debd){return _0x451744===_0x10debd;},'iRXEw':_0x585ca1(0x94d)+_0x585ca1(0x2e3),'SqUEU':_0x585ca1(0x929),'VHvfo':_0x585ca1(0x6b5),'kGxTy':_0x585ca1(0x6c4),'fFEdU':function(_0x3752a5,_0x549ac7){return _0x3752a5===_0x549ac7;},'zujwS':_0x585ca1(0x185)+_0x585ca1(0x35a)+_0x585ca1(0x19c),'VwGyu':_0x585ca1(0x185)+_0x585ca1(0x457),'YDrvP':_0x585ca1(0x70e),'ybjtk':function(_0x346b8d,_0x7bb71e){return _0x346b8d!==_0x7bb71e;},'zkpkQ':function(_0x470fcf,_0xdaa9df){return _0x470fcf||_0xdaa9df;},'wwUDP':function(_0x5235d5,_0x373c11,_0x5ccb6d,_0x481f70){return _0x5235d5(_0x373c11,_0x5ccb6d,_0x481f70);},'crvYD':_0x585ca1(0x59d)+_0x585ca1(0x13f),'kfAuh':_0x585ca1(0x231)+_0x585ca1(0x514)+_0x585ca1(0x248)+_0x585ca1(0x3ac)+_0x585ca1(0x893)+_0x585ca1(0x181)+_0x585ca1(0x4a3)+_0x585ca1(0x427),'jfpoc':_0x585ca1(0x988),'DlWPJ':function(_0x45045c,_0xa6bb81,_0x726deb){return _0x45045c(_0xa6bb81,_0x726deb);},'YZCsL':function(_0x1237a3,_0x4664c8,_0x47162e){return _0x1237a3(_0x4664c8,_0x47162e);},'GhWvQ':function(_0x4aad0a,_0x5b279d){return _0x4aad0a(_0x5b279d);},'xCnVg':function(_0x6c9456,_0x58aae7){return _0x6c9456>_0x58aae7;},'CQDUJ':function(_0x395345,_0x490518,_0x3624ed){return _0x395345(_0x490518,_0x3624ed);},'dcTfS':_0x585ca1(0x289),'STQwZ':_0x585ca1(0x6b6)+_0x585ca1(0x50e)+'d','amskk':_0x585ca1(0x5cb)+'a','aPRcH':_0x585ca1(0x806),'DmJcz':_0x585ca1(0x8d8)+_0x585ca1(0x2b8)+_0x585ca1(0x32e)+_0x585ca1(0x8da)+_0x585ca1(0x25c)+'o:','WxYAC':_0x585ca1(0x76a)+_0x585ca1(0x7a9)+_0x585ca1(0x418)+_0x585ca1(0x2b1)+_0x585ca1(0x766)+_0x585ca1(0x7bb)+_0x585ca1(0x23c),'SsPYb':_0x585ca1(0x584),'zjRCb':_0x585ca1(0x781)+_0x585ca1(0x7b0)+_0x585ca1(0x49b)+_0x585ca1(0x7ba)+_0x585ca1(0x54b),'ezmXC':_0x585ca1(0x628),'gnQyY':_0x585ca1(0x587)+_0x585ca1(0x5ad)+'.','gFyce':function(_0x46c544,_0x1dd192){return _0x46c544&&_0x1dd192;},'ApiJq':function(_0x3360ff,_0x37e9d7,_0xd6e1c4){return _0x3360ff(_0x37e9d7,_0xd6e1c4);},'bRhZJ':_0x585ca1(0x29b),'UULdZ':function(_0x5a3223){return _0x5a3223();},'IWSlS':function(_0x20cc3d,_0xb09621){return _0x20cc3d-_0xb09621;},'jbZaJ':function(_0x5955d5,_0xbb3d76){return _0x5955d5+_0xbb3d76;},'YGOTH':_0x585ca1(0x819)+_0x585ca1(0x378)+'t','chBZO':_0x585ca1(0x98c)+_0x585ca1(0x8e0)+_0x585ca1(0x258),'vTuzq':_0x585ca1(0x773)+_0x585ca1(0x1d2)+_0x585ca1(0x782)+_0x585ca1(0x6d8)+_0x585ca1(0x30c)+_0x585ca1(0x619)+_0x585ca1(0x476)+_0x585ca1(0x697)+_0x585ca1(0x7fe)+_0x585ca1(0x3f7)+_0x585ca1(0x78d)+_0x585ca1(0x49e)+_0x585ca1(0x636)+_0x585ca1(0x28e)+_0x585ca1(0x8ee)+_0x585ca1(0x95c)+_0x585ca1(0x7c6)+_0x585ca1(0x411),'vQrEv':_0x585ca1(0x5ab),'jnELi':function(_0x1e73ed,_0x454993,_0x4b3b3b){return _0x1e73ed(_0x454993,_0x4b3b3b);},'shhcD':_0x585ca1(0x4ac)+_0x585ca1(0x86d),'wVVhM':_0x585ca1(0x2f4)+_0x585ca1(0x26b)+_0x585ca1(0x760)+_0x585ca1(0x1dc),'qDpzp':_0x585ca1(0x490)+_0x585ca1(0x1ea),'HGuBd':function(_0x5cbd5e,_0x47b9f5){return _0x5cbd5e*_0x47b9f5;},'tkxRB':_0x585ca1(0x79d)+_0x585ca1(0x253)+_0x585ca1(0x5e1),'sqKju':function(_0x2095cf,_0x21c9f7,_0x1f9930){return _0x2095cf(_0x21c9f7,_0x1f9930);},'MLNao':_0x585ca1(0x89f)+_0x585ca1(0x68d),'KsPUD':_0x585ca1(0x52c)+_0x585ca1(0x861),'xjQDr':_0x585ca1(0x8d8)+_0x585ca1(0x12a)+_0x585ca1(0x2a4)+_0x585ca1(0x2d7)+_0x585ca1(0x982),'lzkUv':function(_0x3b87c6,_0x3f0346){return _0x3b87c6(_0x3f0346);},'WyWWa':function(_0x3f76d7,_0x1a00a6,_0x4154e3){return _0x3f76d7(_0x1a00a6,_0x4154e3);},'FhtYI':_0x585ca1(0x52c)+_0x585ca1(0x7ee),'DuPxB':_0x585ca1(0x52c)+_0x585ca1(0x991),'TMkAx':_0x585ca1(0x49f)+_0x585ca1(0x932)+_0x585ca1(0x610)+_0x585ca1(0x93c)+_0x585ca1(0x4af)+_0x585ca1(0x16d)+_0x585ca1(0x4f2)+_0x585ca1(0x1b2),'lQwPW':_0x585ca1(0x763),'OFTKr':_0x585ca1(0x48f)+_0x585ca1(0x7f7)+_0x585ca1(0x903),'lTiqp':_0x585ca1(0x50b)+_0x585ca1(0x834)+_0x585ca1(0x92d)+_0x585ca1(0x3eb)+_0x585ca1(0x486)+_0x585ca1(0x4a1)+_0x585ca1(0x500)+_0x585ca1(0x955)+_0x585ca1(0x661),'ZKwIf':_0x585ca1(0x571)+_0x585ca1(0x173),'xGwBZ':_0x585ca1(0x53c)+_0x585ca1(0x306),'JMUbU':_0x585ca1(0x668)+_0x585ca1(0x520),'rhJhC':_0x585ca1(0x2a6)+_0x585ca1(0x173),'lMmga':_0x585ca1(0x823)+_0x585ca1(0x306),'UbkUC':_0x585ca1(0x1ad)+_0x585ca1(0x8f8),'jwRMB':_0x585ca1(0x6f5)+_0x585ca1(0x8c3)+_0x585ca1(0x223)+_0x585ca1(0x528),'Gcpjz':_0x585ca1(0x50b)+_0x585ca1(0x1f8)+_0x585ca1(0x71e)+_0x585ca1(0x5e2)+_0x585ca1(0x952)+_0x585ca1(0x43e)+_0x585ca1(0x3cc)+_0x585ca1(0x8f1)+_0x585ca1(0x8e6)+_0x585ca1(0x23a)+_0x585ca1(0x277),'ShSVd':function(_0xbdf382,_0x11da24,_0x4e8ab5){return _0xbdf382(_0x11da24,_0x4e8ab5);},'uDZja':function(_0x507ff8,_0x2f824f,_0x9d1750){return _0x507ff8(_0x2f824f,_0x9d1750);},'EfNAU':function(_0x209d66,_0x4716ee,_0x40decd){return _0x209d66(_0x4716ee,_0x40decd);},'iPFTj':_0x585ca1(0x44c),'ySmDU':_0x585ca1(0x59b),'psOxZ':function(_0x4f47ab,_0x21c79d,_0x563641,_0x40c66b){return _0x4f47ab(_0x21c79d,_0x563641,_0x40c66b);},'QyLsX':_0x585ca1(0x85d),'CpJKi':function(_0x5dfdce,_0x59e85f,_0x31e412,_0x48286d){return _0x5dfdce(_0x59e85f,_0x31e412,_0x48286d);}};if(!_0x245fad)return;const _0x306626=_0x4933fa[_0x585ca1(0x4fa)](collection,db,_0x585ca1(0x206)+appId+_0x585ca1(0x238)+_0x245fad+(_0x585ca1(0x345)+_0x585ca1(0x216))),_0x560767=_0x4933fa[_0x585ca1(0x663)](query,_0x306626,_0x4933fa[_0x585ca1(0x7f0)](orderBy,_0x4933fa[_0x585ca1(0x290)],_0x4933fa[_0x585ca1(0x51e)])),_0x5883c3=_0x4933fa[_0x585ca1(0x63f)](query,_0x306626,_0x4933fa[_0x585ca1(0x268)](where,_0x4933fa[_0x585ca1(0x33c)],'in',[_0x4933fa[_0x585ca1(0x776)],_0x4933fa[_0x585ca1(0x407)],_0x4933fa[_0x585ca1(0x8a2)],_0x4933fa[_0x585ca1(0x842)],_0x4933fa[_0x585ca1(0x5f2)]]));_0x4933fa[_0x585ca1(0x4d0)](onSnapshot,_0x560767,_0x400bb2=>{const _0x5015c8=_0x585ca1;let _0x5b4bf5='';if(_0x400bb2[_0x5015c8(0x4a2)]){transactionsList[_0x5015c8(0x5e9)]=_0x4933fa[_0x5015c8(0x333)];return;}_0x400bb2[_0x5015c8(0x8d7)](_0x11c934=>{const _0x1319fd=_0x5015c8;_0x5b4bf5+=_0x4933fa[_0x1319fd(0x4d0)](renderTransactionItem,_0x11c934[_0x1319fd(0x5f0)](),_0x11c934['id'],![]);}),transactionsList[_0x5015c8(0x5e9)]=_0x5b4bf5;},_0x47760e=>{const _0x5a2b78=_0x585ca1;console[_0x5a2b78(0x628)](_0x4933fa[_0x5a2b78(0x4fc)],_0x47760e),transactionsList[_0x5a2b78(0x5e9)]=_0x4933fa[_0x5a2b78(0x756)];}),_0x4933fa[_0x585ca1(0x5b0)](onSnapshot,_0x5883c3,_0x302552=>{const _0xb28bba=_0x585ca1,_0x4e2173={'GaZsv':function(_0x10fd92,_0x3e80cb){const _0x3154f8=_0x2c29;return _0x4933fa[_0x3154f8(0x53f)](_0x10fd92,_0x3e80cb);},'LPgiQ':_0x4933fa[_0xb28bba(0x776)],'iXltB':_0x4933fa[_0xb28bba(0x407)],'YsSKc':function(_0x3c0d66,_0x3b1f92){const _0x5efc77=_0xb28bba;return _0x4933fa[_0x5efc77(0x53f)](_0x3c0d66,_0x3b1f92);},'JdlJA':_0x4933fa[_0xb28bba(0x1f2)],'oMstX':_0x4933fa[_0xb28bba(0x8a2)],'XtDMF':function(_0x52ac86,_0x45488c){const _0x7c0f5d=_0xb28bba;return _0x4933fa[_0x7c0f5d(0x698)](_0x52ac86,_0x45488c);},'kUauV':_0x4933fa[_0xb28bba(0x842)],'XwENM':_0x4933fa[_0xb28bba(0x5f2)],'HddkN':_0x4933fa[_0xb28bba(0x76c)],'OsLra':function(_0x33e363,_0x2085c6){const _0x1e65f1=_0xb28bba;return _0x4933fa[_0x1e65f1(0x137)](_0x33e363,_0x2085c6);},'XlrPN':function(_0x14e31a,_0x10f553){const _0x2feda0=_0xb28bba;return _0x4933fa[_0x2feda0(0x5fd)](_0x14e31a,_0x10f553);},'aUTnG':function(_0x1bdd5e,_0x2b086,_0x323439,_0x3be743){const _0x4f6190=_0xb28bba;return _0x4933fa[_0x4f6190(0x7d1)](_0x1bdd5e,_0x2b086,_0x323439,_0x3be743);},'Skljt':_0x4933fa[_0xb28bba(0x218)],'PrhYo':_0x4933fa[_0xb28bba(0x592)],'VNuUC':_0x4933fa[_0xb28bba(0x95d)],'VcaKE':function(_0x2e1787,_0x3e9f70,_0x26e16f){const _0x48cc14=_0xb28bba;return _0x4933fa[_0x48cc14(0x37a)](_0x2e1787,_0x3e9f70,_0x26e16f);},'sLyPA':function(_0x3a819c,_0xac355a,_0x57d303){const _0x59c378=_0xb28bba;return _0x4933fa[_0x59c378(0x15c)](_0x3a819c,_0xac355a,_0x57d303);},'WkPXL':function(_0x140c5c,_0x2bfeae){const _0x122777=_0xb28bba;return _0x4933fa[_0x122777(0x71c)](_0x140c5c,_0x2bfeae);},'tTpye':function(_0x2fc5e8,_0x3a874){const _0x5325ea=_0xb28bba;return _0x4933fa[_0x5325ea(0x790)](_0x2fc5e8,_0x3a874);},'AFKhJ':function(_0xbc9b11,_0x4334ad,_0x247444){const _0x218fa7=_0xb28bba;return _0x4933fa[_0x218fa7(0x63f)](_0xbc9b11,_0x4334ad,_0x247444);},'EOuMx':function(_0x19b35c,_0xdb0eba){const _0x429b71=_0xb28bba;return _0x4933fa[_0x429b71(0x437)](_0x19b35c,_0xdb0eba);},'qqsJg':function(_0x214e96,_0x1cde9d,_0x1f2d0d){const _0x2fc9c9=_0xb28bba;return _0x4933fa[_0x2fc9c9(0x55a)](_0x214e96,_0x1cde9d,_0x1f2d0d);},'onjVy':_0x4933fa[_0xb28bba(0x236)],'NIiYV':_0x4933fa[_0xb28bba(0x329)],'nIxxM':_0x4933fa[_0xb28bba(0x55e)],'OqZFV':_0x4933fa[_0xb28bba(0x496)],'kDhrw':_0x4933fa[_0xb28bba(0x1f6)],'zlgKX':_0x4933fa[_0xb28bba(0x72d)],'QfyBk':_0x4933fa[_0xb28bba(0x669)],'CvxnY':function(_0x4e92f2,_0x331935){const _0x1a705b=_0xb28bba;return _0x4933fa[_0x1a705b(0x71c)](_0x4e92f2,_0x331935);},'xSSaE':_0x4933fa[_0xb28bba(0x60b)],'zcqtQ':function(_0x3ff593,_0x3d96f2,_0x240b8b){const _0x300b7e=_0xb28bba;return _0x4933fa[_0x300b7e(0x63f)](_0x3ff593,_0x3d96f2,_0x240b8b);},'JvfKC':_0x4933fa[_0xb28bba(0x53e)],'dfxmx':_0x4933fa[_0xb28bba(0x32a)],'cehTh':function(_0x3f77ce,_0x461f40){const _0x250cf6=_0xb28bba;return _0x4933fa[_0x250cf6(0x71c)](_0x3f77ce,_0x461f40);},'whBNP':function(_0x51432f,_0x5d0f30){const _0x581f5b=_0xb28bba;return _0x4933fa[_0x581f5b(0x201)](_0x51432f,_0x5d0f30);},'HdKjB':function(_0x6b1e8a,_0x94f610,_0x50e554){const _0x5b7aab=_0xb28bba;return _0x4933fa[_0x5b7aab(0x171)](_0x6b1e8a,_0x94f610,_0x50e554);},'gmloq':_0x4933fa[_0xb28bba(0x8a6)],'hPnfy':function(_0x55d7ae){const _0x596988=_0xb28bba;return _0x4933fa[_0x596988(0x53d)](_0x55d7ae);},'XMvwT':function(_0x2e08bd,_0x2f73c5){const _0x54b6c3=_0xb28bba;return _0x4933fa[_0x54b6c3(0x512)](_0x2e08bd,_0x2f73c5);},'RxaYA':function(_0xf835ac,_0x2af225){const _0x3bb85b=_0xb28bba;return _0x4933fa[_0x3bb85b(0x616)](_0xf835ac,_0x2af225);},'KcsQe':_0x4933fa[_0xb28bba(0x3de)],'FYMNT':_0x4933fa[_0xb28bba(0x6ac)],'tAdjk':function(_0x4aa9a2,_0x3cd3b8,_0x5160e2){const _0x1f3b2b=_0xb28bba;return _0x4933fa[_0x1f3b2b(0x55a)](_0x4aa9a2,_0x3cd3b8,_0x5160e2);},'RMgim':function(_0x27aa88,_0x5c5b26,_0x3be2b4,_0x2e4c3b){const _0x1b8859=_0xb28bba;return _0x4933fa[_0x1b8859(0x7d1)](_0x27aa88,_0x5c5b26,_0x3be2b4,_0x2e4c3b);},'ntlaX':_0x4933fa[_0xb28bba(0x51f)],'UUIRD':_0x4933fa[_0xb28bba(0x8e9)],'kYuhL':_0x4933fa[_0xb28bba(0x332)],'Rpjyt':function(_0x538ccd,_0x4c96a1,_0x49e6b3){const _0x3bf76b=_0xb28bba;return _0x4933fa[_0x3bf76b(0x611)](_0x538ccd,_0x4c96a1,_0x49e6b3);},'KhFlQ':_0x4933fa[_0xb28bba(0x877)],'deWqn':_0x4933fa[_0xb28bba(0x6ea)],'fQTuQ':_0x4933fa[_0xb28bba(0x1f7)],'NnGfV':function(_0x1ea77e,_0x2e385b){const _0x2752ba=_0xb28bba;return _0x4933fa[_0x2752ba(0x790)](_0x1ea77e,_0x2e385b);},'KFiDf':function(_0x4868b9,_0x178c0e){const _0x24d426=_0xb28bba;return _0x4933fa[_0x24d426(0x946)](_0x4868b9,_0x178c0e);},'wykam':_0x4933fa[_0xb28bba(0x81d)],'ANxav':function(_0x7fac8a,_0x5c36a9,_0x5ec440){const _0x5368dd=_0xb28bba;return _0x4933fa[_0x5368dd(0x611)](_0x7fac8a,_0x5c36a9,_0x5ec440);},'zIFuF':function(_0x255fad,_0x4f8f65){const _0x32e6f4=_0xb28bba;return _0x4933fa[_0x32e6f4(0x512)](_0x255fad,_0x4f8f65);},'xzDXi':function(_0x45a92f,_0x653daf,_0x50069e){const _0x22215e=_0xb28bba;return _0x4933fa[_0x22215e(0x52d)](_0x45a92f,_0x653daf,_0x50069e);},'Hvorn':_0x4933fa[_0xb28bba(0x865)],'utGQb':_0x4933fa[_0xb28bba(0x1a4)],'ZflKi':_0x4933fa[_0xb28bba(0x57f)],'bhhqq':function(_0x346ceb,_0x250e50){const _0x150a5d=_0xb28bba;return _0x4933fa[_0x150a5d(0x39e)](_0x346ceb,_0x250e50);},'lsxAO':function(_0x5ced6f,_0x564a01,_0x127dd2){const _0x3b8605=_0xb28bba;return _0x4933fa[_0x3b8605(0x527)](_0x5ced6f,_0x564a01,_0x127dd2);},'egpfV':_0x4933fa[_0xb28bba(0x8d2)],'VBOmn':_0x4933fa[_0xb28bba(0x6bd)],'uRPvQ':_0x4933fa[_0xb28bba(0x3ca)],'OQNNU':_0x4933fa[_0xb28bba(0x7a6)],'osnwE':_0x4933fa[_0xb28bba(0x660)]};let _0x334cb0='';_0x302552[_0xb28bba(0x4a2)]&&(debtsList[_0xb28bba(0x5e9)]=_0x4933fa[_0xb28bba(0x78b)]),_0x302552[_0xb28bba(0x8d7)](_0x2916d6=>{const _0x4e9885=_0xb28bba,_0x1923fa=_0x2916d6[_0x4e9885(0x5f0)](),_0x286658=_0x4e2173[_0x4e9885(0x68e)](_0x1923fa[_0x4e9885(0x85d)],_0x4e2173[_0x4e9885(0x299)]),_0x5299e8=_0x4e2173[_0x4e9885(0x68e)](_0x1923fa[_0x4e9885(0x85d)],_0x4e2173[_0x4e9885(0x233)])&&_0x4e2173[_0x4e9885(0x54e)](_0x1923fa[_0x4e9885(0x4c1)],_0x4e2173[_0x4e9885(0x293)]),_0x6cb48=(_0x4e2173[_0x4e9885(0x54e)](_0x1923fa[_0x4e9885(0x85d)],_0x4e2173[_0x4e9885(0x3b7)])||_0x4e2173[_0x4e9885(0x96f)](_0x1923fa[_0x4e9885(0x85d)],_0x4e2173[_0x4e9885(0x63b)])||_0x4e2173[_0x4e9885(0x54e)](_0x1923fa[_0x4e9885(0x85d)],_0x4e2173[_0x4e9885(0x436)]))&&_0x4e2173[_0x4e9885(0x68e)](_0x1923fa[_0x4e9885(0x4c1)],_0x4e2173[_0x4e9885(0x98d)])&&_0x4e2173[_0x4e9885(0x7e5)](_0x1923fa[_0x4e9885(0x835)],!![]);(_0x4e2173[_0x4e9885(0x255)](_0x286658,_0x5299e8)||_0x6cb48)&&(_0x334cb0+=_0x4e2173[_0x4e9885(0x1e7)](renderTransactionItem,_0x1923fa,_0x2916d6['id'],!![]));}),_0x4933fa[_0xb28bba(0x53f)](_0x334cb0,'')?debtsList[_0xb28bba(0x5e9)]=_0x4933fa[_0xb28bba(0x78b)]:debtsList[_0xb28bba(0x5e9)]=_0x334cb0,debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x599)])[_0xb28bba(0x8d7)](_0x12d63d=>{const _0x1d8b1d=_0xb28bba,_0x2e057d={'ebowK':function(_0x41c11b,_0x187934){const _0x1a669c=_0x2c29;return _0x4933fa[_0x1a669c(0x790)](_0x41c11b,_0x187934);},'eXaaT':function(_0x3c2479,_0x56c0c1,_0x1ee539){const _0x338d63=_0x2c29;return _0x4933fa[_0x338d63(0x63f)](_0x3c2479,_0x56c0c1,_0x1ee539);}};_0x12d63d[_0x1d8b1d(0x1f5)+_0x1d8b1d(0x2db)](_0x4933fa[_0x1d8b1d(0x6ac)],async()=>{const _0x384cbe=_0x1d8b1d,_0x463415=_0x12d63d[_0x384cbe(0x383)]['id'],_0x40fb2a=await _0x2e057d[_0x384cbe(0x6d9)](getDoc,_0x2e057d[_0x384cbe(0x705)](doc,db,_0x384cbe(0x206)+appId+_0x384cbe(0x238)+_0x245fad+(_0x384cbe(0x345)+_0x384cbe(0x6c8))+_0x463415));_0x40fb2a[_0x384cbe(0x5b6)]()&&await _0x2e057d[_0x384cbe(0x705)](acceptLoanOffer,_0x463415,_0x40fb2a[_0x384cbe(0x5f0)]());});}),debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x24b)])[_0xb28bba(0x8d7)](_0x7b284=>{const _0x40d780=_0xb28bba,_0x45b30b={'VLOZE':_0x4e2173[_0x40d780(0x8fa)],'rfenZ':function(_0x2ec690,_0x1fc8b2){const _0x22c685=_0x40d780;return _0x4e2173[_0x22c685(0x5b9)](_0x2ec690,_0x1fc8b2);},'FIGci':function(_0x461d15,_0x4bc362){const _0x5f508e=_0x40d780;return _0x4e2173[_0x5f508e(0x6dd)](_0x461d15,_0x4bc362);},'KrjVW':function(_0x214cf7,_0x1d3b53,_0x4a4570){const _0x4f358d=_0x40d780;return _0x4e2173[_0x4f358d(0x88d)](_0x214cf7,_0x1d3b53,_0x4a4570);},'BtRWJ':function(_0x5766f4,_0x9d2b72,_0x15a8c6){const _0x4f8fa0=_0x40d780;return _0x4e2173[_0x4f8fa0(0x470)](_0x5766f4,_0x9d2b72,_0x15a8c6);},'SkdGI':_0x4e2173[_0x40d780(0x7bd)],'gXmoe':function(_0x3d9f6f){const _0x402a98=_0x40d780;return _0x4e2173[_0x402a98(0x398)](_0x3d9f6f);},'YYIpD':function(_0x318805,_0x203b56){const _0x3b93b5=_0x40d780;return _0x4e2173[_0x3b93b5(0x189)](_0x318805,_0x203b56);},'VfTnW':function(_0x51225e,_0x9515f3){const _0x20fe4d=_0x40d780;return _0x4e2173[_0x20fe4d(0x7f2)](_0x51225e,_0x9515f3);},'ChFnz':_0x4e2173[_0x40d780(0x424)],'UKBBI':function(_0x26b0a4){const _0x360e1d=_0x40d780;return _0x4e2173[_0x360e1d(0x398)](_0x26b0a4);}};_0x7b284[_0x40d780(0x1f5)+_0x40d780(0x2db)](_0x4e2173[_0x40d780(0x4b2)],async()=>{const _0xb2487=_0x40d780,_0x5cb1a6=_0x7b284[_0xb2487(0x383)]['id'],_0x211ac8=_0x7b284[_0xb2487(0x383)][_0xb2487(0x5d1)+_0xb2487(0x42b)],_0x3d8be6=_0x7b284[_0xb2487(0x383)][_0xb2487(0x142)];if(!_0x5cb1a6)return;const _0x1676b6=await _0x4e2173[_0xb2487(0x1e7)](showConfirmModal,_0x4e2173[_0xb2487(0x69f)],_0x4e2173[_0xb2487(0x45b)],_0x4e2173[_0xb2487(0x815)]);if(!_0x1676b6)return;try{const _0x43c34a=_0x4e2173[_0xb2487(0x62a)](doc,db,_0xb2487(0x206)+appId+_0xb2487(0x238)+_0x245fad+(_0xb2487(0x345)+_0xb2487(0x6c8))+_0x5cb1a6);await _0x4e2173[_0xb2487(0x888)](runTransaction,db,async _0x1d6dad=>{const _0x67c56=_0xb2487,_0x4850e4=await _0x1d6dad[_0x67c56(0x34b)](_0x43c34a);if(!_0x4850e4[_0x67c56(0x5b6)]())throw new Error(_0x45b30b[_0x67c56(0x97c)]);const _0x3045e7=_0x4850e4[_0x67c56(0x5f0)](),_0x540d82=_0x45b30b[_0x67c56(0x16b)](parseFloat,_0x3045e7[_0x67c56(0x23e)]||_0x3045e7[_0x67c56(0x801)+_0x67c56(0x518)]||0x1fb*0x3+0x2072+-0x2663);let _0x2d4a1b=null,_0x20e524=null,_0x2500aa=null,_0x70f4e5=null;if(_0x45b30b[_0x67c56(0x573)](_0x3d8be6,_0x211ac8)){_0x2d4a1b=_0x45b30b[_0x67c56(0x3c6)](doc,db,_0x67c56(0x206)+appId+_0x67c56(0x238)+_0x3d8be6+(_0x67c56(0x3bc)+_0x67c56(0x47a))),_0x20e524=_0x45b30b[_0x67c56(0x5d3)](doc,db,_0x67c56(0x206)+appId+_0x67c56(0x238)+_0x3d8be6+(_0x67c56(0x345)+_0x67c56(0x6c8))+_0x211ac8),_0x2500aa=await _0x1d6dad[_0x67c56(0x34b)](_0x2d4a1b);try{_0x70f4e5=await _0x1d6dad[_0x67c56(0x34b)](_0x20e524);}catch(_0x5c58a3){_0x70f4e5=null;}}_0x1d6dad[_0x67c56(0x964)](_0x43c34a,{'status':_0x45b30b[_0x67c56(0x396)],'rejectedDate':_0x45b30b[_0x67c56(0x6c3)](serverTimestamp)});if(_0x2500aa&&_0x2500aa[_0x67c56(0x5b6)]()){const _0x3a864a=_0x2500aa[_0x67c56(0x5f0)]()[_0x67c56(0x361)]||-0x282+0x31*-0x9+0x43b,_0x2ce621=_0x2500aa[_0x67c56(0x5f0)]()[_0x67c56(0x8cc)]||-0x1eb*0x5+-0xdbd+0x4*0x5d5,_0x1f649a=_0x540d82,_0x12b2fb=Math[_0x67c56(0x406)](-0x34b*-0x1+0xd77*0x1+0x8f*-0x1e,_0x45b30b[_0x67c56(0x160)](_0x2ce621,_0x1f649a)),_0x27b721=_0x45b30b[_0x67c56(0x58b)](_0x3a864a,_0x1f649a);_0x1d6dad[_0x67c56(0x964)](_0x2d4a1b,{'balance':_0x27b721,'held':_0x12b2fb});}_0x70f4e5&&_0x70f4e5[_0x67c56(0x5b6)]()&&_0x1d6dad[_0x67c56(0x964)](_0x20e524,{'status':_0x45b30b[_0x67c56(0x7f3)],'rejectedDate':_0x45b30b[_0x67c56(0x14a)](serverTimestamp)});});if(_0x3d8be6)try{const _0x3b5685=await _0x4e2173[_0xb2487(0x2c4)](getAccountData,_0x3d8be6),_0xf4f9a=await _0x4e2173[_0xb2487(0x2c4)](getAccountData,_0x245fad),_0x286fdb=await _0x4e2173[_0xb2487(0x14f)](getDoc,_0x4e2173[_0xb2487(0x3ab)](doc,db,_0xb2487(0x206)+appId+_0xb2487(0x238)+_0x245fad+(_0xb2487(0x345)+_0xb2487(0x6c8))+_0x5cb1a6)),_0x31a246=_0x4e2173[_0xb2487(0x14f)](parseFloat,(_0x286fdb[_0xb2487(0x5b6)]()?_0x286fdb[_0xb2487(0x5f0)]()[_0xb2487(0x23e)]||_0x286fdb[_0xb2487(0x5f0)]()[_0xb2487(0x801)+_0xb2487(0x518)]:0x37d*-0xa+-0x2d*0xc1+0x44cf)||-0x2*0xb2a+-0xac0+0x92*0x3a);_0x4e2173[_0xb2487(0x721)](_0x31a246,-0xa9*0x24+0x1cf4*0x1+-0x298*0x2)&&await _0x4e2173[_0xb2487(0x671)](createTransaction,_0x3d8be6,{'amount':_0x31a246,'senderId':_0x4e2173[_0xb2487(0x805)],'recipientId':_0x3d8be6,'type':_0x4e2173[_0xb2487(0x481)],'senderName':_0x4e2173[_0xb2487(0x805)],'recipientName':_0x3b5685?_0x3b5685[_0xb2487(0x976)]:_0x4e2173[_0xb2487(0x78c)],'description':_0xb2487(0x2a5)+_0xb2487(0x386)+_0xb2487(0x6c7)+_0xb2487(0x2aa)+(_0xf4f9a?_0xf4f9a[_0xb2487(0x976)]:_0x4e2173[_0xb2487(0x428)])});}catch(_0x5e19a8){console[_0xb2487(0x7b1)](_0x4e2173[_0xb2487(0x49a)],_0x5e19a8[_0xb2487(0x23d)]);}_0x4e2173[_0xb2487(0x671)](showMessage,_0x4e2173[_0xb2487(0x3f1)],_0x4e2173[_0xb2487(0x77d)]),currentUser&&(_0x4e2173[_0xb2487(0x2d4)](loadBalance,currentUser[_0xb2487(0x2e5)]),_0x4e2173[_0xb2487(0x14f)](listenToTransactions,currentUser[_0xb2487(0x2e5)]));}catch(_0x20d6c6){console[_0xb2487(0x628)](_0x4e2173[_0xb2487(0x1f3)],_0x20d6c6),_0x4e2173[_0xb2487(0x88d)](showMessage,_0xb2487(0x781)+_0xb2487(0x7b0)+_0xb2487(0x1d9)+_0x20d6c6[_0xb2487(0x23d)],_0x4e2173[_0xb2487(0x129)]);}});}),debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x78a)])[_0xb28bba(0x8d7)](_0x5040e4=>{const _0x4db093=_0xb28bba;_0x5040e4[_0x4db093(0x1f5)+_0x4db093(0x2db)](_0x4e2173[_0x4db093(0x4b2)],async()=>{const _0x546e30=_0x4db093,_0x3dbadb=_0x5040e4[_0x546e30(0x383)]['id'],_0x2ad98f=await _0x4e2173[_0x546e30(0x14f)](getDoc,_0x4e2173[_0x546e30(0x888)](doc,db,_0x546e30(0x206)+appId+_0x546e30(0x238)+_0x245fad+(_0x546e30(0x345)+_0x546e30(0x6c8))+_0x3dbadb));_0x2ad98f[_0x546e30(0x5b6)]()&&await _0x4e2173[_0x546e30(0x58a)](payLoan,_0x3dbadb,_0x2ad98f[_0x546e30(0x5f0)]());});}),debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x630)])[_0xb28bba(0x8d7)](_0x40e06e=>{const _0x45ec1=_0xb28bba;_0x40e06e[_0x45ec1(0x1f5)+_0x45ec1(0x2db)](_0x4933fa[_0x45ec1(0x6ac)],async()=>{const _0x2acc3e=_0x45ec1,_0x5d1ef1=_0x40e06e[_0x2acc3e(0x383)]['id'],_0x41254a=_0x40e06e[_0x2acc3e(0x383)][_0x2acc3e(0x757)],_0x160dca=await _0x4e2173[_0x2acc3e(0x648)](showConfirmModal,_0x4e2173[_0x2acc3e(0x3f5)],_0x4e2173[_0x2acc3e(0x319)],_0x4e2173[_0x2acc3e(0x6d4)]);_0x160dca?await _0x4e2173[_0x2acc3e(0x5a3)](cancelLoanByLender,_0x5d1ef1,_0x41254a):_0x4e2173[_0x2acc3e(0x58a)](showMessage,_0x4e2173[_0x2acc3e(0x5da)],_0x4e2173[_0x2acc3e(0x77d)]);});}),debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x19a)])[_0xb28bba(0x8d7)](_0x217144=>{const _0x4503c1=_0xb28bba,_0x35a2c7={'xTEUA':_0x4e2173[_0x4503c1(0x28b)],'HqEyA':function(_0x1a1f1,_0x5f3009){const _0x10b715=_0x4503c1;return _0x4e2173[_0x10b715(0x7f2)](_0x1a1f1,_0x5f3009);},'JppVs':function(_0x3d1302,_0x426537){const _0x356109=_0x4503c1;return _0x4e2173[_0x356109(0x189)](_0x3d1302,_0x426537);},'AqvUz':_0x4e2173[_0x4503c1(0x6e9)],'WbobS':function(_0x149d65){const _0x461fbf=_0x4503c1;return _0x4e2173[_0x461fbf(0x398)](_0x149d65);},'Jpxar':function(_0x52bd81,_0x23f1d0){const _0xda3c40=_0x4503c1;return _0x4e2173[_0xda3c40(0x613)](_0x52bd81,_0x23f1d0);},'JHxBr':function(_0xe3af2d,_0x535bf8){const _0x431c31=_0x4503c1;return _0x4e2173[_0x431c31(0x7e0)](_0xe3af2d,_0x535bf8);},'kHwUv':function(_0x27d424,_0x1d63a7,_0x532271,_0x277ed8){const _0x5b8928=_0x4503c1;return _0x4e2173[_0x5b8928(0x1e7)](_0x27d424,_0x1d63a7,_0x532271,_0x277ed8);},'DWkCw':_0x4e2173[_0x4503c1(0x456)],'oIHGO':_0x4e2173[_0x4503c1(0x6d4)],'VufUM':function(_0x271c3d,_0x4a3aed,_0x2c3575){const _0x112d08=_0x4503c1;return _0x4e2173[_0x112d08(0x888)](_0x271c3d,_0x4a3aed,_0x2c3575);},'ystJV':function(_0x2a4f08,_0x18c360,_0x12552a){const _0x5d33d3=_0x4503c1;return _0x4e2173[_0x5d33d3(0x91d)](_0x2a4f08,_0x18c360,_0x12552a);},'TYHVK':function(_0x3070fb,_0x5ac986){const _0x3ff684=_0x4503c1;return _0x4e2173[_0x3ff684(0x7e0)](_0x3070fb,_0x5ac986);},'wNINk':function(_0x2a5902,_0x44be63){const _0x5f265b=_0x4503c1;return _0x4e2173[_0x5f265b(0x816)](_0x2a5902,_0x44be63);},'qXEug':function(_0x5b4212,_0x4b25c1,_0x53d189){const _0x242417=_0x4503c1;return _0x4e2173[_0x242417(0x23b)](_0x5b4212,_0x4b25c1,_0x53d189);},'KZnfG':function(_0x40d356,_0x3aab92,_0x12e0fd){const _0x1b04a2=_0x4503c1;return _0x4e2173[_0x1b04a2(0x88d)](_0x40d356,_0x3aab92,_0x12e0fd);},'JIdGh':function(_0x45fb81,_0x397ccc,_0x5b64cd,_0x2e516b){const _0x1f559a=_0x4503c1;return _0x4e2173[_0x1f559a(0x1e7)](_0x45fb81,_0x397ccc,_0x5b64cd,_0x2e516b);},'RPwuk':_0x4e2173[_0x4503c1(0x2c2)],'zWJth':_0x4e2173[_0x4503c1(0x915)],'BodCC':function(_0x52ff79){const _0x50c9ca=_0x4503c1;return _0x4e2173[_0x50c9ca(0x398)](_0x52ff79);},'vkRiE':_0x4e2173[_0x4503c1(0x31e)],'hjmAs':function(_0x47469e,_0x2deaf9){const _0x5aa256=_0x4503c1;return _0x4e2173[_0x5aa256(0x2dc)](_0x47469e,_0x2deaf9);},'AGzWT':function(_0x3904b7,_0x39e6d7,_0x16c1a4){const _0x3a1979=_0x4503c1;return _0x4e2173[_0x3a1979(0x29e)](_0x3904b7,_0x39e6d7,_0x16c1a4);},'GxyJn':_0x4e2173[_0x4503c1(0x805)],'XveIO':_0x4e2173[_0x4503c1(0x4ee)],'bIlIu':_0x4e2173[_0x4503c1(0x889)],'AILko':function(_0x33a8c6,_0x2cd217,_0x1b3644){const _0x3f97ba=_0x4503c1;return _0x4e2173[_0x3f97ba(0x5a3)](_0x33a8c6,_0x2cd217,_0x1b3644);},'EqHHa':_0x4e2173[_0x4503c1(0x814)],'YzlzG':_0x4e2173[_0x4503c1(0x841)],'tEclK':_0x4e2173[_0x4503c1(0x16c)],'fHinq':_0x4e2173[_0x4503c1(0x129)]};_0x217144[_0x4503c1(0x1f5)+_0x4503c1(0x2db)](_0x4e2173[_0x4503c1(0x4b2)],async()=>{const _0x211003=_0x4503c1,_0x3a36af={'YBlzD':_0x35a2c7[_0x211003(0x1fb)],'uumvo':function(_0x23c747,_0x555ce6){const _0x53629b=_0x211003;return _0x35a2c7[_0x53629b(0x431)](_0x23c747,_0x555ce6);},'wVMNY':function(_0x4cd250,_0x45d1f4){const _0x5537be=_0x211003;return _0x35a2c7[_0x5537be(0x468)](_0x4cd250,_0x45d1f4);},'LKSkw':_0x35a2c7[_0x211003(0x4ca)],'euwvb':function(_0x49e4c1){const _0x3e7107=_0x211003;return _0x35a2c7[_0x3e7107(0x163)](_0x49e4c1);}},_0x1945cc=_0x217144[_0x211003(0x383)]['id'],_0x1595e4=_0x35a2c7[_0x211003(0x4c8)](parseFloat,_0x217144[_0x211003(0x383)][_0x211003(0x23e)])||0x3ac*0x6+-0x4ed+-0x111b,_0x168c24=_0x217144[_0x211003(0x383)][_0x211003(0x757)]||null;if(!_0x1945cc)return;const _0x48dc15=_0x35a2c7[_0x211003(0x612)](_0x1595e4,0x5*0x9f+-0x1*-0x1bfe+-0x1f19+0.05)[_0x211003(0x4c0)](-0x1e8c+0x323*0x9+0x253),_0x56bd21=await _0x35a2c7[_0x211003(0x81c)](showConfirmModal,_0x35a2c7[_0x211003(0x7e8)],_0x211003(0x89c)+_0x211003(0x4e8)+_0x211003(0x47e)+_0x211003(0x916)+_0x211003(0x8a5)+_0x211003(0x534)+_0x211003(0x444)+_0x211003(0x441)+_0x211003(0x704)+_0x211003(0x5e6)+_0x211003(0x829)+'\x20$'+_0x1595e4[_0x211003(0x4c0)](-0x1e1*0x1+0x1a2e*0x1+-0x819*0x3)+(_0x211003(0x8a4)+_0x211003(0x543))+_0x48dc15,_0x35a2c7[_0x211003(0x336)]);if(!_0x56bd21)return;try{const _0x15f250=currentUser[_0x211003(0x2e5)],_0x114516=_0x35a2c7[_0x211003(0x284)](doc,db,_0x211003(0x206)+appId+_0x211003(0x238)+_0x15f250+(_0x211003(0x3bc)+_0x211003(0x47a))),_0x1fa259=_0x35a2c7[_0x211003(0x77a)](doc,db,_0x211003(0x206)+appId+_0x211003(0x238)+_0x15f250+(_0x211003(0x345)+_0x211003(0x6c8))+_0x1945cc),_0x37e5bb=_0x35a2c7[_0x211003(0x88a)](_0x1595e4,0xd68+-0x1737+-0x1*-0x9cf+0.05),_0x41b07b=_0x35a2c7[_0x211003(0x87e)](_0x1595e4,_0x37e5bb);await _0x35a2c7[_0x211003(0x655)](runTransaction,db,async _0x104ef5=>{const _0x2e5146=_0x211003,_0x4f7e3d=await _0x104ef5[_0x2e5146(0x34b)](_0x114516);if(!_0x4f7e3d[_0x2e5146(0x5b6)]())throw new Error(_0x3a36af[_0x2e5146(0x927)]);const _0x14fac9=_0x4f7e3d[_0x2e5146(0x5f0)]()[_0x2e5146(0x361)]||0xa34+-0xb3f*0x3+0x4b5*0x5,_0x32b962=_0x4f7e3d[_0x2e5146(0x5f0)]()[_0x2e5146(0x8cc)]||-0xa75+0x8*0x123+-0x15d*-0x1,_0x5f3010=_0x3a36af[_0x2e5146(0x1a5)](_0x14fac9,_0x41b07b),_0x36db8a=Math[_0x2e5146(0x406)](-0x16e5+-0x6f2+0x1dd7,_0x3a36af[_0x2e5146(0x957)](_0x32b962,_0x1595e4));_0x104ef5[_0x2e5146(0x964)](_0x114516,{'balance':_0x5f3010,'held':_0x36db8a}),_0x104ef5[_0x2e5146(0x964)](_0x1fa259,{'status':_0x3a36af[_0x2e5146(0x87f)],'cancelledDate':_0x3a36af[_0x2e5146(0x48a)](serverTimestamp),'cancellationFee':_0x37e5bb});});if(_0x168c24)try{const _0x576921=_0x35a2c7[_0x211003(0x77a)](query,_0x35a2c7[_0x211003(0x243)](collection,db,_0x211003(0x206)+appId+_0x211003(0x238)+_0x168c24+(_0x211003(0x345)+_0x211003(0x216))),_0x35a2c7[_0x211003(0x506)](where,_0x35a2c7[_0x211003(0x4b0)],'==',_0x1945cc)),_0x5cc70d=await _0x35a2c7[_0x211003(0x4c8)](getDocs,_0x576921);if(!_0x5cc70d[_0x211003(0x4a2)])for(const _0x4b35cc of _0x5cc70d[_0x211003(0x224)]){await _0x35a2c7[_0x211003(0x77a)](updateDoc,_0x35a2c7[_0x211003(0x655)](doc,db,_0x211003(0x206)+appId+_0x211003(0x238)+_0x168c24+(_0x211003(0x345)+_0x211003(0x6c8))+_0x4b35cc['id']),{'status':_0x35a2c7[_0x211003(0x388)],'cancelledDate':_0x35a2c7[_0x211003(0x785)](serverTimestamp)});}}catch(_0x50b4c8){console[_0x211003(0x7b1)](_0x35a2c7[_0x211003(0x4fe)],_0x50b4c8[_0x211003(0x23d)]);}const _0x2d6329=await _0x35a2c7[_0x211003(0x409)](getAccountData,_0x15f250);await _0x35a2c7[_0x211003(0x89a)](createTransaction,_0x15f250,{'amount':_0x37e5bb,'senderId':_0x15f250,'recipientId':_0x35a2c7[_0x211003(0x5e5)],'type':_0x35a2c7[_0x211003(0x41f)],'senderName':_0x2d6329[_0x211003(0x976)],'recipientName':_0x35a2c7[_0x211003(0x5e5)],'description':_0x211003(0x133)+_0x211003(0x544)+_0x211003(0x99d)+_0x211003(0x868)+_0x211003(0x6ab)}),await _0x35a2c7[_0x211003(0x77a)](createTransaction,_0x15f250,{'amount':_0x41b07b,'senderId':_0x35a2c7[_0x211003(0x5e5)],'recipientId':_0x15f250,'type':_0x35a2c7[_0x211003(0x8b4)],'senderName':_0x35a2c7[_0x211003(0x5e5)],'recipientName':_0x2d6329[_0x211003(0x976)],'description':_0x211003(0x2a5)+_0x211003(0x702)+_0x211003(0x8dc)+_0x211003(0x4ec)}),_0x35a2c7[_0x211003(0x986)](showMessage,_0x35a2c7[_0x211003(0x6f1)],_0x35a2c7[_0x211003(0x467)]),_0x35a2c7[_0x211003(0x409)](loadBalance,_0x15f250),_0x35a2c7[_0x211003(0x409)](listenToTransactions,_0x15f250);}catch(_0x4d2aad){console[_0x211003(0x628)](_0x35a2c7[_0x211003(0x61c)],_0x4d2aad),_0x35a2c7[_0x211003(0x243)](showMessage,_0x211003(0x48f)+_0x211003(0x74d)+_0x211003(0x1d9)+_0x4d2aad[_0x211003(0x23d)],_0x35a2c7[_0x211003(0x327)]);}});}),debtsList[_0xb28bba(0x3ff)+_0xb28bba(0x960)](_0x4933fa[_0xb28bba(0x97f)])[_0xb28bba(0x8d7)](_0x546f62=>{const _0x593656=_0xb28bba,_0x1aef1c={'XuGsp':_0x4933fa[_0x593656(0x89e)],'jkYZV':_0x4933fa[_0x593656(0x281)],'RRusu':_0x4933fa[_0x593656(0x355)]};_0x546f62[_0x593656(0x1f5)+_0x593656(0x2db)](_0x4933fa[_0x593656(0x6ac)],async()=>{const _0x1ac7de=_0x593656,_0x555f69=_0x546f62[_0x1ac7de(0x383)]['id'],_0x406c6c=_0x546f62[_0x1ac7de(0x383)][_0x1ac7de(0x757)],_0x10b85f=_0x546f62[_0x1ac7de(0x383)][_0x1ac7de(0x922)+_0x1ac7de(0x796)];scoreModal[_0x1ac7de(0x509)][_0x1ac7de(0x7bc)]=_0x1aef1c[_0x1ac7de(0x346)],scoreModalRecipientName[_0x1ac7de(0x4eb)+'t']=_0x10b85f,scoreModalRecipientId[_0x1ac7de(0x4eb)+'t']=_0x406c6c,scoreForm[_0x1ac7de(0x7d8)+'te'](_0x1aef1c[_0x1ac7de(0x931)],_0x555f69),scoreForm[_0x1ac7de(0x7d8)+'te'](_0x1aef1c[_0x1ac7de(0x99b)],_0x406c6c),scoreForm[_0x1ac7de(0x716)]();});});},_0x654480=>{const _0x57744c=_0x585ca1;console[_0x57744c(0x628)](_0x4933fa[_0x57744c(0x37c)],_0x654480),debtsList[_0x57744c(0x5e9)]=_0x4933fa[_0x57744c(0x743)];});}function renderTransactionItem(_0x2ba447,_0x130253,_0x5f2ed0=!![]){const _0x1012cd=_0x353936,_0x2e6c6e={'yuMAY':_0x1012cd(0x840),'gnOAv':_0x1012cd(0x966),'tfsio':function(_0x28f8df,_0x4b307f){return _0x28f8df===_0x4b307f;},'QymiQ':_0x1012cd(0x389)+'n','zqPoK':_0x1012cd(0x834)+_0x1012cd(0x703),'aBGsP':_0x1012cd(0x489)+_0x1012cd(0x6b2),'RWGsW':function(_0x3accc2,_0x36c260){return _0x3accc2 instanceof _0x36c260;},'xNTBe':function(_0x3fe7db,_0x4c716f){return _0x3fe7db in _0x4c716f;},'RiEDV':_0x1012cd(0x151),'WVXzQ':_0x1012cd(0x98b),'zVlUw':_0x1012cd(0x382),'GEajv':_0x1012cd(0x46d),'VevSJ':_0x1012cd(0x291),'hHuhR':_0x1012cd(0x7e7)+_0x1012cd(0x84e),'irPdD':_0x1012cd(0x892)+_0x1012cd(0x62b)+'a','ZrzMq':_0x1012cd(0x1e5)+'00','CinuI':_0x1012cd(0x581)+_0x1012cd(0x6d2),'sgjYO':_0x1012cd(0x6c0)+_0x1012cd(0x961),'RpIVx':_0x1012cd(0x892)+_0x1012cd(0x3ce)+'da','CoYym':_0x1012cd(0x321)+_0x1012cd(0x975),'WJlzO':_0x1012cd(0x688)+_0x1012cd(0x330),'eMoAE':_0x1012cd(0x1a3),'ixtDo':_0x1012cd(0x899)+_0x1012cd(0x25d)+_0x1012cd(0x623),'PHVSv':_0x1012cd(0x254)+_0x1012cd(0x461),'YYMcN':_0x1012cd(0x265)+_0x1012cd(0x94c),'egrsX':function(_0x2febc1,_0x2e7a2a){return _0x2febc1===_0x2e7a2a;},'FtQpv':_0x1012cd(0x94d)+_0x1012cd(0x2e3),'BoCxN':function(_0x5140d7,_0x209cba){return _0x5140d7*_0x209cba;},'wXggA':function(_0x31174a,_0x400eea){return _0x31174a+_0x400eea;},'uhPGt':function(_0x29173b,_0x8c9750){return _0x29173b/_0x8c9750;},'yiuOa':_0x1012cd(0x70e),'SvKcf':_0x1012cd(0x2f7)+_0x1012cd(0x359)+_0x1012cd(0x4b3),'JZdeO':function(_0x47946a,_0x30395a){return _0x47946a&&_0x30395a;},'loUFk':function(_0x278719,_0x498f12){return _0x278719===_0x498f12;},'TzKFW':_0x1012cd(0x6c4),'cBVnP':_0x1012cd(0x894)+_0x1012cd(0x20c),'iFBiy':function(_0x2a0cb2,_0x30e1be){return _0x2a0cb2+_0x30e1be;},'eADwf':function(_0xbc1330,_0x53564c){return _0xbc1330===_0x53564c;},'HksYR':_0x1012cd(0x185)+_0x1012cd(0x457),'IwjmD':_0x1012cd(0x7a0),'EZaWT':_0x1012cd(0x321)+_0x1012cd(0x583),'CoRXe':_0x1012cd(0x894)+_0x1012cd(0x6f6),'GLKRZ':_0x1012cd(0x688)+_0x1012cd(0x6bb),'XBkTH':function(_0x4fe47a,_0x55b94d){return _0x4fe47a===_0x55b94d;},'NjUBS':_0x1012cd(0x185)+_0x1012cd(0x35a)+_0x1012cd(0x19c),'KGVJA':_0x1012cd(0x894)+_0x1012cd(0x2ad)+_0x1012cd(0x22a)+')','WmabO':_0x1012cd(0x7ff)+_0x1012cd(0x5a0),'zOLMK':_0x1012cd(0x5b5)+_0x1012cd(0x962),'hCDps':function(_0x54a5af,_0x223076){return _0x54a5af-_0x223076;},'PTRnp':function(_0x100545,_0x59c2fe){return _0x100545===_0x59c2fe;},'GbrEp':function(_0x24dfc9,_0x1cc089){return _0x24dfc9===_0x1cc089;},'cnusW':function(_0x5a27f3,_0x24d9ee){return _0x5a27f3!==_0x24d9ee;},'FLmBm':_0x1012cd(0x6b5),'uaoCQ':_0x1012cd(0x2a9)+_0x1012cd(0x56b),'RjMRh':_0x1012cd(0x6f8)+'00','MbIDx':_0x1012cd(0x581)+_0x1012cd(0x4fd),'mBdKt':function(_0x1ea55f,_0x4b08e9){return _0x1ea55f+_0x4b08e9;},'LBFLk':_0x1012cd(0x929),'XBhvK':_0x1012cd(0x1e8),'agBTX':_0x1012cd(0x557)+'da','KOAXe':_0x1012cd(0x1da)+_0x1012cd(0x30f),'EEfWZ':_0x1012cd(0x99e),'atCou':_0x1012cd(0x557)+_0x1012cd(0x76f)+_0x1012cd(0x677),'wHOSK':_0x1012cd(0x941)+_0x1012cd(0x799),'JBoTn':_0x1012cd(0x68c)+_0x1012cd(0x210),'mfHbj':_0x1012cd(0x862)+_0x1012cd(0x58c),'nTYxF':_0x1012cd(0x25d)+_0x1012cd(0x646),'KfchF':_0x1012cd(0x5a1)+_0x1012cd(0x1b5),'lCQIT':_0x1012cd(0x934)+_0x1012cd(0x266),'ypOSf':_0x1012cd(0x696)+'00','JfPle':_0x1012cd(0x5a1)+_0x1012cd(0x55f)+'d','vixNH':_0x1012cd(0x83a)+_0x1012cd(0x44a)+_0x1012cd(0x2f8),'RAfOZ':_0x1012cd(0x321)+_0x1012cd(0x4ed),'XNxyw':_0x1012cd(0x947)+_0x1012cd(0x1bf),'JLTRH':_0x1012cd(0x601)+_0x1012cd(0x45e),'MpkLK':_0x1012cd(0x289),'bHTnI':_0x1012cd(0x728)+_0x1012cd(0x61f),'Yzudj':_0x1012cd(0x657)+_0x1012cd(0x752),'YoUiz':_0x1012cd(0x674)+_0x1012cd(0x73a),'evquc':_0x1012cd(0x3b6)+_0x1012cd(0x38a),'YRAlM':_0x1012cd(0x6ad)+_0x1012cd(0x526)+'on','YLovs':_0x1012cd(0x535)+_0x1012cd(0x53b)+'n','rSJus':_0x1012cd(0x7ff)+_0x1012cd(0x3a6),'cxaQO':_0x1012cd(0x5b5)+_0x1012cd(0x651),'sNyri':_0x1012cd(0x539)+_0x1012cd(0x5b1)+_0x1012cd(0x8a1),'jDRGA':_0x1012cd(0x133)+_0x1012cd(0x3bf)+_0x1012cd(0x194),'EabQM':_0x1012cd(0x834)+_0x1012cd(0x74b),'MlaEm':_0x1012cd(0x265)+_0x1012cd(0x8ef),'BHDTx':function(_0x1d7a08,_0x571e6c){return _0x1d7a08>_0x571e6c;},'xnzEP':function(_0x21990f,_0x4c47b2){return _0x21990f>_0x4c47b2;},'zsgxB':_0x1012cd(0x7c8),'kutHL':function(_0x484988,_0x8ffe91){return _0x484988===_0x8ffe91;},'SNOCD':_0x1012cd(0x797)},_0x15ac4a=_0x2ba447[_0x1012cd(0x23e)]||0x1530+0x11f9+-0x2729,_0x2798b1=_0x2ba447[_0x1012cd(0x4c1)],_0x124643=_0x2ba447[_0x1012cd(0x38b)]||_0x2e6c6e[_0x1012cd(0x1c9)],_0x522ef5=_0x2ba447[_0x1012cd(0x272)+_0x1012cd(0x796)]||_0x2e6c6e[_0x1012cd(0x1c9)],_0x4cba09=_0x2ba447[_0x1012cd(0x179)+'te']||0x3d8+-0x69b*0x1+0x2c3,_0x17d703=_0x2ba447[_0x1012cd(0x85d)]||_0x2e6c6e[_0x1012cd(0x4d2)],_0xabfc5b=_0x2e6c6e[_0x1012cd(0x3cf)](_0x2ba447[_0x1012cd(0x8db)],currentUser[_0x1012cd(0x2e5)]);let _0x3165f4=_0x2e6c6e[_0x1012cd(0x56a)],_0xed5e69='',_0x1338b1=_0x2e6c6e[_0x1012cd(0x56e)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x6b3)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x965)+_0x1012cd(0x81f)+_0x15ac4a[_0x1012cd(0x4c0)](0x23b0+0x1*0x1bb+-0x9d*0x3d)+_0x1012cd(0x661),_0x24852c='',_0x1f40eb='';const _0x38176a=_0x2e6c6e[_0x1012cd(0x826)](_0x2ba447[_0x1012cd(0x44c)],Object)&&_0x2e6c6e[_0x1012cd(0x6bc)](_0x2e6c6e[_0x1012cd(0x339)],_0x2ba447[_0x1012cd(0x44c)])?_0x2ba447[_0x1012cd(0x44c)][_0x1012cd(0x151)]():_0x2ba447[_0x1012cd(0x44c)]?new Date(_0x2ba447[_0x1012cd(0x44c)]):new Date(),_0x372d9f=_0x38176a[_0x1012cd(0x172)+_0x1012cd(0x8e7)](_0x2e6c6e[_0x1012cd(0x96d)],{'year':_0x2e6c6e[_0x1012cd(0x283)],'month':_0x2e6c6e[_0x1012cd(0x918)],'day':_0x2e6c6e[_0x1012cd(0x283)],'hour':_0x2e6c6e[_0x1012cd(0x37e)],'minute':_0x2e6c6e[_0x1012cd(0x37e)]});switch(_0x2798b1){case _0x2e6c6e[_0x1012cd(0x49d)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x742)],_0xed5e69='a\x20'+_0x522ef5,_0x1338b1=_0x2e6c6e[_0x1012cd(0x521)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x570)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x2eb)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](-0x199d+0x2303*0x1+-0x964*0x1)+_0x1012cd(0x661);break;case _0x2e6c6e[_0x1012cd(0x7fa)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x66b)],_0xed5e69=_0x1012cd(0x5c6)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x6c2)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x51d)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x492)+_0x1012cd(0x2c3)+_0x15ac4a[_0x1012cd(0x4c0)](0x9d+0x1c59+0x11*-0x1b4)+_0x1012cd(0x661);break;case _0x2e6c6e[_0x1012cd(0x629)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x831)],_0xed5e69=_0x1012cd(0x5c6)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x5b7)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x3fc)];if(_0x2e6c6e[_0x1012cd(0x837)](_0x17d703,_0x2e6c6e[_0x1012cd(0x6bf)])&&_0x5f2ed0){const _0x551b3d=_0x2e6c6e[_0x1012cd(0x71f)](_0x15ac4a,_0x2e6c6e[_0x1012cd(0x762)](-0x2340+0x1967+-0x4ed*-0x2,_0x2e6c6e[_0x1012cd(0x8a7)](_0x4cba09,0x2*-0x77b+0x1fd*-0x4+0x26*0x9d)));_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768),_0x32e5d2=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x589)+_0x1012cd(0x1cd)+_0x1012cd(0x6f3)+_0x1012cd(0x80d)+_0x1012cd(0x2c3)+_0x15ac4a[_0x1012cd(0x4c0)](0x1549+0x196*0x1+-0x16dd)+(_0x1012cd(0x3c1)+_0x1012cd(0x198)+_0x1012cd(0x1e3)+_0x1012cd(0x1b4)+_0x1012cd(0x7b2)+_0x1012cd(0x6f0)+_0x1012cd(0x759))+_0x551b3d[_0x1012cd(0x4c0)](-0x7*-0x41b+0x94e+-0x7*0x56f)+_0x1012cd(0x661),_0x24852c=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x82b)+_0x1012cd(0x658)+_0x1012cd(0x94f)+_0x1012cd(0x19e)+_0x1012cd(0x1c4)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x40b)+_0x1012cd(0x848)+_0x1012cd(0x439)+_0x1012cd(0x7d2)+_0x1012cd(0x3f4)+_0x1012cd(0x46c)+_0x1012cd(0x64f)+_0x1012cd(0x97b)+_0x1012cd(0x89d)+_0x1012cd(0x1e0)+_0x1012cd(0x17f)+_0x1012cd(0x8ad)+_0x130253+(_0x1012cd(0x305)+_0x1012cd(0x177)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x8f4)+_0x1012cd(0x758)+_0x1012cd(0x42a)+_0x1012cd(0x720)+_0x1012cd(0x642)+_0x1012cd(0x3be)+_0x1012cd(0x6e4)+_0x1012cd(0x6e1)+_0x1012cd(0x36a)+_0x1012cd(0x590)+_0x1012cd(0x3cb)+_0x1012cd(0x845))+_0x130253+(_0x1012cd(0x3b9)+_0x1012cd(0x325)+_0x1012cd(0x433))+(_0x2ba447[_0x1012cd(0x89f)+_0x1012cd(0x68d)]||'')+(_0x1012cd(0x3b9)+_0x1012cd(0x2c0))+(_0x2ba447[_0x1012cd(0x8db)]||'')+(_0x1012cd(0x4fb)+_0x1012cd(0x35b)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x2a3)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x438));}break;case _0x2e6c6e[_0x1012cd(0x3c4)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x900)],_0xed5e69='a\x20'+_0x522ef5,_0x1338b1=_0x2e6c6e[_0x1012cd(0x5b7)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x3fc)];if(_0x2e6c6e[_0x1012cd(0x837)](_0x17d703,_0x2e6c6e[_0x1012cd(0x6bf)]))_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768),_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x965)+_0x1012cd(0x2f1)+_0x15ac4a[_0x1012cd(0x4c0)](0x1eea+-0x1*0x17e2+-0x706)+(_0x1012cd(0x818)+_0x1012cd(0x95f)),_0x2e6c6e[_0x1012cd(0x2b0)](_0x5f2ed0,_0xabfc5b)&&(_0x24852c=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x7b7)+_0x1012cd(0x478)+_0x1012cd(0x480)+_0x1012cd(0x7f4)+_0x1012cd(0x88e)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x2b6)+_0x1012cd(0x659)+_0x1012cd(0x1fd)+_0x1012cd(0x990)+_0x1012cd(0x3e5)+_0x1012cd(0x140)+_0x1012cd(0x35d)+_0x1012cd(0x8f9)+_0x1012cd(0x159)+_0x1012cd(0x624)+_0x1012cd(0x6c6)+_0x1012cd(0x324)+_0x130253+(_0x1012cd(0x311)+_0x1012cd(0x4ae))+_0x15ac4a+(_0x1012cd(0x350)+_0x1012cd(0x3fd))+(_0x2ba447[_0x1012cd(0x963)+'d']||'')+(_0x1012cd(0x47f)+_0x1012cd(0x174)+_0x1012cd(0x63e)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x787)+_0x1012cd(0x198)+_0x1012cd(0x3af)));else{if(_0x2e6c6e[_0x1012cd(0x995)](_0x17d703,_0x2e6c6e[_0x1012cd(0x8ed)])){_0x3165f4=_0x2e6c6e[_0x1012cd(0x65c)];const _0x74ce9=_0x2e6c6e[_0x1012cd(0x71f)](_0x15ac4a,_0x2e6c6e[_0x1012cd(0x22e)](-0x4bd+0x2ff+0x1bf,_0x2e6c6e[_0x1012cd(0x8a7)](_0x4cba09,-0x8e*-0x10+0x756*0x3+-0x1e7e)));_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768),_0x32e5d2=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x589)+_0x1012cd(0x1cd)+_0x1012cd(0x6f3)+_0x1012cd(0x746)+_0x1012cd(0x2f1)+_0x15ac4a[_0x1012cd(0x4c0)](0x192a+0xcc6+-0x25ee)+(_0x1012cd(0x41a)+_0x1012cd(0x3c1)+_0x1012cd(0x198)+_0x1012cd(0x1e3)+_0x1012cd(0x1b4)+_0x1012cd(0x1ee)+_0x1012cd(0x7ad)+_0x1012cd(0x59c))+_0x74ce9[_0x1012cd(0x4c0)](-0x2463+0x10d+-0x68*-0x57)+(_0x1012cd(0x3c1)+_0x1012cd(0x198)+_0x1012cd(0x1e3)+_0x1012cd(0x1b4)+_0x1012cd(0x1ee)+_0x1012cd(0x753)+_0x1012cd(0x8fb)+_0x1012cd(0x1e6)+_0x1012cd(0x42e)+_0x1012cd(0x198)+_0x1012cd(0x62f)),_0x5f2ed0&&(_0x24852c=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x2b6)+_0x1012cd(0x659)+_0x1012cd(0x80a)+_0x1012cd(0x667)+_0x1012cd(0x5ed)+_0x1012cd(0x945)+_0x1012cd(0x1b0)+_0x1012cd(0x70b)+_0x1012cd(0x12c)+_0x1012cd(0x7b9)+_0x1012cd(0x886)+_0x1012cd(0x3ed)+_0x1012cd(0x95b)+_0x1012cd(0x802)+_0x1012cd(0x419)+_0x1012cd(0x198)+_0x1012cd(0x198)+_0x1012cd(0x6e0)+'=\x22'+_0x130253+(_0x1012cd(0x350)+_0x1012cd(0x3fd))+_0x2ba447[_0x1012cd(0x963)+'d']+(_0x1012cd(0x8b0)+_0x1012cd(0x911)+_0x1012cd(0x312)+_0x1012cd(0x532)+_0x1012cd(0x198)+_0x1012cd(0x3ef)));}else{if(_0x2e6c6e[_0x1012cd(0x213)](_0x17d703,_0x2e6c6e[_0x1012cd(0x8f7)])){const _0x8296a9=_0x2e6c6e[_0x1012cd(0x6d7)][_0x1012cd(0x714)]('|');let _0x4d50cc=-0x1c5c+-0x13fe+0x101e*0x3;while(!![]){switch(_0x8296a9[_0x4d50cc++]){case'0':_0x1338b1=_0x2e6c6e[_0x1012cd(0x70d)];continue;case'1':_0x3165f4=_0x2e6c6e[_0x1012cd(0x57c)];continue;case'2':_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x96e)];continue;case'3':_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x4b5)+_0x1012cd(0x2c3)+(_0x2ba447[_0x1012cd(0x26f)]||0x8*0x365+-0x196e+0x1*-0x1ba)[_0x1012cd(0x4c0)](-0x11*-0x22a+-0x26f7+0x1*0x22f)+_0x1012cd(0x661);continue;case'4':_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x2e7)+_0x1012cd(0x40e)+new Date(_0x2ba447[_0x1012cd(0x79a)][_0x1012cd(0x151)]())[_0x1012cd(0x172)+_0x1012cd(0x8e7)](_0x2e6c6e[_0x1012cd(0x96d)])+_0x1012cd(0x661);continue;}break;}}else{if(_0x2e6c6e[_0x1012cd(0x247)](_0x17d703,_0x2e6c6e[_0x1012cd(0x645)])){_0x3165f4=_0x2e6c6e[_0x1012cd(0x4e2)],_0x1338b1=_0x2e6c6e[_0x1012cd(0x400)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x4a8)];const _0x3eb336=_0x2e6c6e[_0x1012cd(0x8ba)](_0x2ba447[_0x1012cd(0x26f)],_0x2ba447[_0x1012cd(0x80c)+_0x1012cd(0x708)]);_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x4c4)+_0x1012cd(0x3b0)+_0x3eb336[_0x1012cd(0x4c0)](-0x1d06*0x1+0x22a*0x1+0x1ade)+(_0x1012cd(0x59a)+'>'),_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x533)+_0x1012cd(0x543)+_0x2ba447[_0x1012cd(0x80c)+_0x1012cd(0x708)][_0x1012cd(0x4c0)](-0x1027+0x1c20+-0xbf7)+_0x1012cd(0x661);}}}}_0x5f2ed0&&(_0x2e6c6e[_0x1012cd(0x96b)](_0x17d703,_0x2e6c6e[_0x1012cd(0x8f7)])||_0x2e6c6e[_0x1012cd(0x7e1)](_0x17d703,_0x2e6c6e[_0x1012cd(0x645)]))&&_0x2e6c6e[_0x1012cd(0x176)](_0x2ba447[_0x1012cd(0x835)],!![])&&(_0x24852c+=_0x1012cd(0x25f)+_0x1012cd(0x40b)+_0x1012cd(0x848)+_0x1012cd(0x7bf)+_0x1012cd(0x7fd)+_0x1012cd(0x54c)+_0x1012cd(0x3e5)+_0x1012cd(0x140)+_0x1012cd(0x35d)+_0x1012cd(0x8f9)+_0x1012cd(0x30d)+_0x1012cd(0x8a9)+_0x1012cd(0x1a6)+_0x1012cd(0x3d8)+_0x1012cd(0x503)+_0x1012cd(0x348)+_0x1012cd(0x970)+_0x1012cd(0x198)+_0x1012cd(0x3e7)+_0x1012cd(0x67e)+_0x130253+(_0x1012cd(0x350)+_0x1012cd(0x3fd))+_0x2ba447[_0x1012cd(0x963)+'d']+(_0x1012cd(0x350)+_0x1012cd(0x4cf)+'=\x22')+_0x522ef5+(_0x1012cd(0x130)+_0x1012cd(0x177)+_0x1012cd(0x198)+'\x20\x20'));break;case _0x2e6c6e[_0x1012cd(0x559)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x2fb)],_0xed5e69=_0x1012cd(0x748)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x6cf)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x203)];const _0x5684d1=_0x2e6c6e[_0x1012cd(0x71f)](_0x2ba447[_0x1012cd(0x801)+_0x1012cd(0x518)],_0x2e6c6e[_0x1012cd(0x199)](0xf4*0xe+0x1189+-0x1ee0,_0x2e6c6e[_0x1012cd(0x8a7)](_0x4cba09,0x3*-0x12d+-0x533+0x91e)));_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768);if(_0x2e6c6e[_0x1012cd(0x3cf)](_0x17d703,_0x2e6c6e[_0x1012cd(0x2ac)]))_0x32e5d2=_0x1012cd(0x25f)+_0x1012cd(0x198)+_0x1012cd(0x1e3)+_0x1012cd(0x1b4)+_0x1012cd(0x5ca)+_0x1012cd(0x337)+_0x1012cd(0x18a)+'$'+_0x2ba447[_0x1012cd(0x801)+_0x1012cd(0x518)][_0x1012cd(0x4c0)](-0x1*-0x907+0x33d+0x2*-0x621)+(_0x1012cd(0x41a)+_0x1012cd(0x3c1)+_0x1012cd(0x198)+_0x1012cd(0x77e)+_0x1012cd(0x235)+_0x1012cd(0x734)+_0x1012cd(0x8fd)+_0x1012cd(0x4f5))+_0x5684d1[_0x1012cd(0x4c0)](-0x2*0x1278+-0x10d*-0xa+0x1a70)+(_0x1012cd(0x3c1)+_0x1012cd(0x198)+_0x1012cd(0x764)),_0x5f2ed0&&(_0x24852c=_0x1012cd(0x73e)+_0x1012cd(0x67a)+_0x1012cd(0x88b)+_0x1012cd(0x447)+_0x1012cd(0x3e4)+_0x1012cd(0x36d)+_0x1012cd(0x6b7)+_0x1012cd(0x44d)+_0x1012cd(0x3da)+_0x1012cd(0x423)+_0x1012cd(0x76d)+_0x1012cd(0x2f0)+_0x1012cd(0x715)+_0x1012cd(0x8ce)+_0x1012cd(0x5ce)+_0x130253+_0x1012cd(0x3a4)+_0x5684d1[_0x1012cd(0x4c0)](-0x1838+-0x36*-0x75+-0x74*0x1)+_0x1012cd(0x43b));else{if(_0x2e6c6e[_0x1012cd(0x7e1)](_0x17d703,_0x2e6c6e[_0x1012cd(0x8f7)])){const _0x31dce9=_0x2e6c6e[_0x1012cd(0x36c)][_0x1012cd(0x714)]('|');let _0x2dd3ca=0x1d04+-0x2e3+-0x1a21;while(!![]){switch(_0x31dce9[_0x2dd3ca++]){case'0':_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x96e)];continue;case'1':_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x631)+_0x1012cd(0x913)+_0x5684d1[_0x1012cd(0x4c0)](0x1d1b*-0x1+-0xb2*-0x24+0x5f*0xb)+_0x1012cd(0x661);continue;case'2':_0x1338b1=_0x2e6c6e[_0x1012cd(0x70d)];continue;case'3':_0x3165f4=_0x2e6c6e[_0x1012cd(0x487)];continue;case'4':_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x2e7)+_0x1012cd(0x40e)+new Date(_0x2ba447[_0x1012cd(0x79a)][_0x1012cd(0x151)]())[_0x1012cd(0x172)+_0x1012cd(0x8e7)](_0x2e6c6e[_0x1012cd(0x96d)])+_0x1012cd(0x661);continue;}break;}}else{if(_0x2e6c6e[_0x1012cd(0x96b)](_0x17d703,_0x2e6c6e[_0x1012cd(0x5cf)])){const _0x1e9a9c=_0x2e6c6e[_0x1012cd(0x8fc)][_0x1012cd(0x714)]('|');let _0x2da293=0x3*0x75+0x192e+-0x3cb*0x7;while(!![]){switch(_0x1e9a9c[_0x2da293++]){case'0':_0x1338b1=_0x2e6c6e[_0x1012cd(0x70d)];continue;case'1':_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x631)+_0x1012cd(0x913)+_0x5684d1[_0x1012cd(0x4c0)](-0x1057+0x7dc+0x87d)+_0x1012cd(0x661);continue;case'2':_0x3165f4=_0x2e6c6e[_0x1012cd(0x18d)];continue;case'3':_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7b6)+_0x1012cd(0x241)+_0x1012cd(0x5a5)+_0x1012cd(0x4c3)+'\x20'+_0x124643+_0x1012cd(0x661);continue;case'4':_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x96e)];continue;}break;}}}}break;case _0x2e6c6e[_0x1012cd(0x65e)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x280)],_0xed5e69='a\x20'+_0x522ef5,_0x1338b1=_0x2e6c6e[_0x1012cd(0x521)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x2eb)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](-0x823+-0xc5b+-0x1480*-0x1)+_0x1012cd(0x661),_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768);break;case _0x2e6c6e[_0x1012cd(0x3f3)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x64b)],_0xed5e69=_0x1012cd(0x5c6)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x6c2)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x492)+_0x1012cd(0x2c3)+_0x15ac4a[_0x1012cd(0x4c0)](0x1*0xce5+-0x15bd+0x8da)+_0x1012cd(0x661),_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768);break;case _0x2e6c6e[_0x1012cd(0x264)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x4bb)],_0xed5e69='a\x20'+_0x522ef5,_0x1338b1=_0x2e6c6e[_0x1012cd(0x8f2)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x99c)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](0x1*-0x2135+-0xe01+0x2f38)+_0x1012cd(0x661),_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768);break;case _0x2e6c6e[_0x1012cd(0x165)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x994)],_0xed5e69=_0x1012cd(0x5c6)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x262)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x666)+_0x1012cd(0x2c3)+_0x15ac4a[_0x1012cd(0x4c0)](0x1c*-0x97+-0x1*-0x13+0x1073)+_0x1012cd(0x661),_0x1f40eb=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x7cd)+':\x20'+_0x4cba09+_0x1012cd(0x768);break;case _0x2e6c6e[_0x1012cd(0x5be)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x82f)],_0xed5e69=_0x2e6c6e[_0x1012cd(0x435)],_0x1338b1=_0x2e6c6e[_0x1012cd(0x62c)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x8a8)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x2eb)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](0x1e6e+0xac6+-0x2932)+_0x1012cd(0x661);break;case _0x2e6c6e[_0x1012cd(0x5a8)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x2a1)],_0xed5e69=_0x2e6c6e[_0x1012cd(0x435)],_0x1338b1=_0x2e6c6e[_0x1012cd(0x62c)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x8a8)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x2eb)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](0x1*-0x957+-0x1066+-0x19bf*-0x1)+_0x1012cd(0x661);break;case _0x2e6c6e[_0x1012cd(0x857)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x2b4)],_0xed5e69=_0x1012cd(0x5c6)+_0x124643,_0x1338b1=_0x2e6c6e[_0x1012cd(0x8d9)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x1ac)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x4c4)+_0x1012cd(0x4e6)+_0x15ac4a[_0x1012cd(0x4c0)](0xeac+-0x2*0xd1c+0x1d*0x66)+(_0x1012cd(0x94e)+'p>');break;case _0x2e6c6e[_0x1012cd(0x44f)]:_0x3165f4=_0x2e6c6e[_0x1012cd(0x604)],_0xed5e69=_0x2e6c6e[_0x1012cd(0x435)],_0x1338b1=_0x2e6c6e[_0x1012cd(0x8f2)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x203)],_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x99c)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](-0x43*-0x22+0x2117+0xb*-0x3d1)+_0x1012cd(0x661);break;default:_0x3165f4='',_0x1338b1=_0x2e6c6e[_0x1012cd(0x161)],_0x1f2e0d=_0x2e6c6e[_0x1012cd(0x1b9)];_0xabfc5b?_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x2eb)+_0x1012cd(0x913)+_0x15ac4a[_0x1012cd(0x4c0)](0x2517+0x10*0x224+-0x9*0x7ed)+_0x1012cd(0x661):_0x32e5d2=_0x1012cd(0x50b)+_0x1012cd(0x3f8)+_0x1012cd(0x6eb)+_0x1012cd(0x287)+_0x1012cd(0x81f)+_0x15ac4a[_0x1012cd(0x4c0)](-0x1*0x14b5+0x668*0x1+0xe4f)+_0x1012cd(0x661);break;}let _0x7ab077=_0x2ba447[_0x1012cd(0x7cc)+'n']&&_0x2e6c6e[_0x1012cd(0x7d7)](_0x2ba447[_0x1012cd(0x7cc)+'n'][_0x1012cd(0x594)],-0x24e9+-0x1d69+0x4252)?_0x2ba447[_0x1012cd(0x7cc)+'n']:_0x3165f4+'\x20'+_0xed5e69,_0x5fa8b1='';return _0x2ba447[_0x1012cd(0x7cc)+'n']&&_0x2e6c6e[_0x1012cd(0x5b3)](_0x2ba447[_0x1012cd(0x7cc)+'n'][_0x1012cd(0x594)],0x17cd*-0x1+-0x1860+0x302d)&&(_0x2e6c6e[_0x1012cd(0x3cf)](_0x2798b1,_0x2e6c6e[_0x1012cd(0x237)])||_0x2e6c6e[_0x1012cd(0x5ae)](_0x2798b1,_0x2e6c6e[_0x1012cd(0x8a0)])?_0x5fa8b1='':_0x5fa8b1=_0x1012cd(0x50b)+_0x1012cd(0x71b)+_0x1012cd(0x980)+_0x1012cd(0x84d)+_0x3165f4+'\x20'+_0xed5e69+_0x1012cd(0x661)),_0x1012cd(0x567)+_0x1012cd(0x36e)+_0x1012cd(0x27e)+_0x1012cd(0x76b)+_0x1012cd(0x124)+_0x1012cd(0x221)+_0x1012cd(0x2bc)+_0x1012cd(0x731)+_0x1012cd(0x2cd)+_0x1012cd(0x7e3)+_0x1f2e0d+(_0x1012cd(0x2b9)+_0x1012cd(0x5cd)+_0x1012cd(0x17c)+_0x1012cd(0x547)+_0x1012cd(0x41b)+_0x1012cd(0x1c4)+_0x1012cd(0x7b7)+_0x1012cd(0x478)+_0x1012cd(0x647)+_0x1012cd(0x198)+_0x1012cd(0x1e3)+_0x1012cd(0x1b4)+_0x1012cd(0x2b7)+_0x1012cd(0x4d5))+_0x1338b1+'\x22>'+_0x7ab077+(_0x1012cd(0x3c1)+_0x1012cd(0x198)+'\x20')+_0x5fa8b1+(_0x1012cd(0x20e)+_0x1012cd(0x21a)+_0x1012cd(0x135)+_0x1012cd(0x260)+_0x1012cd(0x3a5)+_0x1012cd(0x6b1))+_0x372d9f+(_0x1012cd(0x3c1)+_0x1012cd(0x198)+'\x20')+_0x1f40eb+(_0x1012cd(0x25f)+_0x1012cd(0x5ec)+_0x1012cd(0x198)+_0x1012cd(0x466)+_0x1012cd(0x53a)+_0x1012cd(0x869)+_0x1012cd(0x220)+_0x1012cd(0x944)+_0x1012cd(0x25f)+_0x1012cd(0x14c))+_0x32e5d2+(_0x1012cd(0x25f)+_0x1012cd(0x14c))+_0x24852c+(_0x1012cd(0x25f)+_0x1012cd(0x5ec)+_0x1012cd(0x192)+_0x1012cd(0x250));}function listenToLoanRequests(_0x4b36cc){const _0x871e2d=_0x353936,_0x22c5a0={'VhhZJ':function(_0x4f0197,_0x1a0d53){return _0x4f0197+_0x1a0d53;},'AyQTl':function(_0x15ee2f,_0x909acc){return _0x15ee2f(_0x909acc);},'OQTTz':function(_0x391af5,_0x1dcfae){return _0x391af5(_0x1dcfae);},'AESqB':function(_0x4b180e,_0xe9a766){return _0x4b180e-_0xe9a766;},'RqARc':_0x871e2d(0x505)+_0x871e2d(0x166)+_0x871e2d(0x5ff)+_0x871e2d(0x93f)+_0x871e2d(0x5c1),'XoarO':_0x871e2d(0x391)+_0x871e2d(0x91f),'lBzUV':_0x871e2d(0x64d),'DbWwT':function(_0x3b2ddb,_0x281474){return _0x3b2ddb!==_0x281474;},'zZMcM':function(_0x259988,_0x5642b3){return _0x259988(_0x5642b3);},'ksrqv':function(_0x1508b2,_0x45e480,_0x1e94a5){return _0x1508b2(_0x45e480,_0x1e94a5);},'PkRAt':function(_0x2a8f5d,_0x5284e7,_0x1c4387){return _0x2a8f5d(_0x5284e7,_0x1c4387);},'jtEvY':function(_0x3eaec6,_0x3f2a7b,_0x166ba3,_0x29e4da){return _0x3eaec6(_0x3f2a7b,_0x166ba3,_0x29e4da);},'NbvbR':_0x871e2d(0x19d)+_0x871e2d(0x205)+_0x871e2d(0x4df),'cHdRG':_0x871e2d(0x24c)+_0x871e2d(0x249)+_0x871e2d(0x2d1)+_0x871e2d(0x73c)+_0x871e2d(0x79b)+_0x871e2d(0x20f)+_0x871e2d(0x4d7)+_0x871e2d(0x956)+_0x871e2d(0x51c)+_0x871e2d(0x71d)+_0x871e2d(0x86e),'aWOGO':_0x871e2d(0x988),'MZiRg':_0x871e2d(0x48f)+_0x871e2d(0x74d)+_0x871e2d(0x673)+_0x871e2d(0x4dc)+_0x871e2d(0x2a8),'qzajH':_0x871e2d(0x689)+_0x871e2d(0x45a),'eCenN':_0x871e2d(0x231)+_0x871e2d(0x317)+_0x871e2d(0x811)+_0x871e2d(0x3a1)+_0x871e2d(0x992)+_0x871e2d(0x40a),'cMAyz':_0x871e2d(0x584),'nivQv':_0x871e2d(0x1c2)+_0x871e2d(0x4de)+_0x871e2d(0x504)+_0x871e2d(0x35c)+_0x871e2d(0x14d)+'.','BkENy':_0x871e2d(0x781)+_0x871e2d(0x7b0)+_0x871e2d(0x673)+':','nmzer':_0x871e2d(0x628),'qPRXO':function(_0x53fa16,_0x562da8){return _0x53fa16===_0x562da8;},'QCGML':_0x871e2d(0x50b)+_0x871e2d(0x834)+_0x871e2d(0x92d)+_0x871e2d(0x3eb)+_0x871e2d(0x486)+_0x871e2d(0x8e2)+_0x871e2d(0x22b)+_0x871e2d(0x20b)+_0x871e2d(0x69d)+_0x871e2d(0x863)+_0x871e2d(0x661),'dixil':function(_0x45f7b1,_0x2cc738){return _0x45f7b1===_0x2cc738;},'IEpHM':function(_0x4f63af,_0x3032bc){return _0x4f63af>_0x3032bc;},'lsvwK':_0x871e2d(0x1d8)+_0x871e2d(0x8f9)+_0x871e2d(0x159)+_0x871e2d(0x1bb)+_0x871e2d(0x8dd),'qSJmT':_0x871e2d(0x50b)+_0x871e2d(0x91a)+_0x871e2d(0x8cb)+_0x871e2d(0x421),'GlAcG':_0x871e2d(0x4f0)+_0x871e2d(0x789),'QhCIB':_0x871e2d(0x316)+_0x871e2d(0x197),'lULfe':_0x871e2d(0x66f)+_0x871e2d(0x197),'URLXn':function(_0x2bcf58,_0x4bd5c2,_0x69b0c4){return _0x2bcf58(_0x4bd5c2,_0x69b0c4);},'juvCG':_0x871e2d(0x85d),'wNXor':_0x871e2d(0x929),'KknQk':function(_0x570c70,_0x54e497,_0x1dc435){return _0x570c70(_0x54e497,_0x1dc435);}};if(!_0x4b36cc)return;const _0x4b8b71=_0x22c5a0[_0x871e2d(0x1a9)](query,_0x22c5a0[_0x871e2d(0x8b5)](collection,db,_0x871e2d(0x206)+appId+(_0x871e2d(0x691)+_0x871e2d(0x2ee))),_0x22c5a0[_0x871e2d(0x271)](where,_0x22c5a0[_0x871e2d(0x2ff)],'==',_0x22c5a0[_0x871e2d(0x897)]));_0x22c5a0[_0x871e2d(0x27a)](onSnapshot,_0x4b8b71,_0x4f1813=>{const _0x1dee13=_0x871e2d,_0x414032={'BzWZU':function(_0xbb95ee,_0x31a643){const _0x228390=_0x2c29;return _0x22c5a0[_0x228390(0x17e)](_0xbb95ee,_0x31a643);},'WPHKB':function(_0x307172,_0x4d0f88){const _0x309d66=_0x2c29;return _0x22c5a0[_0x309d66(0x985)](_0x307172,_0x4d0f88);},'vttuj':function(_0x161e2a,_0x1cfe15){const _0x4b1553=_0x2c29;return _0x22c5a0[_0x4b1553(0x70a)](_0x161e2a,_0x1cfe15);},'NWJko':function(_0x2696b4,_0x36194f){const _0x404f3b=_0x2c29;return _0x22c5a0[_0x404f3b(0x920)](_0x2696b4,_0x36194f);},'ORKtO':_0x22c5a0[_0x1dee13(0x538)],'qwcTi':_0x22c5a0[_0x1dee13(0x5dc)],'UGCiP':function(_0xa8aa6b,_0x82b1c4){const _0x404e2c=_0x1dee13;return _0x22c5a0[_0x404e2c(0x217)](_0xa8aa6b,_0x82b1c4);},'zJLsk':function(_0x36e66f,_0x550e41,_0x27cae7){const _0x58b76d=_0x1dee13;return _0x22c5a0[_0x58b76d(0x1a9)](_0x36e66f,_0x550e41,_0x27cae7);},'DDZqQ':function(_0x345d46,_0x530aa1,_0x1a5c76){const _0x24538e=_0x1dee13;return _0x22c5a0[_0x24538e(0x525)](_0x345d46,_0x530aa1,_0x1a5c76);},'HuOhP':function(_0x1f54eb,_0x25fb8e,_0x4dd462,_0x516b58){const _0x27b6c6=_0x1dee13;return _0x22c5a0[_0x27b6c6(0x271)](_0x1f54eb,_0x25fb8e,_0x4dd462,_0x516b58);},'sRUVt':_0x22c5a0[_0x1dee13(0x16e)],'DMZFp':_0x22c5a0[_0x1dee13(0x665)],'utynh':_0x22c5a0[_0x1dee13(0x416)],'CcRrR':_0x22c5a0[_0x1dee13(0x912)],'hHsmP':_0x22c5a0[_0x1dee13(0x56f)],'EJHLM':_0x22c5a0[_0x1dee13(0x1bc)],'WcnZl':_0x22c5a0[_0x1dee13(0x4c6)],'wJvkZ':_0x22c5a0[_0x1dee13(0x2ba)],'lpWwT':_0x22c5a0[_0x1dee13(0x6f9)],'nAISy':_0x22c5a0[_0x1dee13(0x82e)],'ASGsX':function(_0x1651f9,_0x5ac478,_0x3a128c){const _0x546916=_0x1dee13;return _0x22c5a0[_0x546916(0x1a9)](_0x1651f9,_0x5ac478,_0x3a128c);},'YYpNN':_0x22c5a0[_0x1dee13(0x497)]};loanRequestsList[_0x1dee13(0x5e9)]='';const _0x1b2225=_0x4b36cc,_0x2b605a=_0x4f1813[_0x1dee13(0x224)];if(_0x22c5a0[_0x1dee13(0x2c6)](_0x2b605a[_0x1dee13(0x594)],0x7*0x39d+0x709+0x2*-0x102a)){loanRequestsList[_0x1dee13(0x5e9)]=_0x22c5a0[_0x1dee13(0x522)];return;}const _0xaa19f9=_0x2b605a[_0x1dee13(0x37f)](_0x346659=>{const _0x11db90=_0x1dee13,_0x5a43f0=_0x346659[_0x11db90(0x5f0)](),_0x52b77a=Array[_0x11db90(0x6f4)](_0x5a43f0[_0x11db90(0x958)])&&_0x5a43f0[_0x11db90(0x958)][_0x11db90(0x410)](_0x1b2225);return _0x414032[_0x11db90(0x6b0)](_0x5a43f0[_0x11db90(0x4ad)],_0x1b2225)&&!_0x52b77a;}),_0x1c74e8=_0x2b605a[_0x1dee13(0x37f)](_0x126a3a=>_0x126a3a[_0x1dee13(0x5f0)]()[_0x1dee13(0x4ad)]===_0x1b2225);if(_0x22c5a0[_0x1dee13(0x2c6)](_0xaa19f9[_0x1dee13(0x594)],-0x22*0xb+0x1a*-0x86+-0x1*-0xf12)&&_0x22c5a0[_0x1dee13(0x948)](_0x1c74e8[_0x1dee13(0x594)],0x9c7+0x166d*0x1+0xe5*-0x24)){loanRequestsList[_0x1dee13(0x5e9)]=_0x22c5a0[_0x1dee13(0x522)];return;}_0xaa19f9[_0x1dee13(0x8d7)](_0x4f8249=>{const _0x571272=_0x1dee13,_0x5d7603=_0x4f8249['id'],_0xce966e=_0x4f8249[_0x571272(0x5f0)](),_0x8ba7ca=_0xce966e[_0x571272(0x21c)+_0x571272(0x2ab)]||0x867*-0x4+-0x973+0x2b14,_0x358a4b=_0x414032[_0x571272(0x1d6)](_0x414032[_0x571272(0x360)](Array,Math[_0x571272(0x904)](_0x8ba7ca))[_0x571272(0x72b)]('★')[_0x571272(0x93b)](''),_0x414032[_0x571272(0x360)](Array,_0x414032[_0x571272(0x914)](-0x441+0x2*-0xbad+0x1ba0,Math[_0x571272(0x904)](_0x8ba7ca)))[_0x571272(0x72b)]('☆')[_0x571272(0x93b)]('')),_0x4db761=document[_0x571272(0x4db)+_0x571272(0x84e)]('li');_0x4db761[_0x571272(0x1ed)]=_0x414032[_0x571272(0x6ae)],_0x4db761[_0x571272(0x5e9)]=_0x571272(0x25f)+_0x571272(0x7eb)+_0x571272(0x664)+_0x571272(0x7c5)+_0x571272(0x5c2)+_0x571272(0x390)+_0x571272(0x198)+_0x571272(0x2d8)+_0x571272(0x700)+_0x571272(0x198)+_0x571272(0x214)+_0x571272(0x5b2)+_0x571272(0x469)+_0x571272(0x1e5)+_0x571272(0x44e)+_0xce966e[_0x571272(0x23e)][_0x571272(0x4c0)](0x1e6a*-0x1+0x326+0x1*0x1b46)+(_0x571272(0x3c1)+_0x571272(0x198)+_0x571272(0x1e3)+_0x571272(0x1b4)+_0x571272(0x1ee)+_0x571272(0x61e)+_0x571272(0x417))+_0xce966e[_0x571272(0x354)]+(_0x571272(0x3c1)+_0x571272(0x198)+_0x571272(0x1e3)+_0x571272(0x1b4)+_0x571272(0x1ee)+_0x571272(0x63a)+_0x571272(0x4b6)+':\x20')+_0xce966e[_0x571272(0x4ad)]+(_0x571272(0x3c1)+_0x571272(0x198)+_0x571272(0x1e3)+_0x571272(0x1b4)+_0x571272(0x7fb)+_0x571272(0x4f6)+_0x571272(0x141))+(_0xce966e[_0x571272(0x7cc)+'n']||_0x414032[_0x571272(0x540)])+(_0x571272(0x3c1)+_0x571272(0x198)+_0x571272(0x787)+_0x571272(0x198)+_0x571272(0x13d)+_0x571272(0x188)+_0x571272(0x5c7)+_0x571272(0x198)+_0x571272(0x77e)+_0x571272(0x235)+_0x571272(0x8fe)+_0x571272(0x6e1)+_0x571272(0x940)+_0x571272(0x191))+_0xce966e[_0x571272(0x179)+'te'][_0x571272(0x4c0)](0x1*0x1a51+-0x3ea+-0x1665)+(_0x571272(0x145)+_0x571272(0x25f)+_0x571272(0x198)+_0x571272(0x589)+_0x571272(0x6d3)+_0x571272(0x7a3)+_0x571272(0x61d)+_0x571272(0x57d)+_0x571272(0x6ca)+_0x571272(0x943))+_0x358a4b+'\x20('+_0x8ba7ca[_0x571272(0x4c0)](0x3*-0x353+-0x55a*-0x2+-0x3e*0x3)+(_0x571272(0x44b)+_0x571272(0x198)+_0x571272(0x156)+_0x571272(0x198)+_0x571272(0x787)+_0x571272(0x198)+_0x571272(0x3bd)+_0x571272(0x472)+_0x571272(0x7b4)+_0x571272(0x198)+_0x571272(0x7e6)+_0x571272(0x598)+_0x571272(0x974)+_0x571272(0x789)+_0x571272(0x34a)+_0x571272(0x574)+_0x571272(0x1c6)+_0x571272(0x822)+_0x571272(0x984)+_0x571272(0x136)+_0x571272(0x170)+_0x571272(0x3ec)+_0x571272(0x887))+_0x5d7603+(_0x571272(0x305)+_0x571272(0x177)+_0x571272(0x198)+_0x571272(0x2b6)+_0x571272(0x659)+_0x571272(0x2c1)+_0x571272(0x4d4)+_0x571272(0x5a9)+_0x571272(0x642)+_0x571272(0x3be)+_0x571272(0x6e4)+_0x571272(0x6e1)+_0x571272(0x36a)+_0x571272(0x590)+_0x571272(0x3cb)+_0x571272(0x845))+_0x5d7603+(_0x571272(0x4fb)+_0x571272(0x35b)+_0x571272(0x198)+_0x571272(0x156)+_0x571272(0x14c)),loanRequestsList[_0x571272(0x686)+'d'](_0x4db761);});if(_0x22c5a0[_0x1dee13(0x7d9)](_0x1c74e8[_0x1dee13(0x594)],-0x1*0x305+0x5*0x1e7+-0x67e)){const _0x32511c=document[_0x1dee13(0x4db)+_0x1dee13(0x84e)]('li');_0x32511c[_0x1dee13(0x1ed)]=_0x22c5a0[_0x1dee13(0x761)],_0x32511c[_0x1dee13(0x5e9)]=_0x22c5a0[_0x1dee13(0x6d0)],loanRequestsList[_0x1dee13(0x686)+'d'](_0x32511c),_0x1c74e8[_0x1dee13(0x8d7)](_0x5538f3=>{const _0x2903f5=_0x1dee13,_0x138f48=_0x5538f3['id'],_0x553082=_0x5538f3[_0x2903f5(0x5f0)](),_0x5f2358=_0x553082[_0x2903f5(0x21c)+_0x2903f5(0x2ab)]||0x1a4e+-0x588+-0x14c1,_0x2944b2=_0x22c5a0[_0x2903f5(0x985)](_0x22c5a0[_0x2903f5(0x393)](Array,Math[_0x2903f5(0x904)](_0x5f2358))[_0x2903f5(0x72b)]('★')[_0x2903f5(0x93b)](''),_0x22c5a0[_0x2903f5(0x217)](Array,_0x22c5a0[_0x2903f5(0x920)](-0x1688+-0x43f*-0x2+0xe0f,Math[_0x2903f5(0x904)](_0x5f2358)))[_0x2903f5(0x72b)]('☆')[_0x2903f5(0x93b)]('')),_0x3bea6b=document[_0x2903f5(0x4db)+_0x2903f5(0x84e)]('li');_0x3bea6b[_0x2903f5(0x1ed)]=_0x22c5a0[_0x2903f5(0x538)],_0x3bea6b[_0x2903f5(0x5e9)]=_0x2903f5(0x25f)+_0x2903f5(0x36f)+_0x2903f5(0x810)+_0x2903f5(0x4e7)+_0x2903f5(0x295)+_0x2903f5(0x35e)+_0x2903f5(0x3b3)+_0x2903f5(0x198)+_0x2903f5(0x57a)+_0x2903f5(0x198)+_0x2903f5(0x198)+_0x2903f5(0x54d)+_0x2903f5(0x379)+_0x2903f5(0x4d8)+_0x2903f5(0x561)+_0x2903f5(0x186)+_0x553082[_0x2903f5(0x23e)][_0x2903f5(0x4c0)](0xda5+-0xb1*0x15+0xe2)+(_0x2903f5(0x3c1)+_0x2903f5(0x198)+_0x2903f5(0x77e)+_0x2903f5(0x235)+_0x2903f5(0x734)+_0x2903f5(0x8d5)+_0x2903f5(0x5ea))+_0x553082[_0x2903f5(0x354)]+(_0x2903f5(0x3c1)+_0x2903f5(0x198)+_0x2903f5(0x77e)+_0x2903f5(0x235)+_0x2903f5(0x734)+_0x2903f5(0x8d5)+_0x2903f5(0x60f)+_0x2903f5(0x803))+_0x553082[_0x2903f5(0x4ad)]+(_0x2903f5(0x3c1)+_0x2903f5(0x198)+_0x2903f5(0x77e)+_0x2903f5(0x235)+_0x2903f5(0x734)+_0x2903f5(0x682)+_0x2903f5(0x5bc))+(_0x553082[_0x2903f5(0x7cc)+'n']||_0x22c5a0[_0x2903f5(0x5dc)])+(_0x2903f5(0x3c1)+_0x2903f5(0x198)+_0x2903f5(0x2b5)+_0x2903f5(0x700)+_0x2903f5(0x198)+_0x2903f5(0x466)+_0x2903f5(0x6ee)+_0x2903f5(0x30b)+_0x2903f5(0x198)+_0x2903f5(0x198)+_0x2903f5(0x589)+_0x2903f5(0x5fc)+_0x2903f5(0x984)+_0x2903f5(0x337)+_0x2903f5(0x425))+_0x553082[_0x2903f5(0x179)+'te'][_0x2903f5(0x4c0)](0x363*-0xa+-0xa*0x317+0x2*0x2063)+(_0x2903f5(0x145)+_0x2903f5(0x25f)+_0x2903f5(0x198)+_0x2903f5(0x1e3)+_0x2903f5(0x1b4)+_0x2903f5(0x322)+_0x2903f5(0x569)+_0x2903f5(0x556)+_0x2903f5(0x5d5)+_0x2903f5(0x4c9))+_0x2944b2+'\x20('+_0x5f2358[_0x2903f5(0x4c0)](0x3a*0x91+0x1d63+-0x1f1e*0x2)+(_0x2903f5(0x44b)+_0x2903f5(0x198)+_0x2903f5(0x4e0)+_0x2903f5(0x8ac)+_0x2903f5(0x77e)+_0x2903f5(0x193)+_0x2903f5(0x198)+_0x2903f5(0x8be)+_0x2903f5(0x996)+_0x2903f5(0x87d)+_0x2903f5(0x93d)+_0x2903f5(0x2d0)+_0x2903f5(0x26e)+_0x2903f5(0x1c6)+_0x2903f5(0x7de)+_0x2903f5(0x984)+_0x2903f5(0x136)+_0x2903f5(0x827)+_0x2903f5(0x82c)+_0x2903f5(0x68f)+_0x2903f5(0x4e5)+_0x2903f5(0x5c3)+_0x2903f5(0x67e))+_0x138f48+(_0x2903f5(0x47f)+_0x2903f5(0x34f)+_0x2903f5(0x35b)+_0x2903f5(0x198)+'\x20\x20'),loanRequestsList[_0x2903f5(0x686)+'d'](_0x3bea6b);});}loanRequestsList[_0x1dee13(0x3ff)+_0x1dee13(0x960)](_0x22c5a0[_0x1dee13(0x1d5)])[_0x1dee13(0x8d7)](_0x59a6dc=>{const _0x4f66e7=_0x1dee13;_0x59a6dc[_0x4f66e7(0x1f5)+_0x4f66e7(0x2db)](_0x22c5a0[_0x4f66e7(0x56f)],async()=>{const _0x3124ea=_0x4f66e7,_0x35de63=_0x59a6dc[_0x3124ea(0x383)]['id'],_0x4b810c=await _0x414032[_0x3124ea(0x80e)](getDoc,_0x414032[_0x3124ea(0x5a4)](doc,db,_0x3124ea(0x206)+appId+(_0x3124ea(0x691)+_0x3124ea(0x45d))+_0x35de63));_0x4b810c[_0x3124ea(0x5b6)]()&&await _0x414032[_0x3124ea(0x485)](lendOnRequest,_0x35de63,_0x4b810c[_0x3124ea(0x5f0)]());});}),loanRequestsList[_0x1dee13(0x3ff)+_0x1dee13(0x960)](_0x22c5a0[_0x1dee13(0x740)])[_0x1dee13(0x8d7)](_0xa348ed=>{const _0x313911=_0x1dee13;_0xa348ed[_0x313911(0x1f5)+_0x313911(0x2db)](_0x414032[_0x313911(0x276)],async _0x3f4a09=>{const _0x56914c=_0x313911,_0x5ed9bb=_0xa348ed[_0x56914c(0x383)]['id'];if(!_0x5ed9bb)return;const _0x4b736d=await _0x414032[_0x56914c(0x2ae)](showConfirmModal,_0x414032[_0x56914c(0x950)],_0x414032[_0x56914c(0x690)],_0x414032[_0x56914c(0x582)]);if(!_0x4b736d)return;try{await _0x414032[_0x56914c(0x360)](cancelLoanRequest,_0x5ed9bb);}catch(_0x2b9b31){console[_0x56914c(0x628)](_0x414032[_0x56914c(0x180)],_0x2b9b31);}});}),loanRequestsList[_0x1dee13(0x3ff)+_0x1dee13(0x960)](_0x22c5a0[_0x1dee13(0x69b)])[_0x1dee13(0x8d7)](_0x2228b5=>{const _0x21dbba=_0x1dee13;_0x2228b5[_0x21dbba(0x1f5)+_0x21dbba(0x2db)](_0x414032[_0x21dbba(0x276)],async()=>{const _0x4272ea=_0x21dbba,_0x4412f5=_0x2228b5[_0x4272ea(0x383)]['id'];if(!_0x4412f5)return;const _0x13e57d=await _0x414032[_0x4272ea(0x2ae)](showConfirmModal,_0x414032[_0x4272ea(0x26a)],_0x414032[_0x4272ea(0x6e6)],_0x414032[_0x4272ea(0x46b)]);if(!_0x13e57d)return;try{await _0x414032[_0x4272ea(0x485)](updateDoc,_0x414032[_0x4272ea(0x485)](doc,db,_0x4272ea(0x206)+appId+(_0x4272ea(0x691)+_0x4272ea(0x45d))+_0x4412f5),{'rejectedBy':_0x414032[_0x4272ea(0x360)](arrayUnion,_0x4b36cc)}),_0x414032[_0x4272ea(0x5a4)](showMessage,_0x414032[_0x4272ea(0x377)],_0x414032[_0x4272ea(0x46b)]);}catch(_0x2694e5){console[_0x4272ea(0x628)](_0x414032[_0x4272ea(0x335)],_0x2694e5),_0x414032[_0x4272ea(0x8c6)](showMessage,_0x4272ea(0x781)+_0x4272ea(0x7b0)+_0x4272ea(0x673)+':\x20'+_0x2694e5[_0x4272ea(0x23d)],_0x414032[_0x4272ea(0x938)]);}});});});}async function exportTransactionsToPDF(_0x1af39a){const _0x5efa4c=_0x353936,_0x394dc8={'hAvYu':_0x5efa4c(0x98b),'KkDbK':function(_0x2ae208,_0x1d7283){return _0x2ae208===_0x1d7283;},'hyryg':_0x5efa4c(0x1e9),'JXuOC':function(_0x57d9b4,_0x1daf33,_0x353ec7){return _0x57d9b4(_0x1daf33,_0x353ec7);},'roaHy':_0x5efa4c(0x464)+_0x5efa4c(0x606)+_0x5efa4c(0x7d5),'tlcAi':_0x5efa4c(0x628),'IMCzg':_0x5efa4c(0x662)+_0x5efa4c(0x15d),'IHgth':_0x5efa4c(0x584),'HDFhx':function(_0x27d4c6,_0x74afb1,_0x5d74b6){return _0x27d4c6(_0x74afb1,_0x5d74b6);},'uJodE':function(_0x35c2ca,_0x2a505d,_0x2dbcf5){return _0x35c2ca(_0x2a505d,_0x2dbcf5);},'FRsrv':_0x5efa4c(0x44c),'HsaKF':_0x5efa4c(0x59b),'zGTCT':function(_0x1b0731,_0x2a9f62){return _0x1b0731(_0x2a9f62);},'vsaVn':_0x5efa4c(0x60d)+_0x5efa4c(0x58e)+_0x5efa4c(0x3e9)+_0x5efa4c(0x739),'BxFmk':function(_0x5bbac7,_0x1fd648){return _0x5bbac7===_0x1fd648;},'GspPH':_0x5efa4c(0x54a),'dYVir':_0x5efa4c(0x881)+_0x5efa4c(0x879)+_0x5efa4c(0x726),'Ycpqw':_0x5efa4c(0x38d),'YDFil':_0x5efa4c(0x751)+'n','MMwsg':_0x5efa4c(0x164),'hhACu':_0x5efa4c(0x4d9),'JZzeO':_0x5efa4c(0x52f),'tHDsL':_0x5efa4c(0x723)+_0x5efa4c(0x2d6),'IRCZT':_0x5efa4c(0x763),'VRAyP':_0x5efa4c(0x95e)+_0x5efa4c(0x344),'NFvff':function(_0x397192,_0x30236f,_0x45d238){return _0x397192(_0x30236f,_0x45d238);},'KGIla':function(_0x282135,_0x3d0741){return _0x282135+_0x3d0741;},'bBGbM':_0x5efa4c(0x95e)+_0x5efa4c(0x344)+'\x20'};if(!_0x1af39a){_0x394dc8[_0x5efa4c(0x511)](showMessage,_0x394dc8[_0x5efa4c(0x75b)],_0x394dc8[_0x5efa4c(0x2c8)]);return;}_0x394dc8[_0x5efa4c(0x511)](showMessage,_0x394dc8[_0x5efa4c(0x627)],_0x394dc8[_0x5efa4c(0x79c)]);try{const _0xf57571=_0x394dc8[_0x5efa4c(0x4b7)](collection,db,_0x5efa4c(0x206)+appId+_0x5efa4c(0x238)+_0x1af39a+(_0x5efa4c(0x345)+_0x5efa4c(0x216))),_0x5cfa93=_0x394dc8[_0x5efa4c(0x511)](query,_0xf57571,_0x394dc8[_0x5efa4c(0x56c)](orderBy,_0x394dc8[_0x5efa4c(0x17a)],_0x394dc8[_0x5efa4c(0x153)])),_0x39a41d=await _0x394dc8[_0x5efa4c(0x48c)](getDocs,_0x5cfa93);if(_0x39a41d[_0x5efa4c(0x4a2)]){_0x394dc8[_0x5efa4c(0x511)](showMessage,_0x394dc8[_0x5efa4c(0x516)],_0x394dc8[_0x5efa4c(0x79c)]);return;}const _0x2d84c9=_0x39a41d[_0x5efa4c(0x224)][_0x5efa4c(0x1d4)](_0xa545af=>{const _0x2eb77b=_0x5efa4c,_0x5f0436=_0xa545af[_0x2eb77b(0x5f0)](),_0x31bb8a=_0x5f0436[_0x2eb77b(0x44c)]&&_0x5f0436[_0x2eb77b(0x44c)][_0x2eb77b(0x151)]?_0x5f0436[_0x2eb77b(0x44c)][_0x2eb77b(0x151)]()[_0x2eb77b(0x5d0)+_0x2eb77b(0x1ae)](_0x394dc8[_0x2eb77b(0x63d)]):'',_0x3cca32=_0x5f0436[_0x2eb77b(0x7cc)+'n']||_0x5f0436[_0x2eb77b(0x4c1)]||'',_0x15aa4a=_0x5f0436[_0x2eb77b(0x4c1)]||'',_0x5f4f3b=_0x394dc8[_0x2eb77b(0x412)](typeof _0x5f0436[_0x2eb77b(0x23e)],_0x394dc8[_0x2eb77b(0x5e8)])?_0x5f0436[_0x2eb77b(0x23e)][_0x2eb77b(0x4c0)](-0x2044+-0xe3c+0x2e82):_0x5f0436[_0x2eb77b(0x26f)]?_0x5f0436[_0x2eb77b(0x26f)][_0x2eb77b(0x4c0)](-0x14*-0x6+-0x1*0x2149+0x20d3):'',_0x22cb12=_0x5f0436[_0x2eb77b(0x85d)]||'';return[_0x31bb8a,_0x3cca32,_0x15aa4a,_0x5f4f3b,_0x22cb12];});let _0x2ecf3d=null;if(window[_0x5efa4c(0x257)]&&window[_0x5efa4c(0x257)][_0x5efa4c(0x7c2)])_0x2ecf3d=window[_0x5efa4c(0x257)][_0x5efa4c(0x7c2)];else{if(window[_0x5efa4c(0x7c2)])_0x2ecf3d=window[_0x5efa4c(0x7c2)];else{if(_0x394dc8[_0x5efa4c(0x1b7)](typeof window[_0x5efa4c(0x257)],_0x394dc8[_0x5efa4c(0x6d6)]))_0x2ecf3d=window[_0x5efa4c(0x257)];}}if(!_0x2ecf3d)throw new Error(_0x394dc8[_0x5efa4c(0x5d6)]);const _0x27c54f=new _0x2ecf3d('p','pt','a4');_0x27c54f[_0x5efa4c(0x42c)+'e'](0x2207+0x110d+-0xe*0x3a5),_0x27c54f[_0x5efa4c(0x2ca)](_0x5efa4c(0x3d3)+_0x5efa4c(0x3b8)+_0x5efa4c(0x925)+(userNameDisplay[_0x5efa4c(0x4eb)+'t']||''),0xa3*-0x11+0x1315*0x1+0x81a*-0x1,0xdfb+0x53a*-0x6+-0x1189*-0x1),_0x27c54f[_0x5efa4c(0x42c)+'e'](-0x2ba+-0x2530+0x4*0x9fd),_0x27c54f[_0x5efa4c(0x2ca)](_0x5efa4c(0x8ec)+_0x1af39a,-0x812*0x3+-0x146+0x669*0x4,0xa3e+-0x5d*-0x39+-0x1*0x1ebb),_0x27c54f[_0x5efa4c(0x876)]({'head':[[_0x394dc8[_0x5efa4c(0x91c)],_0x394dc8[_0x5efa4c(0x8c5)],_0x394dc8[_0x5efa4c(0x1df)],_0x394dc8[_0x5efa4c(0x59f)],_0x394dc8[_0x5efa4c(0x2df)]]],'body':_0x2d84c9,'startY':0x50,'styles':{'fontSize':0x9,'cellPadding':0x4},'headStyles':{'fillColor':[0x812+0x1*-0x1db1+0x15da,-0x47*0x9+-0x16ca+0x899*0x3,-0x1538*0x1+0x50e+0x1120],'textColor':0xff}});const _0x5b1b08=_0x5efa4c(0x1a8)+_0x1af39a+_0x5efa4c(0x7c1);_0x27c54f[_0x5efa4c(0x73b)](_0x5b1b08),_0x394dc8[_0x5efa4c(0x56c)](showMessage,_0x394dc8[_0x5efa4c(0x15a)],_0x394dc8[_0x5efa4c(0x983)]);}catch(_0x4fc869){console[_0x5efa4c(0x628)](_0x394dc8[_0x5efa4c(0x951)],_0x4fc869),_0x394dc8[_0x5efa4c(0x83e)](showMessage,_0x394dc8[_0x5efa4c(0x718)](_0x394dc8[_0x5efa4c(0x7f1)],_0x4fc869[_0x5efa4c(0x23d)]||_0x4fc869),_0x394dc8[_0x5efa4c(0x2c8)]);}}const exportBtn=document[_0x353936(0x4cd)+_0x353936(0x937)](_0x353936(0x445)+_0x353936(0x1a2));exportBtn&&exportBtn[_0x353936(0x1f5)+_0x353936(0x2db)](_0x353936(0x64d),async()=>{const _0x2cbc20=_0x353936,_0x8762f1={'jbAUf':function(_0x5aa19f,_0xb63547,_0x4cca9d){return _0x5aa19f(_0xb63547,_0x4cca9d);},'gsPxF':_0x2cbc20(0x139)+_0x2cbc20(0x21d)+_0x2cbc20(0x3e9)+_0x2cbc20(0x739),'CyYOq':_0x2cbc20(0x628),'zLCGa':function(_0x29b00c,_0x3849e4){return _0x29b00c(_0x3849e4);}};if(!currentUser){_0x8762f1[_0x2cbc20(0x88c)](showMessage,_0x8762f1[_0x2cbc20(0x5ef)],_0x8762f1[_0x2cbc20(0x1aa)]);return;}await _0x8762f1[_0x2cbc20(0x637)](exportTransactionsToPDF,currentUser[_0x2cbc20(0x2e5)]);});
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, runTransaction, collection, query, orderBy, onSnapshot, addDoc, serverTimestamp, where, getDocs, arrayUnion, deleteDoc, getDocs as getDocsFn } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+// ---------- CONFIG ----------
+const firebaseConfig = {
+    apiKey: "AIzaSyBXEUi90NNMxJv2ovdQG_g7yWE77bhSVd8",
+    authDomain: "hug-ds.firebaseapp.com",
+    projectId: "hug-ds",
+    storageBucket: "hug-ds.firebasestorage.app",
+    messagingSenderId: "1063721214850",
+    appId: "1:1063721214850:web:8a0ae2bc10a222be19659b",
+    measurementId: "G-DXQF1K2R43"
+};
+
+// Use fixed artifacts prefix to avoid confusión del appId dinámico
+const ARTIFACTS_PREFIX = 'artifacts/default-app-id';
+
+// Sanitizar apiKey
+if (typeof firebaseConfig.apiKey === 'string') {
+    firebaseConfig.apiKey = firebaseConfig.apiKey.trim();
+}
+
+// Inicialización silenciosa
+window.__firebaseInitError = null;
+
+let app = null;
+let auth = null;
+let db = null;
+
+try {
+    app = initializeApp(firebaseConfig);
+
+    // Asegurar projectId en app.options para Firestore
+    try {
+        if (app && (!app.options || !app.options.projectId)) {
+            app.options = Object.assign({}, app.options || {}, { projectId: firebaseConfig.projectId });
+        }
+    } catch (inner) {
+        window.__firebaseInitError = window.__firebaseInitError || { step: 'patchAppOptions', message: inner && inner.message ? inner.message : String(inner) };
+    }
+} catch (err) {
+    window.__firebaseInitError = { step: 'initializeApp', message: err && err.message ? err.message : String(err) };
+}
+
+const FIXED_APP_ID = 'default-app-id'; // Expuesto pero NO se usa en rutas dinámicas
+
+try {
+    if (app) {
+        try {
+            auth = getAuth(app);
+        } catch (err) {
+            window.__firebaseInitError = { step: 'getAuth', message: err && err.message ? err.message : String(err) };
+            auth = null;
+        }
+
+        try {
+            if (!app.options || !app.options.projectId) {
+                app.options = Object.assign({}, app.options || {}, { projectId: firebaseConfig.projectId });
+            }
+            db = getFirestore(app);
+        } catch (err) {
+            window.__firebaseInitError = { step: 'getFirestore', message: err && err.message ? err.message : String(err) };
+            db = null;
+        }
+    } else {
+        if (!window.__firebaseInitError) window.__firebaseInitError = { step: 'app_missing', message: 'Firebase app no inicializada' };
+    }
+} catch (err) {
+    window.__firebaseInitError = { step: 'initAuthFirestore', message: err && err.message ? err.message : String(err) };
+}
+
+window.__hugBankFirebase = {
+    app: app,
+    auth: auth,
+    db: db,
+    appId: FIXED_APP_ID
+};
+
+// Helper: esperar Auth
+async function waitForFirebaseAuth(timeoutMs = 7000) {
+    const start = Date.now();
+    while (true) {
+        if (window.__firebaseInitError) throw new Error(window.__firebaseInitError.message || 'Firebase init error');
+        const fb = window.__hugBankFirebase || {};
+        if (fb.auth) {
+            auth = fb.auth;
+            return fb.auth;
+        }
+        if (Date.now() - start > timeoutMs) throw new Error('Timeout esperando Firebase Auth');
+        await new Promise(r => setTimeout(r, 150));
+    }
+}
+
+// ---------- APP LOGIC (UI references, helpers and functionality) ----------
+let currentUser = null; 
+
+let appId = 'default-app-id';
+
+// --- REFERENCIAS DE UI ---
+const views = {
+    dashboard: document.getElementById('dashboard-view'),
+    transfer: document.getElementById('transfer-view')
+};
+const messageBox = document.getElementById('message-box');
+const transactionTypeSelect = document.getElementById('transaction-type');
+const interestRateField = document.getElementById('interest-rate-field');
+const transactionsList = document.getElementById('transactions-list');
+const debtsList = document.getElementById('debts-list'); 
+const creditScoreDisplay = document.getElementById('credit-score-display'); 
+// Referencia UI para el nombre
+const userNameDisplay = document.getElementById('user-name-display');
+
+// [ADICIÓN: Referencias de UI para Solicitudes]
+const loanRequestsList = document.getElementById('loan-requests-list');
+const recipientIdInput = document.getElementById('recipient-id');
+const recipientIdLabel = document.getElementById('recipient-id-label');
+const transferSubmitBtn = document.getElementById('transfer-submit-btn');
+// [/ADICIÓN: Referencias de UI para Solicitudes]
+
+// Referencias de Inputs
+const amountInput = document.getElementById('amount');
+const interestInput = document.getElementById('interest');
+// NUEVO: Referencia para la descripción
+const descriptionInput = document.getElementById('description');
+
+
+ // Referencias del Modal de Puntuación
+const scoreModal = document.getElementById('score-modal');
+const closeBtn = document.querySelector('.close-btn');
+const scoreForm = document.getElementById('score-form');
+const scoreModalRecipientName = document.getElementById('score-modal-recipient-name');
+const scoreModalRecipientId = document.getElementById('score-modal-recipient-id');
+
+// [ADICIÓN: Referencias para el Modal de Contactos]
+const contactsModal = document.getElementById('contacts-modal');
+const openContactsBtn = document.getElementById('open-contacts-btn');
+const closeContactsModalBtn = document.getElementById('close-contacts-modal');
+const addContactForm = document.getElementById('add-contact-form');
+const contactUidInput = document.getElementById('contact-uid');
+const contactsList = document.getElementById('contacts-list');
+
+// --- UTILIDADES ---
+function showMessage(message, type = 'success') {
+    messageBox.textContent = message;
+    messageBox.className = 'mt-4 p-4 rounded-lg text-sm transition-all duration-300';
+    if (type === 'success') {
+        messageBox.classList.add('bg-green-100', 'text-green-800');
+    } else if (type === 'error') {
+        messageBox.classList.add('bg-red-100', 'text-red-800');
+    } else if (type === 'info') {
+         messageBox.classList.add('bg-blue-100', 'text-blue-800');
+    }
+    messageBox.classList.remove('hidden');
+
+    setTimeout(() => {
+        messageBox.classList.add('hidden');
+    }, 5000);
+}
+
+// Sistema de Confirmación Modal Moderno
+const confirmModal = document.getElementById('confirm-modal');
+const confirmModalIcon = document.getElementById('confirm-modal-icon');
+const confirmModalTitle = document.getElementById('confirm-modal-title');
+const confirmModalMessage = document.getElementById('confirm-modal-message');
+const confirmModalCancelBtn = document.getElementById('confirm-modal-cancel');
+const confirmModalConfirmBtn = document.getElementById('confirm-modal-confirm');
+
+let confirmResolve = null;
+
+function showConfirmModal(title, message, type = 'warning') {
+    return new Promise((resolve) => {
+        confirmResolve = resolve;
+        confirmModalTitle.textContent = title;
+        confirmModalMessage.innerHTML = message;
+        
+        // Cambiar icono y estilo según tipo
+        confirmModalIcon.textContent = type === 'danger' ? '⚠️' : type === 'info' ? 'ℹ️' : '❓';
+        confirmModalIcon.className = `confirm-modal-icon ${type === 'danger' ? 'danger' : type === 'info' ? 'info' : 'warning'}`;
+        
+        // Cambiar color del botón de confirmación
+        if (type === 'danger') {
+            confirmModalConfirmBtn.className = 'confirm-modal-btn confirm-modal-btn-confirm';
+            confirmModalConfirmBtn.style.backgroundColor = '#ef4444';
+        }
+
+        confirmModal.classList.add('show');
+    });
+}
+
+confirmModalCancelBtn.addEventListener('click', () => {
+    confirmModal.classList.remove('show');
+    if (confirmResolve) confirmResolve(false);
+});
+
+confirmModalConfirmBtn.addEventListener('click', () => {
+    confirmModal.classList.remove('show');
+    if (confirmResolve) confirmResolve(true);
+});
+
+// Cerrar modal si se hace clic fuera del contenido
+confirmModal.addEventListener('click', (e) => {
+    if (e.target === confirmModal) {
+        confirmModal.classList.remove('show');
+        if (confirmResolve) confirmResolve(false);
+    }
+});
+
+// Cerrar con ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && confirmModal.classList.contains('show')) {
+        confirmModal.classList.remove('show');
+        if (confirmResolve) confirmResolve(false);
+    }
+});
+
+function switchView(target) {
+    Object.values(views).forEach(view => view.classList.add('hidden'));
+    views[target].classList.remove('hidden');
+}
+
+// --- LÓGICA DE INTERÉS MÍNIMO DINÁMICO (CORREGIDO) ---
+
+function getRequiredMinimumInterest(amount) {
+    // Comisión: 5% (< $50), 8% ($50 <= x < $250), 10% (>= $250)
+    if (amount >= 250) { 
+        return 10;
+    } else if (amount >= 50) { 
+        return 8;
+    } else if (amount > 0) {
+        return 5;
+    }
+    return 5; // Default minimum
+}
+
+function updateMinimumInterest() {
+    const transactionType = transactionTypeSelect.value;
+    // Solo aplica para préstamos y solicitudes de préstamo
+    if (transactionType === 'transfer') return; 
+
+    const amount = parseFloat(amountInput.value) || 0;
+    
+    // Si el monto no es válido o es cero, establecer el mínimo a 5%
+    const minInterest = getRequiredMinimumInterest(amount);
+
+    // 1. Actualizar el atributo 'min' del campo de interés
+    interestInput.setAttribute('min', minInterest.toString());
+
+    // 2. Si el valor actual es menor que el nuevo mínimo, actualizar el valor
+    let currentInterest = parseFloat(interestInput.value) || 0;
+    if (currentInterest < minInterest) {
+        interestInput.value = minInterest.toString();
+    }
+}
+// --- FIN LÓGICA DE INTERÉS MÍNIMO DINÁMICO ---
+
+
+// --- LÓGICA DEL MODAL DE PUNTUACIÓN ---
+closeBtn.onclick = () => { scoreModal.style.display = 'none'; };
+window.onclick = (event) => {
+    if (event.target === scoreModal) {
+        scoreModal.style.display = 'none';
+    }
+};
+
+scoreForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const rating = parseInt(document.querySelector('input[name="rating"]:checked').value);
+    const loanDocId = scoreForm.getAttribute('data-loan-doc-id');
+    const recipientId = scoreForm.getAttribute('data-recipient-id');
+    
+    try {
+        // 1. Se puntúa la deuda y el deudor
+        await saveCreditScore(recipientId, rating);
+        // 2. Se marca la transacción de prestamista como puntuado para no volver a salir el botón.
+        await updateDoc(doc(db, `artifacts/${appId}/users/${currentUser.uid}/transactions/${loanDocId}`), { 
+            scoreGiven: true, 
+            score: rating 
+        });
+        
+        showMessage('Puntuación enviada con éxito.', 'success');
+        scoreModal.style.display = 'none';
+        // Recargar el saldo y las transacciones para actualizar la UI
+        loadBalance(currentUser.uid);
+        listenToTransactions(currentUser.uid); // Forzar recarga de transacciones
+    } catch (error) {
+        console.error("Error al enviar puntuación:", error);
+        showMessage(`Error al enviar puntuación: ${error.message}`, 'error');
+    }
+});
+
+// --- MANEJO DE VISTAS Y EVENTOS ---
+
+document.getElementById('show-transfer-btn').addEventListener('click', () => {
+    switchView('transfer');
+});
+
+document.getElementById('back-to-dashboard-btn').addEventListener('click', () => {
+    switchView('dashboard');
+});
+
+// [LISTENER: Ajustar el interés mínimo según el monto al escribir]
+amountInput.addEventListener('input', updateMinimumInterest);
+
+// [Lógica para ocultar/cambiar inputs en Transferir/Solicitar]
+transactionTypeSelect.addEventListener('change', (e) => {
+    const type = e.target.value;
+    const isLoanRequest = type === 'loan-request';
+    
+    // Campo de Interés
+    interestRateField.classList.toggle('hidden', type === 'transfer');
+    
+    // Campo de Receptor
+    recipientIdInput.required = !isLoanRequest;
+    recipientIdInput.value = isLoanRequest ? '' : recipientIdInput.value;
+    recipientIdInput.disabled = isLoanRequest; // Deshabilitar si es solicitud
+    recipientIdInput.placeholder = isLoanRequest ? 'Se genera automáticamente' : 'ID completo del usuario';
+    recipientIdLabel.textContent = isLoanRequest ? 'ID del Solicitante (Eres tú)' : 'ID del Receptor';
+    transferSubmitBtn.textContent = isLoanRequest ? 'Publicar Solicitud' : 'Confirmar';
+    
+    // Aplicar la lógica de mínimo de interés al cambiar el tipo de transacción
+    if (type !== 'transfer') {
+        updateMinimumInterest(); 
+    } else {
+         interestInput.setAttribute('min', '0'); // Restablecer mínimo para transferencias (aunque está oculto)
+    }
+});
+// Inicializar el estado de la vista de transferencia/préstamo
+transactionTypeSelect.dispatchEvent(new Event('change'));
+// [/Lógica para ocultar/cambiar inputs en Transferir/Solicitar)
+
+// --- FIREBASE AUTH Y ESTADO ---
+
+// Updated logout handler: wait for auth to be ready before calling signOut
+document.getElementById('logout-btn').addEventListener('click', async () => {
+    try {
+        const authInst = await waitForFirebaseAuth().catch(err => { throw err; });
+        await signOut(authInst);
+        // Recargar para mostrar la vista de bienvenida
+        window.location.reload(); 
+    } catch (error) {
+        console.error("Error al cerrar sesión:", error);
+        showMessage('Error al cerrar sesión.', 'error');
+    }
+});
+
+/*
+    IMPORTANT FIX:
+    onAuthStateChanged was being called with `auth` which can be null on some environments
+    (e.g. when getAuth failed or SDK initialization was delayed). That caused:
+      Uncaught TypeError: Cannot read properties of null (reading 'onAuthStateChanged')
+
+    We now wait for Firebase Auth to be available using waitForFirebaseAuth() and only then
+    attach the onAuthStateChanged listener. If it times out or there's an init error,
+    we log the error and show a message to the user.
+*/
+
+// Wrap auth state listener setup in an async IIFE that waits for auth
+(async function initAuthStateListener() {
+    try {
+        const authInst = await waitForFirebaseAuth();
+        // Attach the listener using the resolved auth instance
+        onAuthStateChanged(authInst, async (user) => {
+            if (user && !user.isAnonymous) { // Solo usuarios autenticados con cuenta
+                currentUser = user;
+                document.getElementById('user-id-display').textContent = user.uid;
+                
+                // Cargar saldo inicial y configurar actualización en tiempo real
+                await loadBalance(user.uid);
+                setupRealtimeBalance(user.uid);
+                
+                loadCreditScore(user.uid); // Cargar puntuación de crédito
+                listenToTransactions(user.uid);
+                // [ADICIÓN: Escuchar solicitudes de préstamo]
+                listenToLoanRequests(user.uid);
+                // [/ADICIÓN: Escuchar solicitudes de préstamo]
+                // [ADICIÓN: Escuchar contactos]
+                listenToContacts(user.uid);
+                // [/ADICIÓN: Escuchar contactos]
+                switchView('dashboard');
+                document.getElementById('welcome-view').classList.add('hidden');
+            } else if (user && user.isAnonymous) {
+                // Si el usuario es anónimo (solo para entorno), cerrar sesión
+                await signOut(authInst);
+                document.getElementById('welcome-view').classList.remove('hidden');
+            } else {
+                currentUser = null;
+                // Si no hay usuario, mostrar bienvenida
+                document.getElementById('welcome-view').classList.remove('hidden');
+            }
+        });
+    } catch (err) {
+        console.error('Firebase Auth no disponible al inicializar listener:', err);
+        // Mostrar mensaje amigable en UI para que el usuario sepa que hubo un problema de inicialización.
+        showMessage('Error inicializando autenticación de Firebase. Intenta recargar la página.', 'error');
+    }
+})();
+
+// [ADICIÓN: Función para resetear el score]
+async function resetCreditScore(userId) {
+    if (!userId) return;
+    const COST = 5.00;
+    const userAccountRef = doc(db, `artifacts/${appId}/users/${userId}/account/data`);
+    
+    const confirmed = await showConfirmModal(
+        'Resetear Score Crediticio',
+        `Se cobrará <strong>$${COST.toFixed(2)}</strong> de tu saldo para resetear tu historial a <strong>5.0 ★</strong>. ¿Deseas continuar?`,
+        'warning'
+    );
+
+    if (!confirmed) {
+        showMessage('Operación de reseteo de score cancelada.', 'info');
+        return;
+    }
+
+    try {
+        await runTransaction(db, async (transaction) => {
+            const userDoc = await transaction.get(userAccountRef);
+            if (!userDoc.exists()) throw new Error("Cuenta no encontrada.");
+
+            const currentBalance = userDoc.data().balance;
+            if (currentBalance < COST) throw new Error("Saldo insuficiente para pagar el reseteo.");
+
+            // Descontar saldo
+            const newBalance = currentBalance - COST;
+            transaction.update(userAccountRef, { 
+                balance: newBalance,
+                creditScore: { average: 5.0, count: 0 } // Resetear score
+            });
+        });
+
+        // Registrar transacción en historial (Salida de dinero)
+        const userData = await getAccountData(userId);
+        await createTransaction(userId, {
+            amount: COST,
+            senderId: userId,
+            recipientId: 'HUG Bank',
+            type: 'score-reset-fee',
+            senderName: userData.name,
+            recipientName: 'HUG Bank'
+        }); 
+
+        showMessage('¡Tu historial crediticio ha sido reseteado a 5.0 estrellas! Se descontaron $5.00 de tu saldo.', 'success');
+        loadBalance(userId);
+        loadCreditScore(userId);
+        listenToTransactions(userId);
+    } catch (e) {
+        console.error("Fallo al resetear el score:", e);
+        showMessage(`Fallo al resetear el score: ${e.message}`, 'error');
+    }
+}
+
+document.getElementById('reset-score-btn').addEventListener('click', () => {
+    if (currentUser) {
+        resetCreditScore(currentUser.uid);
+    }
+});
+// [/ADICIÓN: Función para resetear el score]
+
+
+// --- FUNCIONES FIRESTORE ---
+
+// *** CORRECCIÓN #1: Modificación de loadBalance para cargar el nombre desde Firestore y actualización en tiempo real.
+function setupRealtimeBalance(userId) {
+    if (!userId) return;
+    const balanceDisplay = document.getElementById('balance-display');
+    const userAccountRef = doc(db, `artifacts/${appId}/users/${userId}/account/data`);
+
+    // Configurar listener en tiempo real para el saldo
+    return onSnapshot(userAccountRef, (docSnap) => {
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            const balance = data.balance || 0;
+            const oldBalance = parseFloat(balanceDisplay.textContent.replace('$', '')) || 0;
+
+            // >> OBTENER Y MOSTRAR EL NOMBRE DESDE FIRESTORE <<
+            userNameDisplay.textContent = data.name || 'Usuario';
+            // Mostrar monto congelado si existe
+            const held = data.held || 0;
+            const frozenDisplay = document.getElementById('frozen-display');
+            if (frozenDisplay) frozenDisplay.textContent = `Congelado: $${held.toFixed(2)}`;
+
+            // Mostrar el saldo con animación si hay cambio
+            if (balance !== oldBalance) {
+                // Agregar clase para la animación
+                balanceDisplay.classList.add('balance-update');
+
+                // Determinar si es un incremento o decremento
+                if (balance > oldBalance) {
+                    balanceDisplay.classList.add('balance-increase');
+                } else {
+                    balanceDisplay.classList.add('balance-decrease');
+                }
+
+                // Actualizar el saldo
+                balanceDisplay.textContent = `$${balance.toFixed(2)}`;
+
+                // Remover clases de animación después de la transición
+                setTimeout(() => {
+                    balanceDisplay.classList.remove('balance-update', 'balance-increase', 'balance-decrease');
+                }, 1000);
+            } else {
+                // Ensure the displayed balance is correct
+                balanceDisplay.textContent = `$${balance.toFixed(2)}`;
+            }
+        } else {
+            // Si llega aquí sin cuenta, forzamos la inicialización
+            const fallbackName = currentUser && currentUser.displayName ? currentUser.displayName : 'Anónimo';
+            setDoc(userAccountRef, {
+                balance: 0.00,
+                held: 0.00,
+                name: fallbackName,
+                email: currentUser ? (currentUser.email || 'N/A') : 'N/A',
+                creditScore: { average: 5.0, count: 0 }
+            });
+
+            userNameDisplay.textContent = fallbackName;
+            balanceDisplay.textContent = '$0.00';
+            const frozenDisplay = document.getElementById('frozen-display');
+            if (frozenDisplay) frozenDisplay.textContent = `Congelado: $0.00`;
+        }
+    }, (error) => {
+        console.error("Error al cargar el saldo:", error);
+        balanceDisplay.textContent = 'Error';
+    });
+}
+
+// Función auxiliar para cargar el saldo inicial
+async function loadBalance(userId) {
+    if (!userId) return;
+    try {
+        const userAccountRef = doc(db, `artifacts/${appId}/users/${userId}/account/data`);
+        const docSnap = await getDoc(userAccountRef);
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            const balance = data.balance;
+            document.getElementById('balance-display').textContent = `$${balance.toFixed(2)}`;
+            userNameDisplay.textContent = data.name || 'Usuario';
+            const held = data.held || 0;
+            const frozenDisplay = document.getElementById('frozen-display');
+            if (frozenDisplay) frozenDisplay.textContent = `Congelado: $${held.toFixed(2)}`;
+        }
+    } catch (error) {
+        console.error("Error al cargar el saldo inicial:", error);
+    }
+}
+
+async function loadCreditScore(userId) {
+     if (!userId) return;
+     try {
+        const userAccountRef = doc(db, `artifacts/${appId}/users/${userId}/account/data`);
+        const docSnap = await getDoc(userAccountRef);
+        if (docSnap.exists() && docSnap.data().creditScore) {
+            const score = docSnap.data().creditScore;
+            const rating = score.average.toFixed(1);
+            creditScoreDisplay.textContent = `${rating} ★ (${score.count})`;
+        } else {
+            creditScoreDisplay.textContent = '5.0 ★ (0)';
+        }
+    } catch (error) {
+        console.error("Error al cargar la puntuación de crédito:", error);
+        creditScoreDisplay.textContent = 'Error';
+    }
+}
+
+async function getAccountData(userId) {
+     const userAccountRef = doc(db, `artifacts/${appId}/users/${userId}/account/data`);
+     const docSnap = await getDoc(userAccountRef);
+     if (docSnap.exists()) return docSnap.data();
+     return null;
+}
+
+async function createTransaction(userId, transactionData) {
+    const transactionsRef = collection(db, `artifacts/${appId}/users/${userId}/transactions`);
+    return await addDoc(transactionsRef, { ...transactionData, timestamp: serverTimestamp() });
+}
+
+// --- [ADICIÓN: LÓGICA DE CONTACTOS] ---
+
+// Añadir un contacto
+async function addContact(userId, contactUid) {
+    if (!userId || !contactUid || userId === contactUid) return;
+    try {
+        // Verificar que el contacto existe
+        const contactData = await getAccountData(contactUid);
+        if (!contactData) {
+            showMessage(`El usuario con UID ${contactUid} no existe.`, 'error');
+            return false;
+        }
+        
+        const contactRef = doc(db, `artifacts/${appId}/users/${userId}/contacts/${contactUid}`);
+        await setDoc(contactRef, {
+            uid: contactUid,
+            addedAt: serverTimestamp()
+        });
+        showMessage(`Contacto ${contactData.name} añadido.`, 'success');
+        return true;
+    } catch (error) {
+        console.error("Error al añadir contacto:", error);
+        showMessage(`Error al añadir contacto: ${error.message}`, 'error');
+        return false;
+    }
+}
+
+// Eliminar un contacto
+async function deleteContact(userId, contactUid) {
+    if (!userId || !contactUid) return;
+    const confirmed = await showConfirmModal('Eliminar Contacto', '¿Estás seguro de que quieres eliminar este contacto?', 'danger');
+    if (!confirmed) return;
+
+    try {
+        const contactRef = doc(db, `artifacts/${appId}/users/${userId}/contacts/${contactUid}`);
+        await deleteDoc(contactRef);
+        showMessage('Contacto eliminado.', 'info');
+    } catch (error) {
+        console.error("Error al eliminar contacto:", error);
+        showMessage(`Error al eliminar contacto: ${error.message}`, 'error');
+    }
+}
+
+// Escuchar y renderizar contactos
+function listenToContacts(userId) {
+    if (!userId) return;
+    const contactsRef = collection(db, `artifacts/${appId}/users/${userId}/contacts`);
+    const q = query(contactsRef, orderBy('addedAt', 'desc'));
+
+    onSnapshot(q, async (snapshot) => {
+        if (snapshot.empty) {
+            contactsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No tienes contactos guardados.</p>';
+            return;
+        }
+
+        contactsList.innerHTML = '<p class="text-gray-500 text-sm text-center">Cargando...</p>';
+        let contactsHtml = '';
+        
+        for (const doc of snapshot.docs) {
+            const contactUid = doc.id;
+            const contactAccountData = await getAccountData(contactUid);
+            
+            if (contactAccountData) {
+                const score = contactAccountData.creditScore?.average.toFixed(1) || '5.0';
+                const scoreCount = contactAccountData.creditScore?.count || 0;
+                
+                contactsHtml += `
+                    <div class="contact-item bg-gray-50 p-3 rounded-lg border border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="font-semibold text-gray-800">${contactAccountData.name}</p>
+                                <p class="text-xs text-gray-500 break-all">${contactUid}</p>
+                                <p class="text-xs text-yellow-500 font-bold">Score: ${score} ★ (${scoreCount})</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="select-contact-btn p-2 rounded-full bg-green-500 text-white text-xs" data-uid="${contactUid}" title="Seleccionar">✓</button>
+                                <button class="delete-contact-btn p-2 rounded-full bg-red-500 text-white text-xs" data-uid="${contactUid}" title="Eliminar">×</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        contactsList.innerHTML = contactsHtml || '<p class="text-gray-500 text-sm text-center">No se encontraron datos de contactos.</p>';
+    });
+}
+
+// Listeners para el modal de contactos
+openContactsBtn.addEventListener('click', () => contactsModal.classList.remove('hidden'));
+closeContactsModalBtn.addEventListener('click', () => contactsModal.classList.add('hidden'));
+contactsModal.addEventListener('click', (e) => {
+    if (e.target === contactsModal) contactsModal.classList.add('hidden');
+});
+
+addContactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const contactUid = contactUidInput.value.trim();
+    if (contactUid && currentUser) {
+        const success = await addContact(currentUser.uid, contactUid);
+        if (success) {
+            contactUidInput.value = '';
+        }
+    }
+});
+
+contactsList.addEventListener('click', (e) => {
+    const target = e.target.closest('button');
+    if (!target) return;
+
+    const uid = target.dataset.uid;
+    if (target.classList.contains('select-contact-btn')) {
+        recipientIdInput.value = uid;
+        contactsModal.classList.add('hidden');
+    } else if (target.classList.contains('delete-contact-btn')) {
+        if (currentUser) {
+            deleteContact(currentUser.uid, uid);
+        }
+    }
+});
+
+// --- FIN LÓGICA DE CONTACTOS ---
+
+// --- FUNCIÓN: Cancelar una solicitud pública de préstamo (propia) - TOP-LEVEL ---
+async function cancelLoanRequest(requestDocId) {
+    if (!currentUser) throw new Error('Usuario no autenticado.');
+    if (!requestDocId) throw new Error('ID de solicitud inválido.');
+
+    const requestRef = doc(db, `artifacts/${appId}/loan-requests/${requestDocId}`);
+    try {
+        await runTransaction(db, async (transaction) => {
+            const reqDoc = await transaction.get(requestRef);
+            if (!reqDoc.exists()) throw new Error('Solicitud no encontrada.');
+            const data = reqDoc.data();
+            // Solo el creador (debtorId) puede cancelar una solicitud pendiente
+            if (data.debtorId !== currentUser.uid) throw new Error('No tienes permiso para cancelar esta solicitud.');
+            if (data.status !== 'pending') throw new Error('Solo se pueden cancelar solicitudes pendientes.');
+
+            transaction.update(requestRef, {
+                status: 'cancelled',
+                cancelledDate: serverTimestamp(),
+                cancelledBy: currentUser.uid
+            });
+        });
+
+        showMessage('Solicitud de préstamo cancelada correctamente.', 'success');
+        return true;
+    } catch (e) {
+        console.error('Error al cancelar la solicitud:', e);
+        showMessage(`Error al cancelar la solicitud: ${e.message}`, 'error');
+        return false;
+    }
+}
+
+// --- FUNCIÓN ADICIONAL: Cancelar Préstamo por Prestamista (CON PENALIDAD DEL 5% DEL TOTAL) ---
+async function cancelLoanByLender(lenderTransactionId, recipientId) {
+    if (!currentUser) return;
+    const lenderId = currentUser.uid;
+    
+    const lenderRef = doc(db, `artifacts/${appId}/users/${lenderId}/account/data`); // Referencia a la cuenta del prestamista
+
+    // 1. Encontrar el documento 'loan-sent' del prestamista
+    const lenderDocRef = doc(db, `artifacts/${appId}/users/${lenderId}/transactions/${lenderTransactionId}`);
+    const lenderDocSnap = await getDoc(lenderDocRef);
+    if (!lenderDocSnap.exists() || lenderDocSnap.data().status !== 'completed') {
+        throw new Error("Transacción del prestamista no válida o no completada.");
+    }
+    const loanData = lenderDocSnap.data();
+    
+    // 2. Buscar el documento 'loan-debt' correspondiente del deudor.
+    const debtQuery = query(
+        collection(db, `artifacts/${appId}/users/${recipientId}/transactions`),
+        where('type', '==', 'loan-debt'),
+        where('senderTransactionId', '==', lenderTransactionId),
+        where('status', 'in', ['pending', 'pending-offer'])
+    );
+    const debtSnapshot = await getDocs(debtQuery);
+    const debtDoc = debtSnapshot.docs.length > 0 ? debtSnapshot.docs[0] : null;
+    const debtDocRef = debtDoc ? doc(db, `artifacts/${appId}/users/${recipientId}/transactions/${debtDoc.id}`) : null;
+
+    // 3. Iniciar Transacción
+    try {
+        // Cálculo de la penalidad: 5% del TOTAL (Capital + Interés)
+        const interestRateDecimal = loanData.interestRate / 100;
+        const amountToPay = loanData.originalAmount * (1 + interestRateDecimal);
+        const penaltyRate = 0.05; // 5% de penalidad para el prestamista
+        const penaltyAmount = amountToPay * penaltyRate; // 5% del total (Capital + Interés)
+
+        await runTransaction(db, async (transaction) => {
+            const lenderDoc = await transaction.get(lenderRef);
+            if (!lenderDoc.exists()) throw new Error("Documento de la cuenta del prestamista no existe.");
+            
+            const lenderBalance = lenderDoc.data().balance;
+
+            // DEDUCCIÓN DE LA PENALIDAD DEL PRESTAMISTA
+            // IMPORTANTE: NO SE HACE CHEQUEO DE SALDO. SE PERMITE SALDO NEGATIVO.
+            const newLenderBalance = lenderBalance - penaltyAmount;
+
+            // 1. DEDUCIR LA PENALIDAD Y ACTUALIZAR SALDO DEL PRESTAMISTA
+            transaction.update(lenderRef, { balance: newLenderBalance });
+            
+            // 2. Marcar el 'loan-sent' del prestamista como pagado/penalizado
+            transaction.update(lenderDocRef, { 
+                status: 'completed-paid-penalized', // Nuevo estado
+                paidAmount: amountToPay, 
+                paidDate: serverTimestamp(),
+                penaltyAmount: penaltyAmount,
+                scoreGiven: false // El prestamista debe puntuar al deudor después de esta acción
+            });
+            
+            // 3. Marcar el 'loan-debt' del deudor como pagado, si existe.
+            if (debtDocRef) {
+                // El estado 'paid-by-lender' le aparecerá al deudor como "Pagado por Prestamista (Cancelación)"
+                transaction.update(debtDocRef, { status: 'paid-by-lender', paidAmount: amountToPay, paidDate: serverTimestamp() });
+            }
+        });
+
+        // 4. Crear transacciones de historial
+        const recipientData = await getAccountData(recipientId);
+        const lenderData = await getAccountData(lenderId);
+
+         // A. Registrar la PENALIDAD en el historial del prestamista (Salida de dinero - Negativo)
+        await createTransaction(lenderId, {
+            amount: penaltyAmount,
+            senderId: lenderId,
+            recipientId: 'HUG Bank',
+            type: 'lender-cancellation-penalty', // Salida de dinero por penalidad (NEGATIVO)
+            originalLoanId: lenderTransactionId,
+            interestRate: loanData.interestRate,
+            senderName: lenderData.name,
+            recipientName: 'HUG Bank',
+            description: `Penalidad del 5% por cancelación de préstamo a ${recipientData.name}`
+        }); 
+        
+         // B. Registrar el "cobro" del préstamo en el historial del prestamista (Entrada de dinero por la cancelación)
+        await createTransaction(lenderId, {
+            amount: amountToPay,
+            senderId: recipientId, 
+            recipientId: lenderId,
+            type: 'loan-paid-cancellation', // Entrada de dinero (Cobro de préstamo por cancelación - Solo Historial)
+            originalLoanId: lenderTransactionId,
+            interestRate: loanData.interestRate,
+            senderName: recipientData.name,
+            recipientName: lenderData.name,
+            description: `Reembolso Bruto por cancelación de préstamo a ${recipientData.name}`
+        }); 
+         // C. Registrar el pago en el historial del deudor (Solo Historial)
+        await createTransaction(recipientId, {
+            amount: amountToPay,
+            senderId: lenderId,
+            recipientId: recipientId,
+            type: 'loan-payment-lender-cancellation', 
+            originalLoanId: debtDoc ? debtDoc.id : 'N/A',
+            interestRate: loanData.interestRate,
+            senderName: lenderData.name,
+            recipientName: recipientData.name,
+            description: `Préstamo cancelado y marcado como pagado por ${lenderData.name}`
+        }); 
+
+        showMessage(`Préstamo marcado como PAGADO. Se le ha aplicado una penalidad del 5% ($${penaltyAmount.toFixed(2)}) de la deuda total ($${amountToPay.toFixed(2)}) en su saldo. Ahora puedes puntuar al deudor.`, 'success');
+        loadBalance(lenderId);
+        listenToTransactions(lenderId); // Forzar recarga de transacciones
+    } catch (e) {
+        console.error("Fallo al cancelar préstamo:", e);
+        showMessage(`Fallo al cancelar el préstamo: ${e.message}`, 'error');
+    }
+}
+
+// --- FUNCIÓN ADICIONAL: Guardar Puntuación de Crédito ---
+async function saveCreditScore(recipientId, score) {
+    if (!currentUser) throw new Error("Usuario no autenticado.");
+    
+    const recipientAccountRef = doc(db, `artifacts/${appId}/users/${recipientId}/account/data`);
+
+    await runTransaction(db, async (transaction) => {
+        const recipientDoc = await transaction.get(recipientAccountRef);
+        if (!recipientDoc.exists()) throw new Error("Cuenta del deudor no encontrada.");
+
+        const data = recipientDoc.data();
+        const currentScore = data.creditScore || { average: 5.0, count: 0 };
+        
+        // Nuevo cálculo del promedio
+        const newTotal = (currentScore.average * currentScore.count) + score;
+        const newCount = currentScore.count + 1;
+        const newAverage = newTotal / newCount;
+
+        // Actualizar el perfil del deudor
+        transaction.update(recipientAccountRef, { 
+            creditScore: {
+                average: newAverage,
+                count: newCount
+            }
+        });
+    });
+    // Recargar el score del prestamista, en caso de que sea el mismo, aunque no es su score.
+    loadCreditScore(recipientId);
+}
+
+
+// --- MANEJO DE TRANSFERENCIAS Y PRÉSTAMOS ---
+document.getElementById('transfer-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!currentUser) { showMessage('Debes iniciar sesión para transferir.', 'error'); return; }
+
+    // El recipientId solo es obligatorio si no es una Solicitud de Préstamo
+    const recipientId = transactionTypeSelect.value !== 'loan-request' ? document.getElementById('recipient-id').value.trim() : null;
+    const amount = parseFloat(document.getElementById('amount').value);
+    const transactionType = transactionTypeSelect.value;
+    const interest = parseFloat(document.getElementById('interest').value);
+    // NUEVO: Extracción de la descripción
+    const description = descriptionInput.value.trim();
+    const senderId = currentUser.uid;
+
+    if (transactionType !== 'loan-request' && senderId === recipientId) { 
+        showMessage('No puedes transferir a tu propia cuenta.', 'error'); return; 
+    }
+    if (amount <= 0 || isNaN(amount)) { showMessage('Monto no válido.', 'error'); return; }
+    
+    // VALIDACIÓN: Interés mínimo requerido según el monto (usa la lógica dinámica)
+    const minRequiredInterest = getRequiredMinimumInterest(amount);
+    if (transactionType !== 'transfer' && interest < minRequiredInterest) { 
+        showMessage(`El interés mínimo para este monto es del ${minRequiredInterest}%.`, 'error'); return; 
+    }
+
+    if (transactionType === 'loan-request') {
+        const interestRate = interest; // Ya está definido como 'interest'
+        
+        // MODIFICADO: Interés mínimo 5%, máximo 50%
+        if (isNaN(interestRate) || interestRate > 50) { 
+            return showMessage('El interés máximo para solicitudes debe ser del 50%.', 'error'); 
+        }
+
+        // --- FIX: SOLUCIÓN AL ERROR DEL ÍNDICE (Check de una sola solicitud activa) ---
+        // Se busca por un solo campo ('debtorId') para evitar el requisito de índice compuesto.
+        const userRequestsQuery = query(
+            collection(db, `artifacts/${appId}/loan-requests`),
+            where('debtorId', '==', senderId)
+        );
+        
+        let hasActiveRequest = false;
+        try {
+            const userRequestsSnapshot = await getDocs(userRequestsQuery);
+            // Filtramos en el cliente si existe alguna con estado 'pending'
+            hasActiveRequest = userRequestsSnapshot.docs.some(doc => doc.data().status === 'pending');
+        } catch (e) {
+            // Captura errores si el index para 'debtorId' no existe (aunque debería ser un índice simple y seguro)
+            console.error("Fallo al verificar solicitud activa:", e.message);
+            showMessage(`Error al verificar solicitudes: ${e.message}`, 'error');
+            return;
+        }
+        
+        if (hasActiveRequest) {
+            showMessage('Ya tienes una solicitud de préstamo activa. Solo puedes tener una a la vez.', 'error'); 
+            return; 
+        }
+        // --- FIN DEL FIX ---
+
+        const senderData = await getAccountData(senderId);
+        if (!senderData) { showMessage('No se pudo obtener tu información de cuenta.', 'error'); return; }
+        
+        const rScore = senderData.creditScore.average.toFixed(1);
+        const rCount = senderData.creditScore.count;
+        
+        const confirmed = await showConfirmModal(
+            'Solicitud de Préstamo',
+            `Solicitar <strong>$${amount.toFixed(2)}</strong> al <strong>${interestRate}%</strong> de interés.<br><br>Tu Score: <strong>${rScore} ★ (${rCount} votos)</strong>`,
+            'info'
+        );
+
+        if (!confirmed) {
+            showMessage('Solicitud de préstamo cancelada.', 'info'); 
+            return; 
+        }
+
+        // [Lógica para Solicitud de Préstamo (Debt Offer)]
+        try {
+            // Colección pública para solicitudes
+            const loanRequestsRef = collection(db, `artifacts/${appId}/loan-requests`);
+            const requestData = { 
+                debtorId: senderId, 
+                debtorName: senderData.name, 
+                amount: amount, 
+                interestRate: interestRate, 
+                status: 'pending', // Pendiente de que un prestamista la acepte
+                timestamp: serverTimestamp(), 
+                creditScoreSnapshot: senderData.creditScore.average,
+                description: description // <<-- Descripción guardada
+            };
+
+            await addDoc(loanRequestsRef, requestData);
+            showMessage('Solicitud de préstamo publicada con éxito. Esperando a un prestamista.', 'success');
+            switchView('dashboard');
+        } catch (e) {
+            console.error("Fallo al publicar solicitud:", e.message);
+            showMessage(`Fallo al publicar la solicitud: ${e.message}`, 'error');
+        }
+        return;
+    }
+
+    // Lógica para Transferencia (transfer) y Oferta de Préstamo (loan)
+    
+    // NUEVO: Obtener el score del receptor para el check de préstamo
+    if (transactionType === 'loan') {
+        const recipientData = await getAccountData(recipientId);
+        if (!recipientData) { showMessage('ID del receptor no encontrado.', 'error'); return; }
+        
+        const rScore = recipientData.creditScore.average.toFixed(1);
+        const rCount = recipientData.creditScore.count;
+        
+        const confirmed = await showConfirmModal(
+            'Enviar Oferta de Préstamo',
+            `<strong>${recipientData.name}</strong> (Score: <strong>${rScore} ★</strong>)<br><br>Ofrecer <strong>$${amount.toFixed(2)}</strong> al <strong>${interest}%</strong> de interés`,
+            'warning'
+        );
+
+        if (!confirmed) {
+            showMessage('Oferta de préstamo cancelada por el prestamista.', 'info'); 
+            return; 
+        }
+    }
+
+    const senderRef = doc(db, `artifacts/${appId}/users/${senderId}/account/data`);
+    const recipientRef = doc(db, `artifacts/${appId}/users/${recipientId}/account/data`);
+
+    try {
+        const senderData = await getAccountData(senderId);
+        const recipientData = await getAccountData(recipientId);
+
+        if (!recipientData) { showMessage('ID del receptor no encontrado.', 'error'); return; }
+
+        // Doble check para Transfer y Loan
+        if (transactionType === 'loan') {
+            // Lógica para Oferta de Préstamo (Aún no se mueve el dinero)
+            // Antes de crear la oferta, 'congelamos' el dinero descontándolo del saldo del prestamista.
+            try {
+                await runTransaction(db, async (transaction) => {
+                    const senderDocTx = await transaction.get(senderRef);
+                    if (!senderDocTx.exists()) throw new Error("Documento remitente no existe.");
+                    const senderBalanceTx = senderDocTx.data().balance;
+                    if (senderBalanceTx < amount) throw new Error("Saldo insuficiente para enviar la oferta de préstamo.");
+                    transaction.update(senderRef, { balance: senderBalanceTx - amount, held: (senderDocTx.data().held || 0) + amount });
+                });
+            } catch (err) {
+                console.error('Fallo al congelar fondos para la oferta:', err);
+                showMessage(`No se pudo congelar fondos: ${err.message}`, 'error');
+                return;
+            }
+
+            const loanData = {
+                amount: amount,
+                senderId: senderId,
+                recipientId: recipientId,
+                interestRate: interest,
+                originalAmount: amount,
+                status: 'pending-offer',
+                recipientName: recipientData ? recipientData.name : 'Desconocido',
+                description: description // <<-- Descripción guardada
+            };
+
+            // Verificar que el remitente tenga documento de cuenta (la verificación de saldo
+            // ya se realizó al intentar congelar los fondos).
+            const senderDoc = await getDoc(senderRef);
+            if (!senderDoc.exists()) {
+                throw new Error("Documento remitente no existe.");
+            }
+
+            // 1. Prestamista (Registra la salida potencial de dinero - tipo: loan-sent)
+            const loanSentDoc = await createTransaction(senderId, { 
+                ...loanData, 
+                type: 'loan-sent', 
+                scoreGiven: false // Nuevo campo para saber si ya se puntuó
+            });
+
+            // 2. Deudor (Registra la OFERTA que debe ACEPTAR/RECHAZAR - tipo: loan-offer)
+            await createTransaction(recipientId, { 
+                ...loanData, 
+                type: 'loan-offer', 
+                senderTransactionId: loanSentDoc.id,
+                lenderName: senderData ? senderData.name : 'Anónimo'
+            });
+
+            showMessage('Oferta de préstamo enviada. El receptor debe aceptarla.', 'success');
+            // [ADICIÓN] Guardar contacto automáticamente
+            await addContact(senderId, recipientId);
+
+        } else {
+            // Lógica para Transferencia Directa (Mover dinero inmediatamente)
+            await runTransaction(db, async (transaction) => {
+                const senderDoc = await transaction.get(senderRef);
+                if (!senderDoc.exists()) throw new Error("Documento remitente no existe.");
+                const recipientDoc = await transaction.get(recipientRef);
+                if (!recipientDoc.exists()) throw new Error("Documento receptor no existe. Verifica el ID.");
+
+                const senderBalance = senderDoc.data().balance;
+                if (senderBalance < amount) throw new Error("Saldo insuficiente.");
+
+                const newSenderBalance = senderBalance - amount;
+                const newRecipientBalance = recipientDoc.data().balance + amount;
+
+                transaction.update(senderRef, { balance: newSenderBalance });
+                transaction.update(recipientRef, { balance: newRecipientBalance });
+            });
+            
+            const baseTransferData = { 
+                amount, 
+                senderId, 
+                recipientId, 
+                senderName: senderData ? senderData.name : 'Anónimo', 
+                recipientName: recipientData ? recipientData.name : 'Desconocido',
+                description: description // <<-- Descripción guardada
+            };
+
+            // Historial del Remitente (Negativo)
+            await createTransaction(senderId, { ...baseTransferData, type: 'transfer-sent' });
+            // Historial del Receptor (Positivo)
+            await createTransaction(recipientId, { ...baseTransferData, type: 'transfer-received' });
+
+            showMessage('Transferencia exitosa.', 'success');
+            // [ADICIÓN] Guardar contacto automáticamente
+            await addContact(senderId, recipientId);
+        }
+
+        switchView('dashboard');
+        loadBalance(senderId);
+
+    } catch (e) {
+        console.error("Fallo de Transacción: ", e.message);
+        showMessage(`Fallo la transferencia: ${e.message}`, 'error');
+    }
+});
+
+// --- REEMBOLSO DE PRÉSTAMO (Pago) CON COMISIÓN BANCARIA ESCALONADA SOBRE EL TOTAL (CORREGIDO) ---
+async function payLoan(loanDocId, loanData) {
+    if (!currentUser) return;
+
+    const originalAmount = loanData.originalAmount;
+    // Interés en formato decimal (ej: 5% -> 0.05)
+    const interestRateDecimal = loanData.interestRate / 100;
+
+    // 1. Cálculo de Montos
+    const interestAmount = originalAmount * interestRateDecimal; // Interés bruto
+    const amountToPay = originalAmount + interestAmount; // Monto total que paga el deudor (Capital + Interés Bruto)
+
+    // LÓGICA DE COMISIÓN BANCARIA ESCALONADA (Basada en el Monto Original del Préstamo)
+    let bankCommissionRate;
+    // Comisión: 5% (< $50), 8% ($50 <= x < $250), 10% (>= $250)
+    if (originalAmount >= 250) { 
+        bankCommissionRate = 0.10; // 10% si >= $250
+    } else if (originalAmount >= 50) { 
+        bankCommissionRate = 0.08; // 8% si $50 <= Préstamo < $250
+    } else {
+        bankCommissionRate = 0.05; // 5% si Préstamo < $50
+    }
+    
+    // La comisión se calcula sobre el MONTO TOTAL A PAGAR (Capital + Interés Bruto)
+    const bankCommission = amountToPay * bankCommissionRate; // Comisión del banco sobre el TOTAL
+
+    // El prestamista recibe el TOTAL pagado menos la comisión del banco
+    const amountLenderReceives = amountToPay - bankCommission;
+    
+    const payerId = currentUser.uid; // El usuario que paga (el deudor)
+    const recipientId = loanData.senderId; // El usuario que recibe (el prestamista original)
+
+    const payerRef = doc(db, `artifacts/${appId}/users/${payerId}/account/data`);
+    const recipientRef = doc(db, `artifacts/${appId}/users/${recipientId}/account/data`);
+    
+    // El documento de deuda que se va a marcar como pagado (es el documento loan-debt del deudor)
+    const loanDocRef = doc(db, `artifacts/${appId}/users/${payerId}/transactions/${loanDocId}`);
+
+    // El documento 'loan-sent' del prestamista que se va a marcar como pagado (buscándolo por el senderTransactionId)
+    const lenderTransactionId = loanData.senderTransactionId;
+    const loanSentDocRef = doc(db, `artifacts/${appId}/users/${recipientId}/transactions/${lenderTransactionId}`);
+    
+    // El documento de solicitud de préstamo (si existía)
+    const loanRequestDocId = loanData.loanRequestDocId; // Asumiendo que este ID existe en loanData
+
+    // 4. Ejecución de la transacción (Mover el dinero y marcar como pagado)
+    try {
+        await runTransaction(db, async (transaction) => {
+            const payerDoc = await transaction.get(payerRef);
+            if (!payerDoc.exists()) throw new Error("Documento del pagador (deudor) no existe.");
+            const recipientDoc = await transaction.get(recipientRef);
+            if (!recipientDoc.exists()) throw new Error("Documento del prestamista no existe. Verifica el ID.");
+            
+            const payerBalance = payerDoc.data().balance;
+            if (payerBalance < amountToPay) throw new Error("Saldo insuficiente para pagar el préstamo.");
+
+            const newPayerBalance = payerBalance - amountToPay; 
+            
+            // Saldo del prestamista
+            const recipientBalance = recipientDoc.data().balance;
+            const newRecipientBalance = recipientBalance + amountLenderReceives;
+
+            // 1. ACTUALIZAR SALDO DEL PAGADOR (Deudor)
+            transaction.update(payerRef, { balance: newPayerBalance });
+
+            // 2. ACTUALIZAR SALDO DEL RECEPTOR (Prestamista)
+            transaction.update(recipientRef, { balance: newRecipientBalance });
+
+            // 3. ACTUALIZAR EL DOCUMENTO DE DEUDA DEL DEUDOR (Marcarlo como pagado)
+            transaction.update(loanDocRef, { status: 'completed-paid', paidAmount: amountToPay, paidDate: serverTimestamp() });
+
+            // 4. ACTUALIZAR EL DOCUMENTO DE PRÉSTAMO DEL PRESTAMISTA (Marcarlo como pagado)
+            // CÓDIGO CORREGIDO DENTRO DE function payLoan
+// 4. ACTUALIZAR EL DOCUMENTO DE PRÉSTAMO DEL PRESTAMISTA (Marcarlo como pagado)
+            transaction.update(loanSentDocRef, { status: 'completed-paid', paidAmount: amountToPay, paidDate: serverTimestamp(), scoreGiven: false });
+            
+            // 5. Cancelar la solicitud de préstamo pública si fue aceptada desde una solicitud
+            if (loanRequestDocId) {
+                 const loanRequestRef = doc(db, `artifacts/${appId}/loan-requests/${loanRequestDocId}`);
+                 transaction.update(loanRequestRef, { status: 'completed-paid', paidDate: serverTimestamp() });
+            }
+        });
+
+        // 5. Crear transacciones de historial
+        const payerData = await getAccountData(payerId);
+        const recipientData = await getAccountData(recipientId);
+
+         // A. Registrar la comisión bancaria en el historial del deudor (Salida de dinero - Negativo)
+        await createTransaction(payerId, {
+            amount: bankCommission,
+            senderId: payerId,
+            recipientId: 'HUG Bank',
+            type: 'bank-commission', // Salida de dinero por comisión (NEGATIVO)
+            originalLoanId: loanDocId,
+            interestRate: loanData.interestRate,
+            senderName: payerData.name,
+            recipientName: 'HUG Bank',
+            description: loanData.description || 'Comisión por pago de préstamo'
+        }); 
+
+         // B. Registrar el pago en el historial del deudor (Solo Historial)
+        await createTransaction(payerId, {
+            amount: amountToPay,
+            senderId: payerId,
+            recipientId: recipientId,
+            type: 'loan-payment-sent', // Salida de dinero (Pago de préstamo - Solo Historial)
+            originalLoanId: loanDocId,
+            interestRate: loanData.interestRate,
+            senderName: payerData.name,
+            recipientName: recipientData.name,
+            description: loanData.description || 'Pago de préstamo'
+        }); 
+
+         // C. Registrar el pago en el historial del prestamista (Solo Historial)
+        await createTransaction(recipientId, {
+            amount: amountLenderReceives,
+            senderId: payerId,
+            recipientId: recipientId,
+            type: 'loan-payment-received', // Entrada de dinero (Cobro de préstamo - Solo Historial)
+            originalLoanId: lenderTransactionId,
+            interestRate: loanData.interestRate,
+            senderName: payerData.name,
+            recipientName: recipientData.name,
+            description: loanData.description || 'Cobro de préstamo'
+        }); 
+
+        showMessage(`Préstamo de $${amountToPay.toFixed(2)} pagado con éxito. El banco cobró $${bankCommission.toFixed(2)} de comisión. ¡Ahora puedes puntuar al deudor!`, 'success');
+        loadBalance(payerId);
+        listenToTransactions(payerId); // Forzar recarga de transacciones
+    } catch (e) {
+        console.error("Fallo al pagar el préstamo:", e);
+        showMessage(`Fallo al pagar el préstamo: ${e.message}`, 'error');
+    }
+}
+
+// --- FUNCIÓN ADICIONAL: Aceptar una oferta de préstamo (CORREGIDO) ---
+async function acceptLoanOffer(debtDocId, debtData) {
+     if (!currentUser) return;
+     const payerId = debtData.senderId; // El que presta (Prestamista)
+     const recipientId = currentUser.uid; // El que acepta (Deudor)
+     const amount = debtData.originalAmount;
+
+     const payerRef = doc(db, `artifacts/${appId}/users/${payerId}/account/data`);
+     const recipientRef = doc(db, `artifacts/${appId}/users/${recipientId}/account/data`);
+     
+     // 1. Documento de la OFERTA (loan-offer del deudor)
+     const debtDocRef = doc(db, `artifacts/${appId}/users/${recipientId}/transactions/${debtDocId}`);
+     // 2. Documento de PRÉSTAMO ENVIADO (loan-sent del prestamista)
+     const loanSentDocRef = doc(db, `artifacts/${appId}/users/${payerId}/transactions/${debtData.senderTransactionId}`);
+     
+     try {
+         await runTransaction(db, async (transaction) => {
+             // PRIMER PASO: TODAS LAS LECTURAS (ANTES de cualquier escritura)
+             const payerDoc = await transaction.get(payerRef);
+             if (!payerDoc.exists()) throw new Error("Documento del prestamista no existe.");
+             
+             const recipientDoc = await transaction.get(recipientRef);
+             if (!recipientDoc.exists()) throw new Error("Documento del receptor no existe.");
+
+             // Leer los documentos de deuda/préstamo también
+             const debtDocSnapshot = await transaction.get(debtDocRef);
+             if (!debtDocSnapshot.exists()) throw new Error("Documento de oferta no existe.");
+             
+             const loanSentDocSnapshot = await transaction.get(loanSentDocRef);
+             if (!loanSentDocSnapshot.exists()) throw new Error("Documento de préstamo no existe.");
+
+             // SEGUNDO PASO: CALCULAR TODO LO QUE NECESITES (sin lecturas/escrituras)
+             const payerBalance = payerDoc.data().balance;
+             const payerHeld = payerDoc.data().held || 0;
+             const newPayerHeld = Math.max(0, payerHeld - amount);
+             
+             const recipientBalance = recipientDoc.data().balance;
+             const newRecipientBalance = recipientBalance + amount;
+
+             // TERCER PASO: TODAS LAS ESCRITURAS (al final)
+             transaction.update(payerRef, { held: newPayerHeld });
+             transaction.update(recipientRef, { balance: newRecipientBalance });
+             
+             // Actualizar estado en el Deudor (Pasa de 'loan-offer' a 'loan-debt')
+             transaction.update(debtDocRef, { 
+                 status: 'pending', // De 'pending-offer' a 'pending' deuda
+                 type: 'loan-debt', // Tipo: Deuda (cambio de tipo)
+                 receivedDate: serverTimestamp() 
+             });
+
+             // Actualizar estado en el Prestamista (Pasa de 'pending-offer' a 'completed')
+            transaction.update(loanSentDocRef, { 
+                status: 'completed', // De 'pending-offer' a 'completed'
+                sentDate: serverTimestamp() 
+            });
+         });
+         
+         // 4. Crear transacciones de historial (FUERA de la transacción)
+        const payerData = await getAccountData(payerId);
+        const recipientData = await getAccountData(recipientId);
+
+         // A. Historial del Prestamista (Salida de dinero - Solo Historial)
+        await createTransaction(payerId, {
+            amount: amount,
+            senderId: payerId,
+            recipientId: recipientId,
+            type: 'loan-disbursed', // Salida de dinero por desembolso
+            originalLoanId: debtData.senderTransactionId,
+            interestRate: debtData.interestRate,
+            senderName: payerData.name,
+            recipientName: recipientData.name,
+            description: debtData.description || 'Desembolso de préstamo'
+        }); 
+
+         // B. Historial del Deudor (Entrada de dinero - Solo Historial)
+        await createTransaction(recipientId, {
+            amount: amount,
+            senderId: payerId,
+            recipientId: recipientId,
+            type: 'loan-received', // Entrada de dinero por préstamo
+            originalLoanId: debtDocId,
+            interestRate: debtData.interestRate,
+            senderName: payerData.name,
+            recipientName: recipientData.name,
+            description: debtData.description || 'Recepción de préstamo'
+        }); 
+
+         showMessage('Préstamo aceptado y dinero recibido. ¡Ahora tienes una deuda!', 'success');
+         loadBalance(recipientId); // Recargar saldo del deudor
+         listenToTransactions(recipientId); // Forzar recarga de transacciones
+         
+     } catch (e) {
+         console.error("Fallo al aceptar el préstamo:", e);
+         showMessage(`Fallo al aceptar el préstamo: ${e.message}`, 'error');
+     }
+}
+
+// --- FUNCIÓN ADICIONAL: Prestar en respuesta a una solicitud pública (CORREGIDO) ---
+async function lendOnRequest(requestDocId, requestData) {
+     if (!currentUser) return;
+     const lenderId = currentUser.uid; // El que presta (Prestamista)
+     const debtorId = requestData.debtorId; // El que solicitó (Deudor)
+     const amount = requestData.amount;
+     const interest = requestData.interestRate;
+     
+     const lenderRef = doc(db, `artifacts/${appId}/users/${lenderId}/account/data`);
+     const debtorRef = doc(db, `artifacts/${appId}/users/${debtorId}/account/data`);
+     const requestDocRef = doc(db, `artifacts/${appId}/loan-requests/${requestDocId}`);
+     
+     // Declarar fuera del try para acceso en el catch
+     let newLoanDoc = null;
+     let newDebtDoc = null;
+     
+     try {
+         // 1. Obtener información del prestamista ANTES de la transacción
+         const lenderDocData = await getDoc(lenderRef);
+         if (!lenderDocData.exists()) throw new Error("Documento del prestamista no existe.");
+         const lenderName = lenderDocData.data().name;
+
+         // 2. Crear los documentos de transacción FUERA de la transacción (antes)
+         const loanSentRef = collection(db, `artifacts/${appId}/users/${lenderId}/transactions`);
+         newLoanDoc = await addDoc(loanSentRef, {
+            amount: amount,
+            senderId: lenderId,
+            recipientId: debtorId,
+            interestRate: interest,
+            originalAmount: amount,
+            status: 'completed', // Se marca como completado inmediatamente
+            type: 'loan-sent',
+            sentDate: serverTimestamp(),
+            scoreGiven: false,
+            recipientName: requestData.debtorName,
+            description: requestData.description || 'Préstamo por solicitud pública'
+         });
+
+         // Crear el documento de deuda en el deudor
+         const debtRef = collection(db, `artifacts/${appId}/users/${debtorId}/transactions`);
+         newDebtDoc = await addDoc(debtRef, {
+            amount: amount,
+            senderId: lenderId,
+            recipientId: debtorId,
+            interestRate: interest,
+            originalAmount: amount,
+            status: 'pending', // Pendiente de pago
+            type: 'loan-debt',
+            receivedDate: serverTimestamp(),
+            senderTransactionId: newLoanDoc.id, // Referencia cruzada
+            lenderName: lenderName,
+            loanRequestDocId: requestDocId, // Referencia a la solicitud pública
+            description: requestData.description || 'Deuda por solicitud pública'
+         });
+
+         // 3. Ahora ejecutar la transacción SOLO para actualizar saldos y estados
+         await runTransaction(db, async (transaction) => {
+             // PRIMER PASO: TODAS LAS LECTURAS
+             const lenderDoc = await transaction.get(lenderRef);
+             if (!lenderDoc.exists()) throw new Error("Documento del prestamista no existe.");
+
+             const requestDoc = await transaction.get(requestDocRef);
+             if (!requestDoc.exists() || requestDoc.data().status !== 'pending') {
+                 throw new Error("La solicitud ya no está disponible o ha sido completada.");
+             }
+
+             const debtorDoc = await transaction.get(debtorRef);
+             if (!debtorDoc.exists()) throw new Error("Documento del deudor no existe.");
+
+             // SEGUNDO PASO: CALCULAR TODO
+             const lenderBalance = lenderDoc.data().balance;
+             if (lenderBalance < amount) throw new Error("Saldo insuficiente para conceder el préstamo.");
+             
+             const newLenderBalance = lenderBalance - amount;
+             const newDebtorBalance = debtorDoc.data().balance + amount;
+             
+             // TERCER PASO: TODAS LAS ESCRITURAS
+             transaction.update(lenderRef, { balance: newLenderBalance });
+             transaction.update(debtorRef, { balance: newDebtorBalance });
+             
+             // Marcar la solicitud pública como ACEPTADA/COMPLETADA
+             transaction.update(requestDocRef, { 
+                 status: 'accepted',
+                 lenderId: lenderId,
+                 lenderName: lenderName,
+                 loanSentDocId: newLoanDoc.id,
+                 loanDebtDocId: newDebtDoc.id,
+                 acceptedDate: serverTimestamp()
+             });
+         });
+         
+         // 4. Crear transacciones de historial (fuera de la transacción)
+        const lenderData = await getAccountData(lenderId);
+        const debtorData = await getAccountData(debtorId);
+
+         // A. Historial del Prestamista (Salida de dinero - Solo Historial)
+        await createTransaction(lenderId, {
+            amount: amount,
+            senderId: lenderId,
+            recipientId: debtorId,
+            type: 'loan-disbursed', // Salida de dinero por desembolso
+            originalLoanId: newLoanDoc.id,
+            interestRate: interest,
+            senderName: lenderData.name,
+            recipientName: debtorData.name,
+            description: requestData.description || 'Desembolso de préstamo (solicitud)'
+        }); 
+
+         // B. Historial del Deudor (Entrada de dinero - Solo Historial)
+        await createTransaction(debtorId, {
+            amount: amount,
+            senderId: lenderId,
+            recipientId: debtorId,
+            type: 'loan-received', // Entrada de dinero por préstamo
+            originalLoanId: newDebtDoc.id,
+            interestRate: interest,
+            senderName: lenderData.name,
+            recipientName: debtorData.name,
+            description: requestData.description || 'Recepción de préstamo (solicitud)'
+        }); 
+
+         showMessage(`Préstamo de $${amount.toFixed(2)} concedido con éxito. El dinero ha sido transferido al deudor.`, 'success');
+         loadBalance(lenderId);
+         listenToTransactions(lenderId);
+         
+     } catch (e) {
+         console.error("Fallo al conceder el préstamo:", e);
+         showMessage(`Fallo al conceder el préstamo: ${e.message}`, 'error');
+         
+         // Si la transacción falló, intentar eliminar los documentos de transacción creados
+         try {
+             if (newLoanDoc && newLoanDoc.id) {
+                 await deleteDoc(doc(db, `artifacts/${appId}/users/${lenderId}/transactions/${newLoanDoc.id}`));
+             }
+             if (newDebtDoc && newDebtDoc.id) {
+                 await deleteDoc(doc(db, `artifacts/${appId}/users/${debtorId}/transactions/${newDebtDoc.id}`));
+             }
+         } catch (delErr) {
+             console.warn("No se pudieron limpiar documentos después del fallo:", delErr);
+         }
+     }
+}
+
+// --- MANEJO DE OFERTAS/DEUDAS PENDIENTES ---
+function listenToTransactions(userId) {
+    if (!userId) return;
+
+    const transactionsRef = collection(db, `artifacts/${appId}/users/${userId}/transactions`);
+    
+    // Consulta para Historial Completo (ordenado por fecha)
+    const historyQuery = query(transactionsRef, orderBy('timestamp', 'desc'));
+
+    // Consulta para Deudas/Ofertas (solo 'loan-offer' o 'loan-debt' con status 'pending-offer' o 'pending')
+    // FIX #1: Se elimina 'orderBy' para evitar el error de índice compuesto de Firestore con la cláusula 'in'.
+    const pendingQuery = query(transactionsRef, 
+        where('status', 'in', ['pending-offer', 'pending', 'completed', 'completed-paid-penalized', 'completed-paid']) // Se añade 'completed-paid-penalized' para el nuevo botón de puntuar
+    );
+
+    // Listener para el Historial Completo
+    onSnapshot(historyQuery, (snapshot) => {
+        let html = '';
+        if (snapshot.empty) {
+            transactionsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No hay transacciones en el historial.</p>';
+            return;
+        }
+        
+        snapshot.forEach(doc => {
+            html += renderTransactionItem(doc.data(), doc.id, false);
+        });
+        transactionsList.innerHTML = html;
+    }, (error) => {
+         console.error("Error al escuchar historial de transacciones:", error);
+         transactionsList.innerHTML = '<p class="text-red-500 text-sm text-center">Error al cargar el historial.</p>';
+    });
+
+
+    // Listener para Deudas y Ofertas (lista lateral)
+    onSnapshot(pendingQuery, (snapshot) => {
+        let debtHtml = '';
+        if (snapshot.empty) {
+             debtsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No hay deudas u ofertas pendientes.</p>';
+             // No es necesario retornar, solo actualizar la UI
+        }
+
+        snapshot.forEach(doc => {
+            const transaction = doc.data();
+            const isPendingOffer = transaction.status === 'pending-offer';
+            const isPendingDebt = transaction.status === 'pending' && transaction.type === 'loan-debt';
+            
+            // Prestamos concedidos (completed), cancelados (completed-paid-penalized) o pagados (completed-paid), que NO han sido puntuados.
+            const isScorePending = (transaction.status === 'completed' || transaction.status === 'completed-paid-penalized' || transaction.status === 'completed-paid') 
+                                   && transaction.type === 'loan-sent' 
+                                   && transaction.scoreGiven !== true; 
+            
+            if (isPendingOffer || isPendingDebt || isScorePending) {
+               debtHtml += renderTransactionItem(transaction, doc.id, true);
+            }
+        });
+
+        if (debtHtml === '') {
+             debtsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No hay deudas u ofertas pendientes.</p>';
+        } else {
+            debtsList.innerHTML = debtHtml;
+        }
+        
+        // --- LISTENERS DINÁMICOS ---
+        
+        // 1. Aceptar Oferta
+        debtsList.querySelectorAll('.accept-loan-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const docId = button.dataset.id;
+                const docSnap = await getDoc(doc(db, `artifacts/${appId}/users/${userId}/transactions/${docId}`));
+                if (docSnap.exists()) {
+                    await acceptLoanOffer(docId, docSnap.data());
+                }
+            });
+        });
+
+        // 1.b Rechazar Oferta (Rechazo por parte del receptor)
+        debtsList.querySelectorAll('.reject-offer-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const docId = button.dataset.id;
+                const senderTransactionId = button.dataset.sendertransactionid;
+                const senderId = button.dataset.senderid;
+                if (!docId) return;
+                
+                const confirmed = await showConfirmModal(
+                    'Rechazar Oferta',
+                    '¿Rechazas esta oferta de préstamo? Los fondos serán devueltos al prestamista.',
+                    'warning'
+                );
+                if (!confirmed) return;
+
+                try {
+                    // Realizamos una transacción para:
+                    // 1) Marcar la oferta del receptor como 'rejected'
+                    // 2) Si existe, actualizar el documento del prestamista a 'rejected-by-recipient'
+                    // 3) Liberar los fondos retenidos (held) del prestamista y devolver el monto al balance
+                    const recipientOfferRef = doc(db, `artifacts/${appId}/users/${userId}/transactions/${docId}`);
+
+                    await runTransaction(db, async (transaction) => {
+                        // Read all documents first (Firestore requires reads before writes)
+                        const offerSnap = await transaction.get(recipientOfferRef);
+                        if (!offerSnap.exists()) throw new Error('Oferta no encontrada.');
+                        const offerData = offerSnap.data();
+                        const amount = parseFloat(offerData.amount || offerData.originalAmount || 0);
+
+                        // Prepare lender refs and read them (if provided)
+                        let lenderAccountRef = null;
+                        let lenderTxRef = null;
+                        let lenderAccountSnap = null;
+                        let lenderTxSnap = null;
+
+                        if (senderId && senderTransactionId) {
+                            lenderAccountRef = doc(db, `artifacts/${appId}/users/${senderId}/account/data`);
+                            lenderTxRef = doc(db, `artifacts/${appId}/users/${senderId}/transactions/${senderTransactionId}`);
+
+                            lenderAccountSnap = await transaction.get(lenderAccountRef);
+                            try {
+                                lenderTxSnap = await transaction.get(lenderTxRef);
+                            } catch (e) {
+                                // If the lender transaction doc can't be read, continue — we may still refund
+                                lenderTxSnap = null;
+                            }
+                        }
+
+                        // Now perform writes
+                        transaction.update(recipientOfferRef, { status: 'rejected', rejectedDate: serverTimestamp() });
+
+                        if (lenderAccountSnap && lenderAccountSnap.exists()) {
+                            const currentBalance = lenderAccountSnap.data().balance || 0;
+                            const currentHeld = lenderAccountSnap.data().held || 0;
+                            const refund = amount; // Full refund to lender when recipient rejects
+                            const newHeld = Math.max(0, currentHeld - refund);
+                            const newBalance = currentBalance + refund;
+
+                            transaction.update(lenderAccountRef, { balance: newBalance, held: newHeld });
+                        }
+
+                        if (lenderTxSnap && lenderTxSnap.exists()) {
+                            transaction.update(lenderTxRef, { status: 'rejected-by-recipient', rejectedDate: serverTimestamp() });
+                        }
+                    });
+
+                    // Registrar en historial y recargar saldo (operación fuera de la transacción para evitar problemas de concurrencia)
+                    if (senderId) {
+                        try {
+                            const lenderData = await getAccountData(senderId);
+                            const recipientData = await getAccountData(userId);
+                            const offerSnapPost = await getDoc(doc(db, `artifacts/${appId}/users/${userId}/transactions/${docId}`));
+                            const amount = parseFloat((offerSnapPost.exists() ? (offerSnapPost.data().amount || offerSnapPost.data().originalAmount) : 0) || 0);
+                            if (amount > 0) {
+                                // Historial: reembolso por rechazo
+                                await createTransaction(senderId, {
+                                    amount: amount,
+                                    senderId: 'HUG Bank',
+                                    recipientId: senderId,
+                                    type: 'offer-rejected-refund',
+                                    senderName: 'HUG Bank',
+                                    recipientName: lenderData ? lenderData.name : 'Prestamista',
+                                    description: `Reembolso por rechazo de oferta a ${recipientData ? recipientData.name : 'Receptor'}`
+                                });
+                            }
+                        } catch (histErr) {
+                            console.warn('No se pudo crear entrada de historial del reembolso:', histErr.message);
+                        }
+                    }
+
+                    showMessage('Oferta rechazada correctamente. Fondos devueltos al prestamista.', 'info');
+                    // Forzar recarga del saldo y transacciones para reflejar los cambios
+                    if (currentUser) {
+                        loadBalance(currentUser.uid);
+                        listenToTransactions(currentUser.uid);
+                    }
+                } catch (err) {
+                    console.error('Error al rechazar la oferta y liberar fondos:', err);
+                    showMessage(`Error al rechazar la oferta: ${err.message}`, 'error');
+                }
+            });
+        });
+        
+        // 2. Pagar Deuda
+        debtsList.querySelectorAll('.pay-debt-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const docId = button.dataset.id;
+                const docSnap = await getDoc(doc(db, `artifacts/${appId}/users/${userId}/transactions/${docId}`));
+                if (docSnap.exists()) {
+                    // Se muestra diálogo de confirmación en payLoan
+                    await payLoan(docId, docSnap.data());
+                }
+            });
+        });
+
+        // 3. Marcar como pagado (Cancelar con Penalidad)
+        debtsList.querySelectorAll('.cancel-loan-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const docId = button.dataset.id; // Doc ID del prestamista (loan-sent)
+                const recipientId = button.dataset.recipient; // ID del deudor
+                
+                const confirmed = await showConfirmModal(
+                    'Marcar Préstamo como Pagado',
+                    '⚠️ <strong>ADVERTENCIA:</strong> Se te aplicará una <strong>penalidad del 5%</strong> sobre la deuda total. Esto afectará tu balance inmediatamente y podrás puntuar al deudor.',
+                    'danger'
+                );
+                if (confirmed) {
+                    await cancelLoanByLender(docId, recipientId);
+                } else {
+                    showMessage('Operación abortada.', 'info');
+                }
+            });
+        });
+
+        // 3.b Cancelar Oferta Pendiente (Prestamista) -> devuelve 95% y cobra 5%
+        debtsList.querySelectorAll('.cancel-offer-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const docId = button.dataset.id; // loan-sent doc id
+                const amount = parseFloat(button.dataset.amount) || 0;
+                const recipientId = button.dataset.recipient || null;
+                if (!docId) return;
+                
+                const penalty = (amount * 0.05).toFixed(2);
+                const confirmed = await showConfirmModal(
+                    'Cancelar Oferta de Préstamo',
+                    `Esto devolverá el <strong>95%</strong> del monto y cobrará una penalidad de <strong>5%</strong>.<br><br>Monto: $${amount.toFixed(2)} | Penalidad: $${penalty}`,
+                    'danger'
+                );
+                if (!confirmed) return;
+
+                try {
+                    const lenderId = currentUser.uid;
+                    const lenderRef = doc(db, `artifacts/${appId}/users/${lenderId}/account/data`);
+                    const loanSentRef = doc(db, `artifacts/${appId}/users/${lenderId}/transactions/${docId}`);
+
+                    const penalty = amount * 0.05;
+                    const refund = amount - penalty;
+
+                    // 1) Ejecutar transacción para devolver el dinero (neto) al saldo del prestamista y marcar la oferta cancelada
+                    await runTransaction(db, async (transaction) => {
+                        const lenderDoc = await transaction.get(lenderRef);
+                        if (!lenderDoc.exists()) throw new Error('Cuenta del prestamista no encontrada.');
+                        const currentBalance = lenderDoc.data().balance || 0;
+                        const currentHeld = lenderDoc.data().held || 0;
+                        const newBalance = currentBalance + refund;
+                        const newHeld = Math.max(0, currentHeld - amount);
+                        transaction.update(lenderRef, { balance: newBalance, held: newHeld });
+                        // Marcar la oferta como cancelada
+                        transaction.update(loanSentRef, { status: 'cancelled-by-lender', cancelledDate: serverTimestamp(), cancellationFee: penalty });
+                    });
+
+                    // 2) Intentar marcar la oferta correspondiente en el receptor (si existe)
+                    if (recipientId) {
+                        try {
+                            const recipientQuery = query(
+                                collection(db, `artifacts/${appId}/users/${recipientId}/transactions`),
+                                where('senderTransactionId', '==', docId)
+                            );
+                            const snap = await getDocs(recipientQuery);
+                            if (!snap.empty) {
+                                for (const d of snap.docs) {
+                                    await updateDoc(doc(db, `artifacts/${appId}/users/${recipientId}/transactions/${d.id}`), { status: 'offer-cancelled', cancelledDate: serverTimestamp() });
+                                }
+                            }
+                        } catch (innerErr) {
+                            console.warn('No se pudo actualizar la oferta en el receptor:', innerErr.message);
+                        }
+                    }
+
+                    // 3) Registrar transacción de penalidad y reembolso en historial
+                    const lenderData = await getAccountData(lenderId);
+                    await createTransaction(lenderId, {
+                        amount: penalty,
+                        senderId: lenderId,
+                        recipientId: 'HUG Bank',
+                        type: 'offer-cancel-fee',
+                        senderName: lenderData.name,
+                        recipientName: 'HUG Bank',
+                        description: `Penalidad 5% por cancelar oferta de préstamo` 
+                    });
+
+                    await createTransaction(lenderId, {
+                        amount: refund,
+                        senderId: 'HUG Bank',
+                        recipientId: lenderId,
+                        type: 'offer-cancel-refund',
+                        senderName: 'HUG Bank',
+                        recipientName: lenderData.name,
+                        description: `Reembolso neto por cancelación de oferta` 
+                    });
+
+                    showMessage('Oferta cancelada. Se aplicó una penalidad del 5% y el resto fue devuelto.', 'success');
+                    loadBalance(lenderId);
+                    listenToTransactions(lenderId);
+                } catch (err) {
+                    console.error('Error al cancelar oferta:', err);
+                    showMessage(`Error al cancelar la oferta: ${err.message}`, 'error');
+                }
+            });
+        });
+
+         // 4. Puntuar Deudor (Prestamista)
+        debtsList.querySelectorAll('.score-debtor-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const loanDocId = button.dataset.id;
+                const recipientId = button.dataset.recipient;
+                const recipientName = button.dataset.recipientname;
+                
+                scoreModal.style.display = 'block';
+                scoreModalRecipientName.textContent = recipientName;
+                scoreModalRecipientId.textContent = recipientId;
+                scoreForm.setAttribute('data-loan-doc-id', loanDocId);
+                scoreForm.setAttribute('data-recipient-id', recipientId);
+                // Resetear el formulario al abrir
+                scoreForm.reset();
+            });
+        });
+        // --- FIN LISTENERS DINÁMICOS ---
+
+    }, (error) => {
+         // Esta es la parte que captura el error. Dejamos el console.error para debug.
+         console.error("Error al escuchar deudas/ofertas:", error);
+         debtsList.innerHTML = '<p class="text-red-500 text-sm text-center">Error al cargar deudas y ofertas. Intenta recargar la página.</p>';
+    });
+}
+
+
+// --- FUNCIÓN PRINCIPAL PARA RENDERIZAR ELEMENTOS DEL HISTORIAL (CORREGIDA PARA SOPORTAR NUEVOS TIPOS Y DESCRIPCIÓN) ---
+function renderTransactionItem(transaction, docId, isDebtList = true) {
+    const amount = transaction.amount || 0;
+    const type = transaction.type;
+    const senderName = transaction.senderName || 'Anónimo';
+    const recipientName = transaction.recipientName || 'Anónimo';
+    const interestRate = transaction.interestRate || 0;
+    const status = transaction.status || 'N/A';
+    const senderIsMe = transaction.senderId === currentUser.uid;
+    
+    let typeText = 'Transacción';
+    let senderRecipientText = '';
+    let textColor = 'text-gray-800';
+    let borderColor = 'border-gray-200';
+    let amountDisplay = `<p class="text-md font-bold text-gray-800">$${amount.toFixed(2)}</p>`;
+    let buttonHtml = '';
+    let details = '';
+
+    // Convertir el timestamp de Firebase a un string legible
+    const date = transaction.timestamp instanceof Object && 'toDate' in transaction.timestamp 
+        ? transaction.timestamp.toDate() 
+        : (transaction.timestamp ? new Date(transaction.timestamp) : new Date()); // FIX ROBUSTO: Handle potential missing/invalid timestamp
+        
+    const timestamp = date.toLocaleDateString('es-ES', { 
+        year: 'numeric', month: 'short', day: 'numeric', 
+        hour: '2-digit', minute: '2-digit' 
+    });
+
+    // Lógica por tipo de transacción
+    switch (type) {
+        case 'transfer-sent':
+            typeText = 'Transferencia Enviada';
+            senderRecipientText = `a ${recipientName}`;
+            textColor = 'text-red-600';
+            borderColor = 'border-red-400';
+            amountDisplay = `<p class="text-md font-bold text-red-600">-$${amount.toFixed(2)}</p>`;
+            break;
+        case 'transfer-received':
+            typeText = 'Transferencia Recibida';
+            senderRecipientText = `de ${senderName}`;
+            textColor = 'text-green-600';
+            borderColor = 'border-green-400';
+            amountDisplay = `<p class="text-md font-bold text-green-600">+$${amount.toFixed(2)}</p>`;
+            break;
+        case 'loan-offer':
+            typeText = 'Oferta de Préstamo Recibida';
+            senderRecipientText = `de ${senderName}`;
+            textColor = 'text-blue-600';
+            borderColor = 'border-blue-400';
+            
+            if (status === 'pending-offer' && isDebtList) {
+                 const amountToPay = amount * (1 + (interestRate / 100));
+                 details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                 amountDisplay = `
+                    <p class="text-md font-bold text-gray-800">+$${amount.toFixed(2)}</p>
+                    <p class="text-xs text-red-600">Pagar: $${amountToPay.toFixed(2)}</p>`;
+                                    buttonHtml = `
+                                        <div class="flex gap-2 justify-end mt-1">
+                                             <button class="accept-loan-btn py-1 px-3 rounded-full text-xs font-semibold text-white btn-primary" data-id="${docId}">Aceptar</button>
+                                             <button class="reject-offer-btn py-1 px-3 rounded-full text-xs font-semibold text-gray-800 btn-secondary" data-id="${docId}" data-sendertransactionid="${transaction.senderTransactionId || ''}" data-senderid="${transaction.senderId || ''}">Rechazar</button>
+                                        </div>
+                                    `;
+            }
+            break;
+        case 'loan-sent':
+            typeText = 'Préstamo Enviado (Oferta)';
+            senderRecipientText = `a ${recipientName}`;
+            textColor = 'text-blue-600';
+            borderColor = 'border-blue-400';
+            
+            if (status === 'pending-offer') {
+                 details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                 amountDisplay = `<p class="text-md font-bold text-gray-800">-$${amount.toFixed(2)} (Oferta)</p>`;
+                 if (isDebtList && senderIsMe) {
+                     // Mostrar botón pequeño para cancelar la oferta (cobra 5%)
+                     buttonHtml = `
+                        <div class="flex gap-2 justify-end mt-1">
+                            <button class="cancel-offer-btn py-1 px-3 rounded-full text-xs font-semibold text-gray-800 btn-secondary" data-id="${docId}" data-amount="${amount}" data-recipient="${transaction.recipientId || ''}">Cancelar Oferta</button>
+                        </div>
+                     `;
+                 }
+            } else if (status === 'completed') {
+                typeText = 'Préstamo Concedido';
+                const amountToPay = amount * (1 + (interestRate / 100));
+                details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                amountDisplay = `
+                    <p class="text-md font-bold text-red-600">-$${amount.toFixed(2)} (Capital)</p>
+                    <p class="text-xs text-green-600">Cobrar: $${amountToPay.toFixed(2)}</p>
+                    <p class="text-xs text-gray-500">Estado: Pendiente de Pago</p>
+                `;
+                // CAMBIO SOLICITADO: Solo mostrar botón de Cancelación/Marcar como pagado
+                if (isDebtList) {
+                    buttonHtml = `
+                        <button class="cancel-loan-btn w-full py-1 px-3 rounded-full text-xs font-semibold text-white bg-red-500 hover:bg-red-600 transition mt-1" 
+                            data-id="${docId}" data-recipient="${transaction.recipientId}">Marcar como Pagado (5% P.)</button>
+                    `;
+                }
+} else if (status === 'completed-paid') { // <--- ESTE ES EL ESTADO QUE ACTIVA EL BOTÓN
+            typeText = 'Préstamo Cobrado';
+            textColor = 'text-green-700';
+            borderColor = 'border-green-500';
+            // El cálculo neto de lo recibido no es trivial en el cliente, se muestra el monto bruto por defecto
+            amountDisplay = `<p class="text-md font-bold text-green-700">+$${(transaction.paidAmount || 0).toFixed(2)}</p>`;
+            details = `<p class="text-xs text-gray-600">Pagado el: ${new Date(transaction.paidDate.toDate()).toLocaleDateString('es-ES')}</p>`;
+        
+        // Si está Pagado y Penalizado (Tú lo marcaste como pagado)
+        } else if (status === 'completed-paid-penalized') {
+            typeText = 'Préstamo Cancelado (Penalizado)';
+            textColor = 'text-yellow-700';
+            borderColor = 'border-yellow-500';
+             const amountReceived = transaction.paidAmount - transaction.penaltyAmount;
+             amountDisplay = `<p class="text-md font-bold text-yellow-700">+$${amountReceived.toFixed(2)} (Neto)</p>`;
+             details = `<p class="text-xs text-gray-600">Penalidad: $${transaction.penaltyAmount.toFixed(2)}</p>`;
+        }
+        
+                // (cancelLoanRequest moved to top-level)
+
+        // Botón de Puntuar: Aparece si está pagado o penalizado, y no ha sido puntuado
+        // *** ESTA ES LA LÍNEA QUE DEBE SER CORRECTA ***
+        if (isDebtList && (status === 'completed-paid' || status === 'completed-paid-penalized') && transaction.scoreGiven !== true) {
+             buttonHtml += `
+                 <button class="score-debtor-btn w-full py-1 px-3 rounded-full text-xs font-semibold text-white bg-green-500 hover:bg-green-600 transition mt-1" 
+                     data-id="${docId}" data-recipient="${transaction.recipientId}" data-recipientname="${recipientName}">Puntuar</button>
+             `;
+        }
+                
+                break;
+            case 'loan-debt':
+                typeText = 'Deuda Pendiente';
+                senderRecipientText = `con ${senderName}`;
+                textColor = 'text-red-700';
+                borderColor = 'border-red-500';
+                const amountToPay = transaction.originalAmount * (1 + (interestRate / 100));
+                details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                
+                if (status === 'pending') {
+                     amountDisplay = `
+                        <p class="text-md font-bold text-green-600">+$${transaction.originalAmount.toFixed(2)} (Capital)</p>
+                        <p class="text-xs text-red-600">Pagar: $${amountToPay.toFixed(2)}</p>
+                    `;
+                    if (isDebtList) {
+                        buttonHtml = `<button class="pay-debt-btn w-full py-1 px-3 rounded-full text-xs font-semibold text-white bg-red-500 hover:bg-red-600 transition mt-1" data-id="${docId}">Pagar $${amountToPay.toFixed(2)}</button>`;
+                    }
+                } else if (status === 'completed-paid') {
+                    typeText = 'Deuda Pagada';
+                    textColor = 'text-green-700';
+                    borderColor = 'border-green-500';
+                    amountDisplay = `<p class="text-md font-bold text-red-700">-$${amountToPay.toFixed(2)}</p>`;
+                    details = `<p class="text-xs text-gray-600">Pagado el: ${new Date(transaction.paidDate.toDate()).toLocaleDateString('es-ES')}</p>`;
+                } else if (status === 'paid-by-lender') {
+                    // El deudor ve su deuda marcada como pagada por el prestamista (Cancelación)
+                    typeText = 'Deuda Pagada (Cancelación)';
+                    textColor = 'text-green-700';
+                    borderColor = 'border-green-500';
+                    amountDisplay = `<p class="text-md font-bold text-red-700">-$${amountToPay.toFixed(2)}</p>`;
+                    details = `<p class="text-xs text-gray-600 font-semibold">Marcada como Pagada por ${senderName}</p>`;
+                }
+                break;
+            // --- NUEVOS TIPOS DE HISTORIAL (Solo historial, no aparecen en 'Deudas y Ofertas') ---
+            case 'loan-disbursed': // Prestamista cuando el deudor acepta una oferta o solicitud
+                typeText = 'Desembolso Préstamo';
+                senderRecipientText = `a ${recipientName}`;
+                textColor = 'text-red-600';
+                amountDisplay = `<p class="text-md font-bold text-red-600">-$${amount.toFixed(2)}</p>`;
+                details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                break;
+            case 'loan-received': // Deudor cuando recibe el préstamo
+                typeText = 'Préstamo Recibido';
+                senderRecipientText = `de ${senderName}`;
+                textColor = 'text-green-600';
+                amountDisplay = `<p class="text-md font-bold text-green-600">+$${amount.toFixed(2)}</p>`;
+                details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                break;
+            case 'loan-payment-sent': // Pago total de la deuda por el deudor (historial)
+                 typeText = 'Pago de Deuda Total';
+                 senderRecipientText = `a ${recipientName}`;
+                 textColor = 'text-red-800';
+                 amountDisplay = `<p class="text-md font-bold text-red-800">-$${amount.toFixed(2)}</p>`;
+                 details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                 break;
+            case 'loan-payment-received': // Cobro total de la deuda por el prestamista (historial)
+                 typeText = 'Cobro de Préstamo (Neto)';
+                 senderRecipientText = `de ${senderName}`;
+                 textColor = 'text-green-800';
+                 amountDisplay = `<p class="text-md font-bold text-green-800">+$${amount.toFixed(2)}</p>`;
+                 details = `<p class="text-xs text-gray-600">Interés: ${interestRate}%</p>`;
+                 break;
+             case 'bank-commission':
+                typeText = 'Comisión Bancaria';
+                senderRecipientText = 'HUG Bank';
+                textColor = 'text-orange-600';
+                borderColor = 'border-orange-400';
+                amountDisplay = `<p class="text-md font-bold text-red-600">-$${amount.toFixed(2)}</p>`;
+                break;
+             case 'score-reset-fee':
+                typeText = 'Comisión Reset Score';
+                senderRecipientText = 'HUG Bank';
+                textColor = 'text-orange-600';
+                borderColor = 'border-orange-400';
+                amountDisplay = `<p class="text-md font-bold text-red-600">-$${amount.toFixed(2)}</p>`;
+                break;
+             case 'loan-paid-cancellation':
+                typeText = 'Cobro por Cancelación';
+                senderRecipientText = `de ${senderName}`;
+                textColor = 'text-yellow-600';
+                borderColor = 'border-yellow-400';
+                amountDisplay = `<p class="text-md font-bold text-yellow-600">+$${amount.toFixed(2)} (Bruto)</p>`;
+                break;
+             case 'lender-cancellation-penalty':
+                typeText = 'Penalidad por Cancelación';
+                senderRecipientText = 'HUG Bank';
+                textColor = 'text-red-800';
+                borderColor = 'border-red-500';
+                amountDisplay = `<p class="text-md font-bold text-red-800">-$${amount.toFixed(2)}</p>`;
+                break;
+            default:
+                // FIX #3: Transacciones desconocidas con signo + o -
+                typeText = ``;
+                textColor = 'text-gray-500';
+                borderColor = 'border-blue-500';
+                
+                if (senderIsMe) {
+                    amountDisplay = `<p class="text-md font-bold text-red-600">-$${amount.toFixed(2)}</p>`;
+                } else {
+                    amountDisplay = `<p class="text-md font-bold text-gray-500">$${amount.toFixed(2)}</p>`;
+                }
+                break;
+    }
+
+    // FIX #2 y SOLICITUD ADICIONAL: Usar la descripción como título principal y limpiar "Transacción Desconocida"
+    let mainTitle = transaction.description && transaction.description.length > 0
+        ? transaction.description
+        : `${typeText} ${senderRecipientText}`;
+
+    // La información secundaria ahora incluye el tipo si se usó la descripción como título.
+    // Si es Transacción Desconocida, y hay descripción, no mostramos el texto secundario para limpiar.
+    let secondaryTypeHtml = '';
+    if (transaction.description && transaction.description.length > 0) {
+         if (type === 'unknown' || type === 'default') {
+            // Si es desconocida Y tiene descripción, NO mostramos info secundaria para limpiar.
+            secondaryTypeHtml = '';
+         } else {
+            // Si tiene descripción y es un tipo conocido, mostramos el tipo como secundario.
+            secondaryTypeHtml = `<p class="text-xs text-gray-600">${typeText} ${senderRecipientText}</p>`;
+         }
+    }
+
+
+    return `
+        <div class="transaction-item flex items-center justify-between p-3 rounded-lg border-l-4 ${borderColor} bg-white hover:bg-gray-50 transition duration-150">
+            <div class="flex-grow">
+                <p class="text-sm font-semibold ${textColor}">${mainTitle}</p>
+                ${secondaryTypeHtml} 
+                <p class="text-xs text-gray-500 mt-0.5">${timestamp}</p>
+                ${details}
+            </div>
+            <div class="flex-shrink-0 space-y-1 text-right">
+                ${amountDisplay}
+                ${buttonHtml}
+            </div>
+        </div>
+    `;
+}
+
+// [ADICIÓN: Función para escuchar Solicitudes de Préstamo]
+function listenToLoanRequests(userId) {
+if (!userId) return;
+
+// 1. Consulta SIMPLE en Firestore
+// Solo filtra por el estado 'pending', lo cual es un filtro simple que no requiere índice compuesto.
+const q = query(
+    collection(db, `artifacts/${appId}/loan-requests`),
+    where('status', '==', 'pending') 
+    // Opcional: puedes añadir un orderBy() simple aquí, si es necesario, 
+    // por ejemplo: orderBy('timestamp', 'desc')
+);
+
+onSnapshot(q, (querySnapshot) => {
+    loanRequestsList.innerHTML = '';
+    
+    const currentUserId = userId; 
+    
+    // 2. Incluimos todas las solicitudes en la UI y diferenciamos las propias
+    const docs = querySnapshot.docs;
+
+    if (docs.length === 0) {
+        loanRequestsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No hay solicitudes de préstamo activas en este momento.</p>';
+        return;
+    }
+
+    // 3. Separar en solicitudes públicas (no creadas por el usuario) y 'Mis solicitudes'
+    // Filtramos también las solicitudes que el usuario ya RECHAZÓ (campo rejectedBy: [uid,...])
+    const publicRequests = docs.filter(d => {
+        const data = d.data();
+        const rejectedByMe = Array.isArray(data.rejectedBy) && data.rejectedBy.includes(currentUserId);
+        return data.debtorId !== currentUserId && !rejectedByMe;
+    });
+    const myRequests = docs.filter(d => d.data().debtorId === currentUserId);
+
+    // Si no hay públicas ni propias, mostrar mensaje
+    if (publicRequests.length === 0 && myRequests.length === 0) {
+        loanRequestsList.innerHTML = '<p class="text-gray-500 text-sm text-center">No hay solicitudes de préstamo activas en este momento.</p>';
+        return;
+    }
+
+    // Renderizar solicitudes públicas primero
+    publicRequests.forEach((doc) => {
+        const requestDocId = doc.id;
+        const requestData = doc.data();
+        const score = requestData.creditScoreSnapshot || 5.0;
+        const starHtml = Array(Math.round(score)).fill('★').join('') + Array(5 - Math.round(score)).fill('☆').join('');
+
+        const item = document.createElement('li');
+        item.className = 'bg-gray-50 p-3 rounded-lg border border-gray-200';
+        item.innerHTML = `
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="font-bold text-lg text-red-600">$${requestData.amount.toFixed(2)}</p>
+                    <p class="text-xs text-gray-500">Deudor: ${requestData.debtorName}</p>
+                    <p class="text-xs text-gray-500 break-all">ID: ${requestData.debtorId}</p>
+                    <p class="text-xs text-blue-600 mt-1">${requestData.description || 'Sin descripción'}</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm font-semibold text-green-700">${requestData.interestRate.toFixed(2)}% Int.</p>
+                    <p class="text-xs text-yellow-500 mt-1" title="Score de Crédito">${starHtml} (${score.toFixed(1)})</p>
+                </div>
+            </div>
+            <div class="mt-3 flex gap-2">
+                <button class="lend-on-request-btn flex-1 py-1 px-3 rounded-full text-xs font-semibold text-white btn-primary" data-id="${requestDocId}">Aceptar</button>
+                <button class="reject-request-btn flex-1 py-1 px-3 rounded-full text-xs font-semibold text-gray-800 btn-secondary" data-id="${requestDocId}">Rechazar</button>
+            </div>
+        `;
+        loanRequestsList.appendChild(item);
+    });
+
+    // Separador y 'Mis solicitudes' (si existen)
+    if (myRequests.length > 0) {
+        const header = document.createElement('li');
+        header.className = 'text-sm font-semibold text-gray-700 mt-3 mb-1';
+        header.innerHTML = '<p class="underline">Mis solicitudes</p>';
+        loanRequestsList.appendChild(header);
+
+        myRequests.forEach((doc) => {
+            const requestDocId = doc.id;
+            const requestData = doc.data();
+            const score = requestData.creditScoreSnapshot || 5.0;
+            const starHtml = Array(Math.round(score)).fill('★').join('') + Array(5 - Math.round(score)).fill('☆').join('');
+
+            const item = document.createElement('li');
+            item.className = 'bg-gray-50 p-3 rounded-lg border border-gray-200';
+            item.innerHTML = `
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="font-bold text-lg text-red-600">$${requestData.amount.toFixed(2)}</p>
+                        <p class="text-xs text-gray-500">Deudor: ${requestData.debtorName}</p>
+                        <p class="text-xs text-gray-500 break-all">ID: ${requestData.debtorId}</p>
+                        <p class="text-xs text-blue-600 mt-1">${requestData.description || 'Sin descripción'}</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm font-semibold text-green-700">${requestData.interestRate.toFixed(2)}% Int.</p>
+                        <p class="text-xs text-yellow-500 mt-1" title="Score de Crédito">${starHtml} (${score.toFixed(1)})</p>
+                    </div>
+                </div>
+                <button class="cancel-request-btn mt-3 w-full py-2 px-4 rounded-full text-md font-semibold text-white bg-red-500 hover:bg-red-600 transition" data-id="${requestDocId}">Cancelar Solicitud</button>
+            `;
+            loanRequestsList.appendChild(item);
+        });
+    }
+    
+    // Listener para Aceptar Oferta (Prestar)
+    loanRequestsList.querySelectorAll('.lend-on-request-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const docId = button.dataset.id;
+            const requestDoc = await getDoc(doc(db, `artifacts/${appId}/loan-requests/${docId}`));
+            if (requestDoc.exists()) {
+                // Se muestra diálogo de confirmación en lendOnRequest
+                await lendOnRequest(docId, requestDoc.data());
+            }
+        });
+    });
+    // Listener para Cancelar Solicitud (propias)
+    loanRequestsList.querySelectorAll('.cancel-request-btn').forEach(button => {
+        button.addEventListener('click', async (e) => {
+            const docId = button.dataset.id;
+            if (!docId) return;
+            
+            const confirmed = await showConfirmModal(
+                'Cancelar Solicitud de Préstamo',
+                'Cancelarás esta solicitud. ¿Deseas continuar?<br><br><strong>Esta acción no se puede deshacer.</strong>',
+                'warning'
+            );
+            if (!confirmed) return;
+            
+            try {
+                await cancelLoanRequest(docId);
+            } catch (err) {
+                console.error('Error al cancelar la solicitud desde el listener:', err);
+            }
+        });
+    });
+    // Listener para Rechazar Solicitud (ocultarla solo para el usuario que la rechaza)
+    loanRequestsList.querySelectorAll('.reject-request-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const docId = button.dataset.id;
+            if (!docId) return;
+            
+            const confirmed = await showConfirmModal(
+                'Rechazar Solicitud',
+                '¿Rechazas esta solicitud? Ya no se mostrará en tu lista.',
+                'info'
+            );
+            if (!confirmed) return;
+            
+            try {
+                await updateDoc(doc(db, `artifacts/${appId}/loan-requests/${docId}`), { rejectedBy: arrayUnion(userId) });
+                showMessage('Solicitud rechazada. Ya no se mostrará en tu lista.', 'info');
+            } catch (err) {
+                console.error('Error al rechazar la solicitud:', err);
+                showMessage(`Error al rechazar la solicitud: ${err.message}`, 'error');
+            }
+        });
+    });
+});
+}
+// [/ADICIÓN: Función para escuchar Solicitudes de Préstamo]
+
+// --- EXPORTAR HISTORIAL A PDF ---
+async function exportTransactionsToPDF(userId) {
+    if (!userId) { showMessage('Usuario no autenticado.', 'error'); return; }
+    showMessage('Generando PDF...', 'info');
+    try {
+        const transactionsRef = collection(db, `artifacts/${appId}/users/${userId}/transactions`);
+        const q = query(transactionsRef, orderBy('timestamp', 'desc'));
+        const snapshot = await getDocs(q);
+        if (snapshot.empty) { showMessage('No hay transacciones para exportar.', 'info'); return; }
+
+        const rows = snapshot.docs.map(d => {
+            const t = d.data();
+            const date = t.timestamp && t.timestamp.toDate ? t.timestamp.toDate().toLocaleString('es-ES') : '';
+            const desc = t.description || t.type || '';
+            const type = t.type || '';
+            const amount = (typeof t.amount === 'number') ? t.amount.toFixed(2) : (t.paidAmount ? t.paidAmount.toFixed(2) : '');
+            const status = t.status || '';
+            return [date, desc, type, amount, status];
+        });
+
+        // Get jsPDF constructor (support different global shapes)
+        let jsPDFCtor = null;
+        if (window.jspdf && window.jspdf.jsPDF) jsPDFCtor = window.jspdf.jsPDF;
+        else if (window.jsPDF) jsPDFCtor = window.jsPDF;
+        else if (typeof window.jspdf === 'function') jsPDFCtor = window.jspdf;
+
+        if (!jsPDFCtor) throw new Error('jsPDF no está disponible.');
+
+        const pdfDoc = new jsPDFCtor('p','pt','a4');
+        pdfDoc.setFontSize(14);
+        pdfDoc.text(`Historial de Transacciones - ${userNameDisplay.textContent || ''}`, 40, 40);
+        pdfDoc.setFontSize(10);
+        pdfDoc.text(`ID: ${userId}`, 40, 56);
+
+        // Add table with autoTable
+        pdfDoc.autoTable({
+            head: [['Fecha','Descripción','Tipo','Monto','Estado']],
+            body: rows,
+            startY: 80,
+            styles: { fontSize: 9, cellPadding: 4 },
+            headStyles: { fillColor: [59,130,246], textColor: 255 }
+        });
+
+        const filename = `historial_${userId}.pdf`;
+        pdfDoc.save(filename);
+        showMessage('PDF descargado.', 'success');
+    } catch (err) {
+        console.error('Error generando PDF:', err);
+        showMessage('Error generando PDF: ' + (err.message || err), 'error');
+    }
+}
+
+// Handler para botón Exportar PDF
+const exportBtn = document.getElementById('export-pdf-btn');
+if (exportBtn) {
+    exportBtn.addEventListener('click', async () => {
+        if (!currentUser) { showMessage('Debes iniciar sesión para exportar.','error'); return; }
+        await exportTransactionsToPDF(currentUser.uid);
+    });
+}

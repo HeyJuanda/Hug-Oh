@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../Scr/bank.png" />
+    <link rel="shortcut icon" href="../Scr/nav-icon.png" />
     <link rel="canonical" href="https://hug-oh.com/Bank/" />
     <meta name="description" content="Hug-Oh! • Tu Banco Digital. Gestiona tus finanzas de forma segura y rápida con nuestra plataforma de banca en línea. ¡Únete a Hug-Bank hoy mismo!">
     <title>Hug-Oh! • Tu Banco Digital</title>
@@ -229,7 +229,7 @@
 
             <!-- Contenido Principal -->
             <div class="relative z-10 text-center p-10 max-w-2xl animate-slide-up glass-card rounded-3xl shadow-2xl border border-white/60 mx-4">
-                <img src="../Scr/bank.png" alt="Hug-Oh! Logo" class="h-28 w-28 mx-auto mb-6 drop-shadow-lg">
+                <img src="../Scr/nav-icon.png" alt="Hug-Oh! Logo" class="h-28 w-28 mx-auto mb-6 drop-shadow-lg">
                 
                 <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 tracking-tight text-center">
                     Hug-Oh! <span class="text-blue-600">Bank</span>
@@ -260,10 +260,10 @@
             <div class="header-bar flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0">
                 <div class="flex-shrink-0 flex items-center">
                     <h3 class="text-2xl font-bold">
-                        <img src="../Scr/bank.svg" alt="HUG Bank Logo" onclick="window.location.href='https://store.hug-oh.com/'"  class="inline h-31 w-48 mr-2 items-center">
+                        <img src="../Scr/logo.svg" alt="HUG Bank Logo" onclick="window.location.href='https://store.hug-oh.com/'"  class="inline h-31 w-48 mr-2 items-center">
                     </h3>
                     <button id="info-btn" class="flex p-1 rounded-full text-md font-semibold btn-info">
-                        <img src="../Scr/info.svg" alt="Información" onclick="window.location.href='./Terminos.pdf'" class="inline-6 w-6 items-start opacity-70">
+                        <img src="../Scr/information.svg" alt="Información" onclick="window.location.href='./Terminos.pdf'" class="inline-6 w-6 items-start opacity-70">
                     </button>
                 </div>
 
@@ -276,13 +276,13 @@
                     </button>
                     <button id="show-transfer-btn" class="link btn-blue" title="Transferir">
                         <span class="link-icon">
-                            <img src="../Scr/trans.svg" alt="Transferir">
+                            <img src="../Scr/transfer.svg" alt="Transferir">
                         </span>
                         <span class="link-title">Transferir</span>
                     </button>
                     <button id="logout-btn" class="link btn-blue" title="Cerrar Sesión">
                         <span class="link-icon">
-                            <img src="../Scr/offb.svg" alt="Salir">
+                            <img src="../Scr/log-out-positive.svg" alt="Salir">
                         </span>
                         <span class="link-title">Salir</span>
                     </button>
@@ -306,7 +306,7 @@
                         <p class="text-xs font-bold text-gray-600 mt-0 break-all">UID: <span id="user-id-display" class="font-medium text-gray-400 mt-0 break-all">...</span></p>
                         <div class="flex items-center gap-2">
                             <p class="text-xs font-bold text-gray-600 mt-0">Crédito: <span id="credit-score-display" class="font-bold text-yellow-500 inline">N/A</span></p>
-                            <button id="reset-score-btn" class="inline-flex items-center justify-center w-5 h-5 bg-blue-400 text-white rounded-full hover:bg-blue-600 transition duration-150" title="Costo: $5.00"><img src="../Scr/rs.svg" class="w-3 h-3"></button>
+                            <button id="reset-score-btn" class="inline-flex items-center justify-center w-5 h-5 bg-blue-400 text-white rounded-full hover:bg-blue-600 transition duration-150" title="Costo: $5.00"><img src="../Scr/reset-score.svg" class="w-3 h-3"></button>
                         </div>
                     </div>
 
@@ -332,7 +332,7 @@
                         <div class="flex justify-between items-center mb-3 sm:mb-4">
                             <h3 class="text-lg sm:text-xl font-bold">Historial Completo</h3>
                             <button id="export-pdf-btn" class="text-xs py-1 px-1 color-white fill rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors">
-                                <img src="../Scr/load.svg" alt="Logout Icon" class="inline-6 w-6 items-center">
+                                <img src="../Scr/download.svg" alt="Logout Icon" class="inline-6 w-6 items-center">
                             </button>
                         </div>
                         <div id="transactions-list" class="space-y-3 max-h-[60vh] lg:max-h-[70vh] overflow-y-auto pr-2">
@@ -356,7 +356,7 @@
                         <form id="add-contact-form" class="flex gap-2 mb-4">
                             <input type="text" id="contact-uid" placeholder="UID del usuario" class="flex-1 px-3 py-2 border rounded-lg" required>
                             <button type="submit" class="p-3 rounded-full bg-blue-500 text-white hover:bg-blue-600" title="Añadir Contacto">
-                                <img src="../Scr/contactadd.svg" alt="Añadir Contacto" class="w-5 h-5">
+                                <img src="../Scr/add-contact.svg" alt="Añadir Contacto" class="w-5 h-5">
                             </button>
                         </form>
                         <div id="contacts-list" class="flex flex-col gap-2 overflow-y-auto">
