@@ -364,6 +364,25 @@
                                     <div class="space-y-4">
                                         <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Pagos y Seguridad</h4>
                                         
+                                        <!-- Nuevo: Selección de Métodos de Pago -->
+                                        <div class="space-y-2">
+                                            <label class="block text-sm font-medium text-gray-700">Métodos de Pago Habilitados</label>
+                                            <div class="flex flex-col space-y-2 bg-gray-50 p-3 rounded-lg border">
+                                                <label class="inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox" id="enable-hugbank-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                    <span class="ml-2 text-gray-700">HUG Bank (Saldo Digital)</span>
+                                                </label>
+                                                <label class="inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox" id="enable-cash-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                    <span class="ml-2 text-gray-700">Efectivo</span>
+                                                </label>
+                                                <label class="inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox" id="enable-qr-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                    <span class="ml-2 text-gray-700">Código QR Externo</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
                                         <div class="flex items-start space-x-4">
                                             <div class="flex-shrink-0">
                                                 <label for="business-qr-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-purple-50 hover:border-purple-400 transition-colors relative overflow-hidden">
