@@ -204,9 +204,15 @@
                                     <p class="text-slate-500 text-sm mt-1">Potencia total para tu empresa</p>
                                 </div>
 
-                                <div class="flex items-baseline mb-8">
-                                    <span class="text-6xl font-black text-slate-900 tracking-tighter">$29.99</span>
-                                    <span class="text-slate-500 ml-2 font-medium">/ Lifetime</span>
+                                <!-- Selector de Plan (Nuevo) -->
+                                <div class="flex justify-center gap-2 mb-6 bg-slate-100 p-1 rounded-full w-fit mx-auto">
+                                    <button id="btn-plan-monthly" class="px-4 py-2 rounded-full text-sm font-bold text-slate-500 hover:text-slate-700 transition-all">Mensual</button>
+                                    <button id="btn-plan-annual" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-blue-600 shadow-sm transition-all">Anual (-15%)</button>
+                                </div>
+
+                                <div class="flex items-baseline mb-8 justify-center">
+                                    <span id="price-display" class="text-6xl font-black text-slate-900 tracking-tighter">$79.99</span>
+                                    <span id="period-display" class="text-slate-500 ml-2 font-medium">/ Año</span>
                                 </div>
 
                                 <!-- Contenedor para el botón de PayPal -->
