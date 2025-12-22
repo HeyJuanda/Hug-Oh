@@ -338,12 +338,13 @@
                                         <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Información General</h4>
                                         
                                         <div class="flex items-center space-x-4">
-                                            <div class="flex-shrink-0">
+                                            <div class="flex-shrink-0 flex flex-col items-center gap-1">
                                                 <label for="business-logo-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-colors relative overflow-hidden">
                                                     <span class="text-xs text-gray-400 font-bold text-center" id="business-logo-placeholder">Subir<br>Logo</span>
                                                     <img id="business-logo-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="Logo Preview">
                                                     <input type="file" id="business-logo-input" accept="image/*" style="display:none">
                                                 </label>
+                                                <button type="button" id="remove-business-logo-btn" class="text-xs text-red-500 hover:text-red-700 font-medium hidden">Eliminar</button>
                                             </div>
                                             <div class="flex-grow">
                                                 <label for="business-name-input" class="block text-sm font-medium">Nombre del Negocio</label>
@@ -362,6 +363,34 @@
                                             <label for="business-message-input" class="block text-sm font-medium">Mensaje Post-Compra</label>
                                             <textarea id="business-message-input" rows="2" placeholder="¡Gracias por su compra! Vuelva pronto."
                                                 class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sección: Configuración de Sonido -->
+                                    <div class="space-y-4">
+                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Sonido de Escáner</h4>
+                                        
+                                        <div class="flex items-center justify-between">
+                                            <label class="flex items-center space-x-2 cursor-pointer">
+                                                <input type="checkbox" id="enable-beep-input" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                <span class="text-sm text-gray-700">Habilitar sonido al escanear</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="flex items-center space-x-3">
+                                            <div class="flex-grow">
+                                                <label class="block text-xs font-medium text-gray-500 mb-1">Sonido Personalizado (.mp3, .wav)</label>
+                                                <div class="flex items-center space-x-2">
+                                                    <label for="business-sound-input" class="cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-bold text-gray-700 transition-colors">
+                                                        Subir Audio
+                                                        <input type="file" id="business-sound-input" accept="audio/*" style="display:none">
+                                                    </label>
+                                                    <button type="button" id="remove-business-sound-btn" class="py-2 px-3 bg-red-50 hover:bg-red-100 rounded-lg text-xs font-bold text-red-600 transition-colors" title="Restaurar por defecto">
+                                                        Restaurar
+                                                    </button>
+                                                </div>
+                                                <p id="business-sound-status" class="text-xs text-gray-500 mt-1">Sonido por defecto (Beep)</p>
+                                            </div>
                                         </div>
                                     </div>
 
