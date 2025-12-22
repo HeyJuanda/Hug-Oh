@@ -135,6 +135,10 @@
         .link.btn-gray { background-color: #6b7280; }
         .link.btn-gray:before { background-color: #374151; } /* Darker gray on hover */
 
+                /* Gray Button Variant */
+        .link.btn-green { background-color: #19bf61; }
+        .link.btn-green:before { background-color: #0a7e3c; } /* Darker gray on hover */
+
         .link:hover,
         .link:focus {
             outline: 0;
@@ -940,8 +944,11 @@
                                         <option value="yearly">Año Actual</option>
                                         <option value="total" selected>Total</option>
                                     </select>
-                                    <button id="refresh-stats-btn" class="py-1 px-3 rounded-full text-sm font-semibold text-white bg-green-500 hover:bg-green-700">
-                                        <img src="../Scr/reload.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                    <button id="refresh-stats-btn" class="link btn-green" title="Recargar Estadísticas">
+                                        <span class="link-icon">
+                                            <img src="../Scr/reload.svg" alt="Recargar">
+                                        </span>
+                                        <span class="link-title">Recargar</span>
                                     </button>
                                  </div>
                                  
