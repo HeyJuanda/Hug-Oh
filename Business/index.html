@@ -225,14 +225,12 @@
 
         <div id="charge-setup" class="bg-card hidden">
                 <div class="p-4 md:p-6 border-b flex justify-between items-center relative">
-                     <div class="z-10">
-                        <h2 id="current-view-title" class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
-                        <p class="text-sm">Bienvenido, <span id="business-name-display" class="font-bold"></span></p>
-                     </div>
-
-                     <!-- Center Logo -->
-                     <div class="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2">
+                     <div class="z-10 flex items-center gap-3">
                         <img id="header-business-logo" src="" alt="Logo" class="h-14 w-14 object-contain rounded-lg border-2 border-white shadow-sm hidden">
+                        <div>
+                            <h2 id="current-view-title" class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
+                            <p class="text-sm">Bienvenido, <span id="business-name-display" class="font-bold"></span></p>
+                        </div>
                      </div>
 
                      <!-- Menu Container with Responsive Wrapper -->
@@ -249,6 +247,13 @@
                              <!-- Se cambió items-center por items-end en móvil para que la expansión sea hacia la izquierda -->
                              <div class="menu flex-col items-end md:flex-row md:items-center">
                                 <!-- Botón Punto de Venta (Blue) -->
+                                <button id="upgrade-plus-btn" onclick="window.location.href='./Plus/'" class="link btn-blue" title="Plus +">
+                                    <span class="link-icon">
+                                        <img src="../Scr/plus.svg" alt="Punto de Venta">
+                                    </span>
+                                    <span class="link-title">Plus +</span>
+                                </button>
+
                                 <button id="toggle-pos-btn" class="link btn-blue" title="Punto de Venta">
                                     <span class="link-icon">
                                         <img src="../Scr/cart.svg" alt="Punto de Venta">
@@ -572,9 +577,6 @@
                                 <h3 class="text-xl font-semibold mb-3 flex justify-between items-center">
                                     <span class="flex items-center">
                                         <span id="product-limit-display" class="text-sm font-normal text-gray-500 ml-2">[0 / 65]</span>
-                                        <button id="upgrade-plus-btn" onclick="window.location.href='./Plus/'" class="ml-2 px-2 py-0.5 bg-blue-600 text-white text-xs font-bold rounded-3xl shadow-sm hover:shadow-md transition-all hidden">
-                                            Mejorar a Plus +
-                                        </button>
                                     </span>
                                     <div class="flex space-x-2">
                                         <button id="open-camera-scanner-btn" class="text-white bg-blue-500 hover:bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-lg shadow-md" title="Escanear con Cámara">
