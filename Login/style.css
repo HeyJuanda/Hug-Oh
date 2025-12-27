@@ -1,4 +1,4 @@
-  :root {
+:root {
             --hug-primary: #007bff;
             --hug-text-color: #1f2937;
             --hug-header: #3b82f6;
@@ -52,3 +52,18 @@
             background-color: rgba(0, 0, 0, 0.5); 
             z-index: 50; 
         }
+
+/* Additional custom styles can be added here */
+/* Most styles are now inline in the HTML for better maintainability */
+
+/* Smooth transitions for all interactive elements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus visible for accessibility */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #1da1f2;
+    outline-offset: 2px;
+}

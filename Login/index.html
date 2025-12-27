@@ -9,265 +9,543 @@
     <title>Hug-Oh! • Iniciar Sesión</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-        <!-- button-animations-start -->
-        <style>
-        /* Animaciones para botones y elementos (mismo estilo usado en otras páginas) */
-        .btn-primary, .btn-secondary, button {
+    <style>
+        /* Custom Animations & Styles */
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        
+        /* Split Screen Layout */
+        .hero-section {
+            background: linear-gradient(135deg, #1da1f2 0%, #0c7abf 100%);
             position: relative;
             overflow: hidden;
-            transition: transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s;
-            will-change: transform;
         }
-        .btn-primary:hover, .btn-secondary:hover, button:hover {
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 8px 20px rgba(0,0,0,.12);
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
         }
-        .btn-primary:active, .btn-secondary:active, button:active {
-            transform: translateY(0) scale(.995);
-            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
         }
-        button:focus { outline: none; box-shadow: 0 0 0 4px rgba(59,130,246,.12); }
-
-        /* Ripple */
-        .btn-ripple { position: relative; overflow: hidden; }
-        .btn-ripple .ripple { position: absolute; border-radius: 50%; transform: scale(0); animation: ripple 600ms linear; background-color: rgba(255,255,255,0.6); pointer-events: none; }
-        @keyframes ripple { to { transform: scale(4); opacity: 0; } }
-
-        .inline-6:active { transform: translateY(1px) scale(.98); }
-        .rounded-full { transition: transform .18s, box-shadow .18s; }
-
-        /* Animación cuando la ventana se hace más alta (suavizada) */
-        #app.viewport-expand-anim { animation: viewportExpand 600ms cubic-bezier(.22,.9,.3,1) both; transform-origin: top center; will-change: transform, opacity; }
-        @keyframes viewportExpand { from { transform: translateY(-6px) scaleY(.997); opacity: .98; } 50% { transform: translateY(-2px) scaleY(.9985); opacity: .995; } to { transform: translateY(0) scaleY(1); opacity: 1; } }
-
-        /* Hover/Focus effect para el heading de auth (pequeño brillo) */
-        #auth-heading { display: inline-block; transition: transform 260ms cubic-bezier(.22,.9,.3,1), text-shadow 260ms ease, color 260ms ease, filter 260ms ease; }
-        #auth-heading:hover, #auth-heading:focus { transform: scale(1.06); color: #0ea5e9; text-shadow: 0 10px 30px rgba(14,165,233,0.14); filter: drop-shadow(0 8px 20px rgba(14,165,233,0.08)); }
-        @media (prefers-reduced-motion: reduce) { #auth-heading, .btn-primary, .btn-secondary, button { transition: none; } }
-        </style>
-        <!-- button-animations-end -->
+        
+        /* Modern Input Styles */
+        .modern-input {
+            background: #f7f9fa;
+            border: 2px solid #e1e8ed;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-input:focus {
+            background: white;
+            border-color: #1da1f2;
+            box-shadow: 0 0 0 4px rgba(29, 161, 242, 0.1);
+            outline: none;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: #1da1f2;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #1a91da;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(29, 161, 242, 0.3);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(29, 161, 242, 0.2);
+        }
+        
+        .btn-secondary {
+            background: white;
+            border: 1px solid #e1e8ed;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #f7f9fa;
+            border-color: #ccd6dd;
+            transform: translateY(-2px);
+        }
+        
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s ease-out;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Card Styles */
+        .auth-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        /* Password Requirements */
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .requirement-item.valid {
+            color: #17bf63;
+        }
+        
+        .requirement-item.valid .icon {
+            content: '✓';
+        }
+        
+        /* Smooth Page Transitions */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Logo Animation */
+        .logo-container {
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                display: none;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #1da1f2;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0c7abf;
+        }
+    </style>
 </head>
-<body class="min-h-screen flex items-start justify-center p-2 sm:p-4 md:p-8 bg-gradient-to-br from-blue-100 to-blue-300 w-full">
+<body class="min-h-screen bg-white">
 
-    <div id="app" class="w-full max-w-md sm:max-w-lg md:max-w-xl">
+    <!-- Main Container -->
+    <div class="flex min-h-screen">
         
-        <div id="auth-view" class="bg-card p-4 sm:p-6 md:p-8 w-full sm:max-w-md mx-auto mt-4 sm:mt-8 md:mt-12">
-            <div class="flex items-center gap-2 mb-4">
-                <img src="../Scr/nav-icon.png" class="h-10 sm:h-12 md:h-14 w-auto"> 
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold" id="auth-heading">Iniciar Sesión</h2>
-            </div>
-            <form id="auth-form" class="space-y-3 sm:space-y-4">
-                
-                <div id="name-field" class="hidden">
-                    <label for="name" class="block text-xs sm:text-sm font-medium">Nombre</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+        <!-- Left Hero Section (Hidden on Mobile) -->
+        <div class="hero-section hidden md:flex md:w-1/2 lg:w-3/5 items-center justify-center p-8 lg:p-16">
+            <div class="text-white z-10 max-w-xl">
+                <div class="logo-container mb-8">
+                    <img src="../Scr/nav-icon.png" class="h-24 lg:h-32 w-auto drop-shadow-2xl" alt="Hug-Oh Logo">
                 </div>
-                
-                <div id="dob-field" class="hidden">
-                    <label for="dob" class="block text-xs sm:text-sm font-medium">Fecha de Nacimiento</label>
-                    <input type="date" id="dob" name="dob" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                    <p class="text-xs text-gray-600 mt-1">Si eres menor de edad, no afectará la experiencia.</p>
-                </div>
-                
-                <div>
-                        <script type="module" src="script.js"></script>
-                        <!-- button-animations-script-start -->
-                        <script>
-                        (function(){
-                            // Ripple effect
-                            function createRipple(e){
-                                const btn = e.currentTarget;
-                                const rect = btn.getBoundingClientRect();
-                                const ripple = document.createElement('span');
-                                ripple.className = 'ripple';
-                                const size = Math.max(rect.width, rect.height);
-                                ripple.style.width = ripple.style.height = size + 'px';
-                                ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
-                                ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
-                                btn.appendChild(ripple);
-                                setTimeout(()=> ripple.remove(), 700);
-                            }
-                            const buttons = Array.from(document.querySelectorAll('button, [role="button"], .btn-primary, .btn-secondary'));
-                            buttons.forEach(b=>{ b.classList.add('btn-ripple'); b.addEventListener('click', createRipple); });
-
-                            // Resize animation (suave) - dispara cuando la altura aumenta
-                            let lastInnerHeight = window.innerHeight;
-                            let resizeTimer = null;
-                            const THRESHOLD = 20;
-                            window.addEventListener('resize', function(){
-                                const newH = window.innerHeight;
-                                if (newH > lastInnerHeight + THRESHOLD) {
-                                    const app = document.getElementById('app');
-                                    if (app) { app.classList.remove('viewport-expand-anim'); void app.offsetWidth; app.classList.add('viewport-expand-anim'); setTimeout(()=> app.classList.remove('viewport-expand-anim'), 700); }
-                                }
-                                clearTimeout(resizeTimer);
-                                resizeTimer = setTimeout(()=> { lastInnerHeight = window.innerHeight; }, 240);
-                            });
-                        })();
-                        </script>
-                        <!-- button-animations-script-end -->
-                        <label for="email" class="block text-xs sm:text-sm font-medium">Correo</label>
-                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                </div>
-                
-                <div>
-                    <label for="password" class="block text-xs sm:text-sm font-medium">Contraseña</label>
-                    
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                        <input type="password" id="password" name="password" required class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                        
-                        <button type="button" id="toggle-requirements" class="mt-1 sm:mt-1 flex-shrink-0 px-2 sm:px-3 py-2 bg-gray-200 text-gray-700 text-xs font-medium rounded-lg hover:bg-gray-300 transition-colors hidden whitespace-nowrap">
-                            Ver Requisitos
-                        </button>
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Tu banco digital del futuro
+                </h1>
+                <p class="text-xl lg:text-2xl opacity-90 leading-relaxed">
+                    Gestiona tu dinero de forma inteligente, rápida y segura. Únete a miles de usuarios que ya confían en Hug-Oh!
+                </p>
+                <div class="mt-12 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg">Transferencias instantáneas</span>
                     </div>
-                    
-                    <div id="password-requirements" class="mt-2 text-xs text-gray-600 password-req-list space-y-0.5 hidden">
-                        <p id="req-length" class="text-red-500 flex items-center">
-                            <span class="mr-1">❌</span> <span>Mínimo 8 / Máximo 36 caracteres</span>
-                        </p>
-                        <p id="req-uppercase" class="text-red-500 flex items-center">
-                            <span class="mr-1">❌</span> <span>Una letra mayúscula</span>
-                        </p>
-                        <p id="req-lowercase" class="text-red-500 flex items-center">
-                            <span class="mr-1">❌</span> <span>Una letra minúscula</span>
-                        </p>
-                        <p id="req-number" class="text-red-500 flex items-center">
-                            <span class="mr-1">❌</span> <span>Un número</span>
-                        </p>
-                        <p id="req-special" class="text-red-500 flex items-center">
-                            <span class="mr-1">❌</span> <span>Un carácter especial (!@#$...)</span>
-                        </p>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg">Seguridad de nivel bancario</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg">Sin comisiones ocultas</span>
                     </div>
                 </div>
-
-                <div id="confirm-password-field" class="hidden">
-                    <label for="confirm-password" class="block text-xs sm:text-sm font-medium">Confirmar Contraseña</label>
-                    <input type="password" id="confirm-password" name="confirm-password" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                </div>
-                
-                <div id="terms-checkbox-field" class="hidden">
-                    <div class="flex items-start gap-2">
-                        <input type="checkbox" id="accept-terms" name="accept-terms" class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0">
-                        <label for="accept-terms" class="block text-xs sm:text-sm text-gray-700">
-                            Acepto los <a href="../Bank/Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Términos y Condiciones</a>
-                        </label>
-                    </div>
-                </div>
-                <div class="text-right mt-1" id="forgot-password-container">
-                    <button type="button" id="forgot-password" class="text-xs text-blue-500 hover:text-blue-700 focus:outline-none">
-                        ¿Olvidaste tu contraseña?
-                    </button>
-                </div>
-                
-                <button type="submit" id="auth-button" class="w-full py-2.5 sm:py-3 px-4 rounded-full text-base sm:text-lg font-semibold text-white btn-primary">
-                    Iniciar Sesión
-                </button>
-                
-                <button type="button" id="google-auth-button" class="w-full py-2.5 sm:py-3 px-4 rounded-full text-sm sm:text-base font-semibold text-gray-700 border-2 border-gray-300 bg-white hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 mt-2 sm:mt-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/48px-Google_%22G%22_logo.svg.png" alt="Google logo" class="h-5 w-5 sm:h-6 sm:w-6">
-                    <span class="hidden sm:inline">Iniciar Sesión con Google</span>
-                    <span class="sm:hidden">Google</span>
-                </button>
-                </form>
-            <div class="text-center mt-3 sm:mt-4">
-                <button id="toggle-auth" class="text-xs sm:text-sm text-blue-600 hover:text-blue-800 focus:outline-none">
-                    ¿No tienes cuenta? Regístrate aquí.
-                </button>
             </div>
         </div>
-
-        <div id="verification-view" class="bg-card p-4 sm:p-6 md:p-8 w-full sm:max-w-md mx-auto mt-4 sm:mt-8 md:mt-12 text-center hidden">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-blue-600">📧 ¡Verifica tu Correo Electrónico!</h3>
-            <p class="mb-4 sm:mb-6 text-sm sm:text-base text-gray-700">
-                Hemos enviado un enlace de verificación a tu correo. Por favor, revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.
-            </p>
-            <p class="mb-6 sm:mb-8 font-semibold text-xs sm:text-sm">
-                **Recuerda: Si ya verificaste, haz clic en el botón de abajo.**
-            </p>
-            <button id="verification-reload-button" class="w-full py-2.5 sm:py-3 px-4 rounded-full text-base sm:text-lg font-semibold text-white btn-primary">
-                Correo Verificado
-            </button>
-        </div>
         
-        <div id="confirm-extra-view" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-2 sm:p-4"> 
-            
-            <div class="bg-card p-4 sm:p-6 md:p-8 w-full sm:max-w-md mx-auto text-left">
+        <!-- Right Auth Section -->
+        <div class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-4 sm:p-8">
+            <div class="w-full max-w-md">
                 
-                <div class="flex items-center gap-2 mb-4">
-                    <img src="../Scr/nav-icon.png" class="h-10 sm:h-12 md:h-14 w-auto"> 
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold">Confirma tu Información</h2>
+                <!-- Mobile Logo -->
+                <div class="md:hidden text-center mb-8">
+                    <img src="../Scr/nav-icon.png" class="h-16 w-auto mx-auto mb-4" alt="Hug-Oh Logo">
+                    <h2 class="text-2xl font-bold text-gray-900">Bienvenido a Hug-Oh!</h2>
                 </div>
-                
-                <p class="mb-3 text-sm text-gray-700">Hemos detectado que falta tu nombre o fecha de nacimiento. Por favor confirma los datos para completar tu registro.</p>
-                
-                <form id="confirm-extra-form" class="space-y-3 sm:space-y-4">
+
+                <!-- Auth View -->
+                <div id="auth-view" class="fade-in">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2" id="auth-heading">Inicia sesión</h2>
+                    <p class="text-gray-600 mb-8">Accede a tu cuenta para continuar</p>
                     
-                    <div>
-                        <label for="confirm-name" class="block text-xs sm:text-sm font-medium">Nombre</label>
-                        <input type="text" id="confirm-name" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                    </div>
-                    
-                    <div>
-                        <label for="confirm-dob" class="block text-xs sm:text-sm font-medium">Fecha de Nacimiento</label>
-                        <input type="date" id="confirm-dob" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
-                        <p class="text-xs text-gray-600 mt-1">Si eres menor de edad, no afectará la experiencia.</p>
-                    </div>
-                    
-                    <div>
-                        <label for="confirm-password-extra" class="block text-xs sm:text-sm font-medium">Contraseña (Para inicio de sesión con correo)</label>
+                    <form id="auth-form" class="space-y-5">
                         
-                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                             <input type="password" id="confirm-password-extra" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                        <!-- Name Field (for signup) -->
+                        <div id="name-field" class="hidden">
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Nombre completo</label>
+                            <input type="text" id="name" name="name" 
+                                   class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                   placeholder="Ingresa tu nombre">
+                        </div>
+                        
+                        <!-- Date of Birth (for signup) -->
+                        <div id="dob-field" class="hidden">
+                            <label for="dob" class="block text-sm font-semibold text-gray-700 mb-2">Fecha de nacimiento</label>
+                            <input type="date" id="dob" name="dob" 
+                                   class="modern-input w-full px-4 py-3 rounded-lg text-base">
+                            <p class="text-xs text-gray-500 mt-2">Si eres menor de edad, no afectará tu experiencia.</p>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                   placeholder="tu@email.com">
+                        </div>
+                        
+                        <!-- Password -->
+                        <div>
+                            <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Contraseña</label>
+                            <div class="relative">
+                                <input type="password" id="password" name="password" required 
+                                       class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                       placeholder="Ingresa tu contraseña">
+                                <button type="button" id="toggle-requirements" 
+                                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 text-sm font-medium hidden">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
                             
-                            <button type="button" id="toggle-confirm-requirements" class="mt-1 sm:mt-1 flex-shrink-0 px-2 sm:px-3 py-2 bg-gray-200 text-gray-700 text-xs font-medium rounded-lg hover:bg-gray-300 transition-colors whitespace-nowrap">
-                                Ver Requisitos
+                            <!-- Password Requirements -->
+                            <div id="password-requirements" class="mt-3 p-3 bg-gray-50 rounded-lg space-y-2 hidden">
+                                <p class="text-xs font-semibold text-gray-700 mb-2">Tu contraseña debe contener:</p>
+                                <div class="requirement-item text-xs text-gray-600" id="req-length">
+                                    <span class="icon">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>8-36 caracteres</span>
+                                </div>
+                                <div class="requirement-item text-xs text-gray-600" id="req-uppercase">
+                                    <span class="icon">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>Una letra mayúscula</span>
+                                </div>
+                                <div class="requirement-item text-xs text-gray-600" id="req-lowercase">
+                                    <span class="icon">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>Una letra minúscula</span>
+                                </div>
+                                <div class="requirement-item text-xs text-gray-600" id="req-number">
+                                    <span class="icon">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>Un número</span>
+                                </div>
+                                <div class="requirement-item text-xs text-gray-600" id="req-special">
+                                    <span class="icon">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>Un carácter especial (!@#$...)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password (for signup) -->
+                        <div id="confirm-password-field" class="hidden">
+                            <label for="confirm-password" class="block text-sm font-semibold text-gray-700 mb-2">Confirmar contraseña</label>
+                            <input type="password" id="confirm-password" name="confirm-password" 
+                                   class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                   placeholder="Confirma tu contraseña">
+                        </div>
+                        
+                        <!-- Terms Checkbox (for signup) -->
+                        <div id="terms-checkbox-field" class="hidden">
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="accept-terms" name="accept-terms" 
+                                       class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                <label for="accept-terms" class="text-sm text-gray-700">
+                                    Acepto los <a href="../Bank/Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 font-semibold">Términos y Condiciones</a>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Forgot Password -->
+                        <div class="text-right" id="forgot-password-container">
+                            <button type="button" id="forgot-password" class="text-sm text-blue-500 hover:text-blue-700 font-medium">
+                                ¿Olvidaste tu contraseña?
                             </button>
                         </div>
                         
-                        <div id="confirm-password-requirements" class="mt-2 text-xs text-gray-600 password-req-list space-y-0.5 hidden">
-                            <p id="confirm-req-length" class="text-red-500 flex items-center">
-                                <span class="mr-1">❌</span> <span>Mínimo 8 / Máximo 36 caracteres</span>
-                            </p>
-                            <p id="confirm-req-uppercase" class="text-red-500 flex items-center">
-                                <span class="mr-1">❌</span> <span>Una letra mayúscula</span>
-                            </p>
-                            <p id="confirm-req-lowercase" class="text-red-500 flex items-center">
-                                <span class="mr-1">❌</span> <span>Una letra minúscula</span>
-                            </p>
-                            <p id="confirm-req-number" class="text-red-500 flex items-center">
-                                <span class="mr-1">❌</span> <span>Un número</span>
-                            </p>
-                            <p id="confirm-req-special" class="text-red-500 flex items-center">
-                                <span class="mr-1">❌</span> <span>Un carácter especial (!@#$...)</span>
-                            </p>
+                        <!-- Submit Button -->
+                        <button type="submit" id="auth-button" 
+                                class="btn-primary w-full py-3.5 rounded-full text-base font-bold text-white shadow-lg">
+                            Iniciar sesión
+                        </button>
+                        
+                        <!-- Divider -->
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-4 bg-white text-gray-500">o</span>
+                            </div>
                         </div>
-                    </div>
+                        
+                        <!-- Google Auth Button -->
+                        <button type="button" id="google-auth-button" 
+                                class="btn-secondary w-full py-3.5 rounded-full text-base font-semibold text-gray-700 flex items-center justify-center gap-3 shadow-sm">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/48px-Google_%22G%22_logo.svg.png" 
+                                 alt="Google" class="h-5 w-5">
+                            <span>Continuar con Google</span>
+                        </button>
+                    </form>
                     
-                    <div>
-                        <label for="confirm-password-extra-2" class="block text-xs sm:text-sm font-medium">Confirmar Contraseña</label>
-                        <input type="password" id="confirm-password-extra-2" class="mt-1 block w-full px-2 sm:px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base">
+                    <!-- Toggle Auth Mode -->
+                    <div class="text-center mt-8">
+                        <button id="toggle-auth" class="text-sm text-gray-600 hover:text-gray-900">
+                            ¿No tienes cuenta? <span class="text-blue-500 hover:text-blue-700 font-semibold">Regístrate</span>
+                        </button>
                     </div>
-                    
-                    <div class="mt-3">
-                        <div class="flex items-start gap-2">
-                            <input type="checkbox" id="confirm-accept-terms" name="confirm-accept-terms" class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0">
-                            <label for="confirm-accept-terms" class="block text-xs sm:text-sm text-gray-700">
-                                Acepto los <a href="../Bank/Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 font-medium">Términos y Condiciones</a>
-                            </label>
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="pt-4 flex gap-2">
-                        <button id="confirm-extra-button" type="button" class="w-1/2 py-2 px-3 rounded-full text-white btn-primary">Confirmar</button>
-                        <button id="cancel-confirm-extra-button" type="button" class="w-1/2 py-2 px-3 rounded-full text-gray-700 border-2 border-gray-300 bg-white hover:bg-gray-100">Cancelar</button>
+                <!-- Verification View -->
+                <div id="verification-view" class="hidden fade-in text-center">
+                    <div class="bg-blue-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
                     </div>
-                </form>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Verifica tu correo</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Hemos enviado un enlace de verificación a tu correo electrónico. Por favor, revisa tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.
+                    </p>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 flex items-start gap-3">
+                        <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <p class="text-sm text-yellow-700">
+                            <strong>Nota:</strong> Si ya verificaste tu correo, haz clic en el botón de abajo.
+                        </p>
+                    </div>
+                    <button id="verification-reload-button" 
+                            class="btn-primary w-full py-3.5 rounded-full text-base font-bold text-white shadow-lg">
+                        Ya verifiqué mi correo
+                    </button>
+                </div>
+
+                <!-- Confirm Extra Info Modal -->
+                <div id="confirm-extra-view" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl">
+                        <div class="flex items-center gap-3 mb-6">
+                            <img src="../Scr/nav-icon.png" class="h-12 w-auto"> 
+                            <h2 class="text-2xl font-bold text-gray-900">Completa tu perfil</h2>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-6">Para finalizar tu registro, necesitamos algunos datos adicionales.</p>
+                        
+                        <form id="confirm-extra-form" class="space-y-5">
+                            <div>
+                                <label for="confirm-name" class="block text-sm font-semibold text-gray-700 mb-2">Nombre completo</label>
+                                <input type="text" id="confirm-name" 
+                                       class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                       placeholder="Ingresa tu nombre">
+                            </div>
+                            
+                            <div>
+                                <label for="confirm-dob" class="block text-sm font-semibold text-gray-700 mb-2">Fecha de nacimiento</label>
+                                <input type="date" id="confirm-dob" 
+                                       class="modern-input w-full px-4 py-3 rounded-lg text-base">
+                                <p class="text-xs text-gray-500 mt-2">Si eres menor de edad, no afectará tu experiencia.</p>
+                            </div>
+                            
+                            <div>
+                                <label for="confirm-password-extra" class="block text-sm font-semibold text-gray-700 mb-2">Contraseña</label>
+                                <input type="password" id="confirm-password-extra" 
+                                       class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                       placeholder="Crea una contraseña segura">
+                                <button type="button" id="toggle-confirm-requirements" 
+                                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium">
+                                    Ver requisitos de contraseña
+                                </button>
+                                
+                                <div id="confirm-password-requirements" class="mt-3 p-3 bg-gray-50 rounded-lg space-y-2 hidden">
+                                    <p class="text-xs font-semibold text-gray-700 mb-2">Tu contraseña debe contener:</p>
+                                    <div class="requirement-item text-xs text-gray-600" id="confirm-req-length">
+                                        <span class="icon">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                        <span>8-36 caracteres</span>
+                                    </div>
+                                    <div class="requirement-item text-xs text-gray-600" id="confirm-req-uppercase">
+                                        <span class="icon">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                        <span>Una letra mayúscula</span>
+                                    </div>
+                                    <div class="requirement-item text-xs text-gray-600" id="confirm-req-lowercase">
+                                        <span class="icon">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                        <span>Una letra minúscula</span>
+                                    </div>
+                                    <div class="requirement-item text-xs text-gray-600" id="confirm-req-number">
+                                        <span class="icon">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                        <span>Un número</span>
+                                    </div>
+                                    <div class="requirement-item text-xs text-gray-600" id="confirm-req-special">
+                                        <span class="icon">
+                                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </span>
+                                        <span>Un carácter especial (!@#$...)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="confirm-password-extra-2" class="block text-sm font-semibold text-gray-700 mb-2">Confirmar contraseña</label>
+                                <input type="password" id="confirm-password-extra-2" 
+                                       class="modern-input w-full px-4 py-3 rounded-lg text-base"
+                                       placeholder="Confirma tu contraseña">
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="confirm-accept-terms" name="confirm-accept-terms" 
+                                       class="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                <label for="confirm-accept-terms" class="text-sm text-gray-700">
+                                    Acepto los <a href="../Bank/Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 font-semibold">Términos y Condiciones</a>
+                                </label>
+                            </div>
+
+                            <div class="flex gap-3 pt-4">
+                                <button id="confirm-extra-button" type="button" 
+                                        class="btn-primary flex-1 py-3 rounded-full font-bold text-white">
+                                    Confirmar
+                                </button>
+                                <button id="cancel-confirm-extra-button" type="button" 
+                                        class="btn-secondary flex-1 py-3 rounded-full font-semibold text-gray-700">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Message Box -->
+                <div id="message-box" class="mt-6 p-4 rounded-lg text-sm hidden" role="alert"></div>
+
             </div>
         </div>
-        <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden" role="alert"></div>
-
     </div>
-    
+
     <script type="module" src="script.js"></script>
+    <script>
+        // Ripple effect
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('button, [role="button"]')) {
+                const button = e.target;
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                
+                const rect = button.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                button.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            }
+        });
+    </script>
 </body>
 </html>
