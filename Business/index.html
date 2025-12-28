@@ -407,10 +407,6 @@
                                             <label class="block text-sm font-medium text-gray-700">Métodos de Pago Habilitados</label>
                                             <div class="flex flex-col space-y-2 bg-gray-50 p-3 rounded-lg border">
                                                 <label class="inline-flex items-center cursor-pointer">
-                                                    <input type="checkbox" id="enable-hugbank-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
-                                                    <span class="ml-2 text-gray-700">HUG Bank (Saldo Digital)</span>
-                                                </label>
-                                                <label class="inline-flex items-center cursor-pointer">
                                                     <input type="checkbox" id="enable-cash-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
                                                     <span class="ml-2 text-gray-700">Efectivo</span>
                                                 </label>
@@ -806,17 +802,9 @@
                                     <form id="payment-options-form" class="space-y-4">
                                         
                                         <div class="payment-option-wrapper">
-                                            <input type="radio" id="option-hug-bank" name="payment-option" value="hug-bank" class="radio-option">
-                                            <label for="option-hug-bank" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
-                                                <span>1. Pagar con HUG-Bank!</span>
-                                                <img src="../Scr/card.svg" alt="Manage" class="h-5 w-5">
-                                            </label>
-                                        </div>
-    
-                                        <div class="payment-option-wrapper">
                                             <input type="radio" id="option-cash" name="payment-option" value="cash" class="radio-option">
                                             <label for="option-cash" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
-                                                <span>2. Pagar con Efectivo</span>
+                                                <span>1. Pagar con Efectivo</span>
                                                 <img src="../Scr/cash.svg" alt="Manage" class="h-5 w-5">
                                             </label>
                                         </div>
@@ -824,7 +812,7 @@
                                         <div class="payment-option-wrapper">
                                             <input type="radio" id="option-qr" name="payment-option" value="qr" class="radio-option">
                                             <label for="option-qr" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
-                                                <span>3. Pagar con QR</span>
+                                                <span>2. Pagar con QR</span>
                                                 <img src="../Scr/qr.svg" alt="Manage" class="h-5 w-5">
                                             </label>
                                         </div>
@@ -833,34 +821,6 @@
                                 </div>
                                 <div class="mt-auto">
                                     <button id="cancel-payment-selection-btn" class="w-full mt-6 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
-                                        Cancelar Transacción
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div id="customer-login-view" class="hidden flex-grow flex flex-col justify-center">
-                                <div class="max-w-md mx-auto w-full">
-                                    <h2 class="text-2xl font-bold mb-2 text-center">
-                                        Monto a Pagar: <span id="display-charge-amount-login" class="text-hug-danger">$0.00</span>
-                                    </h2>
-                                    <p class="text-center text-lg font-medium mb-6">Paso 3: Cliente debe Iniciar Sesión (HUG Bank)</p>
-                
-                                    <form id="customer-login-form" class="space-y-4">
-                                        <div>
-                                            <label for="customer-email" class="block text-sm font-medium">Correo Electrónico del Cliente</label>
-                                            <input type="email" id="customer-email" required placeholder="tu.correo@ejemplo.com"
-                                                   class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                        </div>
-                                        <div>
-                                            <label for="customer-password" class="block text-sm font-medium">Contraseña del Cliente</label>
-                                            <input type="password" id="customer-password" required placeholder="********"
-                                                   class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                        </div>
-                                        <button type="submit" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
-                                            Continuar al Pago
-                                        </button>
-                                    </form>
-                                    <button id="cancel-login-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
                                         Cancelar Transacción
                                     </button>
                                 </div>
@@ -894,27 +854,6 @@
                                    </button>
                                 </div>
                            </div>
-    
-                            <div id="payment-confirmation-view" class="hidden flex-grow flex flex-col justify-center text-center">
-                                 <div class="max-w-md mx-auto w-full">
-                                    <h2 class="text-3xl font-extrabold mb-4 text-hug-header">Confirmación de Pago</h2>
-                
-                                     <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 mb-6">
-                                        <p class="text-sm text-blue-600">Total a Cobrar</p>
-                                        <h3 class="text-5xl font-extrabold mt-1" id="display-charge-amount-confirm">$0.00</h3>
-                                        <p class="text-sm text-blue-600 mt-2">Tu Saldo Actual: <span id="display-current-balance" class="font-bold">$0.00</span></p>
-                                     </div>
-                                     
-                                     <p class="mb-6 text-lg">Paso 4: Aprobar el Pago por <span id="customer-name-display" class="font-bold">Cliente</span></p>
-                
-                                    <button id="confirm-payment-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
-                                        Aprobar Pago
-                                    </button>
-                                    <button id="cancel-payment-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
-                                        Cancelar Transacción
-                                    </button>
-                                 </div>
-                            </div>
     
                             <div id="transaction-complete-view" class="hidden flex-grow flex flex-col justify-center text-center">
                                  <div class="max-w-md mx-auto w-full">
