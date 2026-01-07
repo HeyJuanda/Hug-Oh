@@ -84,6 +84,34 @@
         .product-image { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; }
         .product-image-lg { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; }
 
+        /* Estilos para pestañas de configuración */
+        .settings-tab-btn {
+            transition: all 0.3s ease;
+            color: #6b7280;
+        }
+        .settings-tab-btn.active {
+            background-color: white;
+            color: #2563eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .settings-tab-btn:hover {
+            color: #2563eb;
+        }
+
+        /* Estilos para pestañas de administradores */
+        .admin-tab-btn {
+            transition: all 0.3s ease;
+            color: #6b7280;
+        }
+        .admin-tab-btn.active {
+            background-color: white;
+            color: #2563eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .admin-tab-btn:hover {
+            color: #2563eb;
+        }
+
         /* From Uiverse.io by Admin12121 - Menu Animation - Modified for Round & Colored */
         .menu {
             padding: 0;
@@ -186,9 +214,10 @@
         </style>
         <!-- button-animations-end -->
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 md:p-8">
+<body class="min-h-screen flex flex-col">
 
-    <div id="app" class="w-full max-w-5xl">
+    <div class="flex-1 flex items-center justify-center p-4 md:p-8">
+        <div id="app" class="w-full max-w-5xl">
         
         <!-- Vista de Bienvenida Renovada (Estilo Landing Page) -->
         <div id="welcome-view" class="fixed inset-0 z-50 bg-slate-50 overflow-hidden flex flex-col items-center justify-center">
@@ -424,7 +453,7 @@
                      </div>
                 </div>
     
-                <div class="grid grid-cols-1 md:grid-cols-5 min-h-[500px]">
+<div class="grid grid-cols-1 md:grid-cols-5 min-h-[500px]">
                     
                     <div class="md:col-span-3 p-4 md:p-6 border-r flex flex-col">
                         <div id="dynamic-pos-panel" class="flex-grow flex flex-col relative">
@@ -441,12 +470,47 @@
                             </div>
 
                             <div id="business-settings-modal" class="absolute inset-0 bg-white bg-opacity-95 z-30 p-6 md:p-8 hidden overflow-y-auto">
-                                <h3 class="text-2xl font-bold mb-4 text-center text-hug-header">Configuración del Negocio</h3>
-                                <form id="business-settings-form" class="space-y-6 max-w-md mx-auto bg-card p-6 shadow-xl rounded-xl">
+                                <div class="max-w-2xl mx-auto">
+                                    <h3 class="text-2xl font-bold mb-6 text-center text-hug-header">Configuración del Negocio</h3>
                                     
-                                    <!-- Sección 1: Información General -->
-                                    <div class="space-y-4">
-                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Información General</h4>
+                                    <!-- Navegación por Pestañas -->
+                                    <div class="flex justify-center mb-6 bg-gray-100 rounded-xl p-1 shadow-inner">
+                                        <button type="button" class="settings-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all active" data-tab="general">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            General
+                                        </button>
+                                        <button type="button" class="settings-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all" data-tab="audio">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                            </svg>
+                                            Audio
+                                        </button>
+                                        <button type="button" class="settings-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all" data-tab="payment">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                            Pagos
+                                        </button>
+                                        <button type="button" class="settings-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all" data-tab="premium" id="premium-tab-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                            </svg>
+                                            Premium
+                                        </button>
+                                    </div>
+
+                                    <form id="business-settings-form" class="bg-card p-6 shadow-xl rounded-xl">
+                                        
+                                        <!-- Tab: Información General -->
+                                        <div class="settings-tab-content space-y-4" data-tab="general">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                Información General
+                                            </h4>
                                         
                                         <div class="flex items-center space-x-4">
                                             <div class="flex-shrink-0 flex flex-col items-center gap-1">
@@ -470,94 +534,130 @@
                                                 class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
                                         </div>
 
-                                        <div>
-                                            <label for="business-message-input" class="block text-sm font-medium">Mensaje Post-Compra</label>
-                                            <textarea id="business-message-input" rows="2" placeholder="¡Gracias por su compra! Vuelva pronto."
-                                                class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                            <div>
+                                                <label for="business-message-input" class="block text-sm font-medium">Mensaje Post-Compra</label>
+                                                <textarea id="business-message-input" rows="2" placeholder="¡Gracias por su compra! Vuelva pronto."
+                                                    class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Sección: Configuración de Sonido -->
-                                    <div class="space-y-4">
-                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Sonido de Escáner</h4>
+                                        <!-- Tab: Configuración de Sonido -->
+                                        <div class="settings-tab-content space-y-4 hidden" data-tab="audio">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                </svg>
+                                                Sonido de Escáner
+                                            </h4>
                                         
-                                        <div class="flex items-center justify-between">
-                                            <label class="flex items-center space-x-2 cursor-pointer">
-                                                <input type="checkbox" id="enable-beep-input" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
-                                                <span class="text-sm text-gray-700">Habilitar sonido al escanear</span>
-                                            </label>
-                                        </div>
+                                            <div class="flex items-center justify-between">
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="checkbox" id="enable-beep-input" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                    <span class="text-sm text-gray-700">Habilitar sonido al escanear</span>
+                                                </label>
+                                            </div>
 
-                                        <div class="flex items-center space-x-3">
-                                            <div class="flex-grow">
-                                                <label class="block text-xs font-medium text-gray-500 mb-1">Sonido Personalizado (.mp3, .wav)</label>
-                                                <div class="flex items-center space-x-2">
-                                                    <label for="business-sound-input" class="cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-bold text-gray-700 transition-colors">
-                                                        Subir Audio
-                                                        <input type="file" id="business-sound-input" accept="audio/*" style="display:none">
-                                                    </label>
-                                                    <button type="button" id="remove-business-sound-btn" class="py-2 px-3 bg-red-50 hover:bg-red-100 rounded-lg text-xs font-bold text-red-600 transition-colors" title="Restaurar por defecto">
-                                                        Restaurar
-                                                    </button>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="flex-grow">
+                                                    <label class="block text-xs font-medium text-gray-500 mb-1">Sonido Personalizado (.mp3, .wav)</label>
+                                                    <div class="flex items-center space-x-2">
+                                                        <label for="business-sound-input" class="cursor-pointer py-2 px-3 bg-gray-100 hover:bg-gray-200 rounded-lg text-xs font-bold text-gray-700 transition-colors">
+                                                            Subir Audio
+                                                            <input type="file" id="business-sound-input" accept="audio/*" style="display:none">
+                                                        </label>
+                                                        <button type="button" id="remove-business-sound-btn" class="py-2 px-3 bg-red-50 hover:bg-red-100 rounded-lg text-xs font-bold text-red-600 transition-colors" title="Restaurar por defecto">
+                                                            Restaurar
+                                                        </button>
+                                                    </div>
+                                                    <p id="business-sound-status" class="text-xs text-gray-500 mt-1">Sonido por defecto (Beep)</p>
                                                 </div>
-                                                <p id="business-sound-status" class="text-xs text-gray-500 mt-1">Sonido por defecto (Beep)</p>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Sección 2: Pagos y Seguridad -->
-                                    <div class="space-y-4">
-                                        <h4 class="text-lg font-semibold text-gray-700 border-b pb-2">Pagos y Seguridad</h4>
+                                        <!-- Tab: Pagos y Seguridad -->
+                                        <div class="settings-tab-content space-y-4 hidden" data-tab="payment">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                </svg>
+                                                Pagos y Seguridad
+                                            </h4>
                                         
-                                        <!-- Nuevo: Selección de Métodos de Pago -->
-                                        <div class="space-y-2">
-                                            <label class="block text-sm font-medium text-gray-700">Métodos de Pago Habilitados</label>
-                                            <div class="flex flex-col space-y-2 bg-gray-50 p-3 rounded-lg border">
-                                                <label class="inline-flex items-center cursor-pointer">
-                                                    <input type="checkbox" id="enable-cash-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
-                                                    <span class="ml-2 text-gray-700">Efectivo</span>
-                                                </label>
-                                                <label class="inline-flex items-center cursor-pointer">
-                                                    <input type="checkbox" id="enable-qr-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
-                                                    <span class="ml-2 text-gray-700">Código QR Externo</span>
-                                                </label>
+                                            <!-- Selección de Métodos de Pago -->
+                                            <div class="space-y-2">
+                                                <label class="block text-sm font-medium text-gray-700">Métodos de Pago Habilitados</label>
+                                                <div class="flex flex-col space-y-2 bg-gray-50 p-3 rounded-lg border">
+                                                    <label class="inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" id="enable-cash-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                        <span class="ml-2 text-gray-700">Efectivo</span>
+                                                    </label>
+                                                    <label class="inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" id="enable-qr-payment" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                        <span class="ml-2 text-gray-700">Código QR Externo</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex items-start space-x-4">
+                                                <div class="flex-shrink-0">
+                                                    <label for="business-qr-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-purple-50 hover:border-purple-400 transition-colors relative overflow-hidden">
+                                                        <span class="text-xs text-gray-400 font-bold text-center" id="business-qr-placeholder">Subir<br>QR Pago</span>
+                                                        <img id="business-qr-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="QR Preview">
+                                                        <input type="file" id="business-qr-input" accept="image/*" style="display:none">
+                                                    </label>
+                                                </div>
+                                                <div class="flex-grow">
+                                                    <label for="business-pin-input" class="block text-sm font-medium text-gray-700">PIN de Seguridad (4 dígitos)</label>
+                                                    <p class="text-xs text-gray-500 mb-1">Requerido para confirmar pagos manuales.</p>
+                                                    <input type="password" id="business-pin-input" maxlength="4" placeholder="Ej: 1234" pattern="[0-9]*" inputmode="numeric"
+                                                        class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-purple-500 focus:border-purple-500 tracking-widest text-center font-bold">
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="flex items-start space-x-4">
-                                            <div class="flex-shrink-0">
-                                                <label for="business-qr-input" class="cursor-pointer flex items-center justify-center w-20 h-20 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-purple-50 hover:border-purple-400 transition-colors relative overflow-hidden">
-                                                    <span class="text-xs text-gray-400 font-bold text-center" id="business-qr-placeholder">Subir<br>QR Pago</span>
-                                                    <img id="business-qr-preview" class="absolute inset-0 w-full h-full object-cover hidden" src="" alt="QR Preview">
-                                                    <input type="file" id="business-qr-input" accept="image/*" style="display:none">
-                                                </label>
+                                        <!-- Tab: Premium -->
+                                        <div class="settings-tab-content space-y-4 hidden" data-tab="premium">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                                </svg>
+                                                Funciones Premium
+                                            </h4>
+                                            
+                                            <!-- Botón para abrir Editor Premium (Solo Plus) -->
+                                            <div id="premium-editor-btn-container">
+                                                <button type="button" id="open-ticket-editor-btn" class="w-full py-3 px-4 rounded-xl text-yellow-900 bg-yellow-100 hover:bg-yellow-200 border border-yellow-300 font-bold flex items-center justify-center space-x-2 transition-colors">
+                                                    <img src="../Scr/receipt-editor.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                                    <span>Abrir Editor Premium de Tickets</span>
+                                                </button>
                                             </div>
-                                            <div class="flex-grow">
-                                                <label for="business-pin-input" class="block text-sm font-medium text-gray-700">PIN de Seguridad (4 dígitos)</label>
-                                                <p class="text-xs text-gray-500 mb-1">Requerido para confirmar pagos manuales.</p>
-                                                <input type="password" id="business-pin-input" maxlength="4" placeholder="Ej: 1234" pattern="[0-9]*" inputmode="numeric"
-                                                    class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-purple-500 focus:border-purple-500 tracking-widest text-center font-bold">
+
+                                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                                                <div class="flex items-start">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                    <div>
+                                                        <h5 class="text-sm font-bold text-yellow-800 mb-1">Funciones Premium</h5>
+                                                        <p class="text-xs text-yellow-700">
+                                                            Esta sección contiene funcionalidades exclusivas para usuarios Plus. 
+                                                            Personaliza tus tickets de venta con información adicional e imágenes promocionales.
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <!-- Botón para abrir Editor Premium (Solo Plus) -->
-                                    <div id="premium-editor-btn-container" class="hidden pt-2">
-                                        <button type="button" id="open-ticket-editor-btn" class="w-full py-3 px-4 rounded-xl text-yellow-900 bg-yellow-100 hover:bg-yellow-200 border border-yellow-300 font-bold flex items-center justify-center space-x-2 transition-colors">
-                                            <img src="../Scr/receipt-editor.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                                            <span>Abrir Editor Premium de Tickets</span>
-                                        </button>
-                                    </div>
-    
-                                    <div class="pt-2 flex space-x-3">
-                                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
-                                            Guardar
-                                        </button>
-                                        <button type="button" id="cancel-settings-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
-                                            Cancelar
-                                        </button>
-                                    </div>
-                                </form>
+        
+                                        <div class="pt-6 flex space-x-3 border-t mt-6">
+                                            <button type="submit" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                                Guardar Cambios
+                                            </button>
+                                            <button type="button" id="cancel-settings-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
 
                             <!-- Modal: Gestor de Categorías (Crear y Eliminar) -->
@@ -587,61 +687,110 @@
                             </div>
 
                             <!-- Modal: Gestor de Administradores -->
-                            <div id="admins-manager-modal" class="absolute inset-0 bg-white bg-opacity-95 z-50 hidden overflow-y-auto">
-                                <div class="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-2xl my-8">
-                                    <div class="flex justify-between items-center mb-6 border-b pb-4">
-                                        <h3 class="text-2xl font-bold text-hug-header">Gestionar Administradores</h3>
-                                        <button id="close-admins-modal-btn" class="text-gray-500 hover:text-red-500 text-3xl font-bold">&times;</button>
+                            <div id="admins-manager-modal" class="absolute inset-0 bg-white bg-opacity-95 z-50 hidden overflow-y-auto p-6 md:p-8">
+                                <div class="max-w-2xl mx-auto">
+                                    <h3 class="text-2xl font-bold mb-6 text-center text-hug-header">Gestionar Administradores</h3>
+                                    
+                                    <!-- Navegación por Pestañas -->
+                                    <div class="flex justify-center mb-6 bg-gray-100 rounded-xl p-1 shadow-inner">
+                                        <button type="button" class="admin-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all active" data-tab="invite">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                            </svg>
+                                            Invitar
+                                        </button>
+                                        <button type="button" class="admin-tab-btn flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all" data-tab="list">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                            </svg>
+                                            Administradores
+                                        </button>
                                     </div>
 
-                                    <!-- Formulario para Invitar Administrador -->
-                                    <div class="bg-blue-50 p-4 rounded-xl mb-6">
-                                        <h4 class="font-bold text-lg mb-3">Invitar Nuevo Administrador</h4>
-                                        <form id="invite-admin-form" class="space-y-4">
-                                            <div>
-                                                <label class="block text-sm font-semibold mb-1">Email del Usuario *</label>
-                                                <input type="email" id="admin-email-input" required 
-                                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" 
-                                                    placeholder="usuario@ejemplo.com">
-                                            </div>
-
-                                            <div>
-                                                <label class="block text-sm font-semibold mb-2">Permisos de Acceso</label>
-                                                <div class="grid grid-cols-2 gap-3">
-                                                    <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                                                        <input type="checkbox" id="perm-pos" class="w-4 h-4" checked>
-                                                        <span class="text-sm font-medium">Punto de Venta</span>
-                                                    </label>
-                                                    <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                                                        <input type="checkbox" id="perm-catalog" class="w-4 h-4">
-                                                        <span class="text-sm font-medium">Catálogo</span>
-                                                    </label>
-                                                    <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                                                        <input type="checkbox" id="perm-stats" class="w-4 h-4">
-                                                        <span class="text-sm font-medium">Estadísticas</span>
-                                                    </label>
-                                                    <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                                                        <input type="checkbox" id="perm-stock" class="w-4 h-4">
-                                                        <span class="text-sm font-medium">Inventario</span>
-                                                    </label>
-                                                    <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                                                        <input type="checkbox" id="perm-settings" class="w-4 h-4">
-                                                        <span class="text-sm font-medium">Configuración</span>
-                                                    </label>
+                                    <div class="bg-card p-6 shadow-xl rounded-xl">
+                                        
+                                        <!-- Tab: Invitar Administrador -->
+                                        <div class="admin-tab-content" data-tab="invite">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                                </svg>
+                                                Invitar Nuevo Administrador
+                                            </h4>
+                                            
+                                            <form id="invite-admin-form" class="space-y-4">
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email del Usuario *</label>
+                                                    <input type="email" id="admin-email-input" required 
+                                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                                        placeholder="usuario@ejemplo.com">
                                                 </div>
+
+                                                <div>
+                                                    <label class="block text-sm font-medium text-gray-700 mb-2">Permisos de Acceso</label>
+                                                    <div class="grid grid-cols-2 gap-3">
+                                                        <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                                            <input type="checkbox" id="perm-pos" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                                                            <span class="text-sm font-medium">Punto de Venta</span>
+                                                        </label>
+                                                        <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                                            <input type="checkbox" id="perm-catalog" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                                            <span class="text-sm font-medium">Catálogo</span>
+                                                        </label>
+                                                        <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                                            <input type="checkbox" id="perm-stats" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                                            <span class="text-sm font-medium">Estadísticas</span>
+                                                        </label>
+                                                        <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                                            <input type="checkbox" id="perm-stock" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                                            <span class="text-sm font-medium">Inventario</span>
+                                                        </label>
+                                                        <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                                            <input type="checkbox" id="perm-settings" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                                            <span class="text-sm font-medium">Configuración</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg mt-4">
+                                                    <div class="flex items-start">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                        <div>
+                                                            <h5 class="text-sm font-bold text-blue-800 mb-1">Información Importante</h5>
+                                                            <p class="text-xs text-blue-700">
+                                                                El usuario debe tener una cuenta registrada en Hug-Oh! con este email. 
+                                                                Recibirá acceso al negocio con los permisos seleccionados.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+                                                    Enviar Invitación
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <!-- Tab: Lista de Administradores -->
+                                        <div class="admin-tab-content hidden" data-tab="list">
+                                            <h4 class="text-lg font-semibold text-gray-700 border-b pb-2 flex items-center mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                                Administradores Actuales
+                                            </h4>
+                                            
+                                            <div id="admins-list" class="space-y-3 max-h-96 overflow-y-auto pr-2">
+                                                <p class="text-center text-gray-500 py-8">Cargando administradores...</p>
                                             </div>
+                                        </div>
 
-                                            <button type="submit" class="w-full py-3 px-4 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700">
-                                                Enviar Invitación
+                                        <div class="pt-6 flex space-x-3 border-t mt-6">
+                                            <button type="button" id="close-admins-modal-btn" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-colors">
+                                                Cerrar
                                             </button>
-                                        </form>
-                                    </div>
-
-                                    <!-- Lista de Administradores Actuales -->
-                                    <div>
-                                        <h4 class="font-bold text-lg mb-3">Administradores Actuales</h4>
-                                        <div id="admins-list" class="space-y-3">
-                                            <p class="text-center text-gray-500">Cargando...</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1131,15 +1280,95 @@
                 </div>
             </div>
 
-            <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden" role="alert"></div>
+        </div>
 
-            <footer class="py-8 text-center text-slate-400 text-sm font-medium flex flex-col items-center gap-4">
-                <span>© 2024 Hug-Oh! Financial Services. Todos los derechos reservados.</span>
-                <a href="Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors text-xs font-bold uppercase tracking-wide">
-                    Términos y Condiciones
-                </a>
-            </footer>
+        <!-- MODALES GLOBALES (Fuera de todos los contenedores para máxima accesibilidad) -->
+        
+        <!-- Modal: Editar Permisos de Administrador -->
+        <div id="edit-admin-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl border border-gray-200">
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <h3 class="text-xl font-bold text-hug-header">Editar Permisos</h3>
+                    <button id="close-edit-admin-btn" class="text-gray-500 hover:text-red-500 text-2xl font-bold">&times;</button>
+                </div>
+
+                <form id="edit-admin-form" class="space-y-4">
+                    <input type="hidden" id="edit-admin-uid">
+                    
+                    <div class="bg-gray-50 p-3 rounded-lg border">
+                        <p class="text-sm font-medium text-gray-700 mb-1">Administrador:</p>
+                        <p id="edit-admin-email" class="text-sm font-bold text-gray-900"></p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Permisos de Acceso</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="edit-perm-pos" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                <span class="text-sm font-medium">Punto de Venta</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="edit-perm-catalog" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                <span class="text-sm font-medium">Catálogo</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="edit-perm-stats" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                <span class="text-sm font-medium">Estadísticas</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="edit-perm-stock" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                <span class="text-sm font-medium">Inventario</span>
+                            </label>
+                            <label class="flex items-center space-x-2 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="checkbox" id="edit-perm-settings" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                                <span class="text-sm font-medium">Configuración</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-3 pt-4">
+                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+                            Guardar Cambios
+                        </button>
+                        <button type="button" id="cancel-edit-admin-btn" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-colors">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Confirmación Personalizado -->
+        <div id="confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[70] hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl transform transition-all">
+                <div class="text-center mb-6">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+                        <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2" id="confirm-title">¿Estás seguro?</h3>
+                    <p class="text-sm text-gray-600" id="confirm-message">Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button id="confirm-cancel-btn" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-colors">
+                        Cancelar
+                    </button>
+                    <button id="confirm-accept-btn" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white bg-red-600 hover:bg-red-700 transition-colors">
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
+                <footer class="py-8 text-center text-slate-400 text-sm font-medium flex flex-col items-center gap-4">
+                   <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden" role="alert"></div>
+                    <span>© 2024 Hug-Oh! Financial Services. Todos los derechos reservados.</span>
+                    <a href="../Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors text-xs font-bold uppercase tracking-wide">
+                        Términos y Condiciones
+                    </a>
+                </footer>
+
     <!-- JsBarcode Library -->   
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
     <!-- Html5-Qrcode Library for Camera Scanning -->
