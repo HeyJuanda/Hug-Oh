@@ -13,34 +13,10 @@
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://hug-oh.com/Login/</loc>
-      <lastmod>2025-12-28</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
       <loc>https://hug-oh.com/Business/</loc>
       <lastmod>2025-12-28</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-   </url>
-      <url>
-      <loc>https://hug-oh.com/Business/Plus/</loc>
-      <lastmod>2025-12-28</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-   </url>
-   <url>
-      <loc>https://hug-oh.com/Auth/</loc>
-      <lastmod>2025-12-28</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-   </url>
-   <url>
-      <loc>https://hug-oh.com/Bank/Terminos.pdf</loc>
-      <lastmod>2025-12-28</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.2</priority>
    </url>
    <url>
       <loc>https://hug-oh.com/Business/Terminos.pdf</loc>
