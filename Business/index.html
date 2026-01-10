@@ -221,6 +221,227 @@
         
         <!-- Vista de Bienvenida Renovada (Estilo Landing Page) -->
 
+        <!-- Vista de Selección de Usuarios -->
+        <div id="user-selection-view" class="hidden min-h-screen opacity-100 p-4 md:p-8">
+            <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-purple-600 p-3 rounded-2xl shadow-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl sm:text-4xl font-bold text-purple-600">Usuarios</h1>
+                                    <p class="text-sm text-gray-600 mt-1 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                        Gestiona múltiples usuarios y abre sesiones simultáneas
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenido Principal -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <!-- Botón Añadir Usuario -->
+                    <div class="mb-8 flex flex-col sm:flex-row gap-4">
+                        <button id="add-user-btn" class="group relative flex-1 sm:flex-initial px-8 py-4 rounded-2xl text-base font-bold text-white bg-purple-600 hover:bg-purple-700 shadow-xl hover:shadow-2xl transform transition-all hover:-translate-y-1 hover:scale-105 flex items-center justify-center gap-3 overflow-hidden">
+                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform group-hover:rotate-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                            </svg>
+                            <span>Añadir Usuario</span>
+                        </button>
+                        <button id="back-to-businesses-btn" class="px-6 py-4 rounded-xl text-sm font-semibold text-blue-700 bg-blue-100 hover:bg-blue-200 transition-colors flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Volver a Negocios
+                        </button>
+                    </div>
+
+                    <!-- Lista de Usuarios -->
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            Usuarios Disponibles
+                        </h2>
+                        <div id="users-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <div class="col-span-full text-center py-12">
+                                <p class="text-gray-500 font-medium">No hay usuarios. ¡Añade uno para empezar!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Añadir Usuario -->
+        <div id="user-form-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto">
+                <h3 id="user-form-title" class="text-2xl font-bold mb-4 text-center text-purple-600">Añadir Nuevo Usuario</h3>
+                <form id="user-form" class="space-y-4">
+                    <input type="hidden" id="user-form-id" value="">
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Nombre del Usuario *</label>
+                        <input type="text" id="user-form-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Contraseña *</label>
+                        <input type="password" id="user-form-password" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" placeholder="Contraseña segura">
+                    </div>
+                    
+                    <!-- Campo para contraseña de admin (solo visible para crear/editar usuarios no-admin) -->
+                    <div id="admin-password-section" class="border-2 border-amber-200 bg-amber-50 rounded-lg p-3">
+                        <label class="block text-sm font-bold mb-1 text-amber-800 flex items-center gap-2">
+                            <span>🔐</span>
+                            <span>Contraseña del Admin *</span>
+                        </label>
+                        <input type="password" id="admin-password-input" class="w-full p-3 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500" placeholder="Ingresa la contraseña del administrador">
+                        <p class="text-xs text-amber-700 mt-1">Se requiere para crear o modificar usuarios</p>
+                    </div>
+                    
+                    <div class="border-t pt-4" id="permissions-section">
+                        <label class="block text-sm font-bold mb-3 text-gray-700">Permisos de Acceso</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <input type="checkbox" id="perm-user-pos" checked class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
+                                <div>
+                                    <span class="font-medium text-gray-700">Punto de Venta</span>
+                                    <p class="text-xs text-gray-500">Realizar ventas y cobros</p>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <input type="checkbox" id="perm-user-catalog" checked class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
+                                <div>
+                                    <span class="font-medium text-gray-700">Catálogo</span>
+                                    <p class="text-xs text-gray-500">Ver y gestionar productos</p>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <input type="checkbox" id="perm-user-stats" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
+                                <div>
+                                    <span class="font-medium text-gray-700">Estadísticas</span>
+                                    <p class="text-xs text-gray-500">Ver reportes y análisis</p>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <input type="checkbox" id="perm-user-stock" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
+                                <div>
+                                    <span class="font-medium text-gray-700">Inventario</span>
+                                    <p class="text-xs text-gray-500">Gestionar stock de productos</p>
+                                </div>
+                            </label>
+                            
+                            <label class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded cursor-pointer">
+                                <input type="checkbox" id="perm-user-settings" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500">
+                                <div>
+                                    <span class="font-medium text-gray-700">Configuración</span>
+                                    <p class="text-xs text-gray-500">Acceso a ajustes del negocio</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-3 pt-2">
+                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700">
+                            Guardar
+                        </button>
+                        <button type="button" id="cancel-user-form-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Contraseña -->
+        <div id="password-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl">
+                <h3 class="text-2xl font-bold mb-4 text-center text-purple-600">Iniciar Sesión</h3>
+                <p id="password-modal-user-name" class="text-center text-gray-600 mb-4"></p>
+                <form id="password-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Contraseña</label>
+                        <input type="password" id="password-input" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" placeholder="Ingresa tu contraseña">
+                    </div>
+                    
+                    <div class="flex space-x-3 pt-2">
+                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-white bg-purple-600 hover:bg-purple-700">
+                            Ingresar
+                        </button>
+                        <button type="button" id="cancel-password-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Confirmación con Contraseña para Acciones -->
+        <div id="action-password-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl">
+                <h3 class="text-2xl font-bold mb-4 text-center text-red-600">Confirmar Acción</h3>
+                <p id="action-password-modal-message" class="text-center text-gray-600 mb-4"></p>
+                <form id="action-password-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Contraseña del Usuario</label>
+                        <input type="password" id="action-password-input" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500" placeholder="Ingresa la contraseña">
+                    </div>
+                    
+                    <div class="flex space-x-3 pt-2">
+                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-white bg-red-600 hover:bg-red-700">
+                            Confirmar
+                        </button>
+                        <button type="button" id="cancel-action-password-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Contraseña Admin para Gestión de Negocio -->
+        <div id="business-admin-password-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-2xl border-2 border-amber-400">
+                <h3 class="text-2xl font-bold mb-4 text-center text-amber-600 flex items-center justify-center gap-2">
+                    <span>🔐</span>
+                    <span>Autenticación Admin</span>
+                </h3>
+                <p id="business-admin-password-message" class="text-center text-gray-600 mb-4"></p>
+                <form id="business-admin-password-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Contraseña del Administrador</label>
+                        <input type="password" id="business-admin-password-input" required class="w-full p-3 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500" placeholder="Ingresa la contraseña del admin">
+                        <p class="text-xs text-amber-700 mt-1">Se requiere para proteger el negocio</p>
+                    </div>
+                    
+                    <div class="flex space-x-3 pt-2">
+                        <button type="submit" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-white bg-amber-600 hover:bg-amber-700">
+                            Confirmar
+                        </button>
+                        <button type="button" id="cancel-business-admin-password-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <!-- Vista de Selección de Negocios -->
         <div id="business-selection-view" class="hidden min-h-screen opacity-100 p-4 md:p-8">
             <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
@@ -619,7 +840,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                     </svg>
                                                     <div>
-                                                        <h5 class="text-sm font-bold text-blue-800 mb-1">Exporta este negocio</h5>
+                                                        <h5 class="text-sm font-bold text-blue-800 mb-1">🔒 Función Exclusiva de Administrador</h5>
                                                         <p class="text-xs text-blue-700 mb-2">
                                                             Descarga un archivo .ho con todos los datos de este negocio específico (productos, categorías, transacciones, etc.). Podrás importarlo después o en otro dispositivo.
                                                         </p>
