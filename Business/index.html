@@ -10,73 +10,54 @@
     <title>Hug-Oh! • Business</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col">
-
-    <!-- Fondo Dinámico -->
-    <div class="fixed inset-0 pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-400/20 rounded-full blur-[100px] animate-float"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-400/20 rounded-full blur-[100px] animate-float" style="animation-delay: -3s;"></div>
-    </div>
-
-    <div class="flex-1 flex items-center justify-center p-4 md:p-8 relative z-10">
-        <div id="app" class="w-full max-w-5xl">
+<body class="min-h-screen flex flex-col bg-gray-50 overflow-hidden">
+    <div id="app" class="h-screen flex flex-col">
         
         <!-- Vista de Bienvenida Renovada (Estilo Landing Page) -->
 
         <!-- Vista de Selección de Usuarios -->
-        <div id="user-selection-view" class="hidden min-h-screen opacity-100 p-4 md:p-8">
-            <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <!-- Header -->
-                <div class="bg-white border-b-2 border-gray-200">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                            <div class="flex items-center gap-4">
-                                <div class="bg-blue-600 p-3 rounded-xl shadow-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Usuarios</h1>
-                                    <p class="text-sm text-gray-600 mt-1 font-medium">
-                                        Gestiona múltiples usuarios y abre sesiones simultáneas
-                                    </p>
-                                </div>
+        <div id="user-selection-view" class="hidden h-full flex flex-col bg-white">
+            <!-- Header estilo Ribbon de Word -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
+                <div class="px-6 py-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold text-white">Gestión de Usuarios</h1>
+                                <p class="text-sm text-blue-100">Administra usuarios y permisos de acceso</p>
                             </div>
                         </div>
+                        <button id="back-to-businesses-btn" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Volver
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Contenido Principal -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                    <!-- Botón Añadir Usuario -->
-                    <div class="mb-8 flex flex-col sm:flex-row gap-4">
-                        <button id="add-user-btn" class="group relative flex-1 sm:flex-initial px-8 py-4 rounded-xl text-base font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transform transition-all hover:-translate-y-0.5 flex items-center justify-center gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                            </svg>
-                            <span>Añadir Usuario</span>
-                        </button>
-                        <button id="back-to-businesses-btn" class="px-6 py-4 rounded-xl text-sm font-semibold text-gray-700 bg-white border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-colors flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            Volver a Negocios
-                        </button>
-                    </div>
-
-                    <!-- Lista de Usuarios -->
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            Usuarios Disponibles
-                        </h2>
-                        <div id="users-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            <div class="col-span-full text-center py-12">
-                                <p class="text-gray-500 font-medium">No hay usuarios. ¡Añade uno para empezar!</p>
-                            </div>
+                <!-- Barra de acciones rápidas -->
+                <div class="px-6 py-3 bg-white/10 backdrop-blur-sm">
+                    <button id="add-user-btn" class="px-6 py-2.5 rounded-lg text-sm font-bold text-blue-700 bg-white hover:bg-blue-50 shadow-sm hover:shadow transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Añadir Usuario
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Contenido Principal -->
+            <div class="flex-1 overflow-y-auto px-6 py-6 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <div id="users-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <div class="col-span-full text-center py-16">
+                            <p class="text-gray-500 font-medium">No hay usuarios. ¡Añade uno para empezar!</p>
                         </div>
                     </div>
                 </div>
@@ -347,68 +328,53 @@
         </div>
 
         <!-- Vista de Selección de Negocios -->
-        <div id="business-selection-view" class="hidden min-h-screen opacity-100 p-4 md:p-8">
-            <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <!-- Header Mejorado -->
-            <div class="bg-white border-b-2 border-gray-200">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div id="business-selection-view" class="hidden h-full flex flex-col bg-white">
+            <!-- Header estilo Ribbon de Word -->
+            <div class="bg-gradient-to-r from-green-600 to-green-700 shadow-lg">
+                <div class="px-6 py-4">
+                    <div class="flex justify-between items-center">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-600 p-3 rounded-xl shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Mis Negocios</h1>
-                                <p class="text-sm text-gray-600 mt-1 font-medium">
-                                    Gestiona tus negocios desde un solo lugar
-                                </p>
+                                <h1 class="text-2xl font-bold text-white">Mis Negocios</h1>
+                                <p class="text-sm text-green-100">Administra todos tus negocios desde un solo lugar</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Barra de acciones rápidas -->
+                <div class="px-6 py-3 bg-white/10 backdrop-blur-sm flex gap-3">
+                    <button id="create-new-business-btn" class="px-6 py-2.5 rounded-lg text-sm font-bold text-green-700 bg-white hover:bg-green-50 shadow-sm hover:shadow transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Crear Nuevo Negocio
+                    </button>
+                    <input type="file" id="import-data-input" accept=".ho" style="display:none">
+                    <button id="import-data-btn" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        Importar
+                    </button>
+                </div>
             </div>
             
             <!-- Contenido Principal -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <!-- Botón Crear Nuevo Negocio Destacado -->
-                <div class="mb-8 flex flex-col sm:flex-row gap-4">
-                    <button id="create-new-business-btn" class="group flex-1 sm:flex-initial px-8 py-4 rounded-xl text-base font-bold text-white bg-green-600 hover:bg-green-700 shadow-md hover:shadow-lg transform transition-all hover:-translate-y-0.5 flex items-center justify-center gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
-                        </svg>
-                        <span>Crear Nuevo Negocio</span>
-                    </button>
-                    
-                    <!-- Botón Importar Negocio -->
-                    <div class="flex gap-3">
-                        <input type="file" id="import-data-input" accept=".ho" style="display:none">
-                        <button id="import-data-btn" class="group px-6 py-4 rounded-xl text-sm font-bold text-gray-700 bg-white border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-all flex items-center justify-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                            </svg>
-                            <span>Importar Negocio</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Lista de Negocios con Grid Mejorado -->
-                <div>
-                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                        </svg>
-                        Tus Negocios
-                    </h2>
-                    <div id="businesses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        <div class="col-span-full text-center py-12">
-                            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            <div class="flex-1 overflow-y-auto px-6 py-6 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <div id="businesses-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <div class="col-span-full text-center py-16">
+                            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
                             <p class="text-gray-500 mt-4 font-medium">Cargando negocios...</p>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -489,92 +455,69 @@
             </div>
         </div>
 
-        <div id="charge-setup" class="bg-card hidden">
-                <div class="p-4 md:p-6 border-b flex justify-between items-center relative">
-                     <div class="z-10 flex items-center gap-3">
-                        <img id="header-business-logo" src="../Scr/nav-icon.png" alt="Logo" class="h-14 w-14 object-contain rounded-lg border-2 border-white shadow-sm">
-                        <div>
-                            <h2 id="current-view-title" class="text-2xl font-bold text-hug-header">Punto de Venta</h2>
-                            <p class="text-sm">Bienvenido, <span id="business-name-display" class="font-bold"></span></p>
+        <div id="charge-setup" class="bg-white hidden h-full flex flex-col">
+            <!-- Header estilo Ribbon de Word -->
+            <div id="main-header" class="shadow-lg" style="background: linear-gradient(to right, #2563eb, #1d4fd7);">
+                <div class="px-6 py-3">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <img id="header-business-logo" src="../Scr/nav-icon.png" alt="Logo" class="h-10 w-10 object-contain rounded-lg shadow-sm">
+                            <div>
+                                <h2 id="current-view-title" class="text-xl font-bold text-white">Punto de Venta</h2>
+                                <p class="text-xs text-blue-100">Bienvenido, <span id="business-name-display" class="font-semibold"></span></p>
+                            </div>
                         </div>
-                     </div>
-
-                     <!-- Menu Container with Responsive Wrapper -->
-                     <div class="z-20 relative">
-                        <!-- Mobile Toggle Button (3 Dots) -->
-                        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-500 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors shadow-sm border border-gray-200" onclick="document.getElementById('nav-menu-wrapper').classList.toggle('hidden')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                            </svg>
-                        </button>
-
-                        <!-- Navigation Wrapper -->
-                        <div id="nav-menu-wrapper" class="hidden absolute top-full right-0 mt-3 bg-white/95 backdrop-blur-md border border-gray-100 shadow-2xl rounded-2xl p-3 md:static md:block md:bg-transparent md:border-none md:shadow-none md:p-0 md:mt-0 min-w-[60px]">
-                             <!-- Se cambió items-center por items-end en móvil para que la expansión sea hacia la izquierda -->
-                             <div class="menu flex-col items-end md:flex-row md:items-center">
-
-                                <button id="toggle-pos-btn" class="link btn-blue" title="Punto de Venta">
-                                    <span class="link-icon">
-                                        <img src="../Scr/cart.svg" alt="Punto de Venta">
-                                    </span>
-                                    <span class="link-title">Venta</span>
-                                </button>
-        
-                                <!-- Botón Catálogo (Blue) -->
-                                <button id="toggle-catalog-btn" class="link btn-blue" title="Catálogo">
-                                    <span class="link-icon">
-                                        <img src="../Scr/catalog.svg" alt="Catalogo">
-                                    </span>
-                                    <span class="link-title">Catálogo</span>
-                                </button>
-        
-                                <!-- Botón Estadísticas (Blue) -->
-                                <button id="toggle-statistics-btn" class="link btn-blue" title="Estadísticas">
-                                    <span class="link-icon">
-                                        <img src="../Scr/statistics.svg" alt="Estadísticas">
-                                    </span>
-                                    <span class="link-title">Estadísticas</span>
-                                </button>
-        
-                                <!-- Botón Inventario (Blue) -->
-                                <button id="toggle-stock-btn" class="link btn-blue" title="Inventario">
-                                    <span class="link-icon">
-                                        <img src="../Scr/box.svg" alt="Inventario">
-                                    </span>
-                                    <span class="link-title">Inventario</span>
-                                </button>
-        
-                                <!-- Botón Configuración (Gray) -->
-                                <button id="business-settings-btn" class="link btn-gray" title="Configuración">
-                                    <span class="link-icon">
-                                        <img src="../Scr/settings.svg" alt="Configuración">
-                                    </span>
-                                    <span class="link-title">Ajustes</span>
-                                </button>
-        
-                                <!-- Botón Apps (Gray) -->
-                                <button onclick="window.location.href='../Apps'" class="link btn-gray" title="Apps">
-                                    <span class="link-icon">
-                                        <img src="../Scr/home.svg" alt="Apps">
-                                    </span>
-                                    <span class="link-title">Apps</span>
-                                </button>
-        
-                                <!-- Botón Cerrar Sesión (Gray) -->
-                                <button id="switch-business-btn" class="link btn-gray" title="Cerrar Sesión">
-                                    <span class="link-icon">
-                                        <img src="../Scr/reload.svg" alt="cambiar">
-                                    </span>
-                                    <span class="link-title">Cambiar</span>
-                                </button>
-                             </div>
-                        </div>
-                     </div>
+                    </div>
                 </div>
-    
-<div class="grid grid-cols-1 md:grid-cols-5 min-h-[500px]">
+                
+                <!-- Barra de navegación estilo Ribbon -->
+                <div class="px-6 py-2 bg-white/10 backdrop-blur-sm">
+                    <div class="flex gap-2 flex-wrap">
+                        <button id="toggle-pos-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/30 hover:bg-white/40 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/cart.svg" alt="Ventas" class="h-4 w-4 brightness-0 invert">
+                            Ventas
+                        </button>
+                        
+                        <button id="toggle-catalog-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/catalog.svg" alt="Catálogo" class="h-4 w-4 brightness-0 invert">
+                            Catálogo
+                        </button>
+                        
+                        <button id="toggle-statistics-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/statistics.svg" alt="Estadísticas" class="h-4 w-4 brightness-0 invert">
+                            Estadísticas
+                        </button>
+                        
+                        <button id="toggle-stock-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/box.svg" alt="Inventario" class="h-4 w-4 brightness-0 invert">
+                            Inventario
+                        </button>
+                        
+                        <div class="flex-1"></div>
+                        
+                        <button id="business-settings-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/settings.svg" alt="Configuración" class="h-4 w-4 brightness-0 invert">
+                            Ajustes
+                        </button>
+                        
+                        <button onclick="window.location.href='../Apps'" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/home.svg" alt="Apps" class="h-4 w-4 brightness-0 invert">
+                            Apps
+                        </button>
+                        
+                        <button id="switch-business-btn" class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all flex items-center gap-2">
+                            <img src="../Scr/reload.svg" alt="Cambiar" class="h-4 w-4 brightness-0 invert">
+                            Cambiar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div class="flex-1 overflow-hidden flex">
+                <div class="grid grid-cols-1 md:grid-cols-5 w-full">
                     
-                    <div class="md:col-span-3 p-4 md:p-6 border-r flex flex-col">
+                    <div id="main-panel" class="md:col-span-3 p-4 md:p-6 border-r flex flex-col overflow-y-auto bg-white">
                         <div id="dynamic-pos-panel" class="flex-grow flex flex-col relative">
                             
                             <!-- Scanner Modal -->
@@ -664,6 +607,45 @@
                                                 <textarea id="business-message-input" rows="2" placeholder="¡Gracias por su compra! Vuelva pronto."
                                                     class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
                                             </div>
+
+                                            <!-- Color del Header -->
+                                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                                <label class="block">
+                                                    <div class="flex items-center gap-3 mb-2">
+                                                        <div class="bg-purple-100 p-2 rounded-lg">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                                            </svg>
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-sm font-bold text-gray-900 block">Color del Header</span>
+                                                            <span class="text-xs text-gray-600">Personaliza el color de la barra superior</span>
+                                                        </div>
+                                                    </div>
+                                                    <input type="color" id="header-color-input" class="w-full h-12 rounded-lg border border-gray-300 cursor-pointer">
+                                                </label>
+                                            </div>
+
+                                            <!-- Tema de la Interfaz -->
+                                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                                <label class="flex items-center justify-between cursor-pointer group">
+                                                    <div class="flex items-center gap-3">
+                                                        <div class="bg-blue-100 p-2 rounded-lg group-hover:bg-blue-200 transition-colors">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div>
+                                                            <span class="text-sm font-bold text-gray-900 block">Modo Oscuro</span>
+                                                            <span class="text-xs text-gray-600">Activa el tema oscuro de la interfaz</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="relative">
+                                                        <input type="checkbox" id="dark-mode-toggle" class="sr-only peer">
+                                                        <div class="w-14 h-8 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
+                                                    </div>
+                                                </label>
+                                            </div>
                                         </div>
 
                                         <!-- Tab: Configuración de Sonido -->
@@ -749,12 +731,6 @@
                                                 Personalización de Tickets
                                             </h4>
                                             
-                                            <!-- Botón para abrir Editor de Tickets -->
-                                            <button type="button" id="open-ticket-editor-btn" class="w-full py-3 px-4 rounded-xl text-blue-900 bg-blue-100 hover:bg-blue-200 border border-blue-300 font-bold flex items-center justify-center space-x-2 transition-colors">
-                                                <img src="../Scr/receipt-editor.svg" alt="Editor Icon" class="inline h-5 w-5 items-center">
-                                                <span>Abrir Editor de Tickets</span>
-                                            </button>
-
                                             <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
                                                 <div class="flex items-start">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -768,6 +744,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <!-- Botón para abrir Editor de Tickets -->
+                                            <button type="button" id="open-ticket-editor-btn" class="w-full py-3 px-4 rounded-xl text-blue-900 bg-blue-100 hover:bg-blue-200 border border-blue-300 font-bold flex items-center justify-center space-x-2 transition-colors">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                                <span>Abrir Editor de Tickets</span>
+                                            </button>
                                         </div>
 
                                         <!-- Tab: Respaldo de Datos -->
@@ -797,11 +781,11 @@
                                             </div>
 
                                             <div class="space-y-3">
-                                                <button type="button" id="export-data-btn" class="w-full py-3 px-4 rounded-lg text-sm font-semibold text-white bg-green-600 hover:bg-green-700 transition-colors flex items-center justify-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                <button type="button" id="export-data-btn" class="w-full py-3.5 px-5 rounded-xl text-sm font-bold text-white bg-green-600 hover:bg-green-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 border border-green-500">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                                     </svg>
-                                                    Exportar este negocio (.ho)
+                                                    <span>Exportar este negocio (.ho)</span>
                                                 </button>
                                             </div>
 
@@ -821,10 +805,10 @@
                                         </div>
         
                                         <div class="pt-6 flex space-x-3 border-t mt-6">
-                                            <button type="submit" class="flex-1 py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                            <button type="submit" class="flex-1 py-3 px-4 rounded-lg text-lg font-semibold text-white btn-primary">
                                                 Guardar Cambios
                                             </button>
-                                            <button type="button" id="cancel-settings-btn" class="flex-1 py-3 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                            <button type="button" id="cancel-settings-btn" class="flex-1 py-3 px-4 rounded-lg text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
                                                 Cancelar
                                             </button>
                                         </div>
@@ -844,7 +828,7 @@
                                     <div class="flex space-x-2 mb-4">
                                         <input type="text" id="manager-new-category-input" placeholder="Nueva categoría..." 
                                             class="flex-grow px-3 py-2 border rounded-full focus:ring-blue-500 focus:border-blue-500 text-sm">
-                                        <button id="manager-add-category-btn" class="bg-blue-600 text-white px-4 py-2 rounded-full font-bold hover:bg-blue-700">+</button>
+                                        <button id="manager-add-category-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700">+</button>
                                     </div>
 
                                     <!-- Lista de Existentes -->
@@ -860,54 +844,108 @@
 
                             <!-- Modal: Editor de Tickets -->
                             <div id="ticket-editor-modal" class="absolute inset-0 bg-white bg-opacity-95 z-50 p-6 md:p-8 hidden overflow-y-auto">
-                                <div class="max-w-md mx-auto bg-card p-6 shadow-2xl rounded-xl border-2 border-blue-400 relative">
-                                    <h3 class="text-2xl font-bold mb-1 text-center text-blue-800">Editor de Ticket</h3>
-                                    <p class="text-center text-xs text-blue-600 font-bold mb-6 uppercase tracking-widest">Personaliza tus tickets</p>
-                                    
-                                    <div class="space-y-5">
+                                <div class="max-w-2xl mx-auto bg-white p-8 shadow-xl rounded-2xl border border-gray-200 relative">
+                                    <!-- Header del Modal -->
+                                    <div class="flex items-center gap-4 mb-6 pb-6 border-b-2 border-gray-100">
+                                        <div class="bg-blue-600 p-3 rounded-xl">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                        </div>
                                         <div>
-                                            <label class="flex items-center space-x-3 cursor-pointer p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-                                                <input type="checkbox" id="ticket-show-logo" class="form-checkbox h-5 w-5 text-blue-600 rounded">
-                                                <span class="text-sm font-medium text-gray-800">Mostrar Logo del Negocio</span>
+                                            <h3 class="text-2xl font-bold text-gray-900">Editor de Tickets</h3>
+                                            <p class="text-sm text-gray-600 mt-1">Personaliza la apariencia de tus tickets de venta</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-6">
+                                        <!-- Logo del Negocio -->
+                                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                            <label class="flex items-center gap-3 cursor-pointer group">
+                                                <input type="checkbox" id="ticket-show-logo" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 cursor-pointer">
+                                                <div class="flex-1">
+                                                    <span class="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Mostrar Logo del Negocio</span>
+                                                    <p class="text-xs text-gray-500 mt-1">El logo aparecerá en la parte superior del ticket</p>
+                                                </div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
                                             </label>
                                         </div>
 
-                                        <div>
-                                            <label for="ticket-header-input" class="block text-sm font-bold text-gray-700 mb-1">Texto Cabecera (Opcional)</label>
-                                            <input type="text" id="ticket-header-input" placeholder="Ej: RFC: XAXX010101000"
-                                                class="block w-full px-3 py-2 border rounded-lg focus:ring-yellow-500 focus:border-yellow-500 text-sm">
+                                        <!-- Texto Cabecera -->
+                                        <div class="space-y-2">
+                                            <label for="ticket-header-input" class="block text-sm font-bold text-gray-900 flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                                </svg>
+                                                Texto de Cabecera
+                                            </label>
+                                            <input type="text" id="ticket-header-input" placeholder="RFC: XAXX010101000 o información adicional"
+                                                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white transition-all">
+                                            <p class="text-xs text-gray-500">Información que aparecerá después del logo (opcional)</p>
                                         </div>
 
-                                        <div>
-                                            <label for="ticket-footer-input" class="block text-sm font-bold text-gray-700 mb-1">Texto Pie de Página</label>
-                                            <textarea id="ticket-footer-input" rows="3" placeholder="Ej: ¡Síguenos en Instagram!&#10;@mitienda"
-                                                class="block w-full px-3 py-2 border rounded-lg focus:ring-yellow-500 focus:border-yellow-500 text-sm"></textarea>
+                                        <!-- Texto Pie de Página -->
+                                        <div class="space-y-2">
+                                            <label for="ticket-footer-input" class="block text-sm font-bold text-gray-900 flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                                Mensaje de Pie de Página
+                                            </label>
+                                            <textarea id="ticket-footer-input" rows="4" placeholder="¡Gracias por su compra!&#10;Síguenos en redes sociales&#10;@mitienda"
+                                                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white transition-all resize-none"></textarea>
+                                            <p class="text-xs text-gray-500">Mensaje de despedida o información de contacto</p>
                                         </div>
 
-                                        <div>
-                                            <label class="block text-sm font-bold text-gray-700 mb-2">Imagen Promocional / QR Extra</label>
-                                            <div class="flex items-center space-x-3">
-                                                <label for="ticket-image-input" class="cursor-pointer flex-grow flex items-center justify-center h-32 bg-gray-50 border-2 border-dashed border-yellow-400 rounded-xl hover:bg-yellow-50 transition-colors relative overflow-hidden group">
+                                        <!-- Imagen Promocional -->
+                                        <div class="space-y-2">
+                                            <label class="block text-sm font-bold text-gray-900 flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                                Imagen Promocional / QR Extra
+                                            </label>
+                                            <div class="flex items-start gap-3">
+                                                <label for="ticket-image-input" class="cursor-pointer flex-grow flex items-center justify-center h-40 bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl hover:bg-blue-50 hover:border-blue-400 transition-all relative overflow-hidden group">
                                                     <div class="text-center" id="ticket-image-placeholder">
-                                                        <img src="../Scr/add-image.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
-                                                        <span class="block text-xs text-gray-500 font-bold mt-1">Subir Imagen</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400 mx-auto mb-2 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                                        </svg>
+                                                        <span class="block text-sm text-gray-600 font-semibold group-hover:text-blue-600 transition-colors">Subir Imagen</span>
+                                                        <span class="block text-xs text-gray-400 mt-1">PNG, JPG o QR</span>
                                                     </div>
-                                                    <img id="ticket-image-preview" class="absolute inset-0 w-full h-full object-contain hidden p-2 bg-white" src="" alt="Ticket Image">
+                                                    <img id="ticket-image-preview" class="absolute inset-0 w-full h-full object-contain hidden p-3 bg-white" src="" alt="Ticket Image">
                                                     <input type="file" id="ticket-image-input" accept="image/*" style="display:none">
                                                 </label>
-                                                <button type="button" id="clear-ticket-image-btn" class="p-2 text-red-500 hover:bg-red-50 rounded-lg" title="Borrar Imagen">
-                                                    <img src="../Scr/delete.svg" alt="Export Icon" class="inline h-5 w-5 items-center">
+                                                <button type="button" id="clear-ticket-image-btn" class="p-3 text-red-600 hover:bg-red-50 rounded-xl border border-red-200 transition-all" title="Borrar Imagen">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                    </svg>
                                                 </button>
                                             </div>
-                                            <p class="text-[10px] text-gray-400 mt-1 text-center">Aparecerá al final del ticket.</p>
+                                            <p class="text-xs text-gray-500">Esta imagen aparecerá al final del ticket impreso</p>
                                         </div>
                                     </div>
 
-                                    <div class="mt-8">
-                                        <button type="button" id="close-ticket-editor-btn" class="w-full py-3 px-4 rounded-full text-lg font-bold text-white bg-yellow-500 hover:bg-yellow-600 shadow-lg transform transition hover:-translate-y-1">
-                                            Listo
+                                    <!-- Footer con Botones -->
+                                    <div class="mt-8 pt-6 border-t-2 border-gray-100 flex gap-3">
+                                        <button type="button" id="close-ticket-editor-btn" class="flex-1 py-3.5 px-6 rounded-lg text-base font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-sm transition-all flex items-center justify-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            Guardar Cambios
                                         </button>
-                                        <p class="text-center text-xs text-gray-400 mt-2">Recuerde guardar los cambios en la configuración principal.</p>
+                                    </div>
+                                    
+                                    <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-lg">
+                                        <div class="flex items-start">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <p class="text-xs text-blue-900">Los cambios se aplicarán a todos los tickets futuros. No olvides guardar la configuración principal del negocio.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -969,10 +1007,10 @@
                                           </div>
             
                                             <div class="flex space-x-2 pt-2">
-                                                <button type="submit" class="flex-1 py-2 px-4 rounded-full text-sm font-semibold text-white btn-primary">
+                                                <button type="submit" class="flex-1 py-2 px-4 rounded-lg text-sm font-semibold text-white btn-primary">
                                                     Guardar
                                                 </button>
-                                                <button type="button" id="cancel-edit-btn" class="flex-1 py-2 px-4 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                                <button type="button" id="cancel-edit-btn" class="flex-1 py-2 px-4 rounded-lg text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300">
                                                     Cancelar
                                                 </button>
                                             </div>
@@ -1089,12 +1127,12 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="w-full py-2 px-4 rounded-full text-sm font-semibold text-white btn-primary mt-2">
+                                    <button type="submit" class="w-full py-2 px-4 rounded-lg text-sm font-semibold text-white btn-primary mt-2">
                                         Añadir y Guardar
                                     </button>
                                 </form>
             
-                                <div id="product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-3 overflow-y-auto flex-grow pr-1">
+                                <div id="product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto flex-grow p-4">
                                     <p class="col-span-3 text-center text-gray-500" id="empty-catalog-message">Cargando catálogo o vacío. Use el botón (+) para añadir.</p>
                                 </div>
 
@@ -1156,7 +1194,7 @@
                                     </div>
                                 </div>
 
-                                <div id="pos-product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-3 overflow-y-auto flex-grow pr-1">
+                                <div id="pos-product-list" class="grid grid-cols-2 lg:grid-cols-3 gap-4 overflow-y-auto flex-grow p-4">
                                     <!-- Lista de productos para venta -->
                                 </div>
                                 
@@ -1164,41 +1202,61 @@
                                 <div id="pos-pagination-controls" class="hidden mt-2 pb-2"></div>
                             </div>
     
-                            <div id="payment-method-view" class="hidden flex-grow flex flex-col justify-between">
-                                <div class="p-0 text-center">
-                                    <h2 class="text-2xl font-bold mb-2">
-                                        Monto a Pagar: <span id="display-charge-amount-payment-method" class="text-hug-danger">$0.00</span>
-                                    </h2>
-                                    <p class="text-lg font-medium mb-4">Paso 2: Seleccionar Método de Pago</p>
-                                    
-                                    <div class="mb-6 text-left">
-                                        <label for="transaction-description" class="block text-sm font-medium text-gray-700">Descripción de la Transacción (Opcional)</label>
-                                        <input type="text" id="transaction-description" placeholder="Ej: Venta de café y postre"
-                                               class="mt-1 block w-full px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                            <div id="payment-method-view" class="hidden flex-grow flex flex-col p-6">
+                                <div class="flex-1 flex flex-col">
+                                    <div class="text-center mb-6">
+                                        <h2 class="text-3xl font-bold mb-2">
+                                            Monto a Pagar: <span id="display-charge-amount-payment-method" class="text-hug-danger">$0.00</span>
+                                        </h2>
+                                        <p class="text-lg font-medium text-gray-600">Seleccionar Método de Pago</p>
                                     </div>
                                     
-                                    <form id="payment-options-form" class="space-y-4">
+                                    <div class="mb-4">
+                                        <label for="transaction-description" class="block text-sm font-bold text-gray-700 mb-2 text-left">Descripción de la Transacción (Opcional)</label>
+                                        <input type="text" id="transaction-description" placeholder="Ej: Venta de café y postre"
+                                               class="block w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    </div>
+                                    
+                                    <form id="payment-options-form" class="flex-1 flex flex-wrap gap-6">
                                         
-                                        <div class="payment-option-wrapper">
-                                            <input type="radio" id="option-cash" name="payment-option" value="cash" class="radio-option">
-                                            <label for="option-cash" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
-                                                <span>1. Pagar con Efectivo</span>
-                                                <img src="../Scr/cash.svg" alt="Manage" class="h-5 w-5">
+                                        <div class="payment-option-wrapper flex flex-1 min-w-[300px]">
+                                            <input type="radio" id="option-cash" name="payment-option" value="cash" class="hidden">
+                                            <label for="option-cash" class="flex-1 bg-white hover:bg-gray-50 border-2 border-gray-300 hover:border-green-500 rounded-2xl cursor-pointer transition-all p-8 flex items-center justify-center group">
+                                                <div class="flex flex-col items-center gap-6">
+                                                    <div class="bg-green-100 p-8 rounded-3xl group-hover:bg-green-500 transition-all">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-green-600 group-hover:text-white transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-3">Efectivo</h3>
+                                                        <p class="text-base text-gray-600">Pago en efectivo al momento de la entrega</p>
+                                                    </div>
+                                                </div>
                                             </label>
                                         </div>
 
-                                        <div class="payment-option-wrapper">
-                                            <input type="radio" id="option-qr" name="payment-option" value="qr" class="radio-option">
-                                            <label for="option-qr" class="radio-label bg-white hover:bg-gray-50 flex justify-between items-center p-3 border rounded-lg cursor-pointer">
-                                                <span>2. Pagar con QR</span>
-                                                <img src="../Scr/qr.svg" alt="Manage" class="h-5 w-5">
+                                        <div class="payment-option-wrapper flex flex-1 min-w-[300px]">
+                                            <input type="radio" id="option-qr" name="payment-option" value="qr" class="hidden">
+                                            <label for="option-qr" class="flex-1 bg-white hover:bg-gray-50 border-2 border-gray-300 hover:border-blue-500 rounded-2xl cursor-pointer transition-all p-8 flex items-center justify-center group">
+                                                <div class="flex flex-col items-center gap-6">
+                                                    <div class="bg-blue-100 p-8 rounded-3xl group-hover:bg-blue-500 transition-all">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-600 group-hover:text-white transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div>
+                                                        <h3 class="text-3xl font-bold text-gray-900 mb-3">Código QR</h3>
+                                                        <p class="text-base text-gray-600">Escanea el código QR para realizar el pago</p>
+                                                    </div>
+                                                </div>
                                             </label>
                                         </div>
             
                                     </form>
                                 </div>
-                                <div class="mt-auto">
-                                    <button id="cancel-payment-selection-btn" class="w-full mt-6 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                <div class="mt-6">
+                                    <button id="cancel-payment-selection-btn" class="w-full py-4 px-6 rounded-xl text-lg font-bold text-white bg-red-600 hover:bg-red-700 transition-all shadow-sm">
                                         Cancelar Transacción
                                     </button>
                                 </div>
@@ -1224,15 +1282,30 @@
                                             class="w-32 mx-auto px-3 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 text-center text-xl tracking-widest">
                                    </div>
                
-                                   <button id="confirm-qr-payment-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary bg-blue-600 hover:bg-blue-700">
+                                   <button id="confirm-qr-payment-btn" class="w-full py-3 px-4 rounded-lg text-lg font-semibold text-white btn-primary bg-blue-600 hover:bg-blue-700">
                                        Marcar como Pagado
                                    </button>
-                                   <button id="cancel-qr-payment-btn" class="w-full mt-4 py-3 px-4 rounded-full text-lg font-semibold btn-danger">
+                                   <button id="cancel-qr-payment-btn" class="w-full mt-4 py-3 px-4 text-white rounded-lg text-lg font-semibold btn-danger">
                                        Cancelar Transacción
                                    </button>
                                 </div>
                            </div>
     
+                            <div id="payment-confirmation-view" class="hidden flex-grow flex flex-col justify-center text-center">
+                                <div class="max-w-md mx-auto w-full">
+                                    <h2 class="text-2xl font-bold mb-4">Confirmar Pago</h2>
+                                    <p class="mb-6 text-gray-600">Confirmación de transacción</p>
+                                    <div class="space-y-3">
+                                        <button id="confirm-payment-btn" class="w-full py-3 px-4 rounded-lg text-lg font-semibold text-white btn-primary">
+                                            Confirmar
+                                        </button>
+                                        <button id="cancel-payment-btn" class="w-full py-3 px-4 text-white rounded-lg text-lg font-semibold btn-danger">
+                                            Cancelar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div id="transaction-complete-view" class="hidden flex-grow flex flex-col justify-center text-center">
                                  <div class="max-w-md mx-auto w-full">
                                     <div id="complete-icon" class="text-6xl mb-4"></div>
@@ -1241,10 +1314,10 @@
                                     
                                     <h3 class="text-xl font-bold mb-4">Listo para el Siguiente Cliente</h3>
                 
-                                    <button id="new-transaction-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary">
+                                    <button id="new-transaction-btn" class="w-full py-3 px-4 rounded-lg text-lg font-semibold text-white btn-primary">
                                         Iniciar Nueva Transacción
                                     </button>
-                                    <button id="print-receipt-btn" class="w-full mt-3 py-3 px-4 rounded-full text-lg font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 hidden">
+                                    <button id="print-receipt-btn" class="w-full mt-3 py-3 px-4 rounded-lg text-lg font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 hidden">
                                         Imprimir Ticket
                                     </button>
                                  </div>
@@ -1259,11 +1332,11 @@
                                         <option value="yearly">Año Actual</option>
                                         <option value="total" selected>Total</option>
                                     </select>
-                                    <button id="refresh-stats-btn" class="link btn-green" title="Recargar Estadísticas">
-                                        <span class="link-icon">
-                                            <img src="../Scr/reload.svg" alt="Recargar">
-                                        </span>
-                                        <span class="link-title">Recargar</span>
+                                    <button id="refresh-stats-btn" class="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-green-600 hover:bg-green-700 transition-all flex items-center gap-2" title="Recargar Estadísticas">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg>
+                                        Recargar
                                     </button>
                                  </div>
                                  
@@ -1317,7 +1390,7 @@
 
                         </div>
                     </div>
-                    <div class="md:col-span-2 p-4 md:p-6 flex flex-col border-t md:border-t-0">
+                    <div id="cart-panel" class="md:col-span-2 p-4 md:p-6 flex flex-col border-t md:border-t-0 bg-gray-50">
                         <h3 class="text-xl font-semibold mb-3">Total y Carrito</h3>
                         
                         <div id="cart-items" class="space-y-2 max-h-60 overflow-y-auto p-2 border rounded-lg bg-white flex-grow mb-4">
@@ -1330,10 +1403,10 @@
                         </div>
                         
                         <div class="mt-4 space-y-3">
-                            <button id="checkout-btn" class="w-full py-3 px-4 rounded-full text-lg font-semibold text-white btn-primary" disabled>
+                            <button id="checkout-btn" class="w-full py-3 px-4 rounded-lg text-lg font-semibold text-white btn-primary" disabled>
                                 Proceder al Pago
                             </button>
-                            <button id="clear-cart-btn" class="w-full py-2 px-4 rounded-full text-sm font-semibold text-white bg-gray-400 hover:bg-gray-600">
+                            <button id="clear-cart-btn" class="w-full py-2 px-4 rounded-lg text-sm font-semibold text-white bg-gray-400 hover:bg-gray-600">
                                 Vaciar Carrito
                             </button>
                         </div>
@@ -1422,13 +1495,10 @@
             </div>
         </div>
     </div>
-                <footer class="py-8 text-center text-slate-400 text-sm font-medium flex flex-col items-center gap-4">
-                   <div id="message-box" class="mt-4 p-4 rounded-lg text-sm hidden" role="alert"></div>
-                    <span>© 2024 Hug-Oh! Financial Services. Todos los derechos reservados.</span>
-                    <a href="../Terminos.pdf" target="_blank" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors text-xs font-bold uppercase tracking-wide">
-                        Términos y Condiciones
-                    </a>
-                </footer>
+    
+    <!-- Message Box para notificaciones -->
+    <div id="message-box" class="fixed bottom-6 right-6 p-4 rounded-lg text-sm hidden shadow-lg z-50 max-w-md" role="alert"></div>
+    </div><!-- Cierre de #app -->
 
     <!-- JsBarcode Library -->   
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
