@@ -1,0 +1,945 @@
+:root {
+    --hug-primary: #2563eb;
+    --hug-primary-dark: #1e40af;
+    --hug-secondary: #f8fafc;
+    --hug-text-color: #0f172a;
+    --hug-text-muted: #64748b;
+    --hug-header: #1e293b;
+    --hug-danger: #dc2626;
+    --hug-success: #16a34a;
+    --hug-border: #e2e8f0;
+    --hug-card-bg: #ffffff;
+}
+
+/* Modo Oscuro */
+body.dark-mode,
+.dark-mode #app {
+    background-color: #0f0f0f !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fondos */
+.dark-mode .bg-white {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+.dark-mode .bg-gray-50 {
+    background-color: #151515 !important;
+}
+
+.dark-mode .bg-gray-100 {
+    background-color: #1e1e1e !important;
+}
+
+.dark-mode .bg-gray-200 {
+    background-color: #252525 !important;
+}
+
+.dark-mode .bg-blue-50 {
+    background-color: #1a2332 !important;
+}
+
+.dark-mode .bg-blue-100 {
+    background-color: #1e3a5f !important;
+}
+
+.dark-mode .bg-green-50 {
+    background-color: #1a2e1a !important;
+}
+
+.dark-mode .bg-green-100 {
+    background-color: #1e3a1e !important;
+}
+
+.dark-mode .bg-yellow-50 {
+    background-color: #2e2a1a !important;
+}
+
+.dark-mode .bg-red-50 {
+    background-color: #2e1a1a !important;
+}
+
+.dark-mode .bg-purple-100 {
+    background-color: #2a1e3a !important;
+}
+
+.dark-mode .bg-amber-100 {
+    background-color: #3a2e1e !important;
+}
+
+/* Textos */
+.dark-mode .text-gray-900 {
+    color: #e5e5e5 !important;
+}
+
+.dark-mode .text-gray-800 {
+    color: #d0d0d0 !important;
+}
+
+.dark-mode .text-gray-700 {
+    color: #b8b8b8 !important;
+}
+
+.dark-mode .text-gray-600 {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .text-gray-500 {
+    color: #888888 !important;
+}
+
+.dark-mode .text-gray-400 {
+    color: #707070 !important;
+}
+
+.dark-mode .text-blue-900 {
+    color: #93c5fd !important;
+}
+
+/* Keep badge colors vibrant */
+.dark-mode .bg-green-100 {
+    background-color: #1e3a1e !important;
+}
+
+.dark-mode .text-green-800 {
+    color: #86efac !important;
+}
+
+.dark-mode .bg-purple-100 {
+    background-color: #2a1e3a !important;
+}
+
+.dark-mode .text-purple-800 {
+    color: #c4b5fd !important;
+}
+
+.dark-mode .text-blue-700 {
+    color: #60a5fa !important;
+}
+
+.dark-mode .text-blue-800 {
+    color: #93c5fd !important;
+}
+
+.dark-mode .text-blue-700 {
+    color: #60a5fa !important;
+}
+
+.dark-mode .text-blue-600 {
+    color: #3b82f6 !important;
+}
+
+.dark-mode .text-green-800 {
+    color: #86efac !important;
+}
+
+.dark-mode .text-green-700 {
+    color: #4ade80 !important;
+}
+
+.dark-mode .text-green-600 {
+    color: #22c55e !important;
+}
+
+.dark-mode .text-yellow-700 {
+    color: #fde047 !important;
+}
+
+.dark-mode .text-indigo-600 {
+    color: #a5b4fc !important;
+}
+
+.dark-mode .text-indigo-800 {
+    color: #a5b4fc !important;
+}
+
+/* Bordes */
+.dark-mode .border,
+.dark-mode .border-gray-100,
+.dark-mode .border-gray-200,
+.dark-mode .border-gray-300,
+.dark-mode .border-gray-400 {
+    border-color: #505050 !important;
+}
+
+.dark-mode .border-blue-200,
+.dark-mode .border-blue-300,
+.dark-mode .border-blue-400 {
+    border-color: #2563eb !important;
+}
+
+.dark-mode .border-green-200,
+.dark-mode .border-green-300 {
+    border-color: #22c55e !important;
+}
+
+.dark-mode .border-yellow-200 {
+    border-color: #eab308 !important;
+}
+
+.dark-mode .border-red-200,
+.dark-mode .border-red-300 {
+    border-color: #ef4444 !important;
+}
+
+.dark-mode .border-green-500 {
+    border-color: #22c55e !important;
+}
+
+.dark-mode .border-blue-500 {
+    border-color: #3b82f6 !important;
+}
+
+.dark-mode .border-l-4.border-blue-400 {
+    border-left-color: #2563eb !important;
+}
+
+.dark-mode .border-white\/20,
+.dark-mode .border-white\/30 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Gradientes de headers */
+.dark-mode .bg-gradient-to-r.from-blue-600.to-blue-700 {
+    background: linear-gradient(to right, #1e3a8a, #1e40af) !important;
+}
+
+/* Cards y contenedores */
+.dark-mode .liquid-glass {
+    background: rgba(37, 37, 37, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-color: #505050 !important;
+}
+
+.dark-mode .shadow,
+.dark-mode .shadow-sm,
+.dark-mode .shadow-md,
+.dark-mode .shadow-lg,
+.dark-mode .shadow-xl {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Borders generales más visibles */
+.dark-mode .border,
+.dark-mode .border-2 {
+    border-color: #505050 !important;
+}
+
+.dark-mode .border-t,
+.dark-mode .border-b,
+.dark-mode .border-l,
+.dark-mode .border-r {
+    border-color: #505050 !important;
+}
+
+/* Cards específicos */
+.dark-mode .bg-white.rounded-xl,
+.dark-mode .bg-white.rounded-2xl,
+.dark-mode .bg-white.rounded-lg {
+    background-color: #1e1e1e !important;
+    border: 1px solid #505050 !important;
+}
+
+/* Panel del carrito */
+.dark-mode #cart-panel {
+    background-color: #1a1a1a !important;
+    border-color: #505050 !important;
+}
+
+/* Items del carrito */
+.dark-mode .bg-gray-50.border {
+    background-color: #252525 !important;
+    border-color: #505050 !important;
+}
+
+.dark-mode .divide-y > * {
+    border-color: #505050 !important;
+}
+
+/* Inputs y formularios */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #252525 !important;
+    color: #e5e5e5 !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+    border-color: #2563eb !important;
+    background-color: #2a2a2a !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #707070 !important;
+}
+
+.dark-mode input[type="checkbox"],
+.dark-mode input[type="radio"] {
+    background-color: #252525 !important;
+    border-color: #404040 !important;
+}
+
+/* Botones */
+.dark-mode .hover\:bg-gray-50:hover {
+    background-color: #2a2a2a !important;
+}
+
+.dark-mode .hover\:bg-gray-100:hover {
+    background-color: #303030 !important;
+}
+
+.dark-mode .hover\:bg-blue-50:hover {
+    background-color: #1e3a5f !important;
+}
+
+.dark-mode .hover\:border-green-500:hover {
+    border-color: #22c55e !important;
+}
+
+.dark-mode .hover\:border-blue-500:hover {
+    border-color: #3b82f6 !important;
+}
+
+/* Scrollbar en modo oscuro */
+.dark-mode * {
+    scrollbar-color: #404040 #1a1a1a;
+}
+
+.dark-mode *::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.dark-mode *::-webkit-scrollbar-thumb {
+    background-color: #404040;
+}
+
+.dark-mode *::-webkit-scrollbar-thumb:hover {
+    background-color: #505050;
+}
+
+/* Divisores */
+.dark-mode .divide-gray-100 > * + *,
+.dark-mode .divide-gray-200 > * + * {
+    border-color: #404040 !important;
+}
+
+.dark-mode hr {
+    border-color: #404040 !important;
+}
+
+/* Hover states especiales */
+.dark-mode .group:hover .group-hover\:bg-green-500 {
+    background-color: #22c55e !important;
+}
+
+.dark-mode .group:hover .group-hover\:bg-blue-500 {
+    background-color: #3b82f6 !important;
+}
+
+.dark-mode .group:hover .group-hover\:text-white {
+    color: #ffffff !important;
+}
+
+/* Modales y panels especiales en modo oscuro */
+.dark-mode #business-settings-modal {
+    background-color: rgba(10, 10, 10, 0.97) !important;
+}
+
+.dark-mode #business-settings-modal > * {
+    background-color: transparent !important;
+}
+
+.dark-mode #business-settings-modal .max-w-2xl {
+    background-color: transparent !important;
+}
+
+.dark-mode #business-settings-modal h3 {
+    color: #e5e5e5 !important;
+}
+
+.dark-mode #business-settings-form,
+.dark-mode .bg-card {
+    background-color: #1a1a1a !important;
+    border: 1px solid #505050 !important;
+}
+
+.dark-mode .rounded-2xl,
+.dark-mode .rounded-xl,
+.dark-mode .rounded-lg {
+    border-color: #505050 !important;
+}
+
+/* Modal content específico */
+.dark-mode .max-w-2xl.mx-auto.bg-white,
+.dark-mode .max-w-4xl.mx-auto.bg-white,
+.dark-mode .max-w-6xl.mx-auto.bg-white {
+    background-color: #1a1a1a !important;
+    border: 1px solid #505050 !important;
+}
+
+/* Labels en modo oscuro */
+.dark-mode label {
+    color: #b0b0b0 !important;
+}
+
+.dark-mode label.font-bold,
+.dark-mode label.font-semibold {
+    color: #d0d0d0 !important;
+}
+
+/* Tabs de configuración fondo */
+.dark-mode .bg-gray-100.rounded-xl {
+    background-color: #1a1a1a !important;
+    border: 1px solid #404040 !important;
+}
+
+.dark-mode .bg-gray-50.p-4,
+.dark-mode .bg-gray-50.rounded-xl {
+    background-color: #1e1e1e !important;
+    border-color: #505050 !important;
+}
+
+/* Títulos y headers en configuración */
+.dark-mode h4.text-gray-700 {
+    color: #d0d0d0 !important;
+}
+
+.dark-mode .text-hug-header {
+    color: #e5e5e5 !important;
+}
+
+/* Botones de tabs */
+.dark-mode .settings-tab-btn {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .settings-tab-btn.active {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .settings-tab-btn:hover:not(.active) {
+    background-color: #252525 !important;
+    color: #e5e5e5 !important;
+}
+
+/* Historial de órdenes */
+.dark-mode .space-y-3 > div,
+.dark-mode .space-y-4 > div {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* Cards del historial más compactos */
+.dark-mode .liquid-glass {
+    background-color: #1e1e1e !important;
+    border-color: #505050 !important;
+}
+
+.dark-mode .liquid-glass p,
+.dark-mode .liquid-glass span,
+.dark-mode .liquid-glass div {
+    color: #e5e5e5 !important;
+}
+
+.dark-mode .liquid-glass .text-gray-500 {
+    color: #888888 !important;
+}
+
+.dark-mode .liquid-glass .text-gray-600 {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .liquid-glass .text-gray-700 {
+    color: #b8b8b8 !important;
+}
+
+.dark-mode .liquid-glass .text-gray-800 {
+    color: #d0d0d0 !important;
+}
+
+/* SVG icons en order cards - forzar color claro */
+.dark-mode .liquid-glass svg {
+    color: #a0a0a0 !important;
+    stroke: #a0a0a0 !important;
+}
+
+/* Borders internos en order cards más sutiles */
+.dark-mode .liquid-glass .border-gray-100,
+.dark-mode .liquid-glass .border-gray-200 {
+    border-color: #303030 !important;
+}
+
+/* Border principal de las cards más visible */
+.dark-mode .liquid-glass.border {
+    border-color: #505050 !important;
+}
+
+/* Inputs de búsqueda en modo oscuro */
+.dark-mode input[type="text"],
+.dark-mode input[type="search"],
+.dark-mode input[type="number"],
+.dark-mode input[type="password"] {
+    background-color: #252525 !important;
+    color: #e5e5e5 !important;
+    border-color: #505050 !important;
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="search"]:focus,
+.dark-mode input[type="number"]:focus,
+.dark-mode input[type="password"]:focus {
+    background-color: #2a2a2a !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Textarea en modo oscuro */
+.dark-mode textarea {
+    background-color: #252525 !important;
+    color: #e5e5e5 !important;
+    border-color: #505050 !important;
+}
+
+.dark-mode textarea:focus {
+    background-color: #2a2a2a !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Select en modo oscuro */
+.dark-mode select {
+    background-color: #252525 !important;
+    color: #e5e5e5 !important;
+    border-color: #505050 !important;
+}
+
+.dark-mode select:focus {
+    background-color: #2a2a2a !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Panel de estadísticas en modo oscuro */
+.dark-mode .bg-blue-50.border-blue-200 {
+    background-color: #1a2840 !important;
+    border-color: #3b82f6 !important;
+}
+
+.dark-mode .bg-blue-50.border-blue-200 .text-blue-600 {
+    color: #60a5fa !important;
+}
+
+.dark-mode .bg-blue-50.border-blue-200 .text-blue-800 {
+    color: #93c5fd !important;
+}
+
+.dark-mode .bg-green-50.border-green-200 {
+    background-color: #1a3520 !important;
+    border-color: #22c55e !important;
+}
+
+.dark-mode .bg-green-50.border-green-200 .text-green-600 {
+    color: #4ade80 !important;
+}
+
+.dark-mode .bg-green-50.border-green-200 .text-green-800 {
+    color: #86efac !important;
+}
+
+.dark-mode .bg-yellow-50.border-yellow-200 {
+    background-color: #332d1a !important;
+    border-color: #eab308 !important;
+}
+
+.dark-mode .bg-yellow-50.border-yellow-200 .text-yellow-700 {
+    color: #fde047 !important;
+}
+
+.dark-mode .bg-yellow-50.border-yellow-200 .text-yellow-800 {
+    color: #fef08a !important;
+}
+
+.dark-mode .bg-indigo-50.border-indigo-200 {
+    background-color: #1e1a30 !important;
+    border-color: #6366f1 !important;
+}
+
+.dark-mode .bg-indigo-50.border-indigo-200 .text-indigo-600 {
+    color: #a5b4fc !important;
+}
+
+.dark-mode .bg-indigo-50.border-indigo-200 .text-indigo-800 {
+    color: #c7d2fe !important;
+}
+
+/* Títulos de secciones en estadísticas */
+.dark-mode #statistics-view h4 {
+    color: #e5e5e5 !important;
+    border-color: #404040 !important;
+}
+
+/* Lista de productos más vendidos */
+.dark-mode #top-products-list > div {
+    background-color: #1e1e1e !important;
+    border: 1px solid #404040 !important;
+}
+
+.dark-mode #top-products-list p,
+.dark-mode #top-products-list span {
+    color: #d0d0d0 !important;
+}
+
+.dark-mode #top-products-list .text-gray-600 {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode #top-products-list .text-gray-800 {
+    color: #d0d0d0 !important;
+}
+
+.dark-mode #top-products-list .font-bold {
+    color: #e5e5e5 !important;
+}
+
+/* Tabs de configuración */
+.dark-mode .settings-tab-btn {
+    color: #888888 !important;
+    background-color: transparent !important;
+}
+
+.dark-mode .settings-tab-btn.active {
+    background-color: #252525 !important;
+    color: #3b82f6 !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode .settings-tab-btn:hover:not(.active) {
+    background-color: #1e1e1e !important;
+}
+
+/* Iconos y SVG en modo oscuro */
+.dark-mode svg:not(#dark-mode-toggle *) {
+    filter: brightness(1.1);
+}
+
+/* Iconos de búsqueda, filtros y botones blancos en modo oscuro */
+.dark-mode .pointer-events-none img[src*="search.svg"],
+.dark-mode .pointer-events-none img[src*="filter.svg"],
+.dark-mode .pointer-events-none img[src*="shapes.svg"],
+.dark-mode img[src*="receipt.svg"],
+.dark-mode button:not(.peer):not([class*="peer"]) img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Asegurar que el switch y el input de búsqueda NO se vean afectados */
+.dark-mode #dark-mode-toggle,
+.dark-mode #product-search-input,
+.dark-mode #pos-search-input,
+.dark-mode input[type="checkbox"],
+.dark-mode input[type="text"] {
+    filter: none !important;
+}
+
+/* Cards de productos en modo oscuro */
+.dark-mode .product-card {
+    background-color: #1e1e1e !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode .product-card:hover {
+    background-color: #252525 !important;
+    border-color: #505050 !important;
+}
+
+/* Mensajes y alertas en modo oscuro */
+.dark-mode .bg-blue-50.border-l-4.border-blue-400 {
+    background-color: #1a2332 !important;
+    border-left-color: #2563eb !important;
+}
+
+.dark-mode .bg-green-50 {
+    background-color: #1a2e1a !important;
+}
+
+.dark-mode .bg-yellow-50 {
+    background-color: #2e2a1a !important;
+}
+
+.dark-mode .bg-red-50 {
+    background-color: #2e1a1a !important;
+}
+
+/* Select y opciones */
+.dark-mode select option {
+    background-color: #1e1e1e !important;
+    color: #e5e5e5 !important;
+}
+
+/* Resetear estilos de scroll personalizados */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+}
+
+/* Estilos para las transiciones suaves */
+.transition-all {
+    transition: all 0.2s ease;
+}
+
+/* Animaciones mejoradas */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { 
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+    opacity: 0; 
+}
+
+        /* Animaciones para botones y elementos */
+        .btn-primary, .btn-secondary, button {
+            position: relative;
+            overflow: hidden;
+            transition: all .2s ease;
+        }
+        .btn-primary:hover, .btn-secondary:hover, button:hover {
+            transform: translateY(-1px);
+        }
+        .btn-primary:active, .btn-secondary:active, button:active {
+            transform: translateY(0);
+        }
+        button:focus { 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); 
+        }
+
+        /* Hover/Focus effect para montos/saldos */
+        #display-current-balance, #display-charge-amount-confirm, #display-total-amount, 
+        #total-revenue-display, #display-charge-amount-payment-method, #display-charge-amount-login {
+            display: inline-block;
+            transition: transform 200ms ease, color 200ms ease;
+        }
+        #display-current-balance:hover, #display-current-balance:focus,
+        #display-charge-amount-confirm:hover, #display-charge-amount-confirm:focus,
+        #display-total-amount:hover, #display-total-amount:focus,
+        #total-revenue-display:hover, #total-revenue-display:focus,
+        #display-charge-amount-payment-method:hover, #display-charge-amount-payment-method:focus,
+        #display-charge-amount-login:hover, #display-charge-amount-login:focus {
+            transform: scale(1.04);
+            color: #2563eb;
+        }
+
+        /* Estilos para imágenes de producto */
+        .product-image { 
+            width: 56px; 
+            height: 56px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+        }
+        .product-image-lg { 
+            width: 72px; 
+            height: 72px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+        }
+
+        /* Estilos para pestañas de configuración */
+        .settings-tab-btn {
+            transition: all 0.2s ease;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .settings-tab-btn.active {
+            background-color: white;
+            color: #2563eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
+        }
+        .settings-tab-btn:hover {
+            color: #2563eb;
+            background-color: #f8fafc;
+        }
+
+        /* Estilos para pestañas de administradores */
+        .admin-tab-btn {
+            transition: all 0.2s ease;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .admin-tab-btn.active {
+            background-color: white;
+            color: #2563eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
+        }
+        .admin-tab-btn:hover {
+            color: #2563eb;
+            background-color: #f8fafc;
+        }
+
+        .link-icon {
+            object-fit: contain;
+        }
+
+        .link-title {
+            transform: translateX(100%);
+            transition: transform 0.2s ease-in;
+            transform-origin: center right;
+            display: block;
+            text-align: center;
+            padding-left: 30px; /* Space for icon */
+            width: 100%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: #f9fafb;
+            color: var(--hug-text-color);
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
+        .bg-card {
+            background-color: var(--hug-card-bg);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--hug-border);
+        }
+        .btn-primary {
+            background-color: var(--hug-primary);
+            transition: all 0.2s ease-in-out;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .btn-primary:hover {
+            background-color: var(--hug-primary-dark);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-danger {
+            background-color: var(--hug-danger);
+            transition: all 0.2s ease-in-out;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .btn-danger:hover {
+            background-color: #b91c1c;
+            box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .product-card {
+             cursor: pointer;
+             transition: all 0.2s ease;
+             border: 2px solid var(--hug-border);
+             background-color: var(--hug-card-bg);
+        }
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: var(--hug-primary);
+            background-color: #fafbfc;
+        }
+        input[type="text"][id="product-emoji"], input[type="text"][id="edit-product-emoji"] {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Estilo para las opciones múltiples (Radio Buttons) */
+        .radio-option {
+            display: none;
+        }
+        .rounded-full {
+            border-radius: 50%; /* Asegura que sea 100% circular */
+            width: 2.5rem;   /* Por ejemplo, 40px */
+            height: 2.5rem;  /* Debe ser igual al ancho */
+            display: flex; /* Para centrar el ícono */
+            align-items: center; /* Centrado vertical */
+            justify-content: center; /* Centrado horizontal */
+            padding: 0; /* Eliminar padding para que el tamaño sea preciso */
+        }
+        .radio-label {
+            display: block;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid var(--hug-border);
+            font-weight: 600;
+            background-color: var(--hug-card-bg);
+        }
+        .radio-label:hover {
+            border-color: var(--hug-primary);
+            background-color: #f8fafc;
+        }
+        .radio-option:checked + .radio-label {
+            background-color: #eff6ff;
+            border-color: var(--hug-primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Estilos profesionales tipo Office/Word */
+        .ribbon-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+
+        /* Tarjetas de negocio y usuario con efecto hover profesional */
+        .business-card, .user-card {
+            transition: all 0.2s ease;
+            border: 1px solid #e5e7eb;
+            background: white;
+        }
+        .business-card:hover, .user-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Botones estilo Office */
+        .office-button {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Mejora de inputs */
+        input[type="text"], 
+        input[type="password"], 
+        input[type="number"], 
+        textarea, 
+        select {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        /* Sombras suaves para modales */
+        .modal-content {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Separadores sutiles */
+        .divider {
+            border-top: 1px solid #e5e7eb;
+        }

@@ -133,93 +133,216 @@
                 from { opacity: 0; transform: translateY(20px); }
                 to { opacity: 1; transform: translateY(0); }
             }
+            
+            /* Mejoras visuales */
+            .feature-card {
+                transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .feature-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+                border-color: #3b82f6;
+            }
+            
+            .feature-card .icon-box {
+                transition: all 0.3s ease;
+            }
+            
+            .feature-card:hover .icon-box {
+                background: linear-gradient(135deg, #2563eb 0%, #1d4fd7 100%);
+                transform: scale(1.1) rotate(5deg);
+            }
+            
+            .feature-card:hover .icon-box svg {
+                color: white;
+                filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.4));
+            }
+            
+            .btn-accent {
+                background: linear-gradient(135deg, #2563eb 0%, #1d4fd7 100%);
+                transition: all 0.3s ease;
+            }
+            
+            .btn-accent:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            }
         </style>
         <!-- button-animations-end -->
 </head>
-<body class="min-h-screen flex items-start justify-center p-4 md:p-8">
+<body class="m-0 p-0 overflow-hidden">
 
-    <div id="app" class="w-full max-w-screen-xl mx-auto">
+    <div id="app" class="h-screen flex flex-col">
         
-        <!-- Pantalla de Inicio Renovada -->
-        <div id="landing-view" class="fixed inset-0 z-50 bg-slate-50 overflow-y-auto overflow-x-hidden">
+        <!-- Vista Principal de Bienvenida -->
+        <div id="landing-view" class="h-full flex flex-col bg-white">
+            <!-- Header estilo Ribbon de Word -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
+                <div class="px-6 py-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <img src="./Scr/logo-positive.svg" alt="Hug-Oh! Logo" class="h-12">
+                            <div class="border-l-2 border-white/30 pl-4">
+                                <h1 class="text-2xl font-bold text-white">Hug-Oh! Business Platform</h1>
+                                <p class="text-blue-100 text-sm">Gestiona tu empresa de forma segura</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barra de acciones rápidas -->
+                <div class="px-6 py-3 bg-white/10 backdrop-blur-sm flex gap-3">
+                    <button onclick="window.location.href='./Apps'" class="px-6 py-2.5 rounded-lg text-sm font-bold text-white bg-blue-500 hover:bg-blue-600 shadow-sm hover:shadow transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Ir a Business
+                    </button>
+                </div>
+            </div>
             
-            <!-- Fondo Dinámico -->
-            <div class="fixed inset-0 pointer-events-none">
-                <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-400/20 rounded-full blur-[100px] animate-float"></div>
-                <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-400/20 rounded-full blur-[100px] animate-float" style="animation-delay: -3s;"></div>
+            <!-- Contenido Principal -->
+            <div class="flex-1 overflow-y-auto px-12 py-12 bg-gray-50">
+                <div class="w-full">
+                    <!-- Hero Content -->
+                    <div class="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-12 shadow-xl border border-blue-100 mb-16">
+                        <div class="flex gap-12 items-center">
+                            <div class="flex-1">
+                                <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">Plataforma Empresarial</div>
+                                <h2 class="text-5xl font-black text-gray-900 mb-4 leading-tight">
+                                    Tu negocio,<br/>
+                                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">controlado.</span>
+                                </h2>
+                                <p class="text-lg text-gray-700 mb-8 leading-relaxed font-medium">
+                                    Gestión completa de inventario, ventas, clientes y finanzas en una plataforma intuitiva y profesional.
+                                </p>
+                                <button onclick="window.location.href='./Business'" class="px-10 py-4 btn-accent text-white font-bold rounded-xl flex items-center gap-3 text-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                    Comenzar Ahora
+                                </button>
+                            </div>
+                            <div class="flex-1 hidden md:flex items-center justify-center">
+                                <div class="relative w-80 h-80">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-300 to-cyan-300 rounded-2xl blur-3xl opacity-30 animate-pulse"></div>
+                                    <div class="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 rounded-3xl border-2 border-blue-200 p-12 flex items-center justify-center h-full shadow-lg">
+                                        <div class="text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-blue-600 opacity-40 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                            <p class="text-blue-600 font-semibold">Potencia tu empresa</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="mb-16">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-10">Características Principales</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            
+                            <!-- Feature 1 -->
+                            <div class="feature-card bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+                                <div class="mb-5">
+                                    <div class="icon-box bg-gradient-to-br from-blue-100 to-blue-50 p-4 rounded-xl w-fit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-3">Gestión de Inventario</h4>
+                                <p class="text-gray-600 leading-relaxed">Control total del stock, alertas automáticas de reposición y seguimiento en tiempo real de tus productos.</p>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div class="feature-card bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+                                <div class="mb-5">
+                                    <div class="icon-box bg-gradient-to-br from-green-100 to-green-50 p-4 rounded-xl w-fit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-3">Control Financiero</h4>
+                                <p class="text-gray-600 leading-relaxed">Monitorea ingresos, gastos y ganancias con reportes detallados y análisis de rentabilidad.</p>
+                            </div>
+
+                            <!-- Feature 3 -->
+                            <div class="feature-card bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+                                <div class="mb-5">
+                                    <div class="icon-box bg-gradient-to-br from-purple-100 to-purple-50 p-4 rounded-xl w-fit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-3">Gestión de Clientes</h4>
+                                <p class="text-gray-600 leading-relaxed">Administra tu cartera de clientes, historial de compras y herramientas CRM integradas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Section with 2 Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                        <!-- Info Box 1 -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-blue-600 text-white p-3 rounded-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">¿Qué es Hug-Oh!?</h4>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Plataforma empresarial profesional diseñada para pequeñas y medianas empresas. Gestiona todos tus procesos de negocio desde un único lugar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Info Box 2 -->
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-2xl p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-green-600 text-white p-3 rounded-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">¿Por qué elegir Hug-Oh!?</h4>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Interfaz intuitiva tipo Office, soporte completo, seguridad garantizada y herramientas profesionales para hacer crecer tu negocio.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats Section -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="bg-white rounded-xl p-8 shadow border border-gray-100 text-center">
+                            <p class="text-4xl font-black text-blue-600 mb-3">100%</p>
+                            <p class="text-sm text-gray-600 font-semibold">Seguridad</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-8 shadow border border-gray-100 text-center">
+                            <p class="text-4xl font-black text-green-600 mb-3">24/7</p>
+                            <p class="text-sm text-gray-600 font-semibold">Disponible</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-8 shadow border border-gray-100 text-center">
+                            <p class="text-4xl font-black text-purple-600 mb-3">∞</p>
+                            <p class="text-sm text-gray-600 font-semibold">Escalable</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Contenido Principal -->
-            <div class="relative z-10 min-h-screen flex flex-col">
-                
-                <!-- Navbar Simple -->
-                <nav class="w-full max-w-7xl mx-auto p-6 flex justify-between items-center animate-slide-up">
-                    <img src="../Scr/logo-positive.svg" alt="Hug-Oh! Logo" class="h-12 md:h-16">
-                    <button onclick="window.location.href='../Apps'" class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">
-                        Acceso Empresas
-                    </button>
-                </nav>
-
-                <!-- Hero Section -->
-                <main class="flex-grow flex flex-col items-center justify-center text-center px-4 py-12 md:py-20 max-w-5xl mx-auto">
-                    
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight leading-[1.1] mb-8 animate-slide-up delay-100">
-                        Gestiona tu negocio <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 bg-[length:200%_auto] animate-pulse">de manera inteligente.</span>
-                    </h1>
-                    
-                    <p class="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl font-medium leading-relaxed animate-slide-up delay-200">
-                        La plataforma definitiva para gestionar tu empresa. 
-                        Control de inventario, ventas, clientes y finanzas en un solo lugar.
-                    </p>
-
-                    <div class="animate-slide-up delay-300 w-full flex justify-center">
-                        <button onclick="window.location.href='../Apps'" class="group relative flex items-center justify-center gap-4 px-16 py-6 bg-blue-600 text-white text-xl font-bold rounded-full shadow-2xl hover:bg-blue-700 hover:shadow-blue-500/50 hover:-translate-y-1 transition-all duration-300 btn-primary overflow-hidden">
-                            <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                            <span>Comenzar Ahora</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </button>
-                    </div>
-
-                </main>
-
-                <!-- Features Section -->
-                <section class="w-full max-w-7xl mx-auto px-4 pb-20 grid grid-cols-1 md:grid-cols-3 gap-6 animate-slide-up delay-300">
-                    
-                    <!-- Card 1 -->
-                    <div class="glass-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3">Gestión de Inventario</h3>
-                        <p class="text-slate-500 leading-relaxed">Control total de tu stock, alertas automáticas de reposición y seguimiento de productos en tiempo real.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="glass-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                        <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-600 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-cyan-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3">Control Financiero</h3>
-                        <p class="text-slate-500 leading-relaxed">Monitorea ingresos, gastos y ganancias. Reportes financieros detallados y análisis de rentabilidad.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="glass-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-                        <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-3">Gestión de Clientes</h3>
-                        <p class="text-slate-500 leading-relaxed">Administra tu cartera de clientes, historial de compras y fidelización con herramientas CRM integradas.</p>
-                    </div>
-
-                </section>
-
-                <footer class="py-8 text-center text-slate-400 text-sm font-medium">
-                    © 2024 Hug-Oh! Business Solutions. Todos los derechos reservados.
-                </footer>
+            <!-- Footer -->
+            <div class="bg-gray-100 border-t border-gray-300 px-8 py-3 text-center text-xs text-gray-600">
+                © 2024 Hug-Oh! Business Solutions. Todos los derechos reservados.
             </div>
         </div>
     

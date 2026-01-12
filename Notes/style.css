@@ -1,0 +1,370 @@
+/* Estilos personalizados para Business Notes */
+
+:root {
+    --notes-primary: #d97706;
+    --notes-primary-dark: #b45309;
+    --notes-secondary: #fef3c7;
+    --notes-text: #0f172a;
+    --notes-text-muted: #64748b;
+}
+
+/* Scrollbar personalizado */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+}
+
+/* Animaciones */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+/* Transiciones suaves */
+.transition-all {
+    transition: all 0.2s ease;
+}
+
+/* Botones */
+button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+/* Inputs y textareas */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+/* Tarjetas de notas */
+.note-card {
+    transition: all 0.2s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Colores para las notas */
+.bg-yellow-100 {
+    background-color: #fef3c7;
+}
+
+.border-yellow-400 {
+    border-color: #fde047;
+}
+
+.bg-blue-100 {
+    background-color: #dbeafe;
+}
+
+.border-blue-400 {
+    border-color: #60a5fa;
+}
+
+.bg-green-100 {
+    background-color: #dcfce7;
+}
+
+.border-green-400 {
+    border-color: #4ade80;
+}
+
+.bg-pink-100 {
+    background-color: #fce7f3;
+}
+
+.border-pink-400 {
+    border-color: #f472b6;
+}
+
+.bg-purple-100 {
+    background-color: #f3e8ff;
+}
+
+.border-purple-400 {
+    border-color: #c084fc;
+}
+
+/* Modal personalizado */
+.modal-content {
+    animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sombras suaves */
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #0f0f0f;
+    color: #e5e5e5;
+}
+
+body.dark-mode,
+body.dark-mode * {
+    scrollbar-color: #505050 #1a1a1a;
+}
+
+body.dark-mode *::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+body.dark-mode *::-webkit-scrollbar-thumb {
+    background-color: #505050;
+}
+
+body.dark-mode *::-webkit-scrollbar-thumb:hover {
+    background-color: #707070;
+}
+
+body.dark-mode .bg-white {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .bg-gray-50 {
+    background-color: #151515;
+}
+
+body.dark-mode .bg-gray-100 {
+    background-color: #222222;
+}
+
+body.dark-mode .bg-gray-200 {
+    background-color: #333333;
+}
+
+body.dark-mode .text-gray-900 {
+    color: #e5e5e5;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #d0d0d0;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #a0a0a0;
+}
+
+body.dark-mode .text-gray-500 {
+    color: #808080;
+}
+
+body.dark-mode .border-gray-200 {
+    border-color: #505050;
+}
+
+body.dark-mode .border-gray-300 {
+    border-color: #404040;
+}
+
+body.dark-mode .shadow-sm,
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-xl {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #222222;
+    color: #e5e5e5;
+    border-color: #505050;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #d97706;
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .editor-toolbar {
+    background: linear-gradient(to bottom, #2a2a2a, #1f1f1f);
+    border-bottom-color: #505050;
+}
+
+body.dark-mode .ideas-item:hover {
+    background-color: #222222;
+}
+
+body.dark-mode .note-card {
+    background-color: #1a1a1a;
+    border-color: #505050;
+}
+
+body.dark-mode button {
+    transition: all 0.2s ease;
+}
+
+body.dark-mode .bg-gradient-to-r {
+    background: linear-gradient(to right, #b45309, #92400e);
+}
+
+/* Animación de carga */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Línea clamp para texto truncado */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .py-6 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+/* Estilos para el editor de notas mejorado */
+.editor-toolbar {
+    background: linear-gradient(to bottom, #f3f4f6, #f9fafb);
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.editor-toolbar button {
+    min-width: 32px;
+    height: 32px;
+    padding: 4px 8px;
+    font-size: 0.875rem;
+}
+
+textarea.note-editor {
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+/* Tabla de ideas mejorada */
+.ideas-item {
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ideas-item:hover {
+    background-color: #fafaf9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Animación slide in right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mejora de tarjetas de notas */
+.note-card {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.note-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra de búsqueda mejorada */
+.search-input:focus-within {
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
