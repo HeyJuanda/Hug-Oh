@@ -6,150 +6,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./scr/nav-icon.png" />
     <link rel="canonical" href="https://hug-oh.com/" />
-    <meta name="description" content="Hug-Oh! Tu Plataforma de Negocios. Gestiona tu empresa de forma segura y eficiente.">
+    <meta name="description" content="Hug-Oh! v1.2.0 - Gestiona tu empresa de forma segura y eficiente con nuestra plataforma empresarial.">
     <title>Hug-Oh! | Business Platform</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         
-        .glass-header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #f0f9ff, #ffffff);
+        .hero-bg {
+            background: radial-gradient(circle at 70% 30%, #f0f7ff 0%, #ffffff 100%);
         }
 
-        .preview-card {
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        .browser-mockup {
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.15), 0 30px 60px -30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .preview-card:hover {
-            transform: translateY(-8px) scale(1.01);
+        .browser-mockup:hover {
+            transform: translateY(-10px) scale(1.01);
         }
 
-        .btn-primary {
+        .btn-gradient {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
         }
 
-        .btn-primary:hover {
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+        .btn-gradient:hover {
+            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.5);
             transform: translateY(-2px);
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in { animation: fadeInUp 0.9s ease-out forwards; }
+        .animate-reveal { animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     </style>
 </head>
 
-<body class="text-slate-900 overflow-x-hidden">
+<body class="bg-white text-slate-900">
 
-    <nav class="fixed w-full z-50 glass-header">
+    <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="./scr/nav-icon.png" alt="Logo" class="h-10 w-10">
-                <span class="text-xl font-extrabold tracking-tight text-blue-600">Hug-Oh!</span>
+                <img src="./scr/nav-icon.png" alt="Hug-Oh! Logo" class="h-9 w-9">
+                <span class="text-xl font-bold tracking-tight">Hug-Oh!</span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="#features" class="hover:text-blue-600 transition-colors">Características</a>
-                <a href="https://drive.google.com/uc?export=download&id=106D01wsPArKuYMsKKLOoeuJq-bH3s9_D" class="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg active:scale-95">
-                    Descargar Ahora
-                </a>
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline-block text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full uppercase tracking-tighter">Versión 1.2.0</span>
+                <a href="https://drive.google.com/uc?export=download&id=1MJ6q2zYoXe644T0nlX2omU2sp7JeSkmx" class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">Windows</a>
+                <a href="https://drive.google.com/uc?export=download&id=1kaEx7s4_NMscY1zcEnrHcVeXSWpJkMTV" class="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors">macOS</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-32 hero-gradient">
-        <section class="max-w-7xl mx-auto px-6 text-center">
-            <div class="animate-fade-in">
-                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">
-                    Software de Gestión Empresarial v1.0
-                </span>
-                <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-tight">
-                    Tu negocio bajo control, <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">en cualquier lugar.</span>
+    <main class="hero-bg pt-32 overflow-hidden">
+        <section class="max-w-7xl mx-auto px-6">
+            <div class="text-center animate-reveal">
+                <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
+                    Gestiona como <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">un profesional.</span>
                 </h1>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-medium">
-                    Simplifica tus ventas, gestiona inventarios complejos y analiza el crecimiento de tu empresa con una interfaz diseñada para la velocidad.
+                <p class="text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium">
+                    La plataforma empresarial v1.2.0 que simplifica tus ventas e inventarios. Rendimiento nativo para equipos de alto crecimiento.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
-                    <a href="https://drive.google.com/uc?export=download&id=106D01wsPArKuYMsKKLOoeuJq-bH3s9_D" 
-                       class="btn-primary w-full sm:w-auto px-10 py-5 text-white font-bold rounded-2xl flex items-center justify-center gap-3 text-lg">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-24">
+                    <a href="https://drive.google.com/uc?export=download&id=1MJ6q2zYoXe644T0nlX2omU2sp7JeSkmx" 
+                       class="btn-gradient w-full sm:w-auto px-10 py-5 text-white font-bold rounded-2xl flex items-center justify-center gap-3 text-lg transition-all active:scale-95">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1V11.7H0V3.449zm0 17.1L9.75 21.9V12.3H0v8.249zM10.5 2V11.7H24V0L10.5 2zm0 19.9l13.5 2.1V12.3H10.5v9.6z"/></svg>
                         Descargar para Windows
                     </a>
-                    <a href="https://drive.google.com/uc?export=download&id=1LupqltFh4W3Z4SP6Nc1stsu2VnzK8fc1" 
-                       class="w-full sm:w-auto px-10 py-5 bg-white text-slate-700 font-bold rounded-2xl hover:bg-slate-50 transition-all border-2 border-slate-100 flex items-center justify-center gap-3 text-lg shadow-sm">
+                    <a href="https://drive.google.com/uc?export=download&id=1kaEx7s4_NMscY1zcEnrHcVeXSWpJkMTV" 
+                       class="w-full sm:w-auto px-10 py-5 bg-white text-slate-800 font-bold rounded-2xl hover:bg-slate-50 transition-all border border-slate-200 flex items-center justify-center gap-3 text-lg shadow-sm active:scale-95">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.78 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.1zm-3.04-14.07c-.03-3.08 2.53-5.35 5.25-5.21.31 3.23-2.92 5.56-5.25 5.21z"/></svg>
                         Descargar para macOS
                     </a>
                 </div>
             </div>
 
-            <div class="relative max-w-5xl mx-auto mt-10 mb-24 group">
-                <div class="absolute -inset-10 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full blur-3xl opacity-40"></div>
+            <div class="relative max-w-6xl mx-auto mb-32 animate-reveal" style="animation-delay: 0.2s;">
+                <div class="absolute -inset-20 bg-blue-400/10 rounded-full blur-3xl"></div>
                 
-                <div class="relative bg-white rounded-3xl p-2 shadow-2xl border border-slate-200 preview-card z-10">
-                    <div class="bg-slate-100 rounded-t-2xl px-4 py-3 flex gap-2 items-center border-b border-slate-200">
-                        <div class="w-3 h-3 rounded-full bg-slate-300"></div>
-                        <div class="w-3 h-3 rounded-full bg-slate-300"></div>
-                        <div class="w-3 h-3 rounded-full bg-slate-300"></div>
-                        <span class="ml-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">Hug-Oh! Business Central</span>
+                <div class="relative bg-white rounded-3xl p-3 browser-mockup z-10 border border-slate-100">
+                    <div class="bg-slate-50 rounded-t-2xl px-6 py-4 flex gap-2 items-center border-b border-slate-100">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                            <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                            <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                        </div>
+                        <span class="mx-auto text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Hug-Oh! Business v1.2.0</span>
                     </div>
-                    <img src="./scr/image-app.png" alt="Panel Principal" class="w-full rounded-b-2xl">
+                    <img src="./scr/image-app.png" alt="Hug-Oh Dashboard" class="w-full rounded-b-2xl">
                 </div>
 
-                <div class="hidden lg:block absolute -right-16 -bottom-12 w-2/3 rounded-3xl p-2 bg-white shadow-2xl border border-slate-200 preview-card z-20">
-                    <img src="./scr/image.png" alt="Punto de Venta" class="w-full rounded-2xl">
+                <div class="hidden lg:block absolute -right-20 -bottom-16 w-1/2 rounded-3xl p-2 bg-white shadow-2xl border border-slate-200 z-20 browser-mockup">
+                    <img src="./scr/image.png" alt="Hug-Oh POS" class="w-full rounded-2xl">
                 </div>
             </div>
         </section>
 
-        <section id="features" class="bg-slate-50 py-32 border-t border-slate-100">
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-3xl font-extrabold mb-16 text-slate-800">Todo lo que necesitas en un solo lugar</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="p-10 bg-white rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">Multi-inventario</h4>
-                        <p class="text-slate-500 leading-relaxed">Controla múltiples sucursales y bodegas con sincronización automática de stock.</p>
-                    </div>
-                    <div class="p-10 bg-white rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">Reportes Pro</h4>
-                        <p class="text-slate-500 leading-relaxed">Gráficos de rendimiento, ventas diarias y proyecciones de ingresos mensuales.</p>
-                    </div>
-                    <div class="p-10 bg-white rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 mx-auto">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        </div>
-                        <h4 class="text-xl font-bold mb-4">Máxima Seguridad</h4>
-                        <p class="text-slate-500 leading-relaxed">Tus datos están protegidos con encriptación local y respaldos automáticos.</p>
-                    </div>
+        <section class="bg-slate-900 py-24 text-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+                <div>
+                    <div class="text-4xl font-black mb-2">100%</div>
+                    <div class="text-slate-400 text-sm uppercase font-bold tracking-widest">Seguro y Local</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-2">v1.2.0</div>
+                    <div class="text-slate-400 text-sm uppercase font-bold tracking-widest">Última Estabilidad</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-black mb-2">40%</div>
+                    <div class="text-slate-400 text-sm uppercase font-bold tracking-widest">Más Eficiente</div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <img src="./scr/nav-icon.png" alt="Logo" class="h-8 mx-auto mb-6 opacity-40">
-            <p class="text-slate-400 text-sm">© 2024 Hug-Oh! Business Solutions. Todos los derechos reservados.</p>
+    <footer class="py-20 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+            <img src="./scr/nav-icon.png" alt="Logo" class="h-10 opacity-20 mb-8 grayscale">
+            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">© 2024 Hug-Oh! Business Solutions</p>
         </div>
     </footer>
 
