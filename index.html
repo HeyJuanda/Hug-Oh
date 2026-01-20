@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -9,6 +9,11 @@
     <meta name="description" content="Hug-Oh! v1.2.2 - Gestiona tu empresa de forma segura y eficiente con nuestra plataforma empresarial.">
     <title>Hug-Oh! | Business Platform</title>
     
+    <script>
+        tailwind.config = {
+            darkMode: 'media'
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     
@@ -49,10 +54,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-reveal { animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+            }
+            .hero-bg {
+                background: radial-gradient(circle at 70% 30%, #1a1a2e 0%, #16213e 100%);
+            }
+            .glass-nav {
+                background: rgba(26, 26, 26, 0.85);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .browser-mockup {
+                background: #1a1a1a;
+                border-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3), 0 30px 60px -30px rgba(0, 0, 0, 0.5);
+            }
+            .btn-gradient {
+                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+                box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+            }
+            .btn-gradient:hover {
+                box-shadow: 0 15px 35px -5px rgba(59, 130, 246, 0.5);
+            }
+        }
     </style>
 </head>
 
-<body class="text-slate-900">
+<body class="text-slate-900 dark:text-slate-100">
 
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -62,9 +92,9 @@
             </div>
             <div class="flex items-center gap-6">
                 <span class="hidden md:inline-block text-[10px] font-black bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">v1.2.2 stable</span>
-                <div class="flex gap-4 text-sm font-bold text-slate-600">
+                <div class="flex gap-4 text-sm font-bold text-slate-600 dark:text-slate-400">
                     <a href="#features" class="hover:text-blue-600 transition-colors">Funciones</a>
-                    <a href="https://drive.google.com/uc?export=download&id=1EGCEsa1AmEJMenXM-sFt8Iw3dhLd1hT3" class="text-blue-600 hover:underline">Windows</a>
+                    <a href="#downloads" class="text-blue-600 hover:underline">Descargar</a>
                 </div>
             </div>
         </div>
@@ -78,19 +108,19 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                     </span>
-                    <span class="text-[10px] font-bold text-blue-700 uppercase tracking-widest">Nueva versión 1.2.2 ya disponible</span>
+                    <span class="text-[10px] font-bold text-blue-700 uppercase tracking-widest">Nueva versión 1.2.23 ya disponible</span>
                 </div>
                 
                 <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.85]">
                     Control total para <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">tu empresa.</span>
                 </h1>
-                <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-medium">
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-12 font-medium">
                     Software de gestión nativo diseñado para la máxima eficiencia. <br class="hidden md:block"> Inventarios, ventas y analítica en tiempo real.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-24">
-                    <a href="https://drive.google.com/uc?export=download&id=1EGCEsa1AmEJMenXM-sFt8Iw3dhLd1hT3" 
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-24" id="downloads">
+                    <a href="https://drive.google.com/uc?export=download&id=1s0-Ozbbsntx1kLeA9tZDoTF6v-xXQKg4" 
                        class="btn-gradient w-full sm:w-auto px-10 py-5 text-white font-bold rounded-2xl flex items-center justify-center gap-3 text-lg transition-all active:scale-95">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3.449L9.75 2.1V11.7H0V3.449zm0 17.1L9.75 21.9V12.3H0v8.249zM10.5 2V11.7H24V0L10.5 2zm0 19.9l13.5 2.1V12.3H10.5v9.6z"/></svg>
                         Descargar para Windows
@@ -107,57 +137,56 @@
                 <div class="absolute -inset-10 bg-blue-400/5 rounded-full blur-3xl"></div>
                 
                 <div class="relative bg-white rounded-[2rem] p-3 browser-mockup z-10 border border-slate-100">
-                    <div class="bg-slate-50 rounded-t-[1.5rem] px-6 py-4 flex gap-2 items-center border-b border-slate-100">
+                    <div class="bg-slate-50 dark:bg-slate-700 rounded-t-[1.5rem] px-6 py-4 flex gap-2 items-center border-b border-slate-100 dark:border-slate-600">
                         <div class="flex gap-1.5">
                             <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                             <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                             <div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
                         </div>
-                        <span class="mx-auto text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">Hug-Oh! Business v1.2.2</span>
+                        <span class="mx-auto text-[9px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">Hug-Oh! Business v1.2.2</span>
                     </div>
-                    <img src="./scr/image-app.png" alt="Hug-Oh Dashboard" class="w-full rounded-b-[1.5rem]">
-                </div>
-
-                <div class="hidden lg:block absolute -right-16 -bottom-12 w-1/2 rounded-[2rem] p-2 bg-white shadow-2xl border border-slate-200 z-20 browser-mockup">
-                    <img src="./scr/image.png" alt="Hug-Oh POS" class="w-full rounded-[1.5rem]">
+                    <picture>
+                        <source media="(prefers-color-scheme: dark)" srcset="./scr/image-dark.png">
+                        <img src="./scr/image-light.png" alt="Hug-Oh Dashboard" class="w-full rounded-b-[1.5rem]">
+                    </picture>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="bg-slate-50 py-32">
+        <section id="features" class="bg-slate-50 dark:bg-slate-800 py-32">
             <div class="max-w-7xl mx-auto px-6 text-center">
                 <h2 class="text-2xl font-black mb-16 tracking-tight">Potencia nativa para tu flujo de trabajo</h2>
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="text-left group">
-                        <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
+                        <div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-600 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h4 class="font-bold mb-2">Velocidad Extrema</h4>
-                        <p class="text-slate-500 text-sm">Escrito en código nativo para asegurar que las ventas se procesen en milisegundos.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Escrito en código nativo para asegurar que las ventas se procesen en milisegundos.</p>
                     </div>
                     <div class="text-left group">
-                        <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
+                        <div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-600 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <h4 class="font-bold mb-2">Seguridad Local</h4>
-                        <p class="text-slate-500 text-sm">Tus datos nunca salen de tu equipo a menos que tú decidas respaldarlos.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Tus datos nunca salen de tu equipo a menos que tú decidas respaldarlos.</p>
                     </div>
                     <div class="text-left group">
-                        <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border border-slate-200 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
+                        <div class="w-12 h-12 bg-white dark:bg-slate-700 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-600 flex items-center justify-center mb-6 group-hover:border-blue-400 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
                         </div>
                         <h4 class="font-bold mb-2">Multi-almacén</h4>
-                        <p class="text-slate-500 text-sm">Gestiona stock de múltiples ubicaciones de forma centralizada y sencilla.</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Gestiona stock de múltiples ubicaciones de forma centralizada y sencilla.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-16 border-t border-slate-100 bg-white">
+    <footer class="py-16 border-t border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
             <img src="./scr/nav-icon.png" alt="Logo" class="h-8 opacity-20 mb-6 grayscale">
-            <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em]">© 2024 Hug-Oh! Business Solutions</p>
+            <p class="text-slate-400 dark:text-slate-500 text-[10px] font-black uppercase tracking-[0.5em]">© 2024 Hug-Oh! Business Solutions</p>
         </div>
     </footer>
 
