@@ -1,225 +1,221 @@
 :root {
-    /* iOS 26 Liquid Glass 2.0 Design System */
-    --accent-color: #007AFF;
-    --accent-color-rgb: 0, 122, 255;
+    /* Apple Modern Design System 2026 */
+    --accent-color: #0071e3;
+    --accent-color-rgb: 0, 113, 227;
 
     /* Global Colors */
-    --bg-color: #F2F2F7;
-    --text-color: #000000;
-    --text-secondary: #666666;
+    --bg-color: #f5f5f7;
+    --text-color: #1d1d1f;
+    --text-secondary: #86868b;
 
-    /* Liquid Glass 2.0 Effects */
-    --base-glass: rgba(255, 255, 255, 0.4);
-    --hover-glass: rgba(255, 255, 255, 0.6);
-    --border-glass: rgba(255, 255, 255, 0.4);
-    --border-inner: rgba(255, 255, 255, 0.15);
-    --shadow-glass: rgba(0, 0, 0, 0.1);
+    /* Ultra-Refined Liquid Glass 3.0 */
+    --base-glass: rgba(255, 255, 255, 0.7);
+    --hover-glass: rgba(255, 255, 255, 0.85);
+    --border-glass: rgba(255, 255, 255, 0.5);
+    --border-inner: rgba(255, 255, 255, 0.2);
+    --shadow-subtle: 0 4px 24px rgba(0, 0, 0, 0.04);
+    --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
 
-    /* Legacy variables mapping for compatibility */
-    --hug-primary: #007aff;
-    --hug-header: #000000;
-
+    /* Typography */
+    --apple-font: "SF Pro Display", "SF Pro Text", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    
     /* Constants */
-    --blur-radius: 40px;
-    --border-radius: 28px;
-    --transition-speed: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    --hug-primary-dark: #0056b3;
-    --hug-secondary: #f5f5f7;
-    --hug-text-color: #000000;
-    --hug-text-muted: #666666;
-    --hug-danger: #ff3b30;
-    --hug-success: #34c759;
-    --hug-border: rgba(0, 0, 0, 0.1);
-    --hug-card-bg: rgba(255, 255, 255, 0.8);
-    --macos-vibrant-bg: #f5f5f7;
-    --macos-sidebar-bg: rgba(246, 246, 246, 0.85);
-    --macos-border-radius: 14px;
-    --macos-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    --blur-radius: 20px;
+    --border-radius: 22px;
+    --transition-speed: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-#app {
-    background: var(--macos-vibrant-bg);
-    font-family: var(--macos-font-family);
-    position: relative;
-    overflow: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-#app::before,
-#app::after,
-.aura-blob-3 {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: 0;
-    opacity: 0.4;
-    pointer-events: none;
-    animation: aura-float 25s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
-}
-
-#app::before {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, #007aff, #5856d6);
-    top: -100px;
-    left: -100px;
-}
-
-#app::after {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #ff2d55, #ff9500);
-    bottom: -50px;
-    right: -50px;
-    animation-delay: -10s;
-}
-
-.aura-blob-3 {
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, #34c759, #00c7be);
-    top: 40%;
-    right: 15%;
-    opacity: 0.25;
-    animation: aura-float 30s infinite alternate-reverse ease-in-out;
-    animation-delay: -5s;
-}
-
-@keyframes aura-float {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(120px, 80px) scale(1.15);
-    }
-}
-
-body {
-    font-family: var(--macos-font-family);
-    min-height: 100vh;
-    color: var(--text-color);
-}
-
-/* Base Glass Container - Liquid Glass 2.0 Implementation */
-.macos-glass,
-.liquid-glass,
-.macos-modal {
-    position: relative !important;
-    background: var(--base-glass) !important;
-    backdrop-filter: blur(var(--blur-radius)) saturate(200%) contrast(1.1) !important;
-    -webkit-backdrop-filter: blur(var(--blur-radius)) saturate(200%) contrast(1.1) !important;
-    border: 1px solid var(--border-glass) !important;
-    border-radius: var(--border-radius) !important;
-    box-shadow:
-        0 10px 40px var(--shadow-glass),
-        inset 0 0 0 1px var(--border-inner) !important;
-    transition: var(--transition-speed) !important;
-    overflow: hidden !important;
-}
-
-/* Texture Overlay for Glass 2.0 */
-.macos-glass::before,
-.liquid-glass::before,
-.macos-modal::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0 !important;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E") !important;
-    opacity: 0.03 !important;
-    mix-blend-mode: overlay !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
-}
-
-.macos-glass>*,
-.liquid-glass>*,
-.macos-modal>* {
-    position: relative !important;
-    z-index: 1 !important;
-}
-
-.macos-glass:hover,
-.liquid-glass:hover {
-    background: var(--hover-glass) !important;
-    box-shadow: 0 15px 50px var(--shadow-glass) !important;
-}
-
-.dark-mode #app {
-    background: #000000;
-}
-
-.dark-mode #app::before {
-    background: radial-gradient(circle, #003a7a, #322a84);
-    opacity: 0.4;
-}
-
-.dark-mode #app::after {
-    background: radial-gradient(circle, #7a152a, #844d00);
-    opacity: 0.3;
-}
-
-.dark-mode .aura-blob-3 {
-    background: radial-gradient(circle, #1a632d, #00635f);
-    opacity: 0.2;
-}
-
-/* Dark Mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #000000;
-        --text-color: #FFFFFF;
-        --text-secondary: #8E8E93;
-
-        /* Dark Liquid Glass 2.0 */
-        --base-glass: rgba(25, 25, 30, 0.5);
-        --hover-glass: rgba(44, 44, 46, 0.7);
-        --border-glass: rgba(180, 180, 180, 0.15);
+        --text-color: #f5f5f7;
+        --text-secondary: #86868b;
+        
+        --base-glass: rgba(29, 29, 31, 0.65);
+        --hover-glass: rgba(45, 45, 47, 0.8);
+        --border-glass: rgba(255, 255, 255, 0.1);
         --border-inner: rgba(255, 255, 255, 0.05);
-        --shadow-glass: rgba(0, 0, 0, 0.5);
-
-        --hug-text-color: #f5f5f7;
-        --hug-text-muted: #8e8e93;
-        --hug-header: rgba(255, 255, 255, 0.9);
-        --hug-border: rgba(255, 255, 255, 0.1);
-        --hug-card-bg: rgba(44, 44, 46, 0.7);
+        --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
+}
 
-    #app {
-        background: #000000;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--apple-font);
+    overflow-x: hidden;
+}
+
+#app {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Apple-style Animated Backgrounds */
+.aura-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aura-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    animation: aura-float 20s infinite alternate ease-in-out;
+}
+
+.aura-1 {
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, #0071e3, #6e67ff);
+    top: -20%;
+    left: -10%;
+}
+
+.aura-2 {
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, #ff3b30, #ff9500);
+    bottom: -10%;
+    right: -5%;
+    animation-delay: -5s;
+}
+
+.aura-3 {
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, #34c759, #00c7be);
+    top: 30%;
+    right: 10%;
+    opacity: 0.15;
+    animation-delay: -10s;
+}
+
+@keyframes aura-float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(5%, 5%) scale(1.05); }
+    100% { transform: translate(-2%, 8%) scale(0.95); }
+}
+
+/* Premium Navigation Bar */
+.apple-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    z-index: 1000;
+    background: rgba(var(--bg-color-rgb, 245, 245, 247), 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+@media (prefers-color-scheme: dark) {
+    .apple-nav {
+        background: rgba(0, 0, 0, 0.72);
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
     }
+}
 
-    #app::before {
-        background: radial-gradient(circle, #003a7a, #322a84);
-        opacity: 0.4;
-    }
+/* Liquid Glass Component */
+.liquid-glass {
+    background: var(--base-glass);
+    backdrop-filter: blur(var(--blur-radius)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--blur-radius)) saturate(180%);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-premium), inset 0 0 0 1px var(--border-inner);
+    transition: transform var(--transition-speed), background var(--transition-speed), box-shadow var(--transition-speed);
+}
 
-    #app::after {
-        background: radial-gradient(circle, #7a152a, #844d00);
-        opacity: 0.3;
-    }
+.liquid-glass:hover {
+    background: var(--hover-glass);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
 
-    .aura-blob-3 {
-        background: radial-gradient(circle, #1a632d, #00635f);
-        opacity: 0.2;
-    }
+/* Typography Utilities */
+.text-hero {
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+}
 
-    body {
-        background-color: #0f0f0f !important;
-        color: #e5e5e5 !important;
-    }
+.text-subhead {
+    font-size: clamp(20px, 4vw, 24px);
+    line-height: 1.2;
+    letter-spacing: 0.007em;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
 
-    .macos-glass {
-        background: rgba(28, 28, 30, 0.6);
-        border: none;
-    }
+/* Button Styling */
+.apple-btn {
+    padding: 12px 24px;
+    border-radius: 980px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    /* Global Overrides for Tailwind classes in Dark Mode if needed */
-    .dark\:text-slate-400 {
-        color: #a0a0a0 !important;
+.apple-btn-primary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.apple-btn-primary:hover {
+    background: #0077ed;
+    filter: brightness(1.1);
+}
+
+.apple-btn-secondary {
+    color: var(--accent-color);
+}
+
+.apple-btn-secondary:hover {
+    text-decoration: underline;
+}
+
+/* Feature Grid Refresh */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.bento-card {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .bento-card {
+        padding: 30px;
     }
 }
