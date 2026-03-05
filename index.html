@@ -29,142 +29,109 @@
 
 <body class="min-h-screen">
     <div id="app">
-        <!-- Apple-style Animated Background -->
-        <div class="aura-container">
-            <div class="aura-blob aura-1"></div>
-            <div class="aura-blob aura-2"></div>
-            <div class="aura-blob aura-3"></div>
-        </div>
+        <div class="flat-bg"></div>
 
-        <!-- Premium Apple Navbar -->
         <nav class="apple-nav">
             <div class="flex items-center gap-2">
-                <img src="./scr/nav-icon.png" alt="Hug-Oh! Logo" class="h-8 w-8">
-                <span class="font-semibold text-[17px] tracking-tight">Hug-Oh!</span>
+                <img src="./scr/nav-icon.png" alt="Hug-Oh! Logo" class="h-6 w-6">
+                <span class="font-bold text-[17px] tracking-tight">Hug-Oh!</span>
             </div>
         </nav>
 
-        <!-- Main Content Area -->
-        <main class="pt-[120px] pb-24 px-6 flex flex-col items-center">
+        <main class="pt-[100px] pb-24 px-6 flex flex-col items-center">
 
-            <!-- Hero Section -->
             <section class="w-full max-w-[1100px] text-center mb-32">
                 <div class="mb-6 flex justify-center">
-                    <span
-                        class="px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[12px] font-bold rounded-full uppercase tracking-wider">
-                        v4.0.0 Stable
+                    <span class="version-badge">
+                        v4.1.0 Stable
                     </span>
                 </div>
                 <h1 class="text-hero mb-6">
                     Gestión Local.<br>
-                    <span class="text-blue-600">Control Absoluto.</span>
+                    <span class="text-accent">Control Absoluto.</span>
                 </h1>
                 <p class="text-subhead max-w-2xl mx-auto mb-10">
                     La potencia de un ERP empresarial instalada directamente en tu equipo. Sin nubes, sin latencia,
                     soberanía total sobre tus datos.
                 </p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <a href="https://github.com/HeyJuanda/Hug-Oh/releases/download/v4.0.0/Hug-Oh.Setup.4.0.0.exe"
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://github.com/HeyJuanda/Hug-Oh/releases/download/v4.0.0/Hug-Oh.Setup.4.1.0.exe"
                         class="apple-btn apple-btn-primary">
                         Descargar para Windows
                     </a>
-                    <a href="https://github.com/HeyJuanda/Hug-Oh/releases/download/v4.0.0/Hug-Oh.-4.0.0.dmg"
+                    <a href="https://github.com/HeyJuanda/Hug-Oh/releases/download/v4.0.0/Hug-Oh-4.0.0.dmg"
                         class="apple-btn apple-btn-secondary">
                         Versión para macOS
                     </a>
                 </div>
             </section>
 
-            <!-- Immersive Mockup -->
-            <section class="w-full max-w-[1240px] mb-40">
-                <div class="liquid-glass p-4 sm:p-6">
-                    <div class="bg-white/40 dark:bg-black/40 rounded-[14px] overflow-hidden shadow-inner">
-                        <img src="./scr/image-light.png" alt="Hug-Oh! Interface"
-                            class="w-full h-auto block dark:hidden">
-                        <img src="./scr/image-dark.png" alt="Hug-Oh! Interface" class="w-full h-auto hidden dark:block">
-                    </div>
+            <section class="w-full max-w-[1200px] mb-40">
+                <div class="mockup-container">
+                    <img src="./scr/image-light.png" alt="Hug-Oh! Interface" class="w-full h-auto block dark:hidden">
+                    <img src="./scr/image-dark.png" alt="Hug-Oh! Interface" class="w-full h-auto hidden dark:block">
                 </div>
             </section>
 
-            <!-- Features Bento Grid -->
             <section class="bento-grid">
-                <!-- Privacy -->
-                <div class="liquid-glass bento-card">
-                    <div class="mb-12 text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                <div class="bento-card">
+                    <div class="icon-box text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-[24px] font-semibold mb-3">Privacidad</h3>
-                        <p class="text-secondary leading-relaxed">Sus datos financieros son suyos. El sistema opera
-                            localmente garantizando total privacidad.</p>
+                        <h3 class="card-title">Privacidad</h3>
+                        <p class="card-text">Sus datos financieros son suyos. El sistema opera localmente garantizando total privacidad.</p>
                     </div>
                 </div>
 
-                <!-- Offline-First -->
-                <div class="liquid-glass bento-card">
-                    <div class="mb-12 text-orange-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <div class="bento-card">
+                    <div class="icon-box text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-[24px] font-semibold mb-3">Offline-First</h3>
-                        <p class="text-secondary leading-relaxed">No necesita internet para facturar o gestionar su
-                            inventario. Funciona en cualquier lugar.</p>
+                        <h3 class="card-title">Offline-First</h3>
+                        <p class="card-text">No necesita internet para facturar o gestionar su inventario. Funciona en cualquier lugar.</p>
                     </div>
                 </div>
 
-                <!-- Speed -->
-                <div class="liquid-glass bento-card">
-                    <div class="mb-12 text-green-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.98 7.98 0 01-2.343 5.657z" />
+                <div class="bento-card">
+                    <div class="icon-box text-green-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.99 7.99 0 0120 13a7.98 7.98 0 01-2.343 5.657z" />
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-[24px] font-semibold mb-3">Velocidad</h3>
-                        <p class="text-secondary leading-relaxed">Rendimiento nativo real. La rapidez que tu negocio
-                            necesita sin esperas innecesarias.</p>
+                        <h3 class="card-title">Velocidad</h3>
+                        <p class="card-text">Rendimiento nativo real. La rapidez que tu negocio necesita sin esperas innecesarias.</p>
                     </div>
                 </div>
 
-                <!-- Ownership -->
-                <div class="liquid-glass bento-card md:col-span-2 lg:col-span-full">
-                    <div class="mb-12 text-purple-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div class="bento-card md:col-span-2 lg:col-span-full">
+                    <div class="icon-box text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-[24px] font-semibold flex items-center mb-3">Propiedad</h3>
-                        <p class="text-secondary leading-relaxed max-w-2xl">Usted es dueño del software. Un solo pago,
-                            sin cuotas
-                            mensuales ni suscripciones. La licencia es perpetua y el control es totalmente tuyo.</p>
+                        <h3 class="card-title">Propiedad</h3>
+                        <p class="card-text max-w-2xl">Usted es dueño del software. Un solo pago, sin cuotas mensuales ni suscripciones. La licencia es perpetua y el control es totalmente tuyo.</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- Apple-style Footer -->
-        <footer class="py-20 border-t border-black/5 dark:border-white/5 text-center">
-            <div class="flex justify-center items-center gap-2 mb-4 opacity-40">
-                <img src="./scr/nav-icon.png" alt="Logo" class="h-5 w-5 grayscale">
-                <span class="font-bold text-[14px]">Hug-Oh!</span>
+        <footer class="py-20 border-t border-gray-200 dark:border-gray-800 text-center">
+            <div class="flex justify-center items-center gap-2 mb-4">
+                <img src="./scr/nav-icon.png" alt="Logo" class="h-5 w-5 grayscale opacity-50">
+                <span class="font-bold text-[14px] text-secondary">Hug-Oh!</span>
             </div>
-            <p class="text-[11px] text-[#86868b] font-medium tracking-widest uppercase">Private Business • 2026</p>
+            <p class="text-[11px] text-secondary font-medium tracking-widest uppercase">Private Business • 2026</p>
         </footer>
     </div>
 </body>
-
 
 </html>
